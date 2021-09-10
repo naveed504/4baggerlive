@@ -124,7 +124,7 @@ class RegisterController extends Controller
             $encrypt_account_name = Helpers::encryptUserBankDetails($data['name_of_checkingaccount']);   
             $encrypt_account_dda  = Helpers::encryptUserBankDetails($data['dda_checking_account']);       
             $encrypt_routing_no   = Helpers::encryptUserBankDetails($data['routing_no']);
-            
+
             $createRecord = array(
                 'company_name'  => $data['name'],
                 'director_name' => $data['director_name'],
@@ -146,7 +146,8 @@ class RegisterController extends Controller
                  $result= User::with('director')->where('id','=', $user->id)->first();
                  $send =(new DirectorRegisterationJob($result))->delay(Carbon::now()->addMinutes(1));
                  dispatch($send);
-               
+                 
+                 
             } catch (Exception $e) {
                 dd($e->getMessage());
             }
