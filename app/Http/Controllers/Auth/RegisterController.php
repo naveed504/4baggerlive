@@ -190,7 +190,7 @@ class RegisterController extends Controller
                 'player_height'         => $data['height'] . '.' . $data['inches'],
                 'parents_f_name'        => json_encode($data['parent_firstname']),
                 'parents_l_name'        => json_encode($data['parent_lastname']),
-                'parents_cell_number'       => json_encode($data['parent_cellno']),
+                'parents_cell_number'   => json_encode($data['parent_cellno']),
                 'parents_email'         => json_encode($data['parent_email']),
                 'graduation_year'       => $data['graduation_year'],
                 'player_weight'         => $data['weight'],
