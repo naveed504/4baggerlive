@@ -1,0 +1,40 @@
+<?php
+
+namespace App\Models\Payments;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use App\Models\Team\Team;
+use App\Models\User;
+use App\Models\Event\Event;
+use App\Models\Payments\Payment;
+
+
+class Payment extends Model
+{
+    use HasFactory;
+    protected $fillable =[
+        'team_id',
+        'event_id',
+        'user_id',
+        'amount',
+        'transaction_no',
+    ];
+
+    public function team()
+    {
+        return $this->belongsTo(Team::class);
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+    public function event()
+    {
+        return $this->belongsTo(Event::class);
+    }
+    public function paymentpayout()
+    {
+        return $this->hasMany(PaymentPayout::class);
+    }
+}
