@@ -15,22 +15,34 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
+  FTP-Deploy-Action:
+    name: SFTP-Deploy-Action
     runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
-
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+    - uses: actions/checkout@master
+    
+    # - name: Use Node.js 12.x
+    #   uses: actions/setup-node@v1
+    #   with:
+    #     node-version: '12.x'
+        
+    - name: Build Project
+      run: |
+        composer update
+        npm install
+    #     npm run build --if-present
+        
+    - name: List output files
+      run: ls
+      
+    - name: FTP-Deploy-Action
+      uses: SamKirkland/FTP-Deploy-Action@2.0.0
+      env:
+        FTP_SERVER: ${{ secrets.sftp_host }}
+        FTP_USERNAME: ${{ secrets.sftp_user }}
+        FTP_PASSWORD: ${{ secrets.sftp_pass }}
+        # LOCAL_DIR: build
+        METHOD: sftp
+        PORT: 22
+        REMOTE_DIR: 4bagger.leadconcept.info
+        ARGS: --delete
