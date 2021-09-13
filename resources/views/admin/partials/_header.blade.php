@@ -22,9 +22,12 @@
           </button>
         </div>
         <div class="dropdown">
+         
           <img
             class="dropdown-toggle"
-            src="{{ asset('admin/assets/img/profile.png')}}"
+
+            src="{{ asset('admin/profilesettings/'.Auth::user()->profile_photo )}}"
+            style="height:45px; width:45px;"
             alt=""
             type="button"
             id="dropdownMenuButton"

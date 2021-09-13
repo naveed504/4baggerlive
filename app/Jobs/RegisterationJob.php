@@ -15,7 +15,7 @@ use App\Models\User;
 use Mail;
 
 
-class DirectorRegisterationJob implements ShouldQueue
+class RegisterationJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
     protected $details;

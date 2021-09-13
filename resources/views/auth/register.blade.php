@@ -387,6 +387,8 @@
                                                         <option value="AA">AA</option>
                                                         <option value="AAA">AAA</option>
                                                         <option value="Majors">Majors</option>
+                                                        <option value="Showcase">Showcase</option>
+                                                        <option value="High School">High School</option>
                                                     </select>
                                                     @if($errors->has('division'))
                                                         <span class="invalid-feedback">

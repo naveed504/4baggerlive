@@ -65,6 +65,10 @@ Route::get('phpdebug', [TestController::class, 'phpdebug']);
 Route::get('/', [HomeController::class, 'index'])->name('welcome');
 Route::get('/events', [HomeController::class, 'allEvents'])->name('events');
 route::get('view/events', [HomeController::class, 'allEvents'])->name('view.events');
+route::get('contact-us', [HomeController::class, 'contactUs'])->name('contactus');
+route::get('rules-and-policy', [HomeController::class, 'rulesPolicy'])->name('rules');
+route::get('about-us', [HomeController::class, 'aboutUs'])->name('aboutus');
+
 Route::view('/profile', 'frontend.pages.player.profile');
 route::get('view/event/{id}', [FrontendEventController::class, 'viewEvent'])->name('view.event');
 
@@ -101,7 +105,7 @@ Route::group(['prefix' => 'player',  'middleware' => ['auth', 'playerrole']], fu
     Route::get('myteam', [FrontendTeamController::class, 'myTeam'])->name('myteams');
     Route::get('allteams', [FrontendTeamController::class, 'allTeams'])->name('allteams');
     Route::get('view-team/{id}', [FrontendTeamController::class, 'viewTeam'])->name('viewteam');
-    Route::post('requestteam/', [FrontendTeamController::class, 'playerRequest'])->name('playerrequest');
+    Route::post('requestteam', [FrontendTeamController::class, 'playerRequest'])->name('playerrequest');
     Route::get('playerprofile/{id}', [FrontendTeamController::class, 'viewPlayer'])->name('view.player.profile');
     Route::get('playerprofile', [FrontendTeamController::class, 'playerProfile'])->name('playerprofile');
     Route::post('updateplayerprofile', [FrontendTeamController::class, 'updatePlayerProfile'])->name('updateplayerprofile');

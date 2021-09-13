@@ -8,7 +8,7 @@
           <div class="text-center mr-top-2">
             <img
               class="dashboard-icon-border"
-              src="{{ asset('admin/assets/img/dashboard-profile.png') }}"
+              src="{{ asset('admin/profilesettings/'.Auth::user()->profile_photo )}}"
               alt=""
             />
             <p class="heading-wrapper--one">John Smith</p>

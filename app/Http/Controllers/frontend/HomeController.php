@@ -33,4 +33,19 @@ class HomeController extends Controller
 
         return view('frontend.modals.register');
     }
+
+    public function contactUs()
+    {
+        return view('frontend.pages.contactus');
+    }
+
+    public function rulesPolicy()
+    {
+        return view('frontend.pages.rulespolicy');
+    }
+
+    public function aboutUs()
+    {
+        return view('frontend.pages.aboutUs');
+    }
 }

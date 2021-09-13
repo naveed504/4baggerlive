@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Validator;
 use Session;
 use Helpers;
 use Illuminate\Support\Str;
-use App\Jobs\DirectorRegisterationJob;
+use App\Jobs\RegisterationJob;
 use Carbon\Carbon;
 
 class RegisterController extends Controller
@@ -144,7 +144,7 @@ class RegisterController extends Controller
             try {
                  $user->director()->create($createRecord);
                  $directorData= User::with('director')->where('id','=', $user->id)->first();
-                 $send =(new DirectorRegisterationJob($directorData));
+                 $send =(new RegisterationJob($directorData))->delay(Carbon::now()->addMinutes(1));
                  dispatch($send);
                  
                  
@@ -165,10 +165,8 @@ class RegisterController extends Controller
             );
             try {
                 $user->team()->create($teamData);
-                
                 $coachData= User::with('team')->where('id','=', $user->id)->first();
-               
-                $send =(new DirectorRegisterationJob($coachData));
+                $send =(new RegisterationJob($coachData))->delay(Carbon::now()->addMinutes(1));
                 dispatch($send);
             } catch (Exception $e) {
                 dd($e->getMessage());

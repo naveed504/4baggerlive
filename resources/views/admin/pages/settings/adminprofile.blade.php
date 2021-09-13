@@ -33,7 +33,7 @@
                                    
                                 </div>
                                 <div class="col-sm-6">
-                                    <img src="{{ asset('admin/profilesettings/'.$admin->profile_photo) }}" class="float-right img img-circle img-responsive" style="height:80px; width:80px;margin-top:20px;">
+                                    <img src="{{ asset('admin/profilesettings/'.$admin->profile_photo) }}" class="float-right rounded-circle img-responsive" style="height:80px; width:80px;margin-top:20px;">
                                 </div>
                             
                                 <div class="col-sm-6">

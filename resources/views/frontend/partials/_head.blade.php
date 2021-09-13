@@ -12,4 +12,8 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}" />
     <link rel="stylesheet" href="{{ asset("css/toastr.css") }}">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+
+
+
 </head>
