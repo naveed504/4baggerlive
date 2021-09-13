@@ -143,8 +143,8 @@ class RegisterController extends Controller
             );
             try {
                  $user->director()->create($createRecord);
-                 $result= User::with('director')->where('id','=', $user->id)->first();
-                 $send =(new DirectorRegisterationJob($result))->delay(Carbon::now()->addMinutes(1));
+                 $directorData= User::with('director')->where('id','=', $user->id)->first();
+                 $send =(new DirectorRegisterationJob($directorData));
                  dispatch($send);
                  
                  
@@ -165,6 +165,11 @@ class RegisterController extends Controller
             );
             try {
                 $user->team()->create($teamData);
+                
+                $coachData= User::with('team')->where('id','=', $user->id)->first();
+               
+                $send =(new DirectorRegisterationJob($coachData));
+                dispatch($send);
             } catch (Exception $e) {
                 dd($e->getMessage());
             }
