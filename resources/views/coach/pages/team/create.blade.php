@@ -6,7 +6,7 @@
             <h5 class="text-center heading-color">BASEBALL TEAM </h5>
             <h5 class="text-center heading-color">FOR {{ date('Y') }} SEASON</h5>
         </div>
-        <form action="{{ route('teams.store') }}" method="post" id="reg_coach_team">
+        <form action="{{ route('teams.store') }}" method="post" id="reg_coach_team" enctype="multipart/form-data">
             @csrf
         <div class="row">
             <div class="col-sm-10 mx-auto border p-0">
@@ -91,6 +91,21 @@
                                                             <strong>{{ $errors->first('age_group') }}</strong>
                                                         </span>
                                                     @endif
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-row align-items-center" style="margin-top:20px;">
+                                    <div class="form-group col-md-8 col__mr-right mb-0">
+                                        <span class="btn btn__wrapper--four btn-file" id="btnfile">
+                                            Team Profile <input type="file" id="team_profile" name="team_profile" accept="image/*">
+                                           
+                                        </span>
+                                        @if($errors->has('team_profile'))
+                                        <span class="invalid-feedback">
+                                            <strong>{{ $errors->first('team_profile') }}</strong>
+                                        </span>
+                                    @endif
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

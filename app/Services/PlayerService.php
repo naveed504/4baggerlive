@@ -20,18 +20,17 @@ class PlayerService
     public function playerRequestForTeam($data)
     {
 
-
-        $resultRequest = Request::where('user_id', $data->player_id)->where('team_id', $data->team_id)->count();
-
+ 
+        $resultRequest = Request::where('user_id', $data['player_id'])->where('team_id', $data['team_id'])->count();
         if ($resultRequest > 0) {
+         
             return redirect()->back();
         }
 
-
         try {
             Request::create([
-                'user_id' => $data->player_id,
-                'team_id' => $data->team_id
+                'user_id' => $data['player_id'],
+                'team_id' => $data['team_id']
             ]);
         } catch (Exception $e) {
             dd($e->getMessage());
@@ -84,7 +83,6 @@ class PlayerService
                 'graduation_year'       => $data['graduation_year'],
                 'player_weight'         => $data['weight'],
                 'school_name'           => $data['school'],
-                'player_classification' => $data['playerclassification'],
                 'college_commitment'    => $data['college_commit'],
                 'player_throw'          => $data['throw'],
                 'player_bat'            => $data['bat'],

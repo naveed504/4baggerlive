@@ -190,7 +190,9 @@ return [
         App\Providers\RouteServiceProvider::class,
         Yoeunes\Toastr\ToastrServiceProvider::class,
         App\Providers\GenericHelperServiceProvider::class,
-        App\Providers\RepositoryServiceProvider::class
+        App\Providers\RepositoryServiceProvider::class,
+        Yajra\DataTables\DataTablesServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class
     ],
 
     /*
@@ -244,7 +246,9 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Toastr' => Yoeunes\Toastr\ToastrServiceProvider::class,
-        'Helpers' => App\Facades\GenericHelperFacade::class
+        'Helpers' => App\Facades\GenericHelperFacade::class,
+        'DataTables' => Yajra\DataTables\Facades\DataTables::class,
+        'Image' => Intervention\Image\Facades\Image::class
     ],
 
 ];

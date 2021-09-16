@@ -590,7 +590,7 @@
                                                 <div class="form-group col-md-6 col__mr-right">
                                                     <label class="label__wrapper required" for="">Graduation Year</label>
                                                     @php
-                                                        $currentyear1= date('Y');
+                                                        $currentyear1= date('Y',strtotime('+10 years'));
                                                         $getyear=date('Y',strtotime('-50 year'));
                                                     @endphp
                                                     <select  class="form-control  input__box--wrapper down-icons" name="graduation_year" required>
@@ -664,26 +664,14 @@
                                                         </span>
                                                     @endif
                                                 </div>
-                                                <div class="form-group col-md-6 col__mr-right">
-                                                    <label class="label__wrapper" for="">Player Classification </label>
-                                                    <select  class="form-control  input__box--wrapper down-icons" name="playerclassification" required>
-                                                        <option selected="" disabled="" selected="" value="">AA</option>
-                                                        <option value="AA">AA</option>
-                                                        <option value="Major">Major*</option>
-                                                    </select>
-                                                    @if($errors->has('playerclassification'))
-                                                        <span class="invalid-feedback">
-                                                            <strong>{{ $errors->first('playerclassification') }}</strong>
-                                                        </span>
-                                                    @endif
-                                                </div>
+                                               
                                             </div>
                                             <div class="form-row">
                                                 <div class="form-group col-md-6 col__mr-right">
                                                     <label class="label__wrapper required" for="">Throw </label>
                                                     <select  class="form-control  input__box--wrapper down-icons" name="throw" required>
                                                         <option disabled="" value="" selected="">Right </option>
-                                                        <option value="Right">Right </option>
+                                                        <option value="Right">Left </option>
                                                         <option value="Both">Both</option>
                                                     </select>
                                                     @if($errors->has('throw'))
@@ -793,7 +781,7 @@
                                                 </div>
                                             </div>
                                             <div class="text-right">
-                                                <button class="btn btn-xs btn__add flex__right my-2" type="button" onclick="addParentInfo('parentcontact')">Add</button>
+                                                <button class="btn btn-xs btn__add flex__right my-2" type="button" onclick="addParentInfo('parentcontact')">Add Additional Parent Info</button>
                                             </div>
                                             <div class="form-row align-items-center">
                                                 <div class="form-group col-md-8 col__mr-right mb-0">

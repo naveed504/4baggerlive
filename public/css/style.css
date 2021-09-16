@@ -2464,9 +2464,9 @@ h6 {
     background: rgba(0, 0, 0, 0.8);
     color: white;
     width: 100%;
-    height: 300px;
-    bottom: 0;
-    padding: 30px;
+    height: auto;
+    padding-bottom: 20px;
+    padding-top: 10px;
     position: absolute;
     -webkit-transition: all 300ms;
     -moz-transition: all 300ms;
@@ -2503,6 +2503,8 @@ h6 {
 
 .hover__effect:hover .wrapper-box2 {
     display: block !important;
+    top: 0;
+    position: absolute;
 }
 
 @media(max-width: 1199px) {
@@ -3059,4 +3061,7 @@ color:#fff;
 text-align:left;
 font-weight:normal;
 line-height:24px;
+}
+.custom-btn a{
+    padding: 9px 48px;
 }

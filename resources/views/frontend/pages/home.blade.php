@@ -16,6 +16,7 @@
         @endif
         <div>
             <h4 class="inner__heading">RECENT 4 Bagger CONTENT </h4>
+            
         </div>
         <div class="row">
             <div class="col-lg-3 col-md-4 col_leftspace">
@@ -95,17 +96,7 @@
             <p class="label__wrapper"> Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document
                 or a typeface without relying on meaningful content. Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content.</p>
 
-            <div class="flex__wrapper width__max">
-                <div class="button__inner__wrapper">
-                    <button class="btn btn--wrapper active">full schedule</button>
-                </div>
-                <div class="button__inner__wrapper">
-                    <button class="btn btn--wrapper">Tournaments</button>
-                </div>
-                <div class="button__inner__wrapper">
-                    <button class="btn btn--wrapper">Showcases</button>
-                </div>
-            </div>
+            
         </div>
     </div>
 </section>
@@ -158,36 +149,6 @@
 </section>
 
 {{-- section 4 --}}
-<section class="section__inner--wrapper">
-    <div class="container">
-        <div>
-            <h4 class="inner__heading">4 Bagger OFFICIAL PARTNERS</h4>
-        </div>
-        <div class="row">
-            <div class="col-lg-4 col-md-4 col__padding-5">
-                <img src="{{ asset('images/img007.png') }}" class="img-fluid w-100" alt="">
-                <div class="margin__wrapper-one">
-                    <h3 class="heading__wrapper-four">Lorem ipsum is a placeholder text commonly used </h3>
-                    <p class="label__wrapper--four">Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content.</p>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col__padding-5">
-                <img src="{{ asset('images/img008.png') }}" class="img-fluid w-100" alt="">
-                <div class="margin__wrapper-one">
-                    <h3 class="heading__wrapper-four">Lorem ipsum is a placeholder text commonly used </h3>
-                    <p class="label__wrapper--four">Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content.</p>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col__padding-5">
-                <img src="{{ asset('images/img009.png') }}" class="img-fluid w-100" alt="">
-                <div class="margin__wrapper-one">
-                    <h3 class="heading__wrapper-four">Lorem ipsum is a placeholder text commonly used </h3>
-                    <p class="label__wrapper--four">Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
 {{-- section 5 --}}
 <section class="select-inner">

@@ -13,6 +13,8 @@
     {{-- Footer --}}
     @include('coach.partials._footer')
     @include('coach.partials._scripts')
+    {{-- Delete Modal  --}}
+    @include('modals.deleteModal')
 </body>
 @toastr_render
 </html>

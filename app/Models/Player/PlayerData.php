@@ -27,7 +27,6 @@ class PlayerData extends Model
         'graduation_year',
         'player_weight',
         'school_name',
-        'player_classification',
         'college_commitment',
         'player_throw',
         'player_bat',

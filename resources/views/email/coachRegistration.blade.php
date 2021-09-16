@@ -77,7 +77,7 @@
     <table style="background-color: #fff; width: 60%; margin: auto;">
         <tr>
             <td style="text-align: center;">
-                <img src="logo.png" style="width: 140px; margin: auto;" alt="">
+                <img src="http://www.4bagger.leadconcept.info/email/logo.png" style="width: 140px; margin: auto;" alt="">
             </td>
         </tr>
         <tr>
@@ -90,7 +90,7 @@
             <td style="text-align: center;">
                 <div
                     style="width: 80px; height: 80px; margin: auto; background: #f0f0f0; padding: 20px; border-radius: 100px;">
-                    <img src="email2.png" style="width: 80px; margin: auto; text-align: center; object-fit: cover;"
+                    <img src="http://www.4bagger.leadconcept.info/email/email2.png" style="width: 80px; margin: auto; text-align: center; object-fit: cover;"
                         alt="">
                 </div>
             </td>
@@ -123,19 +123,19 @@
                         <div style="margin-top: 30px; margin-bottom: 30px;">
                             <a href="#" style="margin-right: 10px; width: 30px; height: 30px; background: #cd8451;
                                  display: inline-block;  border-radius: 100px; text-align: center; padding: 9px;">
-                                <img src="linkedin.png"
+                                <img src="http://www.4bagger.leadconcept.info/email/linkedin.png"
                                     style="width: 26px; height: 26px; padding: 3px; text-align: center; object-fit: cover;"
                                     alt="">
                             </a>
                             <a href="#" style="margin-right: 10px; width: 30px; height: 30px; background: #cd8451;
                                 display: inline-block;  border-radius: 100px; text-align: center; padding: 9px;">
-                                <img src="twitter.png"
+                                <img src="http://www.4bagger.leadconcept.info/email/twitter.png"
                                     style="width: 26px; height: 26px; padding: 3px; text-align: center; object-fit: cover;"
                                     alt="">
                             </a>
                             <a href="#"
                                 style="margin-right: 10px; width: 30px; height: 30px; background: #cd8451; display: inline-block; border-radius: 100px; text-align: center; padding: 9px;">
-                                <img src="rss.png"
+                                <img src="http://www.4bagger.leadconcept.info/email/rss.png"
                                     style="width: 26px; height: 26px; padding: 3px; text-align: center; object-fit: cover;"
                                     alt="">
                             </a>

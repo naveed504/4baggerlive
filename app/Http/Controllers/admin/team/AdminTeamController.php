@@ -7,6 +7,10 @@ use App\Models\State;
 use App\Models\Team\Team;
 use App\Services\TeamService;
 use Illuminate\Http\Request;
+use App\Models\Event\EventRegisterTeam;
+use App\Models\Event\Event;
+use App\Models\User;
+use DataTables;
 
 class AdminTeamController extends Controller
 {
@@ -15,10 +19,37 @@ class AdminTeamController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $teams = Team::paginate(20);
-        return view('admin.pages.teams.index', compact('teams'));
+        if ($request->ajax()) {
+            $data = Team::all();
+            return Datatables::of($data)
+                    ->addIndexColumn()
+                    ->addColumn('status',function($row){
+                        return ($row->active ==1) ? 'Active' : 'InActive' ;
+                    })
+                    ->addColumn('state',function($row){
+                        
+                        return $row->state->state_name ;
+                    })
+                    ->addColumn('headcoach',function($row){
+                        
+                        return $row->user->name ;
+                    })
+                    ->addColumn('action', function($row){
+                        $btn = '<a href="'.route('adminteams.show',$row->id).'" class="text-decoration-none pr-1"><i class="fa fa-eye text-primary" aria-hidden="true"></i></a>';
+                        $btn1 = '<a href="'.route('adminteams.edit',$row->id).'" class="text-decoration-none pr-1"><i class="fas fa-edit text-info"></i></a>';
+                        
+                        return $btns = $btn.''.$btn1;
+                       
+                    })
+                    ->rawColumns(['action'])
+                    ->make(true);
+        }
+       
+        
+       
+        return view('admin.pages.teams.index');
     }
 
     /**
@@ -50,8 +81,20 @@ class AdminTeamController extends Controller
      */
     public function show($id)
     {
-        $team = Team::find($id);
-        return view('admin.pages.teams.show', compact('team'));
+        
+      
+
+        $teamevents = EventRegisterTeam::where('team_id',$id)->fetchRelations()->first();
+        $team = Team::find($id)->first();
+        if(empty($teamevents)){
+            parent::dangerMessage("Team does not added any event");
+            return redirect()->back();
+        } elseif($teamevents->payment_status == 0){
+            parent::dangerMessage("Team does not Pay payment for event");
+            return redirect()->back();
+        }       
+    
+        return view('admin.pages.teams.show', compact('team', 'teamevents'));
     }
 
     /**
@@ -92,5 +135,26 @@ class AdminTeamController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function getallTeams(Request $request)
+    {
+        if ($request->ajax()) {
+            $data = User::select('*');
+            
+            return Datatables::of($data)
+                    ->addIndexColumn()
+                    ->addColumn('action', function($row){
+     
+                           $btn = '<a href="javascript:void(0)" class="edit btn btn-primary btn-sm">View</a>';
+    
+                            return $btn;
+                    })
+                    ->rawColumns(['action'])
+                    ->make(true);
+        }
+        
+        
+       
+        return view('test.index');
     }
 }

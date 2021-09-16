@@ -8,13 +8,15 @@ use App\Models\Event\Event;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use App\Models\slider\Slider;
 
 class HomeController extends Controller
 {
     public function index()
     {
+        $sliders =Slider::all();
         return !(Auth::check())
-            ? view('frontend.pages.home')
+            ? view('frontend.pages.home', compact('sliders'))
             : redirect()->back();
     }
 

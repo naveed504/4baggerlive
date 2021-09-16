@@ -198,7 +198,6 @@ class RegisterController extends Controller
                 'graduation_year'       => $data['graduation_year'],
                 'player_weight'         => $data['weight'],
                 'school_name'           => $data['school'],
-                'player_classification' => $data['playerclassification'],
                 'college_commitment'    => $data['college_commit'],
                 'player_throw'          => $data['throw'],
                 'player_bat'            => $data['bat'],

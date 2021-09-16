@@ -1,5 +1,6 @@
 <div class="container">
     @include('shared.team._banner')
+    
      <section class="mt--top-40">
              <div class="col-md-10 offset-md-2">
                  <div class="row">
@@ -13,35 +14,50 @@
                      </div>
                      <div class="col-md-6">
                          <div class="wrapper-four-content">
-                             <strong>NATIONAL RANK:</strong>
-                             <a href="#" class="font__bold-wrapper">1</a>
+                             <strong>Team Coach Name:</strong>
+                             <a href="#" class="font__bold-wrapper">@if(Auth::user()->type == 3) {{ Auth::user()->name }} @else {{ $teamevents->users->name }} @endif</a>
                          </div>
+                        
                          <div class="wrapper-four-content">
-                             <strong>HOMETOWN:</strong>
-                             <span>Shreveport, LA</span>
+                             <strong>Team City:</strong>
+                             <span>{{ $team->team_city }}</span>
                          </div>
-                         <div class="wrapper-four-content mb__70--wrapper">
-                             <strong>ORGANIZATION:</strong>
-                             <a href="#" class="font__bold-wrapper">Southern Finest</a>
+                         <div class="wrapper-four-content ">
+                             <strong>Team Division:</strong>
+                             <a href="#" class="font__bold-wrapper">{{ $team->division }}</a>
                          </div>
+                         @if(Auth::user()->type == 1)
                          <div class="wrapper-four-content">
-                             <strong>MEMBERSHIP YEAR:</strong>
-                             <a href="#" class="font__bold-wrapper">2020-2021</a>
+                            <strong>Payment Status:</strong>
+                            <a href="#" class="font__bold-wrapper">@if($teamevents->payment_status == 1) <span class="badge badge-pill badge-success">{{ "Paid" }}</span> @else <span class="badge badge-pill badge-warning">{{ "Pending" }}</span> @endif</a>
+                        </div>
+                        @endif
+                         <div class="wrapper-four-content ">
+                             <strong>Team Status:</strong>
+                             <a href="#" class="font__bold-wrapper">@if($team->active == 1) <span class="badge badge-pill badge-success">Active</span> @else  <span class="badge badge-pill badge-warning">In Active</span> @endif</a>
                          </div>
                      </div>
+                     @if(Auth::user()->type == 1)
                      <div class="col-md-6">
                          <div class="wrapper-four-content">
-                             <strong>REGIONAL RANK:</strong>
-                             <a href="#" class="font__bold-wrapper">1</a>
-                             <span style="font-weight:normal">(South)</span>
+                             <strong>Event Name:</strong>
+                             <a href="#" class="font__bold-wrapper">{{ $teamevents->events->event_name }}</a>
                          </div>
                          <div class="wrapper-four-content">
-                             <strong>HOMETOWN:</strong>
-                             <span>9U</span>
+                            <strong>Entry Fee:</strong>
+                            <a href="#" class="font__bold-wrapper">{{ $teamevents->events->entry_fee }}</a>
+                        </div>
+                         <div class="wrapper-four-content">
+                             <strong>Total Matches:</strong>
+                             <span>{{ $teamevents->events->total_matches }}</span>
                          </div>
+                         <div class="wrapper-four-content">
+                            <strong>Event City:</strong>
+                            <span>{{ $teamevents->events->event_city }}</span>
+                        </div>
                          <div class="wrapper-four-content">
                              <div class="d__flex-two">
-                                 <strong>PG RECORD:</strong>
+                                 <strong>Event City:</strong>
                                  <div style="margin-left:5px">
                                      <p><span class="sub__wrapper"> 22-2-0 </span><span class="box-sub-contnet">Overall</span></p>
                                      <p><span class="sub__wrapper"> 14-2-0 </span><span class="box-sub-contnet">vs. Major</span></p>
@@ -51,9 +67,14 @@
                              </div>
                          </div>
                      </div>
+                     @endif
                  </div>
              </div>
      </section>
+     <br><br>
+     <br><br>
+    
+     
      <section>
              <div id="main">
                  <!-- <div class="container"> -->
@@ -107,7 +128,7 @@
                              </div>
                          </div>
                      </div>
-                     <div class="card">
+                     {{-- <div class="card">
                          <div class="card-header" id="faqhead2">
                              <a href="#" class="btn btn-header-link collapsed" data-toggle="collapse" data-target="#faq2"
                                  aria-expanded="true" aria-controls="faq2">STATS</a>
@@ -269,7 +290,7 @@
                                  </div>
                              </div>
                          </div>
-                     </div>
+                     </div> --}}
                      <div class="card">
                          <div class="card-header" id="faqhead3">
                              <a href="#" class="btn btn-header-link collapsed text-uppercase" data-toggle="collapse" data-target="#faq3"
@@ -282,7 +303,7 @@
                                      <div class="row">
                                          @foreach($team->player as $key => $player)
                                              <div class="col-sm-3 space__left">
-                                                 <div class="card text-center">
+                                                 <div class="card text-center" style="height: 500px">
                                                      <div class="card-body p-0">
                                                          <p class="lblheading__three text-dark mb-2 text-uppercase text-muted">{{ $player->user->name }}</p>
                                                        <div class="hover__effect">
@@ -322,6 +343,13 @@
                                                                 href="{{ route('view.player', $player->user->id) }}"
                                                             @endif
                                                         >Profile</a>
+                                                        
+                                                         <div class="custom-btn">
+                                                            <a href="javascript:void(0);" 
+                                                            class="btn btn--wrapper text-light px-4 mt-3"
+                                                            onclick="deleteRecord({{$player->id}}, '/team/teams/')"
+                                                            >Remove Player</a>
+                                                         </div>
                                                      </div>
                                                      </div>
                                                  </div>

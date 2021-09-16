@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Services\TeamService;
 use Exception;
+use Image;
 
 class ManageTeamController extends Controller
 {
@@ -33,6 +34,7 @@ class ManageTeamController extends Controller
     public function create()
     {
         $states = State::all();
+        
         return view('coach.pages.team.create', compact('states'));
     }
 
@@ -42,7 +44,7 @@ class ManageTeamController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, TeamService $team)
+    public function store(Request $request,  TeamService $team)
     {
         if (!empty($request->terms_agreement) && !empty($request->site_agreement)) {
 
@@ -65,6 +67,7 @@ class ManageTeamController extends Controller
      */
     public function show($id)
     {
+       
         $team = Team::find($id);
         return view('coach.pages.team.show', compact('team'));
     }
@@ -79,6 +82,8 @@ class ManageTeamController extends Controller
     {
         $states = State::all();
         $team = Team::find($id);
+       
+       
         return view('coach.pages.team.edit', compact('team', 'states'));
     }
 
@@ -91,6 +96,7 @@ class ManageTeamController extends Controller
      */
     public function update(TeamService $team, Request $request, $id)
     {
+       
         $team->updateTeam($id, $request)
             ? parent::successMessage("Team Updated Successfully")
             : parent::dangerMessage("Oops! We have encountered and issue, Please try again");
@@ -105,7 +111,15 @@ class ManageTeamController extends Controller
      */
     public function destroy($id)
     {
-        //
+       $player_id = PlayerData::find($id);
+      
+        $player_id->update([
+            'team_id' => null ,
+        ]);
+        parent::successMessage("Player removed from team");
+        return redirect()->back();
+       
+        
     }
 
     /**
@@ -216,4 +230,5 @@ class ManageTeamController extends Controller
         $team = Team::find($request->team_id);
         return view('coach.pages.team.addplayer', compact('players', 'team'));
     }
+
 }

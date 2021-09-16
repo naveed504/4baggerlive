@@ -56,7 +56,7 @@ class TeamController extends Controller
     {
 
 
-        $requestResponse =  $player->playerRequestForTeam($request);
+        $requestResponse =  $player->playerRequestForTeam($request->all());
         $requestResponse == 'true'
             ? parent::successMessage('Request Send Successfully')
             : parent::dangerMessage('Request does not send.OR wait for request approval');

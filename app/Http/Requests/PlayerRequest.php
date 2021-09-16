@@ -38,7 +38,7 @@ class PlayerRequest extends FormRequest
             'height' => ['required'],
             'inches' => ['required'],
             'weight' => ['required'],
-            'playerclassification' => ['required'],
+            
             'throw' => ['required'],
             'bat' => ['required'],
             'primary_position' => ['required'],
@@ -80,7 +80,7 @@ class PlayerRequest extends FormRequest
             'height.required' => "height is required",
             'inches.required' => "inches is required",
             'weight.required' => "weight is required",
-            'playerclassification.required' => "Player Classification is required",
+           
             'throw.required' => "Player throw is required",
             'bat.required' => "Player bat is required",
             'primary_position.required' => "Primary possition  is required",

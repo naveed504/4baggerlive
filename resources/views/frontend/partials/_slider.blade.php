@@ -2,53 +2,28 @@
     @if(Route::currentRouteName() == 'welcome')
     <div id="demo" class="carousel slide banner-section" data-ride="carousel">
         <ul class="carousel-indicators custm__indicators">
-            <li data-target="#demo" data-slide-to="0" class="active"></li>
-            <li data-target="#demo" data-slide-to="1"></li>
-            <li data-target="#demo" data-slide-to="2"></li>
+            @foreach($sliders as $key=>$slider)
+            <li data-target="#demo" data-slide-to="{{ $slider->key }}" class="{{ $loop->first ? 'active' : '' }}"></li>
+            
+            @endforeach
         </ul>
         <div class="carousel-inner">
-            <div class="carousel-item active">
-
-                <img src="{{ asset('images/banner.png') }}" alt="Los Angeles" />
+           @foreach($sliders as $slider)
+            <div class="carousel-item  {{ $loop->first ? ' active' : '' }}">
+                <img src="{{ asset('admin/slider/'. $slider->cover_photo) }}" alt="Los Angeles" />
                 <div class="banner-inner">
                     <div class="banner-inner-text">
                         <h1>
-                            Lorem <span>ipsum</span>
+                            {{ $slider->title_one }}<span> {{ $slider->title_two }}</span>
                         </h1>
-                        <p>Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum is a placeholder text commonly used to demonstrate the visual form
-                            of a document or a typeface without relying on meaningful content. </p>
-                        <button class="banner-btn">Lorem ipsum</button>
+                        <p>{{ $slider->content }} </p>
+                        
                     </div>
                 </div>
             </div>
-            <div class="carousel-item">
-
-                <img src="{{ asset('images/banner2.jpg') }}" alt="Chicago" />
-                <div class="banner-inner">
-                    <div class="banner-inner-text">
-                        <h1>
-                            Lorem <span>ipsum</span>
-                        </h1>
-                        <p>Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum is a placeholder text commonly used to demonstrate the visual form
-                            of a document or a typeface without relying on meaningful content. </p>
-                        <button class="banner-btn">Lorem ipsum</button>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-
-                <img src="{{ asset('images/banner3.jpg') }}" alt="New York" />
-                <div class="banner-inner">
-                    <div class="banner-inner-text">
-                        <h1>
-                            Lorem <span>ipsum</span>
-                        </h1>
-                        <p>Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum is a placeholder text commonly used to demonstrate the visual form
-                            of a document or a typeface without relying on meaningful content. </p>
-                        <button class="banner-btn btn">Lorem ipsum</button>
-                    </div>
-                </div>
-            </div>
+            @endforeach
+            
+           
         </div>
 
     </div>

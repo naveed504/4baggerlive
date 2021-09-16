@@ -9,6 +9,7 @@ use App\Models\Team\Team;
 class Request extends Model
 {
     use HasFactory;
+    
     protected $fillable=[
         'user_id',
         'team_id',

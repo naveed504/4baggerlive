@@ -29,6 +29,7 @@ class CoachRequest extends FormRequest
             't_state' => ['string', 'required'],
             'age_group' => ['required'],
             'division' => ['required'],
+           
             'terms_agreement'=>['required'],
             'site_agreement'=>['required'],
         ];
@@ -44,6 +45,7 @@ class CoachRequest extends FormRequest
             'terms_agreement.required' => "Terms agreement is required",
             'age_group.required' => "Age Group is required",
             'division.required' => "Division State is required",
+            
         ];
     }
 }

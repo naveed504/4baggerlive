@@ -23,10 +23,10 @@
                             <h2 class="heading__one">{{ $player->name }}</h2>
                             <a href="#" class="link1 text-uppercase">{{ $player->player->team->team_name ?? "N/A" }} PLAYER</a>
                             <div>
-                                <span class="label__two"> {{ $player->player->graduation_year }} GRAD </span> <span class="label__two"> | </span>
-                                <span class="label__two"> {{ $player->player->primary_position }}/{{ $player->player->secondary_position }} </span> <span class="label__two">|</span>
+                                <span class="label__two"> {{ $player->player->graduation_year ?? "N/A" }} GRAD </span> <span class="label__two"> | </span>
+                                <span class="label__two"> {{ $player->player->primary_position  ?? "N/A"}}/{{ $player->player->secondary_position ?? "N/A"}} </span> <span class="label__two">|</span>
                                     <span class="label__two">
-                                       {{ $player->player->p_city }}, {{ $player->player->state->state_name }}
+                                       {{ $player->player->p_city ?? "N/A"}}, {{ $player->player->state->state_name  ?? "N/A"}}
                                     </span>
                             </div>
                             <div class="Twenty"></div>
@@ -77,7 +77,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="text-center ">
-                                    <a class="link2" href="#">{{ $player->player->state->state_code }} STATE RANKING</a>
+                                    <a class="link2" href="#">{{ $player->player->state->state_code ?? "N/A"}} STATE RANKING</a>
                                     <div class="flex__wrapper-three flex__responsive justify-content-center">
                                         <div class="label__three">
                                             <p>{{ $player->getLatestRank->mif ?? "N/A" }}</p>
@@ -97,24 +97,32 @@
                         <div class="Twenty"></div>
                         <div class="flex__wrapper-three">
                             <div class="text-center ">
-                                <p class="text-decoration-none text-light" href="javascript:void(0)">{{ $player->player->school_name }}</p>
+                                <p class="text-decoration-none text-light" href="javascript:void(0)">{{ $player->player->school_name  ?? "N/A" }}</p>
                                 <p class="heading__four">High School</p>
                                 <p class="font__colr-wraper1 ">
-                                    {{ $player->player->player_bat }}
+                                    {{ $player->player->player_bat   ?? "N/A" }}
                                     /
-                                    {{ $player->player->player_throw }} <br> BATS/THROWS
+                                    {{ $player->player->player_throw   ?? "N/A" }} <br> BATS/THROWS
                                 </p>
                             </div>
                             <div class="text-center ">
                                 <a class="linkwrapper" href="#">{{ $player->getLatestRank->team_last_played ?? "N/A" }}</a>
                                 <p class="heading__four">TEAM LAST PLAYED</p>
                                 <p class="font__colr-wraper1">
-                                    {{ Helpers::calculateAgeYears($player->player->date_of_birth) }} <br> AGE</p>
+                                    @if(empty($player->player->date_of_birth))
+                                    {{ "N/A" }}
+                                    @else 
+                                    {{ Helpers::calculateAgeYears($player->player->date_of_birth) }}
+                                    @endif
+
+                                     <br> 
+
+                                AGE</p>
                                  </div>
                             <div class="text-center">
                                 <p class="text-light">
-                                    {{ $player->player->player_height }}
-                                    {{ $player->player->player_weight }}</p>
+                                    {{ $player->player->player_height   ?? "N/A" }}
+                                    {{ $player->player->player_weight  ?? "N/A"  }}</p>
                                 <p class="heading__four">HEIGHT/WEIGHT</p>
                                 <p class="font__colr-wraper1"> {{ $player->getLatestRank->best_pg_grade ?? "N/A" }} <br> Best Grade
                                 </p>

@@ -25,6 +25,7 @@ class Team extends Model
         'age_group',
         'division',
         'active',
+        'team_profile'
     ];
 //Naveed
     public function user()

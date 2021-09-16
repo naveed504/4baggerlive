@@ -66,6 +66,19 @@
             </div>
             Manage Profile
           </a>
+          <a class="nav-link" href="{{ route('adminslider.index') }}">
+            <div class="sb-nav-link-icon">
+             <i class="far fa-calendar-alt"></i>
+            </div>
+            Manage Slider
+          </a>
+
+          <a class="nav-link" href="{{ route('') }}">
+            <div class="sb-nav-link-icon">
+             <i class="far fa-calendar-alt"></i>
+            </div>
+            Manage Home Section
+          </a>
           
           <a class="nav-link" href="#">
             <div class="sb-nav-link-icon">

@@ -29,11 +29,10 @@
         href="{{ route('showteamsinevent', $event->id) }}"
     @elseif(Auth::user()->type == 1)
         href="{{ route('showAdminTeams', $event->id) }}"
-    @endif
+    @endif>Total Teams</a>
 
-    >Total Teams</a>
-    <button class="btn btn-primary heading_btn text-uppercase"
-        @if($event->approved == 0) disabled @endif>Standings</button>
+    {{-- <button class="btn btn-primary heading_btn text-uppercase"
+        @if($event->approved == 0) disabled @endif>Standings</button> --}}
 </div>
 <div class="col-sm-12 mb-4">
     <h3 class="text-center p-4 heading-color text-uppercase">Event Information</h3>
