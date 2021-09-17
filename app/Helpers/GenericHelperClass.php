@@ -217,9 +217,9 @@ class GenericHelperClass
     {
         $usertype = Auth::user()->type;     
         $getimagePath = $this->checkImagePath($usertype);
-       if(empty($image)){
+        if(empty($image)) {
             $profilePhoto =  '';
-        } else{            
+        } else {            
             $destinationPath = $getimagePath;
             $fileName = time().'.'.$image->clientExtension();
             $image->move($destinationPath, $fileName);
@@ -233,11 +233,11 @@ class GenericHelperClass
     {   
         $usertype = Auth::user()->type;     
         $getimagePath = $this->checkImagePath($usertype);
-        if(empty($image)){
+        if(empty($image)) {
             $profilePhoto = $dbrecord;
-        } else{                     
+        } else {                     
             $imagePath =  $getimagePath.$dbrecord;
-            if(File::exists($imagePath)){
+            if(File::exists($imagePath)) {
                 File::delete($imagePath);
             }
             $destinationPath = $getimagePath;
@@ -254,13 +254,13 @@ class GenericHelperClass
     public function checkImagePath($imgpath)
     {
         $type =Auth::user()->type;        
-        if($type == 1){
+        if($type == 1) {
            $imgpath = public_path('admin/allimages/');
-        } elseif($type == 2){
+        } elseif($type == 2) {
             $imgpath = public_path('frontend/director/');
-        } elseif($type == 3){
+        } elseif($type == 3) {
             $imgpath = public_path('frontend/coach/');
-        } elseif($type == 4){
+        } elseif($type == 4) {
             $imgpath = public_path('frontend/player/');
         }
         return $imgpath;
