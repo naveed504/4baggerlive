@@ -125,9 +125,9 @@
         <div class="col-sm-12">
             <label class="label__wrapper required">Event Venue</label>
             <input type="text"   name="event_venue[]" class="form-control input__box--wrapper" value="{{ $v_event }}">
-            @if($errors->has('event_venue'))
+            @if($errors->has('event_venue[]'))
                 <span class="invalid-feedback">
-                    <strong>{{ $errors->first('event_venue') }}</strong>
+                    <strong>{{ $errors->first('event_venue[]') }}</strong>
                 </span>
             @endif
         </div>

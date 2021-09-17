@@ -11,22 +11,22 @@
          <div class="col-md-4 text-center">
           <i class="fas fa-map-marked-alt custom_iconss"></i>
            <h2 class="office_heading">Our Office</h2>
-           <p class="square">Bloomsbury Square, <br> London WC1B 4EA</p>
+           <p class="square">{{ $setting->city ?? ''}} <br> {{ $setting->street ?? ''}}</p>
            </div>
            
            <div class="col-md-4 text-center">
               <i class="fas fa-envelope-open-text custom_iconss"></i>
            <h2 class="office_heading">Email us</h2>
-           <p class="square">info@avantage.co.uk<br>
-  office@avantage.co.uk</p>
+           <p class="square">{{ $setting->primary_email ?? '' }}<br>
+            {{ $setting->secondary_email ?? '' }}</p>
            </div>
            
            
            <div class="col-md-4 text-center">
               <i class="fas fa-phone-slash custom_iconss"></i>
            <h2 class="office_heading">Call us</h2>
-           <p class="square">020 7946 020<br>
-  020 7996 223</p>
+           <p class="square">{{ $setting->primary_phoneno ?? '' }}<br>
+            {{ $setting->secondary_phoneno ?? '' }}</p>
            </div>
        
        

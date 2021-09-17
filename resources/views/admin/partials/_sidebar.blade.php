@@ -8,7 +8,7 @@
           <div class="text-center mr-top-2">
             <img
               class="dashboard-icon-border"
-              src="{{ asset('admin/profilesettings/'.Auth::user()->profile_photo )}}"
+              src="{{ asset('admin/allimages/'.Auth::user()->profile_photo )}}"
               alt=""
             />
             <p class="heading-wrapper--one">John Smith</p>
@@ -73,12 +73,12 @@
             Manage Slider
           </a>
 
-          <a class="nav-link" href="{{ route('') }}">
+          {{-- <a class="nav-link" href="{{ route('homesection.index') }}">
             <div class="sb-nav-link-icon">
              <i class="far fa-calendar-alt"></i>
             </div>
             Manage Home Section
-          </a>
+          </a> --}}
           
           <a class="nav-link" href="#">
             <div class="sb-nav-link-icon">

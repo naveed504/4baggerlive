@@ -8,7 +8,8 @@ use App\Models\Event\Event;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
-use App\Models\slider\Slider;
+use App\Models\General\Slider;
+use App\Models\General\GeneralSetting;
 
 class HomeController extends Controller
 {
@@ -38,7 +39,8 @@ class HomeController extends Controller
 
     public function contactUs()
     {
-        return view('frontend.pages.contactus');
+        $setting =GeneralSetting::first();
+        return view('frontend.pages.contactus',compact('setting'));
     }
 
     public function rulesPolicy()
@@ -48,6 +50,7 @@ class HomeController extends Controller
 
     public function aboutUs()
     {
-        return view('frontend.pages.aboutUs');
+        
+        return view('frontend.pages.aboutus');
     }
 }

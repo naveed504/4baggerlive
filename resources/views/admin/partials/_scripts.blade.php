@@ -19,4 +19,5 @@
     {!! jsValidator::formRequest('App\Http\Requests\director\EditEventRequest','#editEvent') !!}
     {!! JsValidator::formRequest('App\Http\Requests\admin\EditDirectorRequest','#director_registration_form') !!}
     {!! JsValidator::formRequest('App\Http\Requests\admin\SliderRequest','#sliderRequest') !!}
+    {!! JsValidator::formRequest('App\Http\Requests\admin\GeneralContactInfoRequest','#generalprofilesetting') !!}
     @yield('scripts')

@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\admin\slider;
+namespace App\Http\Controllers\admin\frontend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\slider\Slider;
+use App\Models\General\Slider;
 
 class HomeSliderController extends Controller
 {
@@ -16,7 +16,7 @@ class HomeSliderController extends Controller
     public function index()
     {
         $sliders =Slider::all();
-        return view('admin.pages.slider.show',compact('sliders'));
+        return view('admin.pages.frontend.slider.show',compact('sliders'));
     }
 
     /**
@@ -26,7 +26,7 @@ class HomeSliderController extends Controller
      */
     public function create()
     {
-        return view('admin.pages.slider.create');
+        return view('admin.pages.frontend.slider.create');
     }
 
     /**
@@ -78,7 +78,7 @@ class HomeSliderController extends Controller
     public function edit($id)
     {
         $slider =Slider::find($id);
-        return view('admin.pages.slider.create',compact('slider'));
+        return view('admin.pages.frontend.slider.create',compact('slider'));
 
         
     }

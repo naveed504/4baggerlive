@@ -24,7 +24,8 @@ use App\Http\Controllers\admin\service\ServiceFeeController;
 use App\Http\Controllers\admin\subscription\SubscriptionController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\admin\generalsetting\GeneralSettingController;
-use App\Http\Controllers\admin\slider\HomeSliderController;
+use App\Http\Controllers\admin\frontend\HomeSliderController;
+use App\Http\Controllers\admin\frontend\HomeSectionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -89,6 +90,7 @@ Route::group(['prefix' => 'admin',  'middleware' => ['auth', 'checkrole']], func
     Route::resource('servicefee',ServiceFeeController::class);
     Route::resource('events', ManageEventController::class);
     Route::resource('adminslider', HomeSliderController::class);
+    Route::resource('homesection', HomeSectionController::class);
     Route::resource('adminteams', AdminTeamController::class);
     Route::get('adminallteams',[AdminTeamController::class, 'getallTeams'])->name('adminallteams');
     Route::resource('player', PlayerController::class);

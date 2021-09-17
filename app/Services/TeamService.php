@@ -22,7 +22,7 @@ class TeamService
             $teamImage = 'logo.png';            
             
             if( $request->hasFile( 'team_profile')) {
-                $teamImage = $this->teamProfileWaterMark($request ,$id=null,  $a=null);                
+                $teamImage = $this->teamProfileWaterMark($request ,$param1=null,  $param2=null);                
             }          
             
             try {
@@ -99,9 +99,7 @@ class TeamService
     }
 
     public function teamProfileWaterMark($request , $id ,$a)
-    {      
-        
-        
+    {              
         $destinationPath = public_path( 'images/team/teamimages/' );
         $file = $request->team_profile;
         $fileName = time() . '.'.$file->clientExtension();

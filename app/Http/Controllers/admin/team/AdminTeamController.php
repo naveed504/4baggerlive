@@ -26,7 +26,9 @@ class AdminTeamController extends Controller
             return Datatables::of($data)
                     ->addIndexColumn()
                     ->addColumn('status',function($row){
-                        return ($row->active ==1) ? 'Active' : 'InActive' ;
+                        $active = '<span class="badge badge-pill badge-success">Active</span>';
+                        $inactive = '<span class="badge badge-pill badge-warning">Inactive</span>';
+                        return ($row->active ==1) ? $active : $inactive ;
                     })
                     ->addColumn('state',function($row){
                         
@@ -37,13 +39,16 @@ class AdminTeamController extends Controller
                         return $row->user->name ;
                     })
                     ->addColumn('action', function($row){
-                        $btn = '<a href="'.route('adminteams.show',$row->id).'" class="text-decoration-none pr-1"><i class="fa fa-eye text-primary" aria-hidden="true"></i></a>';
+                        $btn =  '<a href="'.route('adminteams.show',$row->id).'" class="text-decoration-none pr-1"><i class="fa fa-eye text-primary" aria-hidden="true"></i></a>';
                         $btn1 = '<a href="'.route('adminteams.edit',$row->id).'" class="text-decoration-none pr-1"><i class="fas fa-edit text-info"></i></a>';
+                        $btn2 = '<a href="javascript:void(0);" class="text-decoration-none" onclick="deleteRecord('.$row->id.', /admin/adminteams/)"><i class="fa fa-trash text-danger" aria-hidden="true"></i></a>';
+                                         
+                                     
                         
-                        return $btns = $btn.''.$btn1;
+                        return $btns = $btn.''.$btn1 .''.$btn2;
                        
                     })
-                    ->rawColumns(['action'])
+                    ->rawColumns(['action','status'])
                     ->make(true);
         }
        

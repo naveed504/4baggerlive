@@ -7,6 +7,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+use File;
 
 
 
@@ -203,6 +204,47 @@ class GenericHelperClass
     public function Decipher($input, $key)
     {
         return $this->Encipher($input, 26 - $key);
+    }
+
+    /**
+     * Insert Image 
+     * @param  
+     * @param string $input 
+     *  
+     */
+    public function saveImage($image)
+    {
+       if(empty($image)){
+            $profilePhoto =  '';
+        } else{            
+            $destinationPath = public_path('admin/allimages/');
+            $fileName = time().'.'.$image->clientExtension();
+            $image->move($destinationPath, $fileName);
+            $profilePhoto = $fileName;
+        }  
+        
+        return $profilePhoto;
+    }
+     
+    public function updateImage($image ,$dbrecord)
+    {        
+        
+        if(empty($image)){
+            $profilePhoto = $dbrecord;
+        } else{                     
+            $imagePath = public_path('admin/allimages/'.$dbrecord);
+            if(File::exists($imagePath)){
+                File::delete($imagePath);
+            }
+            $destinationPath = public_path('admin/allimages/');
+            $file = $image;
+            $fileName = time().'.'.$file->clientExtension();
+            $file->move($destinationPath, $fileName);
+            $profilePhoto = $fileName;
+        }  
+
+        return $profilePhoto;
+         
     }
 
     

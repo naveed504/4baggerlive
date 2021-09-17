@@ -26,7 +26,7 @@
           <img
             class="dropdown-toggle"
 
-            src="{{ asset('admin/profilesettings/'.Auth::user()->profile_photo )}}"
+            src="{{ asset('admin/allimages/'.Auth::user()->profile_photo )}}"
             style="height:45px; width:45px;"
             alt=""
             type="button"

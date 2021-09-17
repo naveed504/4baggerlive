@@ -31,7 +31,7 @@
             <div class="col-sm-4">
                 <h6 class="text-uppercase m-0">
                     @if($event->allowed_bats != "null")
-                        @php $implodResult = implode(" or ", json_decode($event->allowed_bats)) @endphp
+                     {{ $implodResult = implode(" or ", json_decode($event->allowed_bats)) }}
                         @else
                         {{ "N/A" }}
                     @endif                 
