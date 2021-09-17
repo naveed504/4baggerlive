@@ -7,6 +7,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+use Auth;
 use File;
 
 
@@ -214,10 +215,12 @@ class GenericHelperClass
      */
     public function saveImage($image)
     {
+        $usertype = Auth::user()->type;     
+        $getimagePath = $this->checkImagePath($usertype);
        if(empty($image)){
             $profilePhoto =  '';
         } else{            
-            $destinationPath = public_path('admin/allimages/');
+            $destinationPath = $getimagePath;
             $fileName = time().'.'.$image->clientExtension();
             $image->move($destinationPath, $fileName);
             $profilePhoto = $fileName;
@@ -227,16 +230,17 @@ class GenericHelperClass
     }
      
     public function updateImage($image ,$dbrecord)
-    {        
-        
+    {   
+        $usertype = Auth::user()->type;     
+        $getimagePath = $this->checkImagePath($usertype);
         if(empty($image)){
             $profilePhoto = $dbrecord;
         } else{                     
-            $imagePath = public_path('admin/allimages/'.$dbrecord);
+            $imagePath =  $getimagePath.$dbrecord;
             if(File::exists($imagePath)){
                 File::delete($imagePath);
             }
-            $destinationPath = public_path('admin/allimages/');
+            $destinationPath = $getimagePath;
             $file = $image;
             $fileName = time().'.'.$file->clientExtension();
             $file->move($destinationPath, $fileName);
@@ -247,6 +251,21 @@ class GenericHelperClass
          
     }
 
+    public function checkImagePath($imgpath)
+    {
+        $type =Auth::user()->type;        
+        if($type == 1){
+           $imgpath = public_path('admin/allimages/');
+        } elseif($type == 2){
+            $imgpath = public_path('frontend/director/');
+        } elseif($type == 3){
+            $imgpath = public_path('frontend/coach/');
+        } elseif($type == 4){
+            $imgpath = public_path('frontend/player/');
+        }
+        return $imgpath;
+        
+    }
     
 
     
