@@ -177,13 +177,8 @@ class RegisterController extends Controller
             * ------------------ Player Registration ------------------
             */
         } else {
-            if (isset($_FILES['fileupload'])) {
-                $file_name = $_FILES['fileupload']['name'];
-                $file_tmp = $_FILES['fileupload']['tmp_name'];
-                move_uploaded_file($file_tmp, "uploads/" . $file_name);
-            } else {
-                $file_name = '';
-            }
+           
+            $file_name =Helpers::saveImage($data['fileupload']);
 
             $createRecord = array(
                 'p_city'                => $data['p_city'],

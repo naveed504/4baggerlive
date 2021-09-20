@@ -215,8 +215,9 @@ class GenericHelperClass
      */
     public function saveImage($image)
     {
-        $usertype = Auth::user()->type;     
-        $getimagePath = $this->checkImagePath($usertype);
+        $type = '';
+             
+        $getimagePath = $this->checkImagePath($type);
         if(empty($image)) {
             $profilePhoto =  '';
         } else {            
@@ -231,8 +232,10 @@ class GenericHelperClass
      
     public function updateImage($image ,$dbrecord)
     {   
-        $usertype = Auth::user()->type;     
+        $usertype = '';  
+           
         $getimagePath = $this->checkImagePath($usertype);
+       
         if(empty($image)) {
             $profilePhoto = $dbrecord;
         } else {                     
@@ -253,16 +256,21 @@ class GenericHelperClass
 
     public function checkImagePath($imgpath)
     {
-        $type =Auth::user()->type;        
-        if($type == 1) {
-           $imgpath = public_path('admin/allimages/');
-        } elseif($type == 2) {
-            $imgpath = public_path('frontend/director/');
-        } elseif($type == 3) {
-            $imgpath = public_path('frontend/coach/');
-        } elseif($type == 4) {
+        if(Auth::check()){
+            if(Auth::user()->type == 1) {
+                $imgpath = public_path('admin/allimages/');
+             } elseif(Auth::user()->type == 2) {
+                 $imgpath = public_path('frontend/director/');
+             } elseif(Auth::user()->type == 3) {
+                 $imgpath = public_path('frontend/coach/');
+             } elseif(Auth::user()->type == 4) {
+                $imgpath = public_path('frontend/player/');
+             }
+        }else{
             $imgpath = public_path('frontend/player/');
         }
+                
+      
         return $imgpath;
         
     }
