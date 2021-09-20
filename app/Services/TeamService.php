@@ -19,9 +19,9 @@ class TeamService
     {
 
         if (!empty($request->all())) {
-            $teamImage = 'logo.png';            
+            $teamImage = '';            
             
-            if( $request->hasFile( 'team_profile')) {
+            if($request->hasFile('team_profile')) {
                 $teamImage = $this->teamProfileWaterMark($request ,$param1=null,  $param2=null);                
             }          
             

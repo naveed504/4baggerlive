@@ -41,6 +41,7 @@ class GeneralSettingController extends Controller
                 }
                                 
         } 
+        
         $updateimage = Helpers::updateImage($request->profile_photo, $admin->profile_photo);
         
         try{
