@@ -215,9 +215,8 @@ class GenericHelperClass
      */
     public function saveImage($image)
     {
-        $type = '';
-             
-        $getimagePath = $this->checkImagePath($type);
+        $usertype = '';
+        $getimagePath = $this->checkImagePath($usertype);
         if(empty($image)) {
             $profilePhoto =  '';
         } else {            
@@ -225,17 +224,14 @@ class GenericHelperClass
             $fileName = time().'.'.$image->clientExtension();
             $image->move($destinationPath, $fileName);
             $profilePhoto = $fileName;
-        }  
-        
+        }          
         return $profilePhoto;
     }
      
     public function updateImage($image ,$dbrecord)
     {   
-        $usertype = '';  
-           
+        $usertype = '';             
         $getimagePath = $this->checkImagePath($usertype);
-       
         if(empty($image)) {
             $profilePhoto = $dbrecord;
         } else {                     
@@ -249,7 +245,6 @@ class GenericHelperClass
             $file->move($destinationPath, $fileName);
             $profilePhoto = $fileName;
         }  
-
         return $profilePhoto;
          
     }
@@ -259,20 +254,29 @@ class GenericHelperClass
         if(Auth::check()){
             if(Auth::user()->type == 1) {
                 $imgpath = public_path('admin/allimages/');
+                $this->makeNewDirectory($imgpath);                              
              } elseif(Auth::user()->type == 2) {
                  $imgpath = public_path('frontend/director/');
+                 $this->makeNewDirectory($imgpath);                 
              } elseif(Auth::user()->type == 3) {
                  $imgpath = public_path('frontend/coach/');
+                 $this->makeNewDirectory($imgpath);
              } elseif(Auth::user()->type == 4) {
                 $imgpath = public_path('frontend/player/');
+                $this->makeNewDirectory($imgpath);
              }
         }else{
             $imgpath = public_path('frontend/player/');
-        }
-                
+            $this->makeNewDirectory($imgpath);
+        }               
       
-        return $imgpath;
-        
+        return $imgpath;        
+    }
+    public function makeNewDirectory($imgpath)
+    {
+        if(!File::isDirectory($imgpath)){
+            File::makeDirectory($imgpath, 0777, true, true);
+        } 
     }
     
 
