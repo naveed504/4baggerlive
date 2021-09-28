@@ -24,11 +24,11 @@
         <div class="dropdown">
          
           <img
-            class="dropdown-toggle"
+            class="dropdown-toggle setImageSize"
 
             src="{{ asset('admin/allimages/'.Auth::user()->profile_photo )}}"
-            style="height:45px; width:45px;"
-            alt=""
+           
+           
             type="button"
             id="dropdownMenuButton"
             data-toggle="dropdown"

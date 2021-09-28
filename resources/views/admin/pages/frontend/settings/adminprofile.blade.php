@@ -4,7 +4,7 @@
         <div class="col-sm-12 mb-5">
             <h3 class="text-center p-4 heading-color">Admin Profile</h3>
         </div>
-        <form action="{{ route('updateadminprofile') }}" method="post" id="" enctype="multipart/form-data">
+        <form action="{{ route('updateadminprofile') }}" method="post" id="generalprofilesetting" enctype="multipart/form-data">
            
             @csrf
 

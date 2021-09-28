@@ -12,6 +12,7 @@ use File;
 
 
 
+
 class GenericHelperClass
 {
     /**
@@ -278,6 +279,9 @@ class GenericHelperClass
             File::makeDirectory($imgpath, 0777, true, true);
         } 
     }
+
+
+
     
 
     

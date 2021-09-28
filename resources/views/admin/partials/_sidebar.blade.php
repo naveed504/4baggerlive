@@ -47,7 +47,7 @@
           </a>
           
 
-          <a class="nav-link" href="{{ route('servicefee.index') }}">
+          <a class="nav-link" href="{{ route('servicefee') }}">
             <div class="sb-nav-link-icon">
             <i class="fas fa-money-check-alt"></i>
 
@@ -66,12 +66,17 @@
             </div>
             Manage Profile
           </a>
-          <a class="nav-link" href="{{ route('adminslider.index') }}">
-            <div class="sb-nav-link-icon">
-             <i class="far fa-calendar-alt"></i>
+        
+          <li class="nav-item dropdown">
+            <a class="nav-link admindropdown dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Manage Site Setting
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item admindrop" href="{{ route('adminslider.index') }}">Home Slider</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="{{ route('newssection.index') }}">Home News Section</a>
             </div>
-            Manage Slider
-          </a>
+        </li>
 
           {{-- <a class="nav-link" href="{{ route('homesection.index') }}">
             <div class="sb-nav-link-icon">

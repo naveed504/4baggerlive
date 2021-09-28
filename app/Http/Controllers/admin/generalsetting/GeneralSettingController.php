@@ -66,8 +66,7 @@ class GeneralSettingController extends Controller
     }
      
     public function creategeneratSetting($request)
-    {       
-        
+    {               
         GeneralSetting::create([
             'city'              => $request->city,
             'street'            => $request->street,
@@ -77,7 +76,6 @@ class GeneralSettingController extends Controller
             'secondary_phoneno' => $request->secondary_phoneno,
            
         ]);
-
     }
 
     public function updateGeneralSetting($updateGeneralSetting, $request)
@@ -90,6 +88,5 @@ class GeneralSettingController extends Controller
             'primary_phoneno'   => $request->primary_phoneno,
             'secondary_phoneno' => $request->secondary_phoneno,
         ]);
-
     }
 }

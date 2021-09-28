@@ -4,8 +4,8 @@
         <div class="col-sm-12 mb-5">
             <h3 class="text-center p-4 heading-color">Event Service Fee</h3>
         </div>
-        <form action="{{ route('servicefee.update', $fees->id) }}" method="post" id="">
-            @method('PUT')
+        <form action="{{ route('updateservicefee') }}" method="post" >
+           
             @csrf
 
             <div class="row">
@@ -18,7 +18,9 @@
                             <div class="col-sm-3"></div>
                                 <div class="col-sm-6">
                                     <label class="label__wrapper required">Service Amount</label>
-                                    <input type="number" name="servicefee" class="form-control input__box--wrapper" value="{{ $fees->servicefee }}" >
+                                    <input type="hidden" name="servicefee_id" value="{{ $fees->id ?? ''}}">
+                                    
+                                    <input type="number" step="0.01" name="servicefee" class="form-control input__box--wrapper" value="{{ $fees->servicefee ?? '' }}" >
                                     @if($errors->has('servicefee'))
                                         <span class="invalid-feedback">
                                             <strong>{{ $errors->first('servicefee') }}</strong>

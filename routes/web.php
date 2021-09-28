@@ -25,7 +25,7 @@ use App\Http\Controllers\admin\subscription\SubscriptionController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\admin\generalsetting\GeneralSettingController;
 use App\Http\Controllers\admin\frontend\HomeSliderController;
-use App\Http\Controllers\admin\frontend\HomeSectionController;
+use App\Http\Controllers\admin\frontend\HomeNewsSectionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -87,10 +87,11 @@ Route::group(['prefix' => 'admin',  'middleware' => ['auth', 'checkrole']], func
     Route::get('manageprofile', [GeneralSettingController::class, 'index'])->name('manageprofile');
     Route::post('updateadminprofile', [GeneralSettingController::class, 'updateadminprofile'])->name('updateadminprofile');
     
-    Route::resource('servicefee',ServiceFeeController::class);
+    Route::get('servicefee',[ServiceFeeController::class,'index'])->name('servicefee');
+    Route::post('updateservicefee',[ServiceFeeController::class,'updateServiceFee'])->name('updateservicefee');
     Route::resource('events', ManageEventController::class);
     Route::resource('adminslider', HomeSliderController::class);
-    Route::resource('homesection', HomeSectionController::class);
+    Route::resource('newssection', HomeNewsSectionController::class);
     Route::resource('adminteams', AdminTeamController::class);
     Route::get('adminallteams',[AdminTeamController::class, 'getallTeams'])->name('adminallteams');
     Route::resource('player', PlayerController::class);
