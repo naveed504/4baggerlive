@@ -15,6 +15,15 @@ class GeneralSetting extends Model
             'primary_email',
             'secondary_email',
             'primary_phoneno',
-            'secondary_phoneno'
+            'secondary_phoneno',
+            'facebook',
+            'twitter',
+            'instagram',
+            'google',
+            'mission_title',
+            'mission_bgimg',
+            'mission_bgimgtitle',
+            'mission_statment',
+            'mission_bgimgcontent',
     ];
 }

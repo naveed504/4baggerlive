@@ -12356,4 +12356,31 @@ h6 {
       width: 32px;
       margin-left: -9px;
   }
-  
+   
+  .custom-cardss{
+    position: relative;
+}
+.custom-cardss .overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+.custom-cardss .overlay .blockeditLink{
+    position: absolute;
+    padding: 5px;
+    border-radius: 50px;
+    color: rgb(255, 255, 255);
+}
+.custom-cardss:hover .overlay {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 100%;
+    height: 100%;
+}

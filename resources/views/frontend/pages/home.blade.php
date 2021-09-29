@@ -19,70 +19,19 @@
             
         </div>
         <div class="row">
+            @forelse($recentsections as $recentsection)
             <div class="col-lg-3 col-md-4 col_leftspace">
                 <div class="inner__wrapper--one">
-                    <img src="{{ asset('images/Layer6.png') }}" class="img-fluid w-100" alt="">
+                    <img src="{{ asset('admin/allimages/'.$recentsection->image) }}" class="img-fluid w-100" alt="">
                     <div class="text__overly__inner">
-                        <p class="text_ovelay">JUCO Rankings Update: <br> April 13 </p>
+                      <a href="{{ route('recentcontentdetail', $recentsection->id) }}" class="nav-link"><p class="text_ovelay">{{ $recentsection->title }}: <br> {{ date('M-d-Y', strtotime($recentsection->created_at)) }} </p></a>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-4 col_leftspace">
-                <div class="inner__wrapper--one">
-                    <img src="{{ asset('images/Layer24.png') }}" class="img-fluid w-100" alt="">
-                    <div class="text__overly__inner">
-                        <p class="text_ovelay">JUCO Rankings Update: <br> April 13 </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col_leftspace">
-                <div class="inner__wrapper--one">
-                    <img src="{{ asset('images/Layer26.png') }}" class="img-fluid w-100" alt="">
-                    <div class="text__overly__inner">
-                        <p class="text_ovelay">JUCO Rankings Update: <br> April 13 </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col_leftspace">
-                <div class="inner__wrapper--one">
-                    <img src="{{ asset('images/Layer28.png') }}" class="img-fluid w-100" alt="">
-                    <div class="text__overly__inner">
-                        <p class="text_ovelay">JUCO Rankings Update: <br> April 13 </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col_leftspace">
-                <div class="inner__wrapper--one">
-                    <img src="{{ asset('images/Layer32.png') }}" class="img-fluid w-100" alt="">
-                    <div class="text__overly__inner">
-                        <p class="text_ovelay">JUCO Rankings Update: <br> April 13 </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col_leftspace">
-                <div class="inner__wrapper--one">
-                    <img src="{{ asset('images/Layer34.png') }}" class="img-fluid w-100" alt="">
-                    <div class="text__overly__inner">
-                        <p class="text_ovelay">JUCO Rankings Update: <br> April 13 </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col_leftspace">
-                <div class="inner__wrapper--one">
-                    <img src="{{ asset('images/Layer30.png') }}" class="img-fluid w-100" alt="">
-                    <div class="text__overly__inner">
-                        <p class="text_ovelay">JUCO Rankings Update: <br> April 13 </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col_leftspace">
-                <div class="inner__wrapper--one">
-                    <img src="{{ asset('images/Layer19.png') }}" class="img-fluid w-100" alt="">
-                    <div class="text__overly__inner">
-                        <p class="text_ovelay">JUCO Rankings Update: <br> April 13 </p>
-                    </div>
-                </div>
-            </div>
+            @empty 
+            <h5>No Record Found</h5>
+            @endforelse
+           
         </div>
     </div>
 </section>
@@ -91,10 +40,9 @@
 <section class="wrapper__two-bg">
     <div class="container">
         <div class="text-center">
-            <h2 class="heading-one">Lorem ipsum </h2>
-            <h3 class="heading-two">Lorem ipsum is a placeholder text commonly used to demonstrate </h3>
-            <p class="label__wrapper"> Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document
-                or a typeface without relying on meaningful content. Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content.</p>
+            <h2 class="heading-one">{{ $latestNews->heading_one ?? ''}}</h2>
+            <h3 class="heading-two">{{ $latestNews->heading_two ??'' }} </h3>
+            <p class="label__wrapper"> {{ $latestNews->content ?? '' }}</p>
 
             
         </div>
@@ -108,27 +56,17 @@
             <h4 class="inner__heading">4 Bagger OFFICIAL PARTNERS</h4>
         </div>
         <div class="row">
+            @forelse($officalpartners as $officalpartner)
             <div class="col-lg-4 col-md-4 col__padding-5">
-                <img src="{{ asset('images/img007.png') }}" class="img-fluid w-100" alt="">
+                <img src="{{ asset('admin/allimages/'. $officalpartner->image) }}" class="img-fluid w-100" alt="">
                 <div class="margin__wrapper-one">
-                    <h3 class="heading__wrapper-four">Lorem ipsum is a placeholder text commonly used </h3>
-                    <p class="label__wrapper--four">Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content.</p>
+                    <h3 class="heading__wrapper-four">{{ $officalpartner->title }} </h3>
+                    <p class="label__wrapper--four">{!! $officalpartner->detail !!}</p>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-4 col__padding-5">
-                <img src="{{ asset('images/img008.png') }}" class="img-fluid w-100 " alt="">
-                <div class="margin__wrapper-one">
-                    <h3 class="heading__wrapper-four">Lorem ipsum is a placeholder text commonly used </h3>
-                    <p class="label__wrapper--four">Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content.</p>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col__padding-5">
-                <img src="{{ asset('images/img009.png') }}" class="img-fluid w-100" alt="">
-                <div class="margin__wrapper-one">
-                    <h3 class="heading__wrapper-four">Lorem ipsum is a placeholder text commonly used </h3>
-                    <p class="label__wrapper--four">Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content.</p>
-                </div>
-            </div>
+            @empty 
+            <h5>No Record Found</h5>
+            @endforelse
         </div>
     </div>
 </section>
@@ -139,10 +77,8 @@
     <div class="container">
         <div>
             <div class="text-left">
-                <h2 class="heading-one text-white">Lorem ipsum </h2>
-                <h3 class="heading-two text-white">Lorem ipsum is a placeholder text commonly used to demonstrate </h3>
-                <p class="label__wrapper text-white"> Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document
-                    or a typeface without relying on meaningful content. Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content.</p>
+                <h2 class="heading-one text-white">{{ $generalSetting->mission_bgimgtitle ?? '' }}</h2>
+                <p class="label__wrapper text-white"> {{ $generalSetting->mission_bgimgcontent ?? ''}}</p>
             </div>
         </div>
     </div>

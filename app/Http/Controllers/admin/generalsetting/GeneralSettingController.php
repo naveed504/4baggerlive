@@ -9,16 +9,15 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
 use App\Models\General\GeneralSetting;
 use File;
+use Exception;
 use Helpers;
 
 class GeneralSettingController extends Controller
 {
     public function index()
     {
-        $admin =User::where('type','=',1)->first();
-        $generalSetting = GeneralSetting::latest()->first();
-        
-        return view('admin.pages.frontend.settings.adminprofile',compact('admin', 'generalSetting'));
+        $admin =User::where('type','=',1)->first();      
+        return view('admin.pages.frontend.settings.adminprofile',compact('admin'));
     }
 
     public function updateadminprofile(Request $request)
@@ -51,12 +50,7 @@ class GeneralSettingController extends Controller
                 'profile_photo' => $updateimage,
                 'password'      => (!empty($newpassword)) ? $newpassword : $admin->password,
             ]);
-            $general =GeneralSetting::find($request->general_id);
-            if(empty($general)) {
-                $this->creategeneratSetting($request);
-            } else {
-                $this->updateGeneralSetting($general , $request);
-            }
+            
 
         } catch(Exception $e) {
             dd($e->getMessage());
@@ -65,8 +59,11 @@ class GeneralSettingController extends Controller
         return redirect()->back();
     }
      
-    public function creategeneratSetting($request)
-    {               
+    public function createSetting($request)
+    {  
+             
+        $backgroundimage = Helpers::saveImage($request->mission_bgimg);    
+         
         GeneralSetting::create([
             'city'              => $request->city,
             'street'            => $request->street,
@@ -74,12 +71,23 @@ class GeneralSettingController extends Controller
             'secondary_email'   => $request->secondary_email,
             'primary_phoneno'   => $request->primary_phoneno,
             'secondary_phoneno' => $request->secondary_phoneno,
+            'facebook'          => $request->facebook,
+            'twitter'           => $request->twitter,
+            'instagram'         => $request->instagram,
+            'google'            => $request->google,
+            'mission_title'     => $request->mission_title,
+            'mission_bgimg'     => $backgroundimage,
+            'mission_bgimgtitle'=> $request->mission_bgimgtitle,
+            'mission_statment'  => $request->mission_statment,
+            'mission_bgimgcontent'=> $request->mission_bgimgcontent
            
         ]);
     }
 
-    public function updateGeneralSetting($updateGeneralSetting, $request)
-    {        
+    public function updateSetting($updateGeneralSetting, $request)
+    {    
+        $updateGeneralSetting = GeneralSetting::find($request->general_id);
+        $updateimage = Helpers::updateImage($request->mission_bgimg, $updateGeneralSetting->mission_bgimg);    
         $updateGeneralSetting->update([
             'city'              => $request->city,
             'street'            => $request->street,
@@ -87,6 +95,43 @@ class GeneralSettingController extends Controller
             'secondary_email'   => $request->secondary_email,
             'primary_phoneno'   => $request->primary_phoneno,
             'secondary_phoneno' => $request->secondary_phoneno,
+            'facebook'          => $request->facebook,
+            'twitter'           => $request->twitter,
+            'instagram'         => $request->instagram,
+            'google'            => $request->google,
+            'mission_title'     => $request->mission_title,
+            'mission_bgimg'     => $updateimage,
+            'mission_bgimgtitle'=> $request->mission_bgimgtitle,
+            'mission_statment'  => $request->mission_statment,
+            'mission_bgimgcontent'=> $request->mission_bgimgcontent
         ]);
+    }
+
+
+    public function generalSetting()
+    {
+       
+        $generalSetting = GeneralSetting::latest()->first();
+        return view('admin.pages.frontend.settings.generalsetting',compact( 'generalSetting'));
+    }
+
+    public function updateGeneralSetting(Request $request)
+    {
+        
+        try{
+            $general =GeneralSetting::find($request->general_id);
+            
+            if(empty($general)) {
+                $this->createSetting($request);
+            } else {
+                $this->updateSetting($general , $request);
+            }
+            parent::successMessage('Site Setting Updated Successfully"');
+        return redirect()->back();
+        } catch(Exception $e) {
+            dd($e->getMessage());
+        }
+        
+
     }
 }

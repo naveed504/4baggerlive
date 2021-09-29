@@ -26,6 +26,10 @@ use App\Http\Controllers\TestController;
 use App\Http\Controllers\admin\generalsetting\GeneralSettingController;
 use App\Http\Controllers\admin\frontend\HomeSliderController;
 use App\Http\Controllers\admin\frontend\HomeNewsSectionController;
+use App\Http\Controllers\admin\frontend\RecentContentController;
+use App\Http\Controllers\admin\frontend\OfficialPartnerSectionController;
+use App\Http\Controllers\admin\frontend\BlogController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -70,6 +74,8 @@ route::get('view/events', [HomeController::class, 'allEvents'])->name('view.even
 route::get('contact-us', [HomeController::class, 'contactUs'])->name('contactus');
 route::get('rules-and-policy', [HomeController::class, 'rulesPolicy'])->name('rules');
 route::get('about-us', [HomeController::class, 'aboutUs'])->name('aboutus');
+Route::get('4baggerer-recent-content-detail/{id}', [HomeController::class, 'recentContentDetail'])->name('recentcontentdetail');
+Route::any('blog/{blog}', [HomeController::class, 'showBlog'])->name('blog');
 
 Route::view('/profile', 'frontend.pages.player.profile');
 route::get('view/event/{id}', [FrontendEventController::class, 'viewEvent'])->name('view.event');
@@ -86,12 +92,18 @@ Route::group(['prefix' => 'admin',  'middleware' => ['auth', 'checkrole']], func
     Route::get('events/showTeamDetails/{id}', [ManageEventController::class, 'showTeamDetails'])->name('showTeamDetails');
     Route::get('manageprofile', [GeneralSettingController::class, 'index'])->name('manageprofile');
     Route::post('updateadminprofile', [GeneralSettingController::class, 'updateadminprofile'])->name('updateadminprofile');
-    
+    Route::get('generalsetting', [GeneralSettingController::class, 'generalSetting'])->name('generalsetting');
+    Route::post('updategeneralsetting', [GeneralSettingController::class, 'updateGeneralSetting'])->name('updategeneralsetting');
+
     Route::get('servicefee',[ServiceFeeController::class,'index'])->name('servicefee');
     Route::post('updateservicefee',[ServiceFeeController::class,'updateServiceFee'])->name('updateservicefee');
     Route::resource('events', ManageEventController::class);
     Route::resource('adminslider', HomeSliderController::class);
     Route::resource('newssection', HomeNewsSectionController::class);
+    Route::resource('recentcontent', RecentContentController::class);
+    Route::resource('officialpartner', OfficialPartnerSectionController::class);
+    Route::resource('manageblog', BlogController::class);
+    
     Route::resource('adminteams', AdminTeamController::class);
     Route::get('adminallteams',[AdminTeamController::class, 'getallTeams'])->name('adminallteams');
     Route::resource('player', PlayerController::class);

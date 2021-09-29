@@ -24,7 +24,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::Hl3iArcnKmSq4XX1',
+            '_route' => 'generated::9EDb6EOB169s10wa',
           ),
           1 => NULL,
           2 => 
@@ -44,7 +44,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::CL2JMGNQQTYpR7Xg',
+            '_route' => 'generated::jog2NOydkriARH5z',
           ),
           1 => NULL,
           2 => 
@@ -64,7 +64,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::aM7VW8iYOyAWSpVn',
+            '_route' => 'generated::xsRV4xOeXVdQMY0p',
           ),
           1 => NULL,
           2 => 
@@ -84,7 +84,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::GN8IKLX3Qag3f84Y',
+            '_route' => 'generated::QgMUVaM15Z1PKngq',
           ),
           1 => NULL,
           2 => 
@@ -104,7 +104,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::SSrxFdZF4H1sG6Ho',
+            '_route' => 'generated::jpTubmN0Wn0lkc0q',
           ),
           1 => NULL,
           2 => 
@@ -124,7 +124,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::0sgjGHMOc31zW8fM',
+            '_route' => 'generated::pATnOnfCcfKB2bRE',
           ),
           1 => NULL,
           2 => 
@@ -264,7 +264,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::MQLmOCIT7Qzvb99R',
+            '_route' => 'generated::TCXJyfQwhvdaDHoO',
           ),
           1 => NULL,
           2 => 
@@ -380,7 +380,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::I34PKRCr5X7E6ljh',
+            '_route' => 'generated::sDsTwLdyrrcIzhEP',
           ),
           1 => NULL,
           2 => 
@@ -420,6 +420,45 @@ app('router')->setCompiledRoutes(
           0 => 
           array (
             '_route' => 'updateadminprofile',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/admin/generalsetting' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'generalsetting',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/admin/updategeneralsetting' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'updategeneralsetting',
           ),
           1 => NULL,
           2 => 
@@ -583,13 +622,13 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/admin/homesection' => 
+      '/admin/newssection' => 
       array (
         0 => 
         array (
           0 => 
           array (
-            '_route' => 'homesection.index',
+            '_route' => 'newssection.index',
           ),
           1 => NULL,
           2 => 
@@ -606,7 +645,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'homesection.store',
+            '_route' => 'newssection.store',
           ),
           1 => NULL,
           2 => 
@@ -619,13 +658,181 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/admin/homesection/create' => 
+      '/admin/newssection/create' => 
       array (
         0 => 
         array (
           0 => 
           array (
-            '_route' => 'homesection.create',
+            '_route' => 'newssection.create',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/admin/recentcontent' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'recentcontent.index',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'recentcontent.store',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/admin/recentcontent/create' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'recentcontent.create',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/admin/officialpartner' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'officialpartner.index',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'officialpartner.store',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/admin/officialpartner/create' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'officialpartner.create',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/admin/manageblog' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'manageblog.index',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'manageblog.store',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/admin/manageblog/create' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'manageblog.create',
           ),
           1 => NULL,
           2 => 
@@ -1465,7 +1672,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::OHNG9gveJ6f4BojC',
+            '_route' => 'generated::GZFzeO9XArIFlIDu',
           ),
           1 => NULL,
           2 => 
@@ -1502,7 +1709,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::C1iQHo57Z3eG2MMu',
+            '_route' => 'generated::RCJQgA9zzuhK0XiD',
           ),
           1 => NULL,
           2 => 
@@ -1557,7 +1764,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::g3foYxxfY3Rl1VUm',
+            '_route' => 'generated::p52brzjCVOTFYmwS',
           ),
           1 => NULL,
           2 => 
@@ -1648,7 +1855,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::SnK8BWE2VEVwknSs',
+            '_route' => 'generated::tLRjOkflaBKjT4Xh',
           ),
           1 => NULL,
           2 => 
@@ -1684,11 +1891,62 @@ app('router')->setCompiledRoutes(
     ),
     2 => 
     array (
-      0 => '{^(?|/view/event/([^/]++)(*:27)|/admin/(?|director/([^/]++)(?|(*:64)|/edit(*:76)|(*:83))|events/(?|show(?|AdminTeams/([^/]++)(*:127)|TeamDetails/([^/]++)(*:155))|([^/]++)(?|(*:175)|/edit(*:188)|(*:196)))|admin(?|slider/([^/]++)(?|(*:232)|/edit(*:245)|(*:253))|teams/([^/]++)(?|(*:279)|/edit(*:292)|(*:300))|payout/([^/]++)(?|(*:327)|/edit(*:340)|(*:348)))|homesection/([^/]++)(?|(*:381)|/edit(*:394)|(*:402))|player/([^/]++)(?|(*:429)|/edit(*:442)|(*:450))|subscription/([^/]++)(?|(*:483)|/edit(*:496)|(*:504)))|/p(?|layer/(?|view\\-team/([^/]++)(*:547)|playerprofile/([^/]++)(*:577))|assword/reset/([^/]++)(*:608))|/team/(?|teams/([^/]++)(?|(*:643)|/edit(*:656)|(*:664))|add(?|player/([^/]++)(*:694)|\\-to\\-event/([^/]++)(*:722))|viewplayer/([^/]++)(*:750)|requested/players/([^/]++)(*:784)|event/([^/]++)(*:806)|showTotalTeams/([^/]++)(*:837))|/director/(?|team/([^/]++)(?|(*:875)|/edit(*:888)|(*:896))|event/([^/]++)(?|(*:922)|/edit(*:935)|(*:943))|showteam(?|sinevent/([^/]++)(*:980)|details/([^/]++)(*:1004))|ShowPlayer/([^/]++)(*:1033)|CreatePlayerStatistics/([^/]++)(*:1073)|paymentrefundform/([^/]++)(*:1108)))/?$}sDu',
+      0 => '{^(?|/4baggerer\\-recent\\-content\\-detail/([^/]++)(*:51)|/blog/([^/]++)(*:72)|/view/event/([^/]++)(*:99)|/admin/(?|director/([^/]++)(?|(*:136)|/edit(*:149)|(*:157))|events/(?|show(?|AdminTeams/([^/]++)(*:202)|TeamDetails/([^/]++)(*:230))|([^/]++)(?|(*:250)|/edit(*:263)|(*:271)))|admin(?|slider/([^/]++)(?|(*:307)|/edit(*:320)|(*:328))|teams/([^/]++)(?|(*:354)|/edit(*:367)|(*:375))|payout/([^/]++)(?|(*:402)|/edit(*:415)|(*:423)))|newssection/([^/]++)(?|(*:456)|/edit(*:469)|(*:477))|recentcontent/([^/]++)(?|(*:511)|/edit(*:524)|(*:532))|officialpartner/([^/]++)(?|(*:568)|/edit(*:581)|(*:589))|manageblog/([^/]++)(?|(*:620)|/edit(*:633)|(*:641))|player/([^/]++)(?|(*:668)|/edit(*:681)|(*:689))|subscription/([^/]++)(?|(*:722)|/edit(*:735)|(*:743)))|/p(?|layer/(?|view\\-team/([^/]++)(*:786)|playerprofile/([^/]++)(*:816))|assword/reset/([^/]++)(*:847))|/team/(?|teams/([^/]++)(?|(*:882)|/edit(*:895)|(*:903))|add(?|player/([^/]++)(*:933)|\\-to\\-event/([^/]++)(*:961))|viewplayer/([^/]++)(*:989)|requested/players/([^/]++)(*:1023)|event/([^/]++)(*:1046)|showTotalTeams/([^/]++)(*:1078))|/director/(?|team/([^/]++)(?|(*:1117)|/edit(*:1131)|(*:1140))|event/([^/]++)(?|(*:1167)|/edit(*:1181)|(*:1190))|showteam(?|sinevent/([^/]++)(*:1228)|details/([^/]++)(*:1253))|ShowPlayer/([^/]++)(*:1282)|CreatePlayerStatistics/([^/]++)(*:1322)|paymentrefundform/([^/]++)(*:1357)))/?$}sDu',
     ),
     3 => 
     array (
-      27 => 
+      51 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'recentcontentdetail',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      72 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'blog',
+          ),
+          1 => 
+          array (
+            0 => 'blog',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+            'POST' => 2,
+            'PUT' => 3,
+            'PATCH' => 4,
+            'DELETE' => 5,
+            'OPTIONS' => 6,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      99 => 
       array (
         0 => 
         array (
@@ -1711,7 +1969,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      64 => 
+      136 => 
       array (
         0 => 
         array (
@@ -1734,7 +1992,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      76 => 
+      149 => 
       array (
         0 => 
         array (
@@ -1757,7 +2015,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      83 => 
+      157 => 
       array (
         0 => 
         array (
@@ -1799,7 +2057,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      127 => 
+      202 => 
       array (
         0 => 
         array (
@@ -1822,7 +2080,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      155 => 
+      230 => 
       array (
         0 => 
         array (
@@ -1845,7 +2103,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      175 => 
+      250 => 
       array (
         0 => 
         array (
@@ -1868,7 +2126,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      188 => 
+      263 => 
       array (
         0 => 
         array (
@@ -1891,7 +2149,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      196 => 
+      271 => 
       array (
         0 => 
         array (
@@ -1933,7 +2191,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      232 => 
+      307 => 
       array (
         0 => 
         array (
@@ -1956,7 +2214,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      245 => 
+      320 => 
       array (
         0 => 
         array (
@@ -1979,7 +2237,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      253 => 
+      328 => 
       array (
         0 => 
         array (
@@ -2021,7 +2279,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      279 => 
+      354 => 
       array (
         0 => 
         array (
@@ -2044,7 +2302,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      292 => 
+      367 => 
       array (
         0 => 
         array (
@@ -2067,7 +2325,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      300 => 
+      375 => 
       array (
         0 => 
         array (
@@ -2109,7 +2367,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      327 => 
+      402 => 
       array (
         0 => 
         array (
@@ -2132,7 +2390,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      340 => 
+      415 => 
       array (
         0 => 
         array (
@@ -2155,7 +2413,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      348 => 
+      423 => 
       array (
         0 => 
         array (
@@ -2197,17 +2455,17 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      381 => 
+      456 => 
       array (
         0 => 
         array (
           0 => 
           array (
-            '_route' => 'homesection.show',
+            '_route' => 'newssection.show',
           ),
           1 => 
           array (
-            0 => 'homesection',
+            0 => 'newssection',
           ),
           2 => 
           array (
@@ -2220,17 +2478,17 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      394 => 
+      469 => 
       array (
         0 => 
         array (
           0 => 
           array (
-            '_route' => 'homesection.edit',
+            '_route' => 'newssection.edit',
           ),
           1 => 
           array (
-            0 => 'homesection',
+            0 => 'newssection',
           ),
           2 => 
           array (
@@ -2243,17 +2501,17 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      402 => 
+      477 => 
       array (
         0 => 
         array (
           0 => 
           array (
-            '_route' => 'homesection.update',
+            '_route' => 'newssection.update',
           ),
           1 => 
           array (
-            0 => 'homesection',
+            0 => 'newssection',
           ),
           2 => 
           array (
@@ -2269,11 +2527,11 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'homesection.destroy',
+            '_route' => 'newssection.destroy',
           ),
           1 => 
           array (
-            0 => 'homesection',
+            0 => 'newssection',
           ),
           2 => 
           array (
@@ -2285,7 +2543,271 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      429 => 
+      511 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'recentcontent.show',
+          ),
+          1 => 
+          array (
+            0 => 'recentcontent',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      524 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'recentcontent.edit',
+          ),
+          1 => 
+          array (
+            0 => 'recentcontent',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      532 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'recentcontent.update',
+          ),
+          1 => 
+          array (
+            0 => 'recentcontent',
+          ),
+          2 => 
+          array (
+            'PUT' => 0,
+            'PATCH' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'recentcontent.destroy',
+          ),
+          1 => 
+          array (
+            0 => 'recentcontent',
+          ),
+          2 => 
+          array (
+            'DELETE' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      568 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'officialpartner.show',
+          ),
+          1 => 
+          array (
+            0 => 'officialpartner',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      581 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'officialpartner.edit',
+          ),
+          1 => 
+          array (
+            0 => 'officialpartner',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      589 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'officialpartner.update',
+          ),
+          1 => 
+          array (
+            0 => 'officialpartner',
+          ),
+          2 => 
+          array (
+            'PUT' => 0,
+            'PATCH' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'officialpartner.destroy',
+          ),
+          1 => 
+          array (
+            0 => 'officialpartner',
+          ),
+          2 => 
+          array (
+            'DELETE' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      620 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'manageblog.show',
+          ),
+          1 => 
+          array (
+            0 => 'manageblog',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      633 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'manageblog.edit',
+          ),
+          1 => 
+          array (
+            0 => 'manageblog',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      641 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'manageblog.update',
+          ),
+          1 => 
+          array (
+            0 => 'manageblog',
+          ),
+          2 => 
+          array (
+            'PUT' => 0,
+            'PATCH' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'manageblog.destroy',
+          ),
+          1 => 
+          array (
+            0 => 'manageblog',
+          ),
+          2 => 
+          array (
+            'DELETE' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      668 => 
       array (
         0 => 
         array (
@@ -2308,7 +2830,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      442 => 
+      681 => 
       array (
         0 => 
         array (
@@ -2331,7 +2853,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      450 => 
+      689 => 
       array (
         0 => 
         array (
@@ -2373,7 +2895,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      483 => 
+      722 => 
       array (
         0 => 
         array (
@@ -2396,7 +2918,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      496 => 
+      735 => 
       array (
         0 => 
         array (
@@ -2419,7 +2941,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      504 => 
+      743 => 
       array (
         0 => 
         array (
@@ -2461,7 +2983,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      547 => 
+      786 => 
       array (
         0 => 
         array (
@@ -2484,7 +3006,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      577 => 
+      816 => 
       array (
         0 => 
         array (
@@ -2507,7 +3029,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      608 => 
+      847 => 
       array (
         0 => 
         array (
@@ -2530,7 +3052,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      643 => 
+      882 => 
       array (
         0 => 
         array (
@@ -2553,7 +3075,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      656 => 
+      895 => 
       array (
         0 => 
         array (
@@ -2576,7 +3098,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      664 => 
+      903 => 
       array (
         0 => 
         array (
@@ -2618,7 +3140,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      694 => 
+      933 => 
       array (
         0 => 
         array (
@@ -2641,7 +3163,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      722 => 
+      961 => 
       array (
         0 => 
         array (
@@ -2664,7 +3186,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      750 => 
+      989 => 
       array (
         0 => 
         array (
@@ -2687,7 +3209,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      784 => 
+      1023 => 
       array (
         0 => 
         array (
@@ -2710,7 +3232,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      806 => 
+      1046 => 
       array (
         0 => 
         array (
@@ -2733,7 +3255,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      837 => 
+      1078 => 
       array (
         0 => 
         array (
@@ -2756,7 +3278,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      875 => 
+      1117 => 
       array (
         0 => 
         array (
@@ -2779,7 +3301,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      888 => 
+      1131 => 
       array (
         0 => 
         array (
@@ -2802,7 +3324,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      896 => 
+      1140 => 
       array (
         0 => 
         array (
@@ -2844,7 +3366,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      922 => 
+      1167 => 
       array (
         0 => 
         array (
@@ -2867,7 +3389,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      935 => 
+      1181 => 
       array (
         0 => 
         array (
@@ -2890,7 +3412,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      943 => 
+      1190 => 
       array (
         0 => 
         array (
@@ -2932,7 +3454,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      980 => 
+      1228 => 
       array (
         0 => 
         array (
@@ -2955,7 +3477,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      1004 => 
+      1253 => 
       array (
         0 => 
         array (
@@ -2978,7 +3500,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      1033 => 
+      1282 => 
       array (
         0 => 
         array (
@@ -3001,7 +3523,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      1073 => 
+      1322 => 
       array (
         0 => 
         array (
@@ -3024,7 +3546,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      1108 => 
+      1357 => 
       array (
         0 => 
         array (
@@ -3062,7 +3584,7 @@ app('router')->setCompiledRoutes(
   ),
   'attributes' => 
   array (
-    'generated::Hl3iArcnKmSq4XX1' => 
+    'generated::9EDb6EOB169s10wa' => 
     array (
       'methods' => 
       array (
@@ -3077,15 +3599,15 @@ app('router')->setCompiledRoutes(
           0 => 'api',
           1 => 'auth:api',
         ),
-        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":291:{@FZmNEcaCbJeTESLHdn0xAL5GHoIJsaoYqaodauPctr0=.a:5:{s:3:"use";a:0:{}s:8:"function";s:79:"function (\\Illuminate\\Http\\Request $request) {
+        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":291:{@VxfFXvReLHeRVloluu8z/8k9soJC7J7Jfj9E5VMltX8=.a:5:{s:3:"use";a:0:{}s:8:"function";s:79:"function (\\Illuminate\\Http\\Request $request) {
     return $request->user();
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"0000000018988cf50000000057151219";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000103fc5310000000040bf7712";}}',
         'namespace' => NULL,
         'prefix' => 'api',
         'where' => 
         array (
         ),
-        'as' => 'generated::Hl3iArcnKmSq4XX1',
+        'as' => 'generated::9EDb6EOB169s10wa',
       ),
       'fallback' => false,
       'defaults' => 
@@ -3101,7 +3623,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::CL2JMGNQQTYpR7Xg' => 
+    'generated::jog2NOydkriARH5z' => 
     array (
       'methods' => 
       array (
@@ -3115,19 +3637,19 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
         ),
-        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":507:{@ZpXt8fHY+3P7heh9auxJw+NhEUHADPIVplpayDWlxJU=.a:5:{s:3:"use";a:0:{}s:8:"function";s:294:"function () {
+        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":507:{@MlH4muU+pzI1nE5VNokO2TME1ctCzo4zk5K8NFNqfcc=.a:5:{s:3:"use";a:0:{}s:8:"function";s:294:"function () {
     \\Illuminate\\Support\\Facades\\Artisan::call(\'route:clear\');
     \\Illuminate\\Support\\Facades\\Artisan::call(\'cache:clear\');
     \\Illuminate\\Support\\Facades\\Artisan::call(\'config:clear\');
     \\Illuminate\\Support\\Facades\\Artisan::call(\'view:clear\');
     return \'clear done\';
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"0000000018988cfb0000000057151219";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000103fc5370000000040bf7712";}}',
         'namespace' => NULL,
         'prefix' => NULL,
         'where' => 
         array (
         ),
-        'as' => 'generated::CL2JMGNQQTYpR7Xg',
+        'as' => 'generated::jog2NOydkriARH5z',
       ),
       'fallback' => false,
       'defaults' => 
@@ -3143,7 +3665,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::aM7VW8iYOyAWSpVn' => 
+    'generated::xsRV4xOeXVdQMY0p' => 
     array (
       'methods' => 
       array (
@@ -3157,15 +3679,15 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
         ),
-        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":292:{@XU4pqPmswmKdlHRhPCPXiw2tvjGPno0ROTNbUp7ZlFw=.a:5:{s:3:"use";a:0:{}s:8:"function";s:80:"function () {
+        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":292:{@CooDzYXeNMHIWI6WrTSRcoGmEhm8GUlnRB6a72Novjs=.a:5:{s:3:"use";a:0:{}s:8:"function";s:80:"function () {
     \\Illuminate\\Support\\Facades\\Artisan::call(\'config:cache\');
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"0000000018988cf90000000057151219";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000103fc5350000000040bf7712";}}',
         'namespace' => NULL,
         'prefix' => NULL,
         'where' => 
         array (
         ),
-        'as' => 'generated::aM7VW8iYOyAWSpVn',
+        'as' => 'generated::xsRV4xOeXVdQMY0p',
       ),
       'fallback' => false,
       'defaults' => 
@@ -3181,7 +3703,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::GN8IKLX3Qag3f84Y' => 
+    'generated::QgMUVaM15Z1PKngq' => 
     array (
       'methods' => 
       array (
@@ -3195,16 +3717,16 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
         ),
-        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":323:{@jnHHEC0oLGlcbS1PB96cvYjg+nRy32wWAE2qht/VrCw=.a:5:{s:3:"use";a:0:{}s:8:"function";s:110:"function(){
+        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":323:{@uHvpwt4gOUKvrAcHYMA4qvQm0hVECtDZYZ0poCfSL6g=.a:5:{s:3:"use";a:0:{}s:8:"function";s:110:"function(){
     \\Illuminate\\Support\\Facades\\Artisan::call(\'migrate\');
     return \'migrated successfully\';
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"0000000018988cff0000000057151219";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000103fc50b0000000040bf7712";}}',
         'namespace' => NULL,
         'prefix' => NULL,
         'where' => 
         array (
         ),
-        'as' => 'generated::GN8IKLX3Qag3f84Y',
+        'as' => 'generated::QgMUVaM15Z1PKngq',
       ),
       'fallback' => false,
       'defaults' => 
@@ -3220,7 +3742,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::SSrxFdZF4H1sG6Ho' => 
+    'generated::jpTubmN0Wn0lkc0q' => 
     array (
       'methods' => 
       array (
@@ -3234,15 +3756,15 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
         ),
-        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":246:{@dOzZ6CTYKnGCVH7alrrZEx6fivgZZJNUMrIinJs5W5Q=.a:5:{s:3:"use";a:0:{}s:8:"function";s:34:"function(){
+        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":246:{@5cuYBklEerkahKXAkKbwCOrNPTRG34gpG4XNqvUf8Is=.a:5:{s:3:"use";a:0:{}s:8:"function";s:34:"function(){
 return \\phpinfo();
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"0000000018988cfd0000000057151219";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000103fc5090000000040bf7712";}}',
         'namespace' => NULL,
         'prefix' => NULL,
         'where' => 
         array (
         ),
-        'as' => 'generated::SSrxFdZF4H1sG6Ho',
+        'as' => 'generated::jpTubmN0Wn0lkc0q',
       ),
       'fallback' => false,
       'defaults' => 
@@ -3258,7 +3780,7 @@ return \\phpinfo();
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::0sgjGHMOc31zW8fM' => 
+    'generated::pATnOnfCcfKB2bRE' => 
     array (
       'methods' => 
       array (
@@ -3279,7 +3801,7 @@ return \\phpinfo();
         'where' => 
         array (
         ),
-        'as' => 'generated::0sgjGHMOc31zW8fM',
+        'as' => 'generated::pATnOnfCcfKB2bRE',
       ),
       'fallback' => false,
       'defaults' => 
@@ -3517,7 +4039,86 @@ return \\phpinfo();
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::MQLmOCIT7Qzvb99R' => 
+    'recentcontentdetail' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => '4baggerer-recent-content-detail/{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\frontend\\HomeController@recentContentDetail',
+        'controller' => 'App\\Http\\Controllers\\frontend\\HomeController@recentContentDetail',
+        'namespace' => NULL,
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+        'as' => 'recentcontentdetail',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'blog' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+        2 => 'POST',
+        3 => 'PUT',
+        4 => 'PATCH',
+        5 => 'DELETE',
+        6 => 'OPTIONS',
+      ),
+      'uri' => 'blog/{blog}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\frontend\\HomeController@showBlog',
+        'controller' => 'App\\Http\\Controllers\\frontend\\HomeController@showBlog',
+        'namespace' => NULL,
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+        'as' => 'blog',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'generated::TCXJyfQwhvdaDHoO' => 
     array (
       'methods' => 
       array (
@@ -3538,7 +4139,7 @@ return \\phpinfo();
         'where' => 
         array (
         ),
-        'as' => 'generated::MQLmOCIT7Qzvb99R',
+        'as' => 'generated::TCXJyfQwhvdaDHoO',
       ),
       'fallback' => false,
       'defaults' => 
@@ -3948,7 +4549,7 @@ return \\phpinfo();
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::I34PKRCr5X7E6ljh' => 
+    'generated::sDsTwLdyrrcIzhEP' => 
     array (
       'methods' => 
       array (
@@ -3970,7 +4571,7 @@ return \\phpinfo();
         'where' => 
         array (
         ),
-        'as' => 'generated::I34PKRCr5X7E6ljh',
+        'as' => 'generated::sDsTwLdyrrcIzhEP',
       ),
       'fallback' => false,
       'defaults' => 
@@ -4126,6 +4727,83 @@ return \\phpinfo();
         array (
         ),
         'as' => 'updateadminprofile',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'generalsetting' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/generalsetting',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'checkrole',
+        ),
+        'uses' => 'App\\Http\\Controllers\\admin\\generalsetting\\GeneralSettingController@generalSetting',
+        'controller' => 'App\\Http\\Controllers\\admin\\generalsetting\\GeneralSettingController@generalSetting',
+        'namespace' => NULL,
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+        'as' => 'generalsetting',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'updategeneralsetting' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'admin/updategeneralsetting',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'checkrole',
+        ),
+        'uses' => 'App\\Http\\Controllers\\admin\\generalsetting\\GeneralSettingController@updateGeneralSetting',
+        'controller' => 'App\\Http\\Controllers\\admin\\generalsetting\\GeneralSettingController@updateGeneralSetting',
+        'namespace' => NULL,
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+        'as' => 'updategeneralsetting',
       ),
       'fallback' => false,
       'defaults' => 
@@ -4760,14 +5438,14 @@ return \\phpinfo();
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'homesection.index' => 
+    'newssection.index' => 
     array (
       'methods' => 
       array (
         0 => 'GET',
         1 => 'HEAD',
       ),
-      'uri' => 'admin/homesection',
+      'uri' => 'admin/newssection',
       'action' => 
       array (
         'middleware' => 
@@ -4776,9 +5454,9 @@ return \\phpinfo();
           1 => 'auth',
           2 => 'checkrole',
         ),
-        'as' => 'homesection.index',
-        'uses' => 'App\\Http\\Controllers\\admin\\frontend\\HomeSectionController@index',
-        'controller' => 'App\\Http\\Controllers\\admin\\frontend\\HomeSectionController@index',
+        'as' => 'newssection.index',
+        'uses' => 'App\\Http\\Controllers\\admin\\frontend\\HomeNewsSectionController@index',
+        'controller' => 'App\\Http\\Controllers\\admin\\frontend\\HomeNewsSectionController@index',
         'namespace' => NULL,
         'prefix' => '/admin',
         'where' => 
@@ -4799,14 +5477,14 @@ return \\phpinfo();
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'homesection.create' => 
+    'newssection.create' => 
     array (
       'methods' => 
       array (
         0 => 'GET',
         1 => 'HEAD',
       ),
-      'uri' => 'admin/homesection/create',
+      'uri' => 'admin/newssection/create',
       'action' => 
       array (
         'middleware' => 
@@ -4815,9 +5493,9 @@ return \\phpinfo();
           1 => 'auth',
           2 => 'checkrole',
         ),
-        'as' => 'homesection.create',
-        'uses' => 'App\\Http\\Controllers\\admin\\frontend\\HomeSectionController@create',
-        'controller' => 'App\\Http\\Controllers\\admin\\frontend\\HomeSectionController@create',
+        'as' => 'newssection.create',
+        'uses' => 'App\\Http\\Controllers\\admin\\frontend\\HomeNewsSectionController@create',
+        'controller' => 'App\\Http\\Controllers\\admin\\frontend\\HomeNewsSectionController@create',
         'namespace' => NULL,
         'prefix' => '/admin',
         'where' => 
@@ -4838,13 +5516,13 @@ return \\phpinfo();
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'homesection.store' => 
+    'newssection.store' => 
     array (
       'methods' => 
       array (
         0 => 'POST',
       ),
-      'uri' => 'admin/homesection',
+      'uri' => 'admin/newssection',
       'action' => 
       array (
         'middleware' => 
@@ -4853,9 +5531,9 @@ return \\phpinfo();
           1 => 'auth',
           2 => 'checkrole',
         ),
-        'as' => 'homesection.store',
-        'uses' => 'App\\Http\\Controllers\\admin\\frontend\\HomeSectionController@store',
-        'controller' => 'App\\Http\\Controllers\\admin\\frontend\\HomeSectionController@store',
+        'as' => 'newssection.store',
+        'uses' => 'App\\Http\\Controllers\\admin\\frontend\\HomeNewsSectionController@store',
+        'controller' => 'App\\Http\\Controllers\\admin\\frontend\\HomeNewsSectionController@store',
         'namespace' => NULL,
         'prefix' => '/admin',
         'where' => 
@@ -4876,14 +5554,14 @@ return \\phpinfo();
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'homesection.show' => 
+    'newssection.show' => 
     array (
       'methods' => 
       array (
         0 => 'GET',
         1 => 'HEAD',
       ),
-      'uri' => 'admin/homesection/{homesection}',
+      'uri' => 'admin/newssection/{newssection}',
       'action' => 
       array (
         'middleware' => 
@@ -4892,9 +5570,9 @@ return \\phpinfo();
           1 => 'auth',
           2 => 'checkrole',
         ),
-        'as' => 'homesection.show',
-        'uses' => 'App\\Http\\Controllers\\admin\\frontend\\HomeSectionController@show',
-        'controller' => 'App\\Http\\Controllers\\admin\\frontend\\HomeSectionController@show',
+        'as' => 'newssection.show',
+        'uses' => 'App\\Http\\Controllers\\admin\\frontend\\HomeNewsSectionController@show',
+        'controller' => 'App\\Http\\Controllers\\admin\\frontend\\HomeNewsSectionController@show',
         'namespace' => NULL,
         'prefix' => '/admin',
         'where' => 
@@ -4915,14 +5593,14 @@ return \\phpinfo();
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'homesection.edit' => 
+    'newssection.edit' => 
     array (
       'methods' => 
       array (
         0 => 'GET',
         1 => 'HEAD',
       ),
-      'uri' => 'admin/homesection/{homesection}/edit',
+      'uri' => 'admin/newssection/{newssection}/edit',
       'action' => 
       array (
         'middleware' => 
@@ -4931,9 +5609,9 @@ return \\phpinfo();
           1 => 'auth',
           2 => 'checkrole',
         ),
-        'as' => 'homesection.edit',
-        'uses' => 'App\\Http\\Controllers\\admin\\frontend\\HomeSectionController@edit',
-        'controller' => 'App\\Http\\Controllers\\admin\\frontend\\HomeSectionController@edit',
+        'as' => 'newssection.edit',
+        'uses' => 'App\\Http\\Controllers\\admin\\frontend\\HomeNewsSectionController@edit',
+        'controller' => 'App\\Http\\Controllers\\admin\\frontend\\HomeNewsSectionController@edit',
         'namespace' => NULL,
         'prefix' => '/admin',
         'where' => 
@@ -4954,14 +5632,14 @@ return \\phpinfo();
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'homesection.update' => 
+    'newssection.update' => 
     array (
       'methods' => 
       array (
         0 => 'PUT',
         1 => 'PATCH',
       ),
-      'uri' => 'admin/homesection/{homesection}',
+      'uri' => 'admin/newssection/{newssection}',
       'action' => 
       array (
         'middleware' => 
@@ -4970,9 +5648,9 @@ return \\phpinfo();
           1 => 'auth',
           2 => 'checkrole',
         ),
-        'as' => 'homesection.update',
-        'uses' => 'App\\Http\\Controllers\\admin\\frontend\\HomeSectionController@update',
-        'controller' => 'App\\Http\\Controllers\\admin\\frontend\\HomeSectionController@update',
+        'as' => 'newssection.update',
+        'uses' => 'App\\Http\\Controllers\\admin\\frontend\\HomeNewsSectionController@update',
+        'controller' => 'App\\Http\\Controllers\\admin\\frontend\\HomeNewsSectionController@update',
         'namespace' => NULL,
         'prefix' => '/admin',
         'where' => 
@@ -4993,13 +5671,13 @@ return \\phpinfo();
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'homesection.destroy' => 
+    'newssection.destroy' => 
     array (
       'methods' => 
       array (
         0 => 'DELETE',
       ),
-      'uri' => 'admin/homesection/{homesection}',
+      'uri' => 'admin/newssection/{newssection}',
       'action' => 
       array (
         'middleware' => 
@@ -5008,9 +5686,822 @@ return \\phpinfo();
           1 => 'auth',
           2 => 'checkrole',
         ),
-        'as' => 'homesection.destroy',
-        'uses' => 'App\\Http\\Controllers\\admin\\frontend\\HomeSectionController@destroy',
-        'controller' => 'App\\Http\\Controllers\\admin\\frontend\\HomeSectionController@destroy',
+        'as' => 'newssection.destroy',
+        'uses' => 'App\\Http\\Controllers\\admin\\frontend\\HomeNewsSectionController@destroy',
+        'controller' => 'App\\Http\\Controllers\\admin\\frontend\\HomeNewsSectionController@destroy',
+        'namespace' => NULL,
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'recentcontent.index' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/recentcontent',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'checkrole',
+        ),
+        'as' => 'recentcontent.index',
+        'uses' => 'App\\Http\\Controllers\\admin\\frontend\\RecentContentController@index',
+        'controller' => 'App\\Http\\Controllers\\admin\\frontend\\RecentContentController@index',
+        'namespace' => NULL,
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'recentcontent.create' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/recentcontent/create',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'checkrole',
+        ),
+        'as' => 'recentcontent.create',
+        'uses' => 'App\\Http\\Controllers\\admin\\frontend\\RecentContentController@create',
+        'controller' => 'App\\Http\\Controllers\\admin\\frontend\\RecentContentController@create',
+        'namespace' => NULL,
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'recentcontent.store' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'admin/recentcontent',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'checkrole',
+        ),
+        'as' => 'recentcontent.store',
+        'uses' => 'App\\Http\\Controllers\\admin\\frontend\\RecentContentController@store',
+        'controller' => 'App\\Http\\Controllers\\admin\\frontend\\RecentContentController@store',
+        'namespace' => NULL,
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'recentcontent.show' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/recentcontent/{recentcontent}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'checkrole',
+        ),
+        'as' => 'recentcontent.show',
+        'uses' => 'App\\Http\\Controllers\\admin\\frontend\\RecentContentController@show',
+        'controller' => 'App\\Http\\Controllers\\admin\\frontend\\RecentContentController@show',
+        'namespace' => NULL,
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'recentcontent.edit' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/recentcontent/{recentcontent}/edit',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'checkrole',
+        ),
+        'as' => 'recentcontent.edit',
+        'uses' => 'App\\Http\\Controllers\\admin\\frontend\\RecentContentController@edit',
+        'controller' => 'App\\Http\\Controllers\\admin\\frontend\\RecentContentController@edit',
+        'namespace' => NULL,
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'recentcontent.update' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'PUT',
+        1 => 'PATCH',
+      ),
+      'uri' => 'admin/recentcontent/{recentcontent}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'checkrole',
+        ),
+        'as' => 'recentcontent.update',
+        'uses' => 'App\\Http\\Controllers\\admin\\frontend\\RecentContentController@update',
+        'controller' => 'App\\Http\\Controllers\\admin\\frontend\\RecentContentController@update',
+        'namespace' => NULL,
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'recentcontent.destroy' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'DELETE',
+      ),
+      'uri' => 'admin/recentcontent/{recentcontent}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'checkrole',
+        ),
+        'as' => 'recentcontent.destroy',
+        'uses' => 'App\\Http\\Controllers\\admin\\frontend\\RecentContentController@destroy',
+        'controller' => 'App\\Http\\Controllers\\admin\\frontend\\RecentContentController@destroy',
+        'namespace' => NULL,
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'officialpartner.index' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/officialpartner',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'checkrole',
+        ),
+        'as' => 'officialpartner.index',
+        'uses' => 'App\\Http\\Controllers\\admin\\frontend\\OfficialPartnerSectionController@index',
+        'controller' => 'App\\Http\\Controllers\\admin\\frontend\\OfficialPartnerSectionController@index',
+        'namespace' => NULL,
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'officialpartner.create' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/officialpartner/create',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'checkrole',
+        ),
+        'as' => 'officialpartner.create',
+        'uses' => 'App\\Http\\Controllers\\admin\\frontend\\OfficialPartnerSectionController@create',
+        'controller' => 'App\\Http\\Controllers\\admin\\frontend\\OfficialPartnerSectionController@create',
+        'namespace' => NULL,
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'officialpartner.store' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'admin/officialpartner',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'checkrole',
+        ),
+        'as' => 'officialpartner.store',
+        'uses' => 'App\\Http\\Controllers\\admin\\frontend\\OfficialPartnerSectionController@store',
+        'controller' => 'App\\Http\\Controllers\\admin\\frontend\\OfficialPartnerSectionController@store',
+        'namespace' => NULL,
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'officialpartner.show' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/officialpartner/{officialpartner}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'checkrole',
+        ),
+        'as' => 'officialpartner.show',
+        'uses' => 'App\\Http\\Controllers\\admin\\frontend\\OfficialPartnerSectionController@show',
+        'controller' => 'App\\Http\\Controllers\\admin\\frontend\\OfficialPartnerSectionController@show',
+        'namespace' => NULL,
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'officialpartner.edit' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/officialpartner/{officialpartner}/edit',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'checkrole',
+        ),
+        'as' => 'officialpartner.edit',
+        'uses' => 'App\\Http\\Controllers\\admin\\frontend\\OfficialPartnerSectionController@edit',
+        'controller' => 'App\\Http\\Controllers\\admin\\frontend\\OfficialPartnerSectionController@edit',
+        'namespace' => NULL,
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'officialpartner.update' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'PUT',
+        1 => 'PATCH',
+      ),
+      'uri' => 'admin/officialpartner/{officialpartner}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'checkrole',
+        ),
+        'as' => 'officialpartner.update',
+        'uses' => 'App\\Http\\Controllers\\admin\\frontend\\OfficialPartnerSectionController@update',
+        'controller' => 'App\\Http\\Controllers\\admin\\frontend\\OfficialPartnerSectionController@update',
+        'namespace' => NULL,
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'officialpartner.destroy' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'DELETE',
+      ),
+      'uri' => 'admin/officialpartner/{officialpartner}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'checkrole',
+        ),
+        'as' => 'officialpartner.destroy',
+        'uses' => 'App\\Http\\Controllers\\admin\\frontend\\OfficialPartnerSectionController@destroy',
+        'controller' => 'App\\Http\\Controllers\\admin\\frontend\\OfficialPartnerSectionController@destroy',
+        'namespace' => NULL,
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'manageblog.index' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/manageblog',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'checkrole',
+        ),
+        'as' => 'manageblog.index',
+        'uses' => 'App\\Http\\Controllers\\admin\\frontend\\BlogController@index',
+        'controller' => 'App\\Http\\Controllers\\admin\\frontend\\BlogController@index',
+        'namespace' => NULL,
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'manageblog.create' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/manageblog/create',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'checkrole',
+        ),
+        'as' => 'manageblog.create',
+        'uses' => 'App\\Http\\Controllers\\admin\\frontend\\BlogController@create',
+        'controller' => 'App\\Http\\Controllers\\admin\\frontend\\BlogController@create',
+        'namespace' => NULL,
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'manageblog.store' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'admin/manageblog',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'checkrole',
+        ),
+        'as' => 'manageblog.store',
+        'uses' => 'App\\Http\\Controllers\\admin\\frontend\\BlogController@store',
+        'controller' => 'App\\Http\\Controllers\\admin\\frontend\\BlogController@store',
+        'namespace' => NULL,
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'manageblog.show' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/manageblog/{manageblog}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'checkrole',
+        ),
+        'as' => 'manageblog.show',
+        'uses' => 'App\\Http\\Controllers\\admin\\frontend\\BlogController@show',
+        'controller' => 'App\\Http\\Controllers\\admin\\frontend\\BlogController@show',
+        'namespace' => NULL,
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'manageblog.edit' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/manageblog/{manageblog}/edit',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'checkrole',
+        ),
+        'as' => 'manageblog.edit',
+        'uses' => 'App\\Http\\Controllers\\admin\\frontend\\BlogController@edit',
+        'controller' => 'App\\Http\\Controllers\\admin\\frontend\\BlogController@edit',
+        'namespace' => NULL,
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'manageblog.update' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'PUT',
+        1 => 'PATCH',
+      ),
+      'uri' => 'admin/manageblog/{manageblog}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'checkrole',
+        ),
+        'as' => 'manageblog.update',
+        'uses' => 'App\\Http\\Controllers\\admin\\frontend\\BlogController@update',
+        'controller' => 'App\\Http\\Controllers\\admin\\frontend\\BlogController@update',
+        'namespace' => NULL,
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'manageblog.destroy' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'DELETE',
+      ),
+      'uri' => 'admin/manageblog/{manageblog}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'checkrole',
+        ),
+        'as' => 'manageblog.destroy',
+        'uses' => 'App\\Http\\Controllers\\admin\\frontend\\BlogController@destroy',
+        'controller' => 'App\\Http\\Controllers\\admin\\frontend\\BlogController@destroy',
         'namespace' => NULL,
         'prefix' => '/admin',
         'where' => 
@@ -8281,7 +9772,7 @@ return \\phpinfo();
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::OHNG9gveJ6f4BojC' => 
+    'generated::GZFzeO9XArIFlIDu' => 
     array (
       'methods' => 
       array (
@@ -8295,15 +9786,15 @@ return \\phpinfo();
         array (
           0 => 'web',
         ),
-        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":282:{@/MyUDAOD2ELUbDXm6wxWxq5egGKVkxmg1p2RKiD4yKI=.a:5:{s:3:"use";a:0:{}s:8:"function";s:70:"function(){
+        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":282:{@r1adRDPdlwKDd8/6LJuUmmh8fBZFUbmHsYImomR0+JE=.a:5:{s:3:"use";a:0:{}s:8:"function";s:70:"function(){
     return \\view(\'email.adminNotifyDirectorRegister\');
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"0000000018988cea0000000057151219";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000103fc5040000000040bf7712";}}',
         'namespace' => NULL,
         'prefix' => NULL,
         'where' => 
         array (
         ),
-        'as' => 'generated::OHNG9gveJ6f4BojC',
+        'as' => 'generated::GZFzeO9XArIFlIDu',
       ),
       'fallback' => false,
       'defaults' => 
@@ -8356,7 +9847,7 @@ return \\phpinfo();
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::C1iQHo57Z3eG2MMu' => 
+    'generated::RCJQgA9zzuhK0XiD' => 
     array (
       'methods' => 
       array (
@@ -8376,7 +9867,7 @@ return \\phpinfo();
         'where' => 
         array (
         ),
-        'as' => 'generated::C1iQHo57Z3eG2MMu',
+        'as' => 'generated::RCJQgA9zzuhK0XiD',
       ),
       'fallback' => false,
       'defaults' => 
@@ -8465,7 +9956,7 @@ return \\phpinfo();
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::g3foYxxfY3Rl1VUm' => 
+    'generated::p52brzjCVOTFYmwS' => 
     array (
       'methods' => 
       array (
@@ -8485,7 +9976,7 @@ return \\phpinfo();
         'where' => 
         array (
         ),
-        'as' => 'generated::g3foYxxfY3Rl1VUm',
+        'as' => 'generated::p52brzjCVOTFYmwS',
       ),
       'fallback' => false,
       'defaults' => 
@@ -8684,7 +10175,7 @@ return \\phpinfo();
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::SnK8BWE2VEVwknSs' => 
+    'generated::tLRjOkflaBKjT4Xh' => 
     array (
       'methods' => 
       array (
@@ -8704,7 +10195,7 @@ return \\phpinfo();
         'where' => 
         array (
         ),
-        'as' => 'generated::SnK8BWE2VEVwknSs',
+        'as' => 'generated::tLRjOkflaBKjT4Xh',
       ),
       'fallback' => false,
       'defaults' => 

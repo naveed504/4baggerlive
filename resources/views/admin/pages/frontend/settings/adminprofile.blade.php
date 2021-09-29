@@ -61,43 +61,7 @@
                     
                    
                 </div>
-                <div class="row">
-                    <div class="col-sm-10 mx-auto border p-0">
-                        <p class="text-light text-uppercase text-center p-0 bg-dark m-0 heading_para py-2">
-                        <strong>Manage  Contact Information </strong>
-                        </p>                   
-                        <div class="col-sm-12 mt-2 p-4">
-                            <div class="row mb-2">
-                                <div class="col-sm-6">
-                                    <label class="label__wrapper required">City *</label>
-                                    <input type="text" name="city" class="form-control input__box--wrapper" value="{{ $generalSetting->city ?? ''}}" >
-                                    <input type="hidden" name="general_id" value={{ $generalSetting->id  ?? ''}}>
-                                </div>
-                                <div class="col-sm-6">
-                                    <label class="label__wrapper required">Street *</label>
-                                    <input type="text" name="street" class="form-control input__box--wrapper" value="{{ $generalSetting->street ?? ''}}">
-                                </div>
-                                <div class="col-sm-6">
-                                    <label class="label__wrapper required">Primary Email *</label>
-                                    <input type="text" name="primary_email" class="form-control input__box--wrapper" value="{{ $generalSetting->primary_email ?? ''}}" >
-                                </div>
-                                <div class="col-sm-6">
-                                    <label class="label__wrapper required">Seconday Email</label> 
-                                    <input type="text" name="secondary_email" class="form-control input__box--wrapper" value="{{ $generalSetting->secondary_email ?? ''}}">
-                                </div>
-                                <div class="col-sm-6">
-                                    <label class="label__wrapper required">Primary PhoneNo *</label>
-                                    <input type="text" name="primary_phoneno" class="form-control input__box--wrapper" value="{{ $generalSetting->primary_phoneno ?? ''}}" >
-                                </div>
-                                <div class="col-sm-6">
-                                    <label class="label__wrapper required">Seconday PhoneNo</label>
-                                    <input type="text" name="secondary_phoneno" class="form-control input__box--wrapper" value="{{ $generalSetting->secondary_phoneno ?? ''}}">
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
+               
 
                 <div class="col-sm-10 mx-auto p-0 mt-3 text-center">
                     <button class="btn btn__next" type="submit">Update Profile </button>

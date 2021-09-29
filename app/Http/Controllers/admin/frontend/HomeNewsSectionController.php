@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin\frontend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\General\ManageNews;
 
 class HomeNewsSectionController extends Controller
 {
@@ -14,7 +15,7 @@ class HomeNewsSectionController extends Controller
      */
     public function index()
     {
-        
+        // return view('admin.pages.frontend.newssection.show');
     
     }
 
@@ -25,7 +26,9 @@ class HomeNewsSectionController extends Controller
      */
     public function create()
     {
-        //
+        $news = ManageNews::first();
+        return view('admin.pages.frontend.newssection.create',compact('news'));
+        
     }
 
     /**
@@ -36,7 +39,26 @@ class HomeNewsSectionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try{
+            $request->validate([
+                'heading_one' =>  'required',
+                'heading_two' =>  'required',
+                'content' =>  'required',
+            ]);
+            $newsid =ManageNews::where('id', '=',$request->news_id)->first();
+            if(empty($newsid)) {
+                $this->createNews($request);
+            } else {
+                $this->updateNews($request);
+            }  
+
+        } catch (Exception $e) {
+            dd($e->getMessage());
+        }
+        
+
+        parent::successMessage("Home News Updated Successfully");
+        return redirect()->back();
     }
 
     /**
@@ -82,5 +104,27 @@ class HomeNewsSectionController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function createNews($request)
+    {
+        ManageNews::create([
+            'heading_one' => $request->heading_one,
+            'heading_two' => $request->heading_two,
+            'content' => $request->content,
+        ]);
+
+    }
+
+    public function updateNews($request)
+    {
+       $newsidresult =  ManageNews::find($request->news_id);
+       
+        $newsidresult->update([
+            'heading_one' => $request->heading_one,
+            'heading_two' => $request->heading_two,
+            'content' => $request->content,
+
+        ]);
     }
 }

@@ -72,19 +72,20 @@
               Manage Site Setting
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item admindrop" href="{{ route('adminslider.index') }}">Home Slider</a>
+              
+              <a class="dropdown-item" href="{{ route('generalsetting') }}">General Setting</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="{{ route('newssection.index') }}">Home News Section</a>
+              <a class="dropdown-item admindrop" href="{{ route('adminslider.index') }}"> Slider Section</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="{{ route('manageblog.index') }}">Blog Section</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="{{ route('newssection.create') }}"> News Section</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="{{ route('recentcontent.index') }}"> Recent Content Section</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="{{ route('officialpartner.index') }}">Official Partner Section</a>
             </div>
         </li>
-
-          {{-- <a class="nav-link" href="{{ route('homesection.index') }}">
-            <div class="sb-nav-link-icon">
-             <i class="far fa-calendar-alt"></i>
-            </div>
-            Manage Home Section
-          </a> --}}
-          
           <a class="nav-link" href="#">
             <div class="sb-nav-link-icon">
              <i class="far fa-calendar-alt"></i>
