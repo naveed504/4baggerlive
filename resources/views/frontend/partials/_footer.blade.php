@@ -1,29 +1,32 @@
 <footer>
+    @php
+    $footerResults = Helpers::getFooterData()
+    @endphp   
     <div class="row w-100 m-0">
         <div class="col-md-5 p-0">
             <div class="footer-left-sec">
                 <div class="foote-left-inner">
-                    <h2>{{ $generalSetting->mission_title ?? ''}}</h2>
-                    <p>{{ $generalSetting->mission_statment ?? ''}} </p>
+                    <h2>{{ $footerResults['generalSetting']->mission_title ?? ''}}</h2>
+                    <p>{{ $footerResults['generalSetting']->mission_statment ?? ''}} </p>
                     <ul class="social-list">
                         <li>
-                            <a href="{{ $generalSetting->facebook ?? '' }}">
+                            <a href="{{ $footerResults['generalSetting']->facebook ?? '' }}">
                                 <span><i class="fa fa-facebook" aria-hidden="true"></i></span>
                             </a>
                         </li>
                         <li>
-                            <a href="{{ $generalSetting->twitter ?? ''}}">
+                            <a href="{{ $footerResults['generalSetting']->twitter ?? ''}}">
                                 <span><i class="fa fa-twitter" aria-hidden="true"></i></span>
                             </a>
                         </li>
                         <li>
-                            <a href="{{ $generalSetting->instagram ?? ''}}">
+                            <a href="{{ $footerResults['generalSetting']->instagram ?? ''}}">
                                 <span><i class="fa fa-instagram" aria-hidden="true"></i></span>
                             </a>
                         </li>
                        
                         <li>
-                            <a href="{{ $generalSetting->google ?? ''}}">
+                            <a href="{{ $footerResults['generalSetting']->google ?? ''}}">
                                 <span><i class="fa fa-google-plus" aria-hidden="true"></i></span>
                             </a>
                         </li>
@@ -33,10 +36,11 @@
             </div>
 
         </div>
+        
         <div class="col-md-7 p-0">
             <div class="footer-right">
                 <ul>  
-                    @forelse($blogs as $blog)                  
+                    @forelse($footerResults['blogs'] as $blog)                  
                     <li><a href="{{ route('blog', $blog->slug ?? '') }}">{{ $blog->title ??''}}</a></li>  
                     @empty
                     <li>No Result Found</li>   

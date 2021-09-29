@@ -27,7 +27,7 @@
                 <img src="{{ asset('admin/allimages/'. $officialpartner->image ) }}" class="card-img-top" style="height:220px;" />
                 <div class="card-body">
                   <h5 class="card-title border-bottom pb-4">{{ $officialpartner->title }}</h5>
-                  <p class="card-text pb-4 border-bottom">{!! $officialpartner->detail  !!}  </p>
+                  <p class="card-text pb-4 border-bottom">{{ Str::limit(strip_tags($officialpartner->detail), 180)  }}  </p>
                     <p class="text-center pt-3">{{ date('M-d-Y ', strtotime($officialpartner->created_at)); }}</p>
                 </div>
               </div>

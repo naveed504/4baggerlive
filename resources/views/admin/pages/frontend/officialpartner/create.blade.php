@@ -41,7 +41,7 @@
                             <div class="row mb-2">
                                 <div class="col-sm-12">
                                     <label class="label__wrapper required">Content</label>
-                                    <textarea  name="detail" class="form-control input__box--wrapper" id="" ></textarea>
+                                    <textarea  name="detail" class="form-control input__box--wrapper" id="summernote" ></textarea>
                                     @error('detail')
                                     <div class="error text-danger">{{ $message }}</div>
                                     @enderror

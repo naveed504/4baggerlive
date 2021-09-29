@@ -19,11 +19,9 @@
                                 <div class="col-sm-6">
                                     <label class="label__wrapper required">Title </label>
                                     <input type="text" name="title" class="form-control input__box--wrapper"  >
-                                    @if($errors->has('title'))
-                                        <span class="invalid-feedback">
-                                            <strong>{{ $errors->first('title') }}</strong>
-                                        </span>
-                                    @endif
+                                    @error('title')
+                                    <div class="error text-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-row float-right" style="margin-top:30px;">
@@ -34,11 +32,9 @@
                                             
                                         </div>
                                     </div>
-                                    @if($errors->has('image'))
-                                            <span class="invalid-feedback">
-                                                <strong>{{ $errors->first('image') }}</strong>
-                                            </span>
-                                            @endif
+                                    @error('image')
+                                    <div class="error text-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                
                             </div>
@@ -47,11 +43,9 @@
                                 <div class="col-sm-12">
                                     <label class="label__wrapper required">Content</label>
                                     <textarea  name="detail" class="form-control input__box--wrapper" id="summernote" ></textarea>
-                                    @if($errors->has('detail'))
-                                        <span class="invalid-feedback">
-                                            <strong>{{ $errors->first('detail') }}</strong>
-                                        </span>
-                                    @endif
+                                    @error('detail')
+                                    <div class="error text-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                
                             </div>

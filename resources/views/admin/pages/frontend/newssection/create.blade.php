@@ -30,7 +30,6 @@
                                     @enderror
                                 </div>
                             </div>
-
                             <div class="row mb-2">
                                 <div class="col-sm-12">
                                     <label class="label__wrapper required">Content</label>

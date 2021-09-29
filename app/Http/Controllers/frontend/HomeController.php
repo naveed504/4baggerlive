@@ -28,32 +28,31 @@ class HomeController extends Controller
 
     public function index()
     {
-        $blogs = ManageBlog::all();
+       
         $latestNews = ManageNews::first();
         $officalpartners = OfficialPartner::all();
-        $generalSetting = GeneralSetting::first();
+       
         $recentsections = RecentContentSection::all();
         $sliders =Slider::all();
         return !(Auth::check())
-            ? view('frontend.pages.home', compact('sliders','recentsections','officalpartners','generalSetting','blogs','latestNews'))
+            ? 
+            view('frontend.pages.home', compact('sliders','recentsections','officalpartners','latestNews'))
             : redirect()->back();
     } 
 
     public function showBlog($blogslug)
     {
         $blogdetail = ManageBlog::where('slug', '=', $blogslug)->first();
-        $generalSetting = GeneralSetting::first();
-        $blogs = ManageBlog::all();
-        return view('frontend.pages.blogdetail', compact('blogdetail','generalSetting','blogs'));
+      
+        return view('frontend.pages.blogdetail', compact('blogdetail'));
 
     }
 
     public function recentContentDetail($id)
     {
         $detail = RecentContentSection::find($id);
-        $generalSetting = GeneralSetting::first();
-        $blogs = ManageBlog::all();
-        return view('frontend.pages.recentcontentdetail', compact('detail','generalSetting','blogs'));
+       
+        return view('frontend.pages.recentcontentdetail', compact('detail'));
         
     }
 
@@ -64,18 +63,20 @@ class HomeController extends Controller
 
     public function contactUs()
     {
-        $setting =GeneralSetting::first();
-        return view('frontend.pages.contactus',compact('setting'));
+        
+       
+        return view('frontend.pages.contactus');
     }
 
     public function rulesPolicy()
     {
+      
         return view('frontend.pages.rulespolicy');
     }
 
     public function aboutUs()
     {
-        
+       
         return view('frontend.pages.aboutus');
     }
 }
