@@ -22,7 +22,7 @@
             @forelse($recentsections as $recentsection)
             <div class="col-lg-3 col-md-4 col_leftspace">
                 <div class="inner__wrapper--one">
-                    <img src="{{ asset('admin/allimages/'.$recentsection->image) }}" class="img-fluid w-100" alt="">
+                    <img src="{{ asset('admin/allimages/'.$recentsection->image) }}" class="img-fluid w-100" alt="" style="height:200px;">
                     <div class="text__overly__inner">
                       <a href="{{ route('recentcontentdetail', $recentsection->id) }}" class="nav-link"><p class="text_ovelay">{{ $recentsection->title }}: <br> {{ date('M-d-Y', strtotime($recentsection->created_at)) }} </p></a>
                     </div>
@@ -58,10 +58,10 @@
         <div class="row">
             @forelse($officalpartners as $officalpartner)
             <div class="col-lg-4 col-md-4 col__padding-5">
-                <img src="{{ asset('admin/allimages/'. $officalpartner->image) }}" class="img-fluid w-100" alt="">
+                <img src="{{ asset('admin/allimages/'. $officalpartner->image) }}" class="img-fluid w-100" alt="" style="height:250px">
                 <div class="margin__wrapper-one">
                     <h3 class="heading__wrapper-four">{{ $officalpartner->title }} </h3>
-                    <p class="label__wrapper--four">{!! $officalpartner->detail !!}</p>
+                    <p class="label__wrapper--four">{{ Str::limit(strip_tags($officalpartner->detail),300) }}</p>
                 </div>
             </div>
             @empty 

@@ -7,6 +7,8 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+use App\Models\General\GeneralSetting;
+use App\Models\General\ManageBlog;
 use Auth;
 use File;
 
@@ -279,6 +281,15 @@ class GenericHelperClass
         if(!File::isDirectory($imgpath)){
             File::makeDirectory($imgpath, 0777, true, true);
         } 
+    }
+
+
+
+    public function getFooterData()
+    {
+        $data['generalSetting'] = GeneralSetting::first();
+        $data['blogs'] = ManageBlog::all();
+        return $data;
     }
 
 

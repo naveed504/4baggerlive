@@ -26,9 +26,9 @@
                 @forelse($sliders as $slider)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
-                    <td>{{ $slider->title_one }} &nbsp;&nbsp;&nbsp; {{ $slider->title_two }}</td>
+                    <td>{{ $slider->title_one }} <br> {{ $slider->title_two }}</td>
                     <td><img src="{{ asset('admin/slider/'. $slider->cover_photo ) }}" class="img img-responsive rounded "  style="height:70px; width:70px;"></td>
-                    <td>{{ $slider->content }}</td>
+                    <td>{{ Str::limit($slider->content, 100) }}</td>
                     <td class="padding-1">
                         <a href="{{ route('adminslider.edit', $slider->id) }}" class="text-decoration-none pr-1">
                            <i class="fas fa-edit text-primary"></i>
