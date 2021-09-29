@@ -12,8 +12,7 @@ use App\Mail\DirectorRegistrationMail;
 use App\Mail\AdminNotifyDirectorRegistrationMail;
 use App\Mail\CoachRegistrationMail;
 use App\Models\User;
-use Mail;
-
+use Illuminate\Support\Facades\Mail;
 
 class RegisterationJob implements ShouldQueue
 {
@@ -27,8 +26,6 @@ class RegisterationJob implements ShouldQueue
     public function __construct($details)
     {
         $this->details = $details;
-       
-       
     }
 
     /**
@@ -38,18 +35,16 @@ class RegisterationJob implements ShouldQueue
      */
     public function handle()
     {
-        if($this->details['type'] == 2){
-            $admin = User::where('type','=',1)->first();
+        if ($this->details['type'] == 2) {
+            $admin = User::where('type', '=', 1)->first();
             $adminEmail = new AdminNotifyDirectorRegistrationMail($admin);
-            Mail::to($admin['email'])->send($adminEmail); 
+            Mail::to($admin['email'])->send($adminEmail);
 
             $directorEmail = new DirectorRegistrationMail($this->details);
-            Mail::to($this->details['email'])->send($directorEmail);             
+            Mail::to($this->details['email'])->send($directorEmail);
         } else {
             $coachEmail = new CoachRegistrationMail($this->details);
             Mail::to($this->details['email'])->send($coachEmail);
         }
-        
-
     }
 }
