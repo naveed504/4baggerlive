@@ -30,6 +30,7 @@
                             <th>#</th>
                             <th>Event Name</th>
                             <th>Event Logo</th>
+                            <th>Age Group</th>
                             <th>Start Date</th>
                             <th>End Date</th>
                             <th>Event Fee</th>
@@ -43,6 +44,17 @@
                                 <td>{{ $eventdata->event_name }}</td>
                                 <td>
                                     <img src="{{ asset('images/event/'.$eventdata->event_logo) }}" class="rounded img-responsive dir-logo-img" alt="event logo image"  >
+                                </td>
+                                @php
+                                $ageGroups=json_decode($eventdata->age_group);       
+                                @endphp
+                                <td>
+                                    @forelse($ageGroups as $agegroup)
+                                   
+                                    <span class="badge badge-pill badge-secondary" style="width:50px;">{{ $agegroup }}</span> <br>
+                                    @empty
+                                    <span>No age group<span>
+                                        @endforelse
                                 </td>
                                 <td>{{ $eventdata->start_date }}</td>
                                 <td>{{ $eventdata->end_date }}</td>

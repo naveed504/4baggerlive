@@ -29,7 +29,7 @@
                     <div class="col-sm-6">
                         <h6>{{ $team->team_name }}, {{ $team->division }}</h6>
                         <p>{{ $team->team_city }}, {{ $team->state->state_name }}</p>
-                        <p>{{ $team->age_group }}</p>
+                        <p><b>Age Group :</b> {{ $team->age_group }}</p>
                     </div>
                     <div class="col-sm-2">
                         <input   type="checkbox" data-teamId="{{ $team->id}}"  name="teamId[]"  value="{{ $team->id }}" class="w-50 h-50 selectTeam" id="{{ $team->id }}" onclick="CalculateAmount(this)">

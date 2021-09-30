@@ -30,6 +30,9 @@
 @endsection
 @section('scripts')
     <script>
+        
+         $('#js-example-basic-multiple').select2();
+  
         let teamState = @php echo "'".$event->event_state."'" @endphp;
         let bats = @php  echo "'".$event->allowed_bats."'"  @endphp;
     </script>
