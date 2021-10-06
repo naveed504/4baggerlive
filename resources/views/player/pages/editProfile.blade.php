@@ -58,7 +58,7 @@
                                             <div class="form-row">
                                                 <div class="form-group col-md-4 col__mr-right">
                                                     <label class="label__wrapper required" for="">City</label>
-                                                    <input type="text" class="form-control input__box--wrapper"  placeholder="" value="{{ Auth::user()->player['p_city'] }}" name="p_city" required>
+                                                    <input type="text" class="form-control input__box--wrapper"  placeholder="" value="{{ Auth::user()->player['p_city'] ?? '' }}" name="p_city" required>
                                                     @if($errors->has('p_city'))
                                                         <span class="invalid-feedback">
                                                             <strong>{{ $errors->first('p_city') }}</strong>
@@ -66,7 +66,7 @@
                                                     @endif
                                                 </div>
                                                 @php
-                                                $p_state = Auth::user()->player['p_state']
+                                                $p_state = Auth::user()->player['p_state'] ?? '';
 
                                                 @endphp
 
@@ -75,7 +75,7 @@
                                                     <select  class="form-control  input__box--wrapper down-icons" name="p_state" id="team_state" required>
                                                         <option selected="" disabled="" value="">Select State</option>
                                                         @foreach($states as $state)
-                                                            <option value="{{ $state->id }}" @if(Auth::user()->player->state_id == $state->id) selected @endif>{{ $state->state_name }}</option>
+                                                            <option value="{{ $state->id }}" @if(Auth::user()->player['state_id'] ?? '' == $state->id) selected @endif>{{ $state->state_name }}</option>
                                                         @endforeach
                                                     </select>
                                                     @if($errors->has('p_state'))
@@ -86,7 +86,7 @@
                                                 </div>
                                                 <div class="form-group col-md-4 col__mr-right">
                                                     <label class="label__wrapper required" for="">Zip Code</label>
-                                                    <input type="number" class="form-control input__box--wrapper"  placeholder="" value="{{ Auth::user()->player['zip_code']  }}" name="zip_code" required>
+                                                    <input type="number" class="form-control input__box--wrapper"  placeholder="" value="{{ Auth::user()->player['zip_code'] ?? ''  }}" name="zip_code" required>
                                                     @if($errors->has('zip_code'))
                                                         <span class="invalid-feedback">
                                                             <strong>{{ $errors->first('zip_code') }}</strong>
@@ -97,7 +97,7 @@
                                             <div class="form-row">
                                                 <div class="form-group col-md-6 col__mr-right">
                                                     <label class="label__wrapper " for="">High School Name (if applicable) </label>
-                                                    <input type="text" class="form-control input__box--wrapper"  placeholder="" value="{{ Auth::user()->player['school_name'] }}" name="school" >
+                                                    <input type="text" class="form-control input__box--wrapper"  placeholder="" value="{{ Auth::user()->player['school_name'] ?? '' }}" name="school" >
                                                     @if($errors->has('school'))
                                                         <span class="invalid-feedback">
                                                             <strong>{{ $errors->first('school') }}</strong>
@@ -123,7 +123,7 @@
                                                             <select class="form-control  input__box--wrapper down-icons" name="month">
                                                                 <option selected="" value="" disabled="">-- Month --</option>
                                                                 @for($i = 1; $i < 13; $i++ )
-                                                                    <option value="{{ $i }}"  @if((explode("-", Auth::user()->player->date_of_birth)[0]) == $i)
+                                                                    <option value="{{ $i }}"  @if((explode("-", Auth::user()->player['date_of_birth'] ?? '')[0]) == $i)
                                                                     selected
                                                                 @endif >{{ date("F", mktime(0, 0, 0, $i, 10)) }}</option>
                                                                 @endfor
@@ -142,7 +142,7 @@
 
                                                                 @for($i=1; $i< 32  ; $i++)
 
-                                                            <option value="{{$i}}"  @if((explode("-", Auth::user()->player->date_of_birth)[1]) == $i)
+                                                            <option value="{{$i}}"  @if((explode("-", Auth::user()->player['date_of_birth'] ?? '')[1] ?? '') == $i)
                                                                     selected
                                                                 @endif > {{$i}}  </option>
                                                             @endfor
@@ -162,7 +162,7 @@
                                                             <select  class="form-control  input__box--wrapper down-icons" name="year" required>
                                                                 <option disabled="" selected="" value="">year</option>
                                                                 @for($i=$lastYear; $i<$currentYear; $i++)
-                                                                <option value="{{$i}}"  @if((explode("-", Auth::user()->player->date_of_birth)[2]) == $i)
+                                                                <option value="{{$i}}"  @if((explode("-", Auth::user()->player['date_of_birth'] ?? '')[2] ?? '') == $i)
                                                                     selected
                                                                 @endif>{{$i}}</option>
                                                                 @endfor
@@ -186,7 +186,7 @@
                                                     <select  class="form-control  input__box--wrapper down-icons" name="graduation_year" required>
                                                         <option selected disabled="" value="">select year</option>
                                                         @for($i=$getyear; $i<$currentyear1; $i++)
-                                                            <option value="{{$i}}" @if(Auth::user()->player->graduation_year == $i) selected @endif>{{$i}}</option>
+                                                            <option value="{{$i}}" @if(Auth::user()->player['graduation_year'] ?? '' == $i) selected @endif>{{$i}}</option>
                                                         @endfor
                                                     </select>
                                                     @if($errors->has('graduation_year'))
@@ -197,7 +197,7 @@
                                                 </div>
                                                 <div class="form-group col-md-6 col__mr-right">
                                                     <label class="label__wrapper required" for="">College Commitment</label>
-                                                    <input type="text" class="form-control input__box--wrapper"  placeholder="Uncommitted" value="{{ Auth::user()->player['college_commitment'] }}" name="college_commit" >
+                                                    <input type="text" class="form-control input__box--wrapper"  placeholder="Uncommitted" value="{{ Auth::user()->player['college_commitment'] ?? '' }}" name="college_commit" >
                                                     @if($errors->has('college_commit'))
                                                         <span class="invalid-feedback">
                                                             <strong>{{ $errors->first('college_commit') }}</strong>
@@ -212,7 +212,7 @@
                                                     <select  class="form-control  input__box--wrapper down-icons" value="{{ old('height') }}" name="height" required>
                                                     @for($i = 4; $i < 7; $i++)
                                                             <option value="{{ $i }}"
-                                                                @if((explode(".", Auth::user()->player->player_height)[0]) == $i)
+                                                                @if((explode(".", Auth::user()->player['player_height'] ?? '')[0] ?? '') == $i)
                                                                     selected
                                                                 @endif
                                                                 >{{ $i }}"</option>
@@ -229,7 +229,7 @@
                                                     <select  class="form-control  input__box--wrapper down-icons" name="inches" required>
                                                        @for($i = 0; $i < 13; $i++)
                                                             <option value="{{ $i }}"
-                                                                @if((explode(".", Auth::user()->player->player_height)[1]) == $i)
+                                                                @if((explode(".", Auth::user()->player['player_height'] ?? '')[1] ?? '') == $i)
                                                                     selected
                                                                 @endif
                                                                 >{{ $i }}"</option>
@@ -246,7 +246,7 @@
                                                 <div class="form-group col-md-6 col__mr-right">
                                                     <label class="label__wrapper required" for="">Player Weight Fill In
                                                     </label>
-                                                    <input  class="form-control input__box--wrapper"  placeholder="" value=" {{ Auth::user()->player['player_weight'] }}" name="weight" required>
+                                                    <input  class="form-control input__box--wrapper"  placeholder="" value=" {{ Auth::user()->player['player_weight'] ?? '' }}" name="weight" required>
                                                     @if($errors->has('weight'))
                                                         <span class="invalid-feedback">
                                                             <strong>{{ $errors->first('weight') }}</strong>
@@ -257,9 +257,9 @@
                                                     <label class="label__wrapper" for="">Player Classification </label>
                                                     <select  class="form-control  input__box--wrapper down-icons" name="playerclassification" required>
                                                         <option selected="" disabled="" selected="" value="">Select Classification</option>
-                                                        <option value="AA"  @if(Auth::user()->player['player_classification'] == 'AA') selected @endif>AA</option>
+                                                        <option value="AA"  @if(Auth::user()->player['player_classification'] ?? '' == 'AA') selected @endif>AA</option>
 
-                                                        <option value="Major" @if(Auth::user()->player['player_classification'] == 'Major') selected @endif>Major*</option>
+                                                        <option value="Major" @if(Auth::user()->player['player_classification'] ?? '' == 'Major') selected @endif>Major*</option>
                                                     </select>
                                                     @if($errors->has('playerclassification'))
                                                         <span class="invalid-feedback">
@@ -273,9 +273,9 @@
                                                     <label class="label__wrapper required" for="">Throw </label>
                                                     <select  class="form-control  input__box--wrapper down-icons" name="throw" required>
                                                         <option>Select Throw </option>
-                                                        <option value="Right" @if(Auth::user()->player['player_throw'] == 'Right') selected @endif>Right </option>
-                                                        <option value="Left" @if(Auth::user()->player['player_throw'] == 'Left') selected @endif> Left</option>
-                                                        <option value="Both" @if(Auth::user()->player['player_throw'] == 'Both') selected @endif>Both</option>
+                                                        <option value="Right" @if(Auth::user()->player['player_throw'] ?? '' == 'Right') selected @endif>Right </option>
+                                                        <option value="Left" @if(Auth::user()->player['player_throw'] ?? '' == 'Left') selected @endif> Left</option>
+                                                        <option value="Both" @if(Auth::user()->player['player_throw'] ?? '' == 'Both') selected @endif>Both</option>
                                                     </select>
                                                     @if($errors->has('throw'))
                                                         <span class="invalid-feedback">
@@ -287,9 +287,9 @@
                                                     <label class="label__wrapper required" for="">Bat</label>
                                                     <select  class="form-control  input__box--wrapper down-icons" name="bat" required>
                                                         <option disabled="" value=""  selected="">Select Bat </option>
-                                                        <option value="Right" @if(Auth::user()->player['player_bat'] == 'Right') selected @endif>Right </option>
-                                                        <option value="Left" @if(Auth::user()->player['player_bat'] == 'Left') selected @endif> Left</option>
-                                                        <option value="Both" @if(Auth::user()->player['player_bat'] == 'Both') selected @endif>Both</option>
+                                                        <option value="Right" @if(Auth::user()->player['player_bat'] ?? '' == 'Right') selected @endif>Right </option>
+                                                        <option value="Left" @if(Auth::user()->player['player_bat'] ?? '' == 'Left') selected @endif> Left</option>
+                                                        <option value="Both" @if(Auth::user()->player['player_bat'] ?? '' == 'Both') selected @endif>Both</option>
                                                     </select>
                                                     @if($errors->has('bat'))
                                                         <span class="invalid-feedback">
@@ -303,14 +303,14 @@
                                                     <label class="label__wrapper required" for="">PRIMARY POSITION </label>
                                                     <select  class="form-control  input__box--wrapper down-icons" name="primary_position" required>
                                                         <option selected="" value="" disabled=""> Select POSITION </option>
-                                                        <option  value="C" @if(Auth::user()->player['primary_position'] == 'C') selected @endif> C </option>
-                                                        <option  value="1B" @if(Auth::user()->player['primary_position'] == '1B') selected @endif> 1B </option>
-                                                        <option  value="2ND" @if(Auth::user()->player['primary_position'] == '2ND') selected @endif> 2ND </option>
-                                                        <option  value="SS" @if(Auth::user()->player['primary_position'] == 'SS') selected @endif> SS </option>
-                                                        <option  value="3B" @if(Auth::user()->player['primary_position'] == '3B') selected @endif> 3B </option>
-                                                        <option  value="OF" @if(Auth::user()->player['primary_position'] == 'OF') selected @endif> OF </option>
-                                                        <option  value="RHP" @if(Auth::user()->player['primary_position'] == 'RHP') selected @endif> RHP </option>
-                                                        <option value="LHP" @if(Auth::user()->player['primary_position'] == 'LHP') selected @endif> LHP</option>
+                                                        <option  value="C" @if(Auth::user()->player['primary_position'] ?? '' == 'C') selected @endif> C </option>
+                                                        <option  value="1B" @if(Auth::user()->player['primary_position'] ?? '' == '1B') selected @endif> 1B </option>
+                                                        <option  value="2ND" @if(Auth::user()->player['primary_position'] ?? '' == '2ND') selected @endif> 2ND </option>
+                                                        <option  value="SS" @if(Auth::user()->player['primary_position'] ?? '' == 'SS') selected @endif> SS </option>
+                                                        <option  value="3B" @if(Auth::user()->player['primary_position'] ?? '' == '3B') selected @endif> 3B </option>
+                                                        <option  value="OF" @if(Auth::user()->player['primary_position'] ?? '' == 'OF') selected @endif> OF </option>
+                                                        <option  value="RHP" @if(Auth::user()->player['primary_position'] ?? '' == 'RHP') selected @endif> RHP </option>
+                                                        <option value="LHP" @if(Auth::user()->player['primary_position'] ?? '' == 'LHP') selected @endif> LHP</option>
                                                     </select>
                                                     @if($errors->has('primary_position'))
                                                         <span class="invalid-feedback">
@@ -322,14 +322,14 @@
                                                     <label class="label__wrapper required" for="">Secondary POSITION </label>
                                                     <select class="form-control  input__box--wrapper down-icons" name="secondary_possition" required>
                                                         <option selected="" value="" disabled=""> Select POSITION </option>
-                                                        <option  value="C" @if(Auth::user()->player['secondary_position'] == 'C') selected @endif> C </option>
-                                                        <option  value="1B" @if(Auth::user()->player['secondary_position'] == '1B') selected @endif> 1B </option>
-                                                        <option  value="2ND" @if(Auth::user()->player['secondary_position'] == '2ND') selected @endif> 2ND </option>
-                                                        <option  value="SS" @if(Auth::user()->player['secondary_position'] == 'SS') selected @endif> SS </option>
-                                                        <option  value="3B" @if(Auth::user()->player['secondary_position'] == '3B') selected @endif> 3B </option>
-                                                        <option  value="OF" @if(Auth::user()->player['secondary_position'] == 'OF') selected @endif> OF </option>
-                                                        <option  value="RHP" @if(Auth::user()->player['secondary_position'] == 'RHP') selected @endif> RHP </option>
-                                                        <option value="LHP" @if(Auth::user()->player['secondary_position'] == 'LHP') selected @endif> LHP</option>
+                                                        <option  value="C" @if(Auth::user()->player['secondary_position'] ?? '' == 'C') selected @endif> C </option>
+                                                        <option  value="1B" @if(Auth::user()->player['secondary_position'] ?? '' == '1B') selected @endif> 1B </option>
+                                                        <option  value="2ND" @if(Auth::user()->player['secondary_position'] ?? '' == '2ND') selected @endif> 2ND </option>
+                                                        <option  value="SS" @if(Auth::user()->player['secondary_position'] ?? '' == 'SS') selected @endif> SS </option>
+                                                        <option  value="3B" @if(Auth::user()->player['secondary_position'] ?? '' == '3B') selected @endif> 3B </option>
+                                                        <option  value="OF" @if(Auth::user()->player['secondary_position'] ?? '' == 'OF') selected @endif> OF </option>
+                                                        <option  value="RHP" @if(Auth::user()->player['secondary_position'] ?? '' == 'RHP') selected @endif> RHP </option>
+                                                        <option value="LHP" @if(Auth::user()->player['secondary_position'] ?? '' == 'LHP') selected @endif> LHP</option>
                                                   </select>
                                                     @if($errors->has('secondary_position'))
                                                         <span class="invalid-feedback">
@@ -339,7 +339,7 @@
                                                 </div>
                                             </div>
 
-                                            @for($i = 0; $i < count(json_decode(Auth::user()->player->parents_f_name )) ; $i++)
+                                            @for($i = 0; $i < count((array)json_decode(Auth::user()->player['parents_f_name'] ?? '' )) ; $i++)
                                                 <div class="form-row" id="parentinfo">
                                                     <div class="form-group col-md-6 col__mr-right">
                                                         <label class="label__wrapper required" for="">Parent First Name</label>
@@ -403,7 +403,7 @@
                                                 <div class="form-row">
                                                     <div class="form-group col-md-12 col__mr-right">
                                                         <label class="label__wrapper" for="">Facebook </label>
-                                                        <input type="url" class="form-control input__box--wrapper"  placeholder="http:// " value="{{ Auth::user()->player['player_facebook'] }}" name="facebook">
+                                                        <input type="url" class="form-control input__box--wrapper"  placeholder="http:// " value="{{ Auth::user()->player['player_facebook'] ?? '' }}" name="facebook">
                                                         @if($errors->has('facebook'))
                                                             <span class="invalid-feedback">
                                                                 <strong>{{ $errors->first('facebook') }}</strong>
@@ -412,7 +412,7 @@
                                                     </div>
                                                     <div class="form-group col-md-12 col__mr-right">
                                                         <label class="label__wrapper" for="">Twitter </label>
-                                                        <input type="url" class="form-control input__box--wrapper"  placeholder="http:// " value="{{ Auth::user()->player['player_twitter'] }}"  name="twitter">
+                                                        <input type="url" class="form-control input__box--wrapper"  placeholder="http:// " value="{{ Auth::user()->player['player_twitter'] ?? '' }}"  name="twitter">
                                                         @if($errors->has('twitter'))
                                                             <span class="invalid-feedback">
                                                                 <strong>{{ $errors->first('twitter') }}</strong>
@@ -421,7 +421,7 @@
                                                     </div>
                                                     <div class="form-group col-md-12 col__mr-right">
                                                         <label class="label__wrapper" for="">Instagram </label>
-                                                        <input type="url" class="form-control input__box--wrapper"  placeholder="http:// " value="{{ Auth::user()->player['player_instagram'] }}" name="instagram">
+                                                        <input type="url" class="form-control input__box--wrapper"  placeholder="http:// " value="{{ Auth::user()->player['player_instagram'] ?? '' }}" name="instagram">
                                                         @if($errors->has('instagram'))
                                                             <span class="invalid-feedback">
                                                                 <strong>{{ $errors->first('instagram') }}</strong>

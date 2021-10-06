@@ -84,7 +84,7 @@ class RegisterController extends Controller
         ]);
     }
 
-    
+
 
     /**
      * Create a new user instance after a valid registration.
@@ -92,11 +92,11 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\Models\User
      */
-   
+
     protected function create(array $data)
-    {       
-        
-       
+    {
+
+
         try {
             $user = user::create([
                 'name'        => $data['type'] == 4 ? $data['first_name'] . ' ' . $data['last_name'] : $data['name'],
@@ -107,9 +107,9 @@ class RegisterController extends Controller
                 'cell_number' => $data['cell_no'] ?? "",
                 'password'    => Hash::make($data['password']),
             ]);
-           
-           
-           
+
+
+
         } catch (Exception $e) {
             dd($e->getMessage());
             parent::dangerMessage('Oops! We have encountered an error while adding user');
@@ -118,11 +118,11 @@ class RegisterController extends Controller
         /**
          * ------------------ Tournament Director  registration ------------------
          */
-        
+
 
         if ($user['type'] == '2') {
-            $encrypt_account_name = Helpers::encryptUserBankDetails($data['name_of_checkingaccount']);   
-            $encrypt_account_dda  = Helpers::encryptUserBankDetails($data['dda_checking_account']);       
+            $encrypt_account_name = Helpers::encryptUserBankDetails($data['name_of_checkingaccount']);
+            $encrypt_account_dda  = Helpers::encryptUserBankDetails($data['dda_checking_account']);
             $encrypt_routing_no   = Helpers::encryptUserBankDetails($data['routing_no']);
 
             $createRecord = array(
@@ -146,8 +146,8 @@ class RegisterController extends Controller
                  $directorData= User::with('director')->where('id','=', $user->id)->first();
                  $send =(new RegisterationJob($directorData))->delay(Carbon::now()->addMinutes(1));
                  dispatch($send);
-                 
-                 
+
+
             } catch (Exception $e) {
                 dd($e->getMessage());
             }
@@ -177,7 +177,7 @@ class RegisterController extends Controller
             * ------------------ Player Registration ------------------
             */
         } else {
-           
+
             $file_name =Helpers::saveImage($data['fileupload']);
 
             $createRecord = array(
@@ -216,5 +216,5 @@ class RegisterController extends Controller
         return $user;
     }
 
-   
+
 }
