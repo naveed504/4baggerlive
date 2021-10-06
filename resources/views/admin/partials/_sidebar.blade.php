@@ -1,6 +1,6 @@
-<div id="layoutSidenav_nav">
+<div id="layoutSidenav_nav" >
     <nav
-      class="sb-sidenav accordion sidebar--gradient"
+      class="sb-sidenav sticky accordion sidebar--gradient"
       id="sidenavAccordion"
     >
       <div class="sb-sidenav-menu">
@@ -67,30 +67,45 @@
             Manage Profile
           </a>
         
-          <li class="nav-item dropdown">
-            <a class="nav-link admindropdown dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Manage Site Setting
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              
-              <a class="dropdown-item" href="{{ route('generalsetting') }}">General Setting</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item admindrop" href="{{ route('adminslider.index') }}"> Slider Section</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="{{ route('manageblog.index') }}">Blog Section</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="{{ route('newssection.create') }}"> News Section</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="{{ route('recentcontent.index') }}"> Recent Content Section</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="{{ route('officialpartner.index') }}">Official Partner Section</a>
-            </div>
-        </li>
-          <a class="nav-link" href="#">
+          
+
+        <!-- Example single danger button -->
+ <!-- Example single danger button -->
+ <ul class="list-unstyled">
+   <li class="custom-btnnn">
+    <div class="btn-group">
+      <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Action
+      </button>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="{{ route('generalsetting') }}">General Setting</a>
+        <a class="dropdown-item" href="{{ route('adminslider.index') }}">Slider Section</a>
+        <a class="dropdown-item" href="{{ route('manageblog.index') }}">Blog Section</a>
+        <a class="dropdown-item" href="{{ route('newssection.create') }}">News Section</a>
+        <a class="dropdown-item" href="{{ route('manageblog.index') }}">Blog Section</a>
+        <a class="dropdown-item" href="{{ route('recentcontent.index') }}">Recent Content Section</a>
+        <a class="dropdown-item" href="{{ route('officialpartner.index') }}">Official Partner Section</a>
+      </div>
+    </div>
+   </li>
+ </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+          <a class="nav-link" href="{{ route('managetimeschedule.index') }}">
             <div class="sb-nav-link-icon">
              <i class="far fa-calendar-alt"></i>
             </div>
-          Schedule
+         Manage Time Schedule
           </a>
         </div>
       </div>

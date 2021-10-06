@@ -24,7 +24,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::Xaz4E3v2ZnWE8rem',
+            '_route' => 'generated::uohoqYLgSbA6IfbA',
           ),
           1 => NULL,
           2 => 
@@ -44,7 +44,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::EJhJpNkNWFNggDmz',
+            '_route' => 'generated::gjdWn9S6JG5u3tYd',
           ),
           1 => NULL,
           2 => 
@@ -64,7 +64,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::bnjxT6hBXatGks2u',
+            '_route' => 'generated::VNUIcCCp2GUfZU4Z',
           ),
           1 => NULL,
           2 => 
@@ -84,7 +84,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::lfEtt4CEbM7DBpWu',
+            '_route' => 'generated::imiFPCSXqrw22iZX',
           ),
           1 => NULL,
           2 => 
@@ -104,7 +104,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::kpXBj4cyzAFEjggE',
+            '_route' => 'generated::K2Jf57qAIFw4zrHC',
           ),
           1 => NULL,
           2 => 
@@ -124,7 +124,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::EdauAscjU1m9LDjB',
+            '_route' => 'generated::pOW5gXi0I2VB9guV',
           ),
           1 => NULL,
           2 => 
@@ -264,7 +264,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::w9zpP2oN0D4JS7m8',
+            '_route' => 'generated::qw2Np88I6nnsOEjp',
           ),
           1 => NULL,
           2 => 
@@ -285,62 +285,6 @@ app('router')->setCompiledRoutes(
           0 => 
           array (
             '_route' => 'admin_dashboard',
-          ),
-          1 => NULL,
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      '/admin/director' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'director.index',
-          ),
-          1 => NULL,
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'director.store',
-          ),
-          1 => NULL,
-          2 => 
-          array (
-            'POST' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      '/admin/director/create' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'director.create',
           ),
           1 => NULL,
           2 => 
@@ -380,7 +324,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::9oim8vSAbB4FbMUA',
+            '_route' => 'generated::ki8vF5XlZSAQSTOb',
           ),
           1 => NULL,
           2 => 
@@ -498,6 +442,45 @@ app('router')->setCompiledRoutes(
           0 => 
           array (
             '_route' => 'updateservicefee',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/admin/adminallteams' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'adminallteams',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/admin/searchplayer' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'search.player',
           ),
           1 => NULL,
           2 => 
@@ -846,6 +829,62 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
+      '/admin/director' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'director.index',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'director.store',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/admin/director/create' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'director.create',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
       '/admin/adminteams' => 
       array (
         0 => 
@@ -889,26 +928,6 @@ app('router')->setCompiledRoutes(
           0 => 
           array (
             '_route' => 'adminteams.create',
-          ),
-          1 => NULL,
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      '/admin/adminallteams' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'adminallteams',
           ),
           1 => NULL,
           2 => 
@@ -1034,25 +1053,6 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/admin/searchplayer' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'search.player',
-          ),
-          1 => NULL,
-          2 => 
-          array (
-            'POST' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
       '/admin/subscription' => 
       array (
         0 => 
@@ -1096,6 +1096,62 @@ app('router')->setCompiledRoutes(
           0 => 
           array (
             '_route' => 'subscription.create',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/admin/managetimeschedule' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'managetimeschedule.index',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'managetimeschedule.store',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/admin/managetimeschedule/create' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'managetimeschedule.create',
           ),
           1 => NULL,
           2 => 
@@ -1666,13 +1722,32 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
+      '/director/agegroupteams' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'agegroupteams',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
       '/email_view' => 
       array (
         0 => 
         array (
           0 => 
           array (
-            '_route' => 'generated::9Ck56phjajQb42zR',
+            '_route' => 'generated::sjbYOQK7ET5fP1M1',
           ),
           1 => NULL,
           2 => 
@@ -1709,7 +1784,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::G4vDGGBWWYy7aQGG',
+            '_route' => 'generated::RJnY3tDbvpnfnaz9',
           ),
           1 => NULL,
           2 => 
@@ -1764,7 +1839,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::qhmx872mlOB0G0iy',
+            '_route' => 'generated::78lFboOhe8C73tZK',
           ),
           1 => NULL,
           2 => 
@@ -1855,7 +1930,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::k4H9oYtiBXbVHnpA',
+            '_route' => 'generated::gjrqGOkrkO2VW3Q9',
           ),
           1 => NULL,
           2 => 
@@ -1891,7 +1966,7 @@ app('router')->setCompiledRoutes(
     ),
     2 => 
     array (
-      0 => '{^(?|/4baggerer\\-recent\\-content\\-detail/([^/]++)(*:51)|/blog/([^/]++)(*:72)|/view/event/([^/]++)(*:99)|/admin/(?|director/([^/]++)(?|(*:136)|/edit(*:149)|(*:157))|events/(?|show(?|AdminTeams/([^/]++)(*:202)|TeamDetails/([^/]++)(*:230))|([^/]++)(?|(*:250)|/edit(*:263)|(*:271)))|admin(?|slider/([^/]++)(?|(*:307)|/edit(*:320)|(*:328))|teams/([^/]++)(?|(*:354)|/edit(*:367)|(*:375))|payout/([^/]++)(?|(*:402)|/edit(*:415)|(*:423)))|newssection/([^/]++)(?|(*:456)|/edit(*:469)|(*:477))|recentcontent/([^/]++)(?|(*:511)|/edit(*:524)|(*:532))|officialpartner/([^/]++)(?|(*:568)|/edit(*:581)|(*:589))|manageblog/([^/]++)(?|(*:620)|/edit(*:633)|(*:641))|player/([^/]++)(?|(*:668)|/edit(*:681)|(*:689))|subscription/([^/]++)(?|(*:722)|/edit(*:735)|(*:743)))|/p(?|layer/(?|view\\-team/([^/]++)(*:786)|playerprofile/([^/]++)(*:816))|assword/reset/([^/]++)(*:847))|/team/(?|teams/([^/]++)(?|(*:882)|/edit(*:895)|(*:903))|add(?|player/([^/]++)(*:933)|\\-to\\-event/([^/]++)(*:961))|viewplayer/([^/]++)(*:989)|requested/players/([^/]++)(*:1023)|event/([^/]++)(*:1046)|showTotalTeams/([^/]++)(*:1078))|/director/(?|team/([^/]++)(?|(*:1117)|/edit(*:1131)|(*:1140))|event/([^/]++)(?|(*:1167)|/edit(*:1181)|(*:1190))|showteam(?|sinevent/([^/]++)(*:1228)|details/([^/]++)(*:1253))|ShowPlayer/([^/]++)(*:1282)|CreatePlayerStatistics/([^/]++)(*:1322)|paymentrefundform/([^/]++)(*:1357)))/?$}sDu',
+      0 => '{^(?|/4baggerer\\-recent\\-content\\-detail/([^/]++)(*:51)|/blog/([^/]++)(*:72)|/view/event/([^/]++)(*:99)|/admin/(?|events/(?|show(?|AdminTeams/([^/]++)(*:152)|TeamDetails/([^/]++)(*:180))|([^/]++)(?|(*:200)|/edit(*:213)|(*:221)))|admin(?|slider/([^/]++)(?|(*:257)|/edit(*:270)|(*:278))|teams/([^/]++)(?|(*:304)|/edit(*:317)|(*:325))|payout/([^/]++)(?|(*:352)|/edit(*:365)|(*:373)))|newssection/([^/]++)(?|(*:406)|/edit(*:419)|(*:427))|recentcontent/([^/]++)(?|(*:461)|/edit(*:474)|(*:482))|officialpartner/([^/]++)(?|(*:518)|/edit(*:531)|(*:539))|manage(?|blog/([^/]++)(?|(*:573)|/edit(*:586)|(*:594))|timeschedule/([^/]++)(?|(*:627)|/edit(*:640)|(*:648)))|director/([^/]++)(?|(*:678)|/edit(*:691)|(*:699))|player/([^/]++)(?|(*:726)|/edit(*:739)|(*:747))|subscription/([^/]++)(?|(*:780)|/edit(*:793)|(*:801)))|/p(?|layer/(?|view\\-team/([^/]++)(*:844)|playerprofile/([^/]++)(*:874))|assword/reset/([^/]++)(*:905))|/team/(?|teams/([^/]++)(?|(*:940)|/edit(*:953)|(*:961))|add(?|player/([^/]++)(*:991)|\\-to\\-event/([^/]++)(*:1019))|viewplayer/([^/]++)(*:1048)|requested/players/([^/]++)(*:1083)|event/([^/]++)(*:1106)|showTotalTeams/([^/]++)(*:1138))|/director/(?|team/([^/]++)(?|(*:1177)|/edit(*:1191)|(*:1200))|event/([^/]++)(?|(*:1227)|/edit(*:1241)|(*:1250))|showteam(?|sinevent/([^/]++)(*:1288)|details/([^/]++)(*:1313))|ShowPlayer/([^/]++)(*:1342)|CreatePlayerStatistics/([^/]++)(*:1382)|paymentrefundform/([^/]++)(*:1417)))/?$}sDu',
     ),
     3 => 
     array (
@@ -1969,95 +2044,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      136 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'director.show',
-          ),
-          1 => 
-          array (
-            0 => 'director',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      149 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'director.edit',
-          ),
-          1 => 
-          array (
-            0 => 'director',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      157 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'director.update',
-          ),
-          1 => 
-          array (
-            0 => 'director',
-          ),
-          2 => 
-          array (
-            'PUT' => 0,
-            'PATCH' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'director.destroy',
-          ),
-          1 => 
-          array (
-            0 => 'director',
-          ),
-          2 => 
-          array (
-            'DELETE' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      202 => 
+      152 => 
       array (
         0 => 
         array (
@@ -2080,7 +2067,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      230 => 
+      180 => 
       array (
         0 => 
         array (
@@ -2103,7 +2090,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      250 => 
+      200 => 
       array (
         0 => 
         array (
@@ -2126,7 +2113,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      263 => 
+      213 => 
       array (
         0 => 
         array (
@@ -2149,7 +2136,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      271 => 
+      221 => 
       array (
         0 => 
         array (
@@ -2191,7 +2178,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      307 => 
+      257 => 
       array (
         0 => 
         array (
@@ -2214,7 +2201,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      320 => 
+      270 => 
       array (
         0 => 
         array (
@@ -2237,7 +2224,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      328 => 
+      278 => 
       array (
         0 => 
         array (
@@ -2279,7 +2266,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      354 => 
+      304 => 
       array (
         0 => 
         array (
@@ -2302,7 +2289,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      367 => 
+      317 => 
       array (
         0 => 
         array (
@@ -2325,7 +2312,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      375 => 
+      325 => 
       array (
         0 => 
         array (
@@ -2367,7 +2354,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      402 => 
+      352 => 
       array (
         0 => 
         array (
@@ -2390,7 +2377,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      415 => 
+      365 => 
       array (
         0 => 
         array (
@@ -2413,7 +2400,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      423 => 
+      373 => 
       array (
         0 => 
         array (
@@ -2455,7 +2442,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      456 => 
+      406 => 
       array (
         0 => 
         array (
@@ -2478,7 +2465,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      469 => 
+      419 => 
       array (
         0 => 
         array (
@@ -2501,7 +2488,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      477 => 
+      427 => 
       array (
         0 => 
         array (
@@ -2543,7 +2530,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      511 => 
+      461 => 
       array (
         0 => 
         array (
@@ -2566,7 +2553,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      524 => 
+      474 => 
       array (
         0 => 
         array (
@@ -2589,7 +2576,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      532 => 
+      482 => 
       array (
         0 => 
         array (
@@ -2631,7 +2618,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      568 => 
+      518 => 
       array (
         0 => 
         array (
@@ -2654,7 +2641,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      581 => 
+      531 => 
       array (
         0 => 
         array (
@@ -2677,7 +2664,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      589 => 
+      539 => 
       array (
         0 => 
         array (
@@ -2719,7 +2706,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      620 => 
+      573 => 
       array (
         0 => 
         array (
@@ -2742,7 +2729,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      633 => 
+      586 => 
       array (
         0 => 
         array (
@@ -2765,7 +2752,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      641 => 
+      594 => 
       array (
         0 => 
         array (
@@ -2807,7 +2794,183 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      668 => 
+      627 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'managetimeschedule.show',
+          ),
+          1 => 
+          array (
+            0 => 'managetimeschedule',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      640 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'managetimeschedule.edit',
+          ),
+          1 => 
+          array (
+            0 => 'managetimeschedule',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      648 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'managetimeschedule.update',
+          ),
+          1 => 
+          array (
+            0 => 'managetimeschedule',
+          ),
+          2 => 
+          array (
+            'PUT' => 0,
+            'PATCH' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'managetimeschedule.destroy',
+          ),
+          1 => 
+          array (
+            0 => 'managetimeschedule',
+          ),
+          2 => 
+          array (
+            'DELETE' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      678 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'director.show',
+          ),
+          1 => 
+          array (
+            0 => 'director',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      691 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'director.edit',
+          ),
+          1 => 
+          array (
+            0 => 'director',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      699 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'director.update',
+          ),
+          1 => 
+          array (
+            0 => 'director',
+          ),
+          2 => 
+          array (
+            'PUT' => 0,
+            'PATCH' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'director.destroy',
+          ),
+          1 => 
+          array (
+            0 => 'director',
+          ),
+          2 => 
+          array (
+            'DELETE' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      726 => 
       array (
         0 => 
         array (
@@ -2830,7 +2993,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      681 => 
+      739 => 
       array (
         0 => 
         array (
@@ -2853,7 +3016,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      689 => 
+      747 => 
       array (
         0 => 
         array (
@@ -2895,7 +3058,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      722 => 
+      780 => 
       array (
         0 => 
         array (
@@ -2918,7 +3081,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      735 => 
+      793 => 
       array (
         0 => 
         array (
@@ -2941,7 +3104,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      743 => 
+      801 => 
       array (
         0 => 
         array (
@@ -2983,7 +3146,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      786 => 
+      844 => 
       array (
         0 => 
         array (
@@ -3006,7 +3169,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      816 => 
+      874 => 
       array (
         0 => 
         array (
@@ -3029,7 +3192,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      847 => 
+      905 => 
       array (
         0 => 
         array (
@@ -3052,7 +3215,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      882 => 
+      940 => 
       array (
         0 => 
         array (
@@ -3075,7 +3238,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      895 => 
+      953 => 
       array (
         0 => 
         array (
@@ -3098,7 +3261,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      903 => 
+      961 => 
       array (
         0 => 
         array (
@@ -3140,7 +3303,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      933 => 
+      991 => 
       array (
         0 => 
         array (
@@ -3163,7 +3326,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      961 => 
+      1019 => 
       array (
         0 => 
         array (
@@ -3186,7 +3349,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      989 => 
+      1048 => 
       array (
         0 => 
         array (
@@ -3209,7 +3372,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      1023 => 
+      1083 => 
       array (
         0 => 
         array (
@@ -3232,7 +3395,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      1046 => 
+      1106 => 
       array (
         0 => 
         array (
@@ -3255,7 +3418,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      1078 => 
+      1138 => 
       array (
         0 => 
         array (
@@ -3278,7 +3441,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      1117 => 
+      1177 => 
       array (
         0 => 
         array (
@@ -3301,7 +3464,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      1131 => 
+      1191 => 
       array (
         0 => 
         array (
@@ -3324,7 +3487,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      1140 => 
+      1200 => 
       array (
         0 => 
         array (
@@ -3366,7 +3529,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      1167 => 
+      1227 => 
       array (
         0 => 
         array (
@@ -3389,7 +3552,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      1181 => 
+      1241 => 
       array (
         0 => 
         array (
@@ -3412,7 +3575,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      1190 => 
+      1250 => 
       array (
         0 => 
         array (
@@ -3454,7 +3617,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      1228 => 
+      1288 => 
       array (
         0 => 
         array (
@@ -3477,7 +3640,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      1253 => 
+      1313 => 
       array (
         0 => 
         array (
@@ -3500,7 +3663,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      1282 => 
+      1342 => 
       array (
         0 => 
         array (
@@ -3523,7 +3686,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      1322 => 
+      1382 => 
       array (
         0 => 
         array (
@@ -3546,7 +3709,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      1357 => 
+      1417 => 
       array (
         0 => 
         array (
@@ -3584,7 +3747,7 @@ app('router')->setCompiledRoutes(
   ),
   'attributes' => 
   array (
-    'generated::Xaz4E3v2ZnWE8rem' => 
+    'generated::uohoqYLgSbA6IfbA' => 
     array (
       'methods' => 
       array (
@@ -3599,15 +3762,15 @@ app('router')->setCompiledRoutes(
           0 => 'api',
           1 => 'auth:api',
         ),
-        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":291:{@1Qt4d+L3//5LldwTT9z1wL5poTI+3WJdMykxHuFvIes=.a:5:{s:3:"use";a:0:{}s:8:"function";s:79:"function (\\Illuminate\\Http\\Request $request) {
+        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":291:{@Vvo/RY/Q3T93TNJ6q0s+Ia0NGRd9BOFz7hq4sXqsthY=.a:5:{s:3:"use";a:0:{}s:8:"function";s:79:"function (\\Illuminate\\Http\\Request $request) {
     return $request->user();
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"000000000f733efa0000000072f41c3e";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000469452bc0000000056d84044";}}',
         'namespace' => NULL,
         'prefix' => 'api',
         'where' => 
         array (
         ),
-        'as' => 'generated::Xaz4E3v2ZnWE8rem',
+        'as' => 'generated::uohoqYLgSbA6IfbA',
       ),
       'fallback' => false,
       'defaults' => 
@@ -3623,7 +3786,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::EJhJpNkNWFNggDmz' => 
+    'generated::gjdWn9S6JG5u3tYd' => 
     array (
       'methods' => 
       array (
@@ -3637,19 +3800,19 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
         ),
-        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":507:{@8kJokZJOYj5Y73e87oyPPAb/zPfP+USWcGFrpTvH0UU=.a:5:{s:3:"use";a:0:{}s:8:"function";s:294:"function () {
+        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":507:{@zVN9IsTCRwfSFYG+s7CdcqdJWv+QrotRp5ouuf4hMc4=.a:5:{s:3:"use";a:0:{}s:8:"function";s:294:"function () {
     \\Illuminate\\Support\\Facades\\Artisan::call(\'route:clear\');
     \\Illuminate\\Support\\Facades\\Artisan::call(\'cache:clear\');
     \\Illuminate\\Support\\Facades\\Artisan::call(\'config:clear\');
     \\Illuminate\\Support\\Facades\\Artisan::call(\'view:clear\');
     return \'clear done\';
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"000000000f733efc0000000072f41c3e";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000469452ba0000000056d84044";}}',
         'namespace' => NULL,
         'prefix' => NULL,
         'where' => 
         array (
         ),
-        'as' => 'generated::EJhJpNkNWFNggDmz',
+        'as' => 'generated::gjdWn9S6JG5u3tYd',
       ),
       'fallback' => false,
       'defaults' => 
@@ -3665,7 +3828,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::bnjxT6hBXatGks2u' => 
+    'generated::VNUIcCCp2GUfZU4Z' => 
     array (
       'methods' => 
       array (
@@ -3679,15 +3842,15 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
         ),
-        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":292:{@p/FlAamPee4SaZZpPjc1FrxmiQo2fUEFpCo4kKJNKEk=.a:5:{s:3:"use";a:0:{}s:8:"function";s:80:"function () {
+        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":292:{@wX89VRQEuOAJBxilLbi9XqbizlHQ695AcXqmoowQTW8=.a:5:{s:3:"use";a:0:{}s:8:"function";s:80:"function () {
     \\Illuminate\\Support\\Facades\\Artisan::call(\'config:cache\');
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"000000000f733efe0000000072f41c3e";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000469452b80000000056d84044";}}',
         'namespace' => NULL,
         'prefix' => NULL,
         'where' => 
         array (
         ),
-        'as' => 'generated::bnjxT6hBXatGks2u',
+        'as' => 'generated::VNUIcCCp2GUfZU4Z',
       ),
       'fallback' => false,
       'defaults' => 
@@ -3703,7 +3866,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::lfEtt4CEbM7DBpWu' => 
+    'generated::imiFPCSXqrw22iZX' => 
     array (
       'methods' => 
       array (
@@ -3717,16 +3880,16 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
         ),
-        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":323:{@e8/oXesbDpJ5kn/zoE9KCowR6na5wXpGTjGGJG0/AK0=.a:5:{s:3:"use";a:0:{}s:8:"function";s:110:"function(){
+        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":323:{@2uFmAL+t4AlmlNk6QxOO33Q1WoEGaJ5p5RkccIVR/1s=.a:5:{s:3:"use";a:0:{}s:8:"function";s:110:"function(){
     \\Illuminate\\Support\\Facades\\Artisan::call(\'migrate\');
     return \'migrated successfully\';
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"000000000f733ec00000000072f41c3e";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000469452860000000056d84044";}}',
         'namespace' => NULL,
         'prefix' => NULL,
         'where' => 
         array (
         ),
-        'as' => 'generated::lfEtt4CEbM7DBpWu',
+        'as' => 'generated::imiFPCSXqrw22iZX',
       ),
       'fallback' => false,
       'defaults' => 
@@ -3742,7 +3905,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::kpXBj4cyzAFEjggE' => 
+    'generated::K2Jf57qAIFw4zrHC' => 
     array (
       'methods' => 
       array (
@@ -3756,15 +3919,15 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
         ),
-        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":246:{@ZOj3G+7PE5MdUOjyDbsdQGGBUnlBAe6XkWPgFAp7o6Y=.a:5:{s:3:"use";a:0:{}s:8:"function";s:34:"function(){
+        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":246:{@+vV6EX65az9+1psknF2YXxIckeG7FdAovnSYIDL7KlM=.a:5:{s:3:"use";a:0:{}s:8:"function";s:34:"function(){
 return \\phpinfo();
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"000000000f733ec20000000072f41c3e";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000469452840000000056d84044";}}',
         'namespace' => NULL,
         'prefix' => NULL,
         'where' => 
         array (
         ),
-        'as' => 'generated::kpXBj4cyzAFEjggE',
+        'as' => 'generated::K2Jf57qAIFw4zrHC',
       ),
       'fallback' => false,
       'defaults' => 
@@ -3780,7 +3943,7 @@ return \\phpinfo();
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::EdauAscjU1m9LDjB' => 
+    'generated::pOW5gXi0I2VB9guV' => 
     array (
       'methods' => 
       array (
@@ -3801,7 +3964,7 @@ return \\phpinfo();
         'where' => 
         array (
         ),
-        'as' => 'generated::EdauAscjU1m9LDjB',
+        'as' => 'generated::pOW5gXi0I2VB9guV',
       ),
       'fallback' => false,
       'defaults' => 
@@ -4118,7 +4281,7 @@ return \\phpinfo();
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::w9zpP2oN0D4JS7m8' => 
+    'generated::qw2Np88I6nnsOEjp' => 
     array (
       'methods' => 
       array (
@@ -4139,7 +4302,7 @@ return \\phpinfo();
         'where' => 
         array (
         ),
-        'as' => 'generated::w9zpP2oN0D4JS7m8',
+        'as' => 'generated::qw2Np88I6nnsOEjp',
       ),
       'fallback' => false,
       'defaults' => 
@@ -4239,277 +4402,6 @@ return \\phpinfo();
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'director.index' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'GET',
-        1 => 'HEAD',
-      ),
-      'uri' => 'admin/director',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-          1 => 'auth',
-          2 => 'checkrole',
-        ),
-        'as' => 'director.index',
-        'uses' => 'App\\Http\\Controllers\\admin\\director\\ManageDirectorController@index',
-        'controller' => 'App\\Http\\Controllers\\admin\\director\\ManageDirectorController@index',
-        'namespace' => NULL,
-        'prefix' => '/admin',
-        'where' => 
-        array (
-        ),
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-      'withTrashed' => false,
-    ),
-    'director.create' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'GET',
-        1 => 'HEAD',
-      ),
-      'uri' => 'admin/director/create',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-          1 => 'auth',
-          2 => 'checkrole',
-        ),
-        'as' => 'director.create',
-        'uses' => 'App\\Http\\Controllers\\admin\\director\\ManageDirectorController@create',
-        'controller' => 'App\\Http\\Controllers\\admin\\director\\ManageDirectorController@create',
-        'namespace' => NULL,
-        'prefix' => '/admin',
-        'where' => 
-        array (
-        ),
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-      'withTrashed' => false,
-    ),
-    'director.store' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'POST',
-      ),
-      'uri' => 'admin/director',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-          1 => 'auth',
-          2 => 'checkrole',
-        ),
-        'as' => 'director.store',
-        'uses' => 'App\\Http\\Controllers\\admin\\director\\ManageDirectorController@store',
-        'controller' => 'App\\Http\\Controllers\\admin\\director\\ManageDirectorController@store',
-        'namespace' => NULL,
-        'prefix' => '/admin',
-        'where' => 
-        array (
-        ),
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-      'withTrashed' => false,
-    ),
-    'director.show' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'GET',
-        1 => 'HEAD',
-      ),
-      'uri' => 'admin/director/{director}',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-          1 => 'auth',
-          2 => 'checkrole',
-        ),
-        'as' => 'director.show',
-        'uses' => 'App\\Http\\Controllers\\admin\\director\\ManageDirectorController@show',
-        'controller' => 'App\\Http\\Controllers\\admin\\director\\ManageDirectorController@show',
-        'namespace' => NULL,
-        'prefix' => '/admin',
-        'where' => 
-        array (
-        ),
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-      'withTrashed' => false,
-    ),
-    'director.edit' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'GET',
-        1 => 'HEAD',
-      ),
-      'uri' => 'admin/director/{director}/edit',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-          1 => 'auth',
-          2 => 'checkrole',
-        ),
-        'as' => 'director.edit',
-        'uses' => 'App\\Http\\Controllers\\admin\\director\\ManageDirectorController@edit',
-        'controller' => 'App\\Http\\Controllers\\admin\\director\\ManageDirectorController@edit',
-        'namespace' => NULL,
-        'prefix' => '/admin',
-        'where' => 
-        array (
-        ),
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-      'withTrashed' => false,
-    ),
-    'director.update' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'PUT',
-        1 => 'PATCH',
-      ),
-      'uri' => 'admin/director/{director}',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-          1 => 'auth',
-          2 => 'checkrole',
-        ),
-        'as' => 'director.update',
-        'uses' => 'App\\Http\\Controllers\\admin\\director\\ManageDirectorController@update',
-        'controller' => 'App\\Http\\Controllers\\admin\\director\\ManageDirectorController@update',
-        'namespace' => NULL,
-        'prefix' => '/admin',
-        'where' => 
-        array (
-        ),
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-      'withTrashed' => false,
-    ),
-    'director.destroy' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'DELETE',
-      ),
-      'uri' => 'admin/director/{director}',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-          1 => 'auth',
-          2 => 'checkrole',
-        ),
-        'as' => 'director.destroy',
-        'uses' => 'App\\Http\\Controllers\\admin\\director\\ManageDirectorController@destroy',
-        'controller' => 'App\\Http\\Controllers\\admin\\director\\ManageDirectorController@destroy',
-        'namespace' => NULL,
-        'prefix' => '/admin',
-        'where' => 
-        array (
-        ),
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-      'withTrashed' => false,
-    ),
     'unapproved.directors' => 
     array (
       'methods' => 
@@ -4549,7 +4441,7 @@ return \\phpinfo();
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::9oim8vSAbB4FbMUA' => 
+    'generated::ki8vF5XlZSAQSTOb' => 
     array (
       'methods' => 
       array (
@@ -4571,7 +4463,7 @@ return \\phpinfo();
         'where' => 
         array (
         ),
-        'as' => 'generated::9oim8vSAbB4FbMUA',
+        'as' => 'generated::ki8vF5XlZSAQSTOb',
       ),
       'fallback' => false,
       'defaults' => 
@@ -4881,6 +4773,83 @@ return \\phpinfo();
         array (
         ),
         'as' => 'updateservicefee',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'adminallteams' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/adminallteams',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'checkrole',
+        ),
+        'uses' => 'App\\Http\\Controllers\\admin\\team\\AdminTeamController@getallTeams',
+        'controller' => 'App\\Http\\Controllers\\admin\\team\\AdminTeamController@getallTeams',
+        'namespace' => NULL,
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+        'as' => 'adminallteams',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'search.player' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'admin/searchplayer',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'checkrole',
+        ),
+        'uses' => 'App\\Http\\Controllers\\admin\\player\\PlayerController@searchPlayer',
+        'controller' => 'App\\Http\\Controllers\\admin\\player\\PlayerController@searchPlayer',
+        'namespace' => NULL,
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+        'as' => 'search.player',
       ),
       'fallback' => false,
       'defaults' => 
@@ -6522,6 +6491,277 @@ return \\phpinfo();
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+    'director.index' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/director',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'checkrole',
+        ),
+        'as' => 'director.index',
+        'uses' => 'App\\Http\\Controllers\\admin\\director\\ManageDirectorController@index',
+        'controller' => 'App\\Http\\Controllers\\admin\\director\\ManageDirectorController@index',
+        'namespace' => NULL,
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'director.create' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/director/create',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'checkrole',
+        ),
+        'as' => 'director.create',
+        'uses' => 'App\\Http\\Controllers\\admin\\director\\ManageDirectorController@create',
+        'controller' => 'App\\Http\\Controllers\\admin\\director\\ManageDirectorController@create',
+        'namespace' => NULL,
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'director.store' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'admin/director',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'checkrole',
+        ),
+        'as' => 'director.store',
+        'uses' => 'App\\Http\\Controllers\\admin\\director\\ManageDirectorController@store',
+        'controller' => 'App\\Http\\Controllers\\admin\\director\\ManageDirectorController@store',
+        'namespace' => NULL,
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'director.show' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/director/{director}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'checkrole',
+        ),
+        'as' => 'director.show',
+        'uses' => 'App\\Http\\Controllers\\admin\\director\\ManageDirectorController@show',
+        'controller' => 'App\\Http\\Controllers\\admin\\director\\ManageDirectorController@show',
+        'namespace' => NULL,
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'director.edit' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/director/{director}/edit',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'checkrole',
+        ),
+        'as' => 'director.edit',
+        'uses' => 'App\\Http\\Controllers\\admin\\director\\ManageDirectorController@edit',
+        'controller' => 'App\\Http\\Controllers\\admin\\director\\ManageDirectorController@edit',
+        'namespace' => NULL,
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'director.update' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'PUT',
+        1 => 'PATCH',
+      ),
+      'uri' => 'admin/director/{director}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'checkrole',
+        ),
+        'as' => 'director.update',
+        'uses' => 'App\\Http\\Controllers\\admin\\director\\ManageDirectorController@update',
+        'controller' => 'App\\Http\\Controllers\\admin\\director\\ManageDirectorController@update',
+        'namespace' => NULL,
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'director.destroy' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'DELETE',
+      ),
+      'uri' => 'admin/director/{director}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'checkrole',
+        ),
+        'as' => 'director.destroy',
+        'uses' => 'App\\Http\\Controllers\\admin\\director\\ManageDirectorController@destroy',
+        'controller' => 'App\\Http\\Controllers\\admin\\director\\ManageDirectorController@destroy',
+        'namespace' => NULL,
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
     'adminteams.index' => 
     array (
       'methods' => 
@@ -6778,45 +7018,6 @@ return \\phpinfo();
         'where' => 
         array (
         ),
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-      'withTrashed' => false,
-    ),
-    'adminallteams' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'GET',
-        1 => 'HEAD',
-      ),
-      'uri' => 'admin/adminallteams',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-          1 => 'auth',
-          2 => 'checkrole',
-        ),
-        'uses' => 'App\\Http\\Controllers\\admin\\team\\AdminTeamController@getallTeams',
-        'controller' => 'App\\Http\\Controllers\\admin\\team\\AdminTeamController@getallTeams',
-        'namespace' => NULL,
-        'prefix' => '/admin',
-        'where' => 
-        array (
-        ),
-        'as' => 'adminallteams',
       ),
       'fallback' => false,
       'defaults' => 
@@ -7374,44 +7575,6 @@ return \\phpinfo();
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'search.player' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'POST',
-      ),
-      'uri' => 'admin/searchplayer',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-          1 => 'auth',
-          2 => 'checkrole',
-        ),
-        'uses' => 'App\\Http\\Controllers\\admin\\player\\PlayerController@searchPlayer',
-        'controller' => 'App\\Http\\Controllers\\admin\\player\\PlayerController@searchPlayer',
-        'namespace' => NULL,
-        'prefix' => '/admin',
-        'where' => 
-        array (
-        ),
-        'as' => 'search.player',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-      'withTrashed' => false,
-    ),
     'subscription.index' => 
     array (
       'methods' => 
@@ -7663,6 +7826,277 @@ return \\phpinfo();
         'as' => 'subscription.destroy',
         'uses' => 'App\\Http\\Controllers\\admin\\subscription\\SubscriptionController@destroy',
         'controller' => 'App\\Http\\Controllers\\admin\\subscription\\SubscriptionController@destroy',
+        'namespace' => NULL,
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'managetimeschedule.index' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/managetimeschedule',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'checkrole',
+        ),
+        'as' => 'managetimeschedule.index',
+        'uses' => 'App\\Http\\Controllers\\admin\\schedule\\TimeScheduleController@index',
+        'controller' => 'App\\Http\\Controllers\\admin\\schedule\\TimeScheduleController@index',
+        'namespace' => NULL,
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'managetimeschedule.create' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/managetimeschedule/create',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'checkrole',
+        ),
+        'as' => 'managetimeschedule.create',
+        'uses' => 'App\\Http\\Controllers\\admin\\schedule\\TimeScheduleController@create',
+        'controller' => 'App\\Http\\Controllers\\admin\\schedule\\TimeScheduleController@create',
+        'namespace' => NULL,
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'managetimeschedule.store' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'admin/managetimeschedule',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'checkrole',
+        ),
+        'as' => 'managetimeschedule.store',
+        'uses' => 'App\\Http\\Controllers\\admin\\schedule\\TimeScheduleController@store',
+        'controller' => 'App\\Http\\Controllers\\admin\\schedule\\TimeScheduleController@store',
+        'namespace' => NULL,
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'managetimeschedule.show' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/managetimeschedule/{managetimeschedule}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'checkrole',
+        ),
+        'as' => 'managetimeschedule.show',
+        'uses' => 'App\\Http\\Controllers\\admin\\schedule\\TimeScheduleController@show',
+        'controller' => 'App\\Http\\Controllers\\admin\\schedule\\TimeScheduleController@show',
+        'namespace' => NULL,
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'managetimeschedule.edit' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/managetimeschedule/{managetimeschedule}/edit',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'checkrole',
+        ),
+        'as' => 'managetimeschedule.edit',
+        'uses' => 'App\\Http\\Controllers\\admin\\schedule\\TimeScheduleController@edit',
+        'controller' => 'App\\Http\\Controllers\\admin\\schedule\\TimeScheduleController@edit',
+        'namespace' => NULL,
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'managetimeschedule.update' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'PUT',
+        1 => 'PATCH',
+      ),
+      'uri' => 'admin/managetimeschedule/{managetimeschedule}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'checkrole',
+        ),
+        'as' => 'managetimeschedule.update',
+        'uses' => 'App\\Http\\Controllers\\admin\\schedule\\TimeScheduleController@update',
+        'controller' => 'App\\Http\\Controllers\\admin\\schedule\\TimeScheduleController@update',
+        'namespace' => NULL,
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'managetimeschedule.destroy' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'DELETE',
+      ),
+      'uri' => 'admin/managetimeschedule/{managetimeschedule}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'checkrole',
+        ),
+        'as' => 'managetimeschedule.destroy',
+        'uses' => 'App\\Http\\Controllers\\admin\\schedule\\TimeScheduleController@destroy',
+        'controller' => 'App\\Http\\Controllers\\admin\\schedule\\TimeScheduleController@destroy',
         'namespace' => NULL,
         'prefix' => '/admin',
         'where' => 
@@ -9772,7 +10206,45 @@ return \\phpinfo();
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::9Ck56phjajQb42zR' => 
+    'agegroupteams' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'director/agegroupteams',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'directorrole',
+        ),
+        'uses' => 'App\\Http\\Controllers\\director\\Event\\EventController@ageGroupDetails',
+        'controller' => 'App\\Http\\Controllers\\director\\Event\\EventController@ageGroupDetails',
+        'namespace' => NULL,
+        'prefix' => '/director',
+        'where' => 
+        array (
+        ),
+        'as' => 'agegroupteams',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'generated::sjbYOQK7ET5fP1M1' => 
     array (
       'methods' => 
       array (
@@ -9786,15 +10258,15 @@ return \\phpinfo();
         array (
           0 => 'web',
         ),
-        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":282:{@cQObrONTkxuRmUd9qe7h4tKGLXnORcHNpHDbqA1f6KY=.a:5:{s:3:"use";a:0:{}s:8:"function";s:70:"function(){
+        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":282:{@vNmuzkr3ql5L19lvOLYQ2eTwqBAQIMUL1/kjcc2SOuU=.a:5:{s:3:"use";a:0:{}s:8:"function";s:70:"function(){
     return \\view(\'email.adminNotifyDirectorRegister\');
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"000000000f733ecf0000000072f41c3e";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000469452890000000056d84044";}}',
         'namespace' => NULL,
         'prefix' => NULL,
         'where' => 
         array (
         ),
-        'as' => 'generated::9Ck56phjajQb42zR',
+        'as' => 'generated::sjbYOQK7ET5fP1M1',
       ),
       'fallback' => false,
       'defaults' => 
@@ -9847,7 +10319,7 @@ return \\phpinfo();
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::G4vDGGBWWYy7aQGG' => 
+    'generated::RJnY3tDbvpnfnaz9' => 
     array (
       'methods' => 
       array (
@@ -9867,7 +10339,7 @@ return \\phpinfo();
         'where' => 
         array (
         ),
-        'as' => 'generated::G4vDGGBWWYy7aQGG',
+        'as' => 'generated::RJnY3tDbvpnfnaz9',
       ),
       'fallback' => false,
       'defaults' => 
@@ -9956,7 +10428,7 @@ return \\phpinfo();
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::qhmx872mlOB0G0iy' => 
+    'generated::78lFboOhe8C73tZK' => 
     array (
       'methods' => 
       array (
@@ -9976,7 +10448,7 @@ return \\phpinfo();
         'where' => 
         array (
         ),
-        'as' => 'generated::qhmx872mlOB0G0iy',
+        'as' => 'generated::78lFboOhe8C73tZK',
       ),
       'fallback' => false,
       'defaults' => 
@@ -10175,7 +10647,7 @@ return \\phpinfo();
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::k4H9oYtiBXbVHnpA' => 
+    'generated::gjrqGOkrkO2VW3Q9' => 
     array (
       'methods' => 
       array (
@@ -10195,7 +10667,7 @@ return \\phpinfo();
         'where' => 
         array (
         ),
-        'as' => 'generated::k4H9oYtiBXbVHnpA',
+        'as' => 'generated::gjrqGOkrkO2VW3Q9',
       ),
       'fallback' => false,
       'defaults' => 

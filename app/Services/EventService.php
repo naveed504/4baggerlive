@@ -27,7 +27,9 @@ class EventService
     public function createEvent($request)
     {
         try {
-
+          
+            
+            
             if ($request->has('event_logo')) {
                 $fileName = time() . '.' . $request->event_logo->extension();
                 $request->event_logo->move(public_path('/images/event'), $fileName);
@@ -43,7 +45,7 @@ class EventService
                 'age_restriction' => $request->age_restriction,
                 'graduation_restriction' => $request->grad_restriction,
                 'allowed_bats' => json_encode($request->bat_type),
-                'age_group'    => json_encode($request->age_group),
+                'age_group_id'    => implode(",", $request->age_group),
                 'entry_fee' => $request->entry_fee,
                 'event_format' => $request->event_format,
                 'event_summary' => $request->event_summary,
@@ -70,6 +72,7 @@ class EventService
      */
     public function updateEvent($id, $request)
     {
+        
         $event = EventModel::find($id);
 
         if ($request->has('event_logo')) {
@@ -91,7 +94,7 @@ class EventService
                 'age_restriction' => $request->age_restriction,
                 'graduation_restriction' => $request->grad_restriction,
                 'allowed_bats' => json_encode($request->bat_type),
-                'age_group'    => json_encode($request->age_group),
+                'age_group_id'    =>implode(",", $request->age_group),
                 'entry_fee' => $request->entry_fee,
                 'event_format' => $request->event_format,
                 'event_summary' => $request->event_summary,

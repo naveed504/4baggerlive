@@ -3,6 +3,7 @@
 namespace App\Models\Event;
 
 use App\Models\State;
+use App\Models\AgeGroup;
 use App\Models\Team\Team;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -35,7 +36,7 @@ class Event extends Model
         'state_id',
         'event_venue',
         'team_id',
-        'age_group'
+        'age_group_id'
     ];
 
     public function team()
@@ -56,6 +57,10 @@ class Event extends Model
     public function eventRegTeams()
     {
         return $this->hasMany(EventRegisterTeam::class);
+    }
+    public function agegroup()
+    {
+        return $this->belongsTo(AgeGroup::class,'age_group_id');
     }
 
 

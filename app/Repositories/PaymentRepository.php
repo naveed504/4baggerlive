@@ -43,6 +43,7 @@ class PaymentRepository
                         'user_id'        => $input['coach_id'],
                         'event_id'       => $input['event_id'],
                         'team_id'        => $input['teamId'][$key],
+                        'age_group_id'   => $input['age_group'][$key],
                         'payment_status' => 1,
                         'payments_id'    => $paymentResult->id,
                     );
@@ -69,6 +70,7 @@ class PaymentRepository
                     'user_id'        => $input['coach_id'],
                     'event_id'       => $input['event_id'],
                     'team_id'        => $input['teamId'][$key],
+                    'age_group_id'   => $input['age_group'][$key],
                     'payment_status' => 0,
                     'payments_id'    => 0,
                 );

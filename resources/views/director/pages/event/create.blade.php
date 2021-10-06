@@ -98,28 +98,16 @@
                         </div>
                         <div class="col-sm-6">
                             <label class="label__wrapper required">Age Group</label>
-                            <select class="form-control input__box--wrapper down-icons" id="js-example-basic-multiple"  multiple="multiple"  name="age_group[]" >
-                                <option disabled="" selected>Age Group</option>
-                                <option value="5U"> 5U</option>
-                                <option value="6U"> 6U</option>
-                                <option value="7U"> 7U</option>
-                                <option value="8U"> 8U</option>
-                                <option value="9U"> 9U</option>
-                                <option value="10U">10U</option>
-                                <option value="11U">11U</option>
-                                <option value="12U">12U</option>
-                                <option value="13U">13U</option>
-                                <option value="14U">14U</option>
-                                <option value="15U">15U</option>
-                                <option value="16U">16U</option>
-                                <option value="17U">17U</option>
-                                <option value="18U">18U</option>
+                            <select class="form-control input__box--wrapper down-icons" id="js-example-basic-multiple"  multiple name="age_group[]" >
+                                @foreach($ageGroups as $agegroup)
+                                <option value="{{ $agegroup->id }}"> {{ $agegroup->age_group }}</option>
+                                @endforeach
                             </select>
                             @if($errors->has('age_group'))
-                                                    <span class="invalid-feedback">
-                                                        <strong>{{ $errors->first('age_group') }}</strong>
-                                                    </span>
-                                                @endif
+                                <span class="invalid-feedback">
+                                    <strong>{{ $errors->first('age_group') }}</strong>
+                                </span>
+                            @endif
                         </div>
                     </div>
                     <div class="row mb-2">
@@ -159,12 +147,22 @@
                     </div>
                    
                         <div class="row mb-2"  id="addMorevenue">
-                            <div class="col-sm-12">
+                            <div class="col-sm-6">
                                 <label class="label__wrapper required">Event Venue</label> <!--haxxan-->
                                 <input  type="text" name="event_venue[]" class="form-control input__box--wrapper" value="{{ old('event_venue[]')}}"> 
                                 @if($errors->has('event_venue'))
                                     <span class="invalid-feedback">
                                         <strong>{{ $errors->first('event_venue') }}</strong>
+                                    </span>
+                                @endif
+                                <br>
+                            </div>
+                            <div class="col-sm-6">
+                                <label class="label__wrapper required">Event Schedule</label> <!--haxxan-->
+                                <input  type="text" name="event_time[]" class="form-control input__box--wrapper" value="{{ old('event_time[]')}}"> 
+                                @if($errors->has('event_time'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('event_time') }}</strong>
                                     </span>
                                 @endif
                                 <br>
@@ -253,7 +251,9 @@
     <script src="{{ asset('js/multiselect.js')}}" async defer></script>
 
     <script>
-         $('#js-example-basic-multiple').select2();
+         $('#js-example-basic-multiple').select2({
+             placeholder : "Select Age Group"
+         });
     </script>
 
     

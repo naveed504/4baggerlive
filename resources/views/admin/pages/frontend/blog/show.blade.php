@@ -26,7 +26,7 @@
                 <div class="card-body">
                   <h5 class="card-title border-bottom pb-4">{{ $blog->title }}</h5>
                   <p class="card-text pb-4 border-bottom">{!! substr($blog->detail,0, 250)  !!}  </p>
-                    <p class="text-center pt-3">{{ date('M-d-Y ', strtotime($blog->created_at)); }}</p>
+                    <p class="text-center pt-3">{{ date('M-d-Y ', strtotime($blog->created_at)) }}</p>
                 </div>
               </div>
         </div>

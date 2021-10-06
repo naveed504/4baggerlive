@@ -147,6 +147,7 @@ section {
 }
 
 body {
+    
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     font-size: 1rem;
@@ -4730,7 +4731,24 @@ input[type="button"].btn-block {
 .navbar-expand>.container-xl {
     flex-wrap: nowrap;
 }
-
+.custom-btnnn button{
+    background-color: transparent !important;
+    width: 210px !important;
+    height: 45px;
+    margin-top: 10px;
+    position: relative;
+    left: 4%;
+}
+.custom-btnnn button:hover{
+    border:  2px solid white  !important;
+}
+.custom-btnnn button:focus{
+box-shadow: none !important;
+outline: none !important;
+border:  2px solid white !important;
+background-color: rgb(255, 255, 255) !important;
+color: #6fad43 !important;
+}
 .navbar-expand .navbar-nav-scroll {
     overflow: visible;
 }
@@ -10339,7 +10357,8 @@ body {
 }
 
 .sb-nav-fixed #layoutSidenav #layoutSidenav_nav .sb-sidenav .sb-sidenav-menu {
-    overflow-y: auto;
+    position:fixed;
+    top:5px;
 }
 
 .sb-nav-fixed #layoutSidenav #layoutSidenav_content {
@@ -12384,3 +12403,4 @@ h6 {
     width: 100%;
     height: 100%;
 }
+

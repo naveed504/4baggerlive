@@ -5,7 +5,8 @@
     <script src="{{asset("admin/js/scripts.js")}}"></script>
     <script src="{{asset("js/toastr.js")}}"></script>
     <script src="{{asset("js/admin.js")}}"></script>
-    
+
+
 
         <!-- *************************yajra datatable*********************************************** !-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>

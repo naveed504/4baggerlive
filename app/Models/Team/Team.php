@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Request;
 use App\Models\State;
+use App\Models\AgeGroup;
 use App\Models\Payments\Payment;
 use App\Models\Payments\PaymentPayout;
 use App\Models\Payments\RefundPayment;
@@ -22,7 +23,7 @@ class Team extends Model
         'team_name',
         'team_city',
         'state_id',
-        'age_group',
+        'age_group_id',
         'division',
         'active',
         'team_profile'
@@ -57,6 +58,11 @@ class Team extends Model
     public function checkeventRegTeam()
     {
         return $this->hasMany(EventRegisterTeam::class);
+    }
+
+    public function agegroup()
+    {
+        return $this->belongsTo(AgeGroup::class,'age_group_id');
     }
 
 

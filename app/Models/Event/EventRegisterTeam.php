@@ -19,6 +19,7 @@ class EventRegisterTeam extends Model
         'user_id',
         'payment_status',
         'payments_id',
+        'age_group_id'
     ];
 //Naveed
     public function teams()
