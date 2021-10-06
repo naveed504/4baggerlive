@@ -47,20 +47,22 @@
                     </div>
                     <div class="col-lg-4 custom-column">
                         <div class="flex-container">
-                       <form action="{{ route('agegroupteams') }}" method="post">
-                           @csrf
+                       
                             <div class="age-group"> 
-                                @foreach($eventdata->ageGroups as $agegroup)  
-                                <input type="hidden" name="agegroupId" value="{{ $agegroup['id'] }}">                               
-                                <input type="hidden" name="eventId" value="{{ $eventdata->id }}"> 
-                                                         
-                                     <button type="submit" class="badge badge-secondary" style="width:50px;tex-align:center">{{ $agegroup['age_group'] }}</button>
-                                    <!-- <span class="badge badge-pill badge-primary px-3 py-2" style="width:50px;tex-align:center">{{ $agegroup['age_group'] }}</span>  -->
-                              
-                                    <br>                                
+                           
+                                @foreach($eventdata->ageGroups as $agegroup) 
+                                <form action="{{ route('agegroupteams') }}" method="post">
+                                    @csrf 
+                                    <input type="hidden" name="agegroupId" value="{{ $agegroup['id'] }}">                               
+                                    <input type="hidden" name="eventId" value="{{ $eventdata->id }}"> 
+                                    <button type="submit" class="badge badge-secondary" style="width:50px;tex-align:center">{{ $agegroup['age_group'] }}</button>
+                                    <br>   
+                                </form>                             
                                 @endforeach 
+                               
                             </div> 
-                       </form>
+
+                      
                                
                                                   
                             <div class="age-group ">
