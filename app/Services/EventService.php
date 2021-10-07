@@ -27,9 +27,9 @@ class EventService
     public function createEvent($request)
     {
         try {
-          
-            
-            
+
+
+
             if ($request->has('event_logo')) {
                 $fileName = time() . '.' . $request->event_logo->extension();
                 $request->event_logo->move(public_path('/images/event'), $fileName);
@@ -55,6 +55,7 @@ class EventService
                 'event_venue' => json_encode($request->event_venue),
                 'gate_fee'    => $request->gate_fee,
                 'eventclassification'=>$request->eventclassification,
+                'event_time'=> json_encode($request->event_time),
             ]);
         } catch (Exception $e) {
             dd($e->getMessage());
@@ -72,7 +73,7 @@ class EventService
      */
     public function updateEvent($id, $request)
     {
-        
+
         $event = EventModel::find($id);
 
         if ($request->has('event_logo')) {
