@@ -179,6 +179,8 @@ Route::group(['prefix' => 'director',  'middleware' => ['auth', 'directorrole']]
     Route::get('paymentrefundform/{id}', [DirectorHomeController::class, 'showPaymentRefundForm'])->name('paymentrefundform');
     Route::post('paymentrefund', [DirectorHomeController::class, 'refundTransaction'])->name('paymentrefund');
     Route::post('agegroupteams', [EventController::class,'ageGroupDetails'])->name('agegroupteams');
+    Route::get('playersinteam/{teamid}/{eventid}', [EventController::class,'playersInEventTeam'])->name('playersinteam');
+    Route::get('eventhistory/{eventid}',[EventController::class, 'eventHistory'])->name('eventhistory');
 });
 Route::get('email_view',function(){
     return view('email.adminNotifyDirectorRegister');
