@@ -19,6 +19,7 @@
             
         </div>
         <div class="row">
+            @if(!empty($recentsections))
             @forelse($recentsections as $recentsection)
             <div class="col-lg-3 col-md-4 col_leftspace">
                 <div class="inner__wrapper--one">
@@ -31,7 +32,9 @@
             @empty 
             <h5>No Record Found</h5>
             @endforelse
-           
+           @else
+           <h3>No Record</h3>
+           @endif
         </div>
     </div>
 </section>
@@ -56,6 +59,7 @@
             <h4 class="inner__heading">4 Bagger OFFICIAL PARTNERS</h4>
         </div>
         <div class="row">
+        @if(!empty($officalpartners))
             @forelse($officalpartners as $officalpartner)
             <div class="col-lg-4 col-md-4 col__padding-5">
                 <img src="{{ asset('admin/allimages/'. $officalpartner->image) }}" class="img-fluid w-100" alt="" style="height:250px">
@@ -67,6 +71,9 @@
             @empty 
             <h5>No Record Found</h5>
             @endforelse
+            @else
+            <h3>No Record</h3>
+            @endif
         </div>
     </div>
 </section>
