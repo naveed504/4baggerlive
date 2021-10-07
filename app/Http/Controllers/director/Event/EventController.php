@@ -12,6 +12,8 @@ use App\Models\User;
 use App\Models\Event\EventTimeSchedule;
 use App\Services\EventService;
 use App\Models\Event\EventRegisterTeam;
+use App\Models\Player\PlayerData;
+use App\Models\ServiceFee;
 use Illuminate\Http\Request;
 
 class EventController extends Controller
@@ -158,6 +160,12 @@ class EventController extends Controller
         return $request->all();
         $ageGroupTeams = EventRegisterTeam::where('age_group_id', $request->agegroupId)->where('event_id', $request->eventId)->get();
 
+    public function playersInEventTeam($teamId, $eventid)
+    {
+        $events = EventRegisterTeam::where('event_id','=', $eventid)->where('team_id','=',$teamId)->first();
+        $playerinTeam = PlayerData::where('team_id','=', $events->team_id)->with('team')->with('user')->get();
+        return view('director.pages.event.playersinteam',compact('playerinTeam'));
+    }
 
 
 

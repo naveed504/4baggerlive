@@ -12,7 +12,7 @@
                 <th>Refund Amount</th>
                 <th>Remaining Amount</th>
                 <th>Payment Status</th>
-               @if(Auth::user()->type == 2 ) <th>Refund</th> @endif
+               @if(Auth::user()->type == 2) <th>Refund</th> @endif
             </thead>
             <tbody>
 

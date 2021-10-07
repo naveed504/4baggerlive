@@ -14,7 +14,7 @@
                     <li class="nav-item">
                         <a class="nav-link active" href="{{ route('welcome') }}">home</a>
                     </li>
-                    <li class="nav-item dropdown">
+                    <!-- <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           Events
                         </a>
@@ -23,7 +23,7 @@
                           <div class="dropdown-divider"></div>
                           <a class="dropdown-item" href="#">Showcases</a>
                         </div>
-                    </li>
+                    </li> -->
                    
                     <li class="nav-item">
                         <a class="nav-link" href="#">Live Events</a>

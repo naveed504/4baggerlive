@@ -279,14 +279,13 @@ class GenericHelperClass
 
         return $imgpath;
     }
+
     public function makeNewDirectory($imgpath)
     {
         if(!File::isDirectory($imgpath)){
             File::makeDirectory($imgpath, 0777, true, true);
         }
     }
-
-
 
     public function getFooterData()
     {
