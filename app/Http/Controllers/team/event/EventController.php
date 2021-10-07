@@ -77,11 +77,13 @@ class EventController extends Controller
      */
     public function addToEvent($id)
     {
+       
         $userId     = Auth::user()->id;
         $teamId     = EventRegisterTeam::where(['user_id'=>$userId])->where('payment_status', '=' ,1)->pluck('team_id')->all();
-        $teams      = Team::where(['user_id'=>$userId])->whereNotIn('id',$teamId)->get();
+        $teams      = Team::where(['user_id'=>$userId])->whereNotIn('id',$teamId)->with('agegroup')->get();
         $event      = Event::find($id);
         $servicefee = ServiceFee::first();
+      
         return view('coach.pages.events.addteamtoevent', compact('event', 'servicefee','teams'));
     }
 
@@ -105,7 +107,9 @@ class EventController extends Controller
      */
     public function payTeamForEvent(Request $request, PaymentGateway $payment)
     {
+
         $input = $request->all();
+      
         if (empty($request['checkbox'])) {
             $response = $payment->setPaymentData($request->all())
                 ->setRefId()

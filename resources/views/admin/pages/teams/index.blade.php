@@ -1,4 +1,5 @@
 @extends('admin.master')
+
 @section('content')
         <div class="row">
             <div class="col-sm-12">
@@ -26,7 +27,10 @@
                 </table>
             </div>
         </div>
+        
+        
         <script type="text/javascript">
+    
             $(function () {
               
               var table = $('.data-table').DataTable({

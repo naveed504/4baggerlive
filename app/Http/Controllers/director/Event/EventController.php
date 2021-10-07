@@ -6,9 +6,14 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\director\CreateEventRequest;
 use App\Models\Event\Event;
 use App\Models\State;
+use App\Models\AgeGroup;
 use App\Models\Team\Team;
 use App\Models\User;
+use App\Models\Event\EventTimeSchedule;
 use App\Services\EventService;
+use App\Models\Event\EventRegisterTeam;
+use App\Models\Player\PlayerData;
+use App\Models\ServiceFee;
 use Illuminate\Http\Request;
 
 class EventController extends Controller
@@ -20,7 +25,8 @@ class EventController extends Controller
      */
     public function index()
     {
-        $eventResults = Event::all();
+        $eventResults = Event::with('agegroup')->get();
+
         return view('director.pages.event.index', compact('eventResults'));
     }
 
@@ -32,7 +38,10 @@ class EventController extends Controller
     public function create()
     {
         $states = State::all();
-        return view('director.pages.event.create', compact('states'));
+        $ageGroups = AgeGroup::all();
+        $eventTimeSchedule = EventTimeSchedule::all();
+        // dd($eventTimeSchedule);
+        return view('director.pages.event.create', compact('states','ageGroups', 'eventTimeSchedule'));
     }
 
     /**
@@ -74,8 +83,9 @@ class EventController extends Controller
     public function edit($id)
     {
         $states = State::all();
+        $ageGroups = AgeGroup::all();
         $event = Event::find($id);
-        return view('director.pages.event.edit', compact('event', 'states'));
+        return view('director.pages.event.edit', compact('event', 'states','ageGroups'));
     }
 
     /**
@@ -144,4 +154,35 @@ class EventController extends Controller
         $player = User::find($id);
         return view('director.pages.event.showplayer', compact('player'));
     }
+
+    public function ageGroupDetails(Request $request)
+
+    {       
+      $ageGroupTeams = EventRegisterTeam::where('age_group_id', $request->agegroupId)->where('event_id', $request->eventId)->FetchRelations()->get();
+        $ageGroupTeams->map(function($e){
+            $e->ageGroups = AgeGroup::where('id', $e->age_group_id)->value('age_group');
+            return $e;
+        });       
+        return view('director.pages.event.teamsinagegroup', compact('ageGroupTeams'));
+
+    }
+
+
+    public function playersInEventTeam($teamId, $eventid)
+    {
+        $events = EventRegisterTeam::where('event_id','=', $eventid)->where('team_id','=',$teamId)->first();
+        $playerinTeam = PlayerData::where('team_id','=', $events->team_id)->with('team')->with('user')->get();
+        return view('director.pages.event.playersinteam',compact('playerinTeam'));        
+    }
+
+
+    public function eventHistory($eventid)
+    {      
+           $payments = EventRegisterTeam::where('event_id', $eventid)->FetchRelations()->get();
+           $servicefee = ServiceFee::first();
+           return view('director.pages.event.eventhistory',compact('payments','servicefee')); 
+       
+    }
+
+
 }

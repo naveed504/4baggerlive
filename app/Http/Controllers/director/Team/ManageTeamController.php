@@ -4,6 +4,7 @@ namespace App\Http\Controllers\director\Team;
 
 use App\Http\Controllers\Controller;
 use App\Models\State;
+use App\Models\AgeGroup;
 use App\Models\Team\Team;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
@@ -32,7 +33,9 @@ class ManageTeamController extends Controller
     public function create()
     {
         $states = State::all();
-        return view('director.pages.team.create', compact('states'));
+        $ageGroups = AgeGroup::all();
+
+        return view('director.pages.team.create', compact('states','ageGroups'));
     }
 
     /**

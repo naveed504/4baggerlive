@@ -97,17 +97,21 @@
                             @endif
                         </div>
                         <div class="col-sm-6">
-                            <label class="label__wrapper required">Entry Fee</label>
-                            <input type="number" name="entry_fee" class="form-control input__box--wrapper" value="{{ old('entry_fee') }}">
-                            @if($errors->has('entry_fee'))
+                            <label class="label__wrapper required">Age Group</label>
+                            <select class="form-control input__box--wrapper down-icons" id="js-example-basic-multiple"  multiple name="age_group[]" >
+                                @foreach($ageGroups as $agegroup)
+                                <option value="{{ $agegroup->id }}"> {{ $agegroup->age_group }}</option>
+                                @endforeach
+                            </select>
+                            @if($errors->has('age_group'))
                                 <span class="invalid-feedback">
-                                    <strong>{{ $errors->first('entry_fee') }}</strong>
+                                    <strong>{{ $errors->first('age_group') }}</strong>
                                 </span>
                             @endif
                         </div>
                     </div>
                     <div class="row mb-2">
-                        <div class="col-sm-6">
+                        <div class="col-sm-4">
                             <label class="label__wrapper required">Event City</label>
                             <input type="text" name="event_city" class="form-control input__box--wrapper" value="{{ old('event_city')}}">
                             @if($errors->has('event_city'))
@@ -116,7 +120,7 @@
                                 </span>
                             @endif
                         </div>
-                        <div class="col-sm-6">
+                        <div class="col-sm-4">
                             <label class="label__wrapper required">Event State</label>
                             <select  class="form-control  input__box--wrapper down-icons" value="" name="event_state" required >
                                 <option  disabled="" selected value="">select state</option>
@@ -130,17 +134,42 @@
                                 </span>
                             @endif
                         </div>
+
+                        <div class="col-sm-4">
+                            <label class="label__wrapper required">Entry Fee</label>
+                            <input type="number" name="entry_fee" class="form-control input__box--wrapper" value="{{ old('entry_fee') }}">
+                            @if($errors->has('entry_fee'))
+                                <span class="invalid-feedback">
+                                    <strong>{{ $errors->first('entry_fee') }}</strong>
+                                </span>
+                            @endif
+                        </div>
                     </div>
+
                         <div class="row mb-2"  id="addMorevenue">
-                            <div class="col-sm-12">
+                            <div class="col-sm-6">
                                 <label class="label__wrapper required">Event Venue</label> <!--haxxan-->
-                                <input  type="text" name="event_venue[]" class="form-control input__box--wrapper" value="{{ old('event_venue[]')}}"> 
+                                <input  type="text" name="event_venue[]" class="form-control input__box--wrapper" value="{{ old('event_venue[]')}}">
                                 @if($errors->has('event_venue'))
                                     <span class="invalid-feedback">
                                         <strong>{{ $errors->first('event_venue') }}</strong>
                                     </span>
                                 @endif
                                 <br>
+                            </div>
+                            <div class="col-sm-6">
+                                <label class="label__wrapper required">Event Schedule</label>
+                                <select  class="form-control  input__box--wrapper down-icons" value="" name="event_time[]" required >
+                                    <option  disabled="" selected value="">Select Schedule</option>
+                                    @foreach($eventTimeSchedule as $eventSchedule)
+                                        <option value="{{ $eventSchedule->event_schedule_time }}">{{ date('h:i A', strtotime($eventSchedule->event_schedule_time))}} &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp {{date('M-d-Y ', strtotime($eventSchedule->event_schedule_time)) }}</option>
+                                    @endforeach
+                                </select>
+                                @if($errors->has('event_time'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('event_time') }}</strong>
+                                    </span>
+                                @endif
                             </div>
                         </div>
                         <button class="btn btn-xs btn__add mt-1" onclick="addMoreVenue()" type="button">Add More</button>
@@ -224,6 +253,12 @@
 @endsection
 @section('scripts')
     <script src="{{ asset('js/multiselect.js')}}" async defer></script>
+
+    <script>
+         $('#js-example-basic-multiple').select2({
+             placeholder : "Select Age Group"
+         });
+    </script>
 
 
 @endsection

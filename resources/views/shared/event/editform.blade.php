@@ -80,18 +80,25 @@
                 </span>
             @endif
         </div>
-        <div class="col-sm-6">
-            <label class="label__wrapper required">Entry Fee</label>
-            <input type="number" name="entry_fee" class="form-control input__box--wrapper" value="{{ $event->entry_fee }}">
-            @if($errors->has('entry_fee'))
+        <div class="col-sm-6">      
+       
+            <label class="label__wrapper required">Age Group</label>
+           
+            <select class="form-control input__box--wrapper down-icons" id="js-example-basic-multiple" multiple  name="age_group[]" >
+               
+                @foreach($ageGroups as $agegroup)
+                 <option value="{{ $agegroup->id }}" @if( $event->age_group == $agegroup->age_group ) selected @endif> {{ $agegroup->age_group }}</option>
+                @endforeach 
+            </select>
+            @if($errors->has('age_group'))
                 <span class="invalid-feedback">
-                    <strong>{{ $errors->first('entry_fee') }}</strong>
+                    <strong>{{ $errors->first('age_group') }}</strong>
                 </span>
             @endif
-        </div>
+        </div>        
     </div>
     <div class="row mb-2">
-        <div class="col-sm-6">
+        <div class="col-sm-4">
             <label class="label__wrapper required">Event City</label>
             <input type="text" name="event_city" class="form-control input__box--wrapper" value="{{ $event->event_city }}">
             @if($errors->has('event_city'))
@@ -100,7 +107,7 @@
                 </span>
             @endif
         </div>
-        <div class="col-sm-6">
+        <div class="col-sm-4">
             <label class="label__wrapper required">Event State</label>
             <select  class="form-control  input__box--wrapper down-icons" id="team_state" name="event_state" required >
                 <option  disabled="" selected value="">select state</option>
@@ -111,6 +118,15 @@
             @if($errors->has('event_state'))
                 <span class="invalid-feedback">
                     <strong>{{ $errors->first('event_state') }}</strong>
+                </span>
+            @endif
+        </div>
+        <div class="col-sm-4">
+            <label class="label__wrapper required">Entry Fee</label>
+            <input type="number" name="entry_fee" class="form-control input__box--wrapper" value="{{ $event->entry_fee }}">
+            @if($errors->has('entry_fee'))
+                <span class="invalid-feedback">
+                    <strong>{{ $errors->first('entry_fee') }}</strong>
                 </span>
             @endif
         </div>

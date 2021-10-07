@@ -13,4 +13,7 @@
     <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/multiselect.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/toastr.css') }}" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+  
 </head>

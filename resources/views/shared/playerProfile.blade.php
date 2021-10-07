@@ -4,11 +4,7 @@
             <div class="container">
                 <div class=" row">
                     <div class="col-md-3">
-                        <div class="player__img">
-                            <img src="http://127.0.0.1:8000/images/player.jpeg" class="img-fluid" alt="">
-                            <h6>
-                            </h6>
-                        </div>
+
                         @if(Auth::check() && Auth::user()->type == 2)
                             <div class="mt-3 text-center">
                                 <a href="{{ route('add.player.stats', $player->id ?? Auth::user()->id) }}"><button class="btn btn__add"> <i class="fa fa-edit"></i>Add Stats</button></a>
@@ -16,6 +12,11 @@
                         @elseif(Auth::check() && Auth::user()->type == 4)
                             @php $player = Auth::user();  @endphp
                         @endif
+                        <div class="player__img">
+                            <img src="{{asset('frontend/player').'/'.$player->player->player_file}}" class="img-fluid" alt="">
+                            <h6>
+                            </h6>
+                        </div>
 
                     </div>
                     <div class="col-md-4 border__right-wrapper">
@@ -111,11 +112,11 @@
                                 <p class="font__colr-wraper1">
                                     @if(empty($player->player->date_of_birth))
                                     {{ "N/A" }}
-                                    @else 
+                                    @else
                                     {{ Helpers::calculateAgeYears($player->player->date_of_birth) }}
                                     @endif
 
-                                     <br> 
+                                     <br>
 
                                 AGE</p>
                                  </div>

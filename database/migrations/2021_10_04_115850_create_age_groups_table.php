@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class DropRequestsTable extends Migration
+class CreateAgeGroupsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,12 @@ class DropRequestsTable extends Migration
      */
     public function up()
     {
-        Schema::drop('requests');
-        //
+        Schema::create('age_groups', function (Blueprint $table) {
+            $table->id();
+            $table->string('age_group');
+            $table->softDeletes();
+            $table->timestamps();
+        });
     }
 
     /**
@@ -24,6 +28,6 @@ class DropRequestsTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('age_groups');
     }
 }

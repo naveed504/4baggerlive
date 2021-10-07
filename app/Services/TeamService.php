@@ -33,7 +33,7 @@ class TeamService
                     'state_id' => $request->team_state,
                     'team_city' => $request->team_city,
                     'team_profile'=>$teamImage,
-                    'age_group' => $request->age_group
+                    'age_group_id' => $request->age_group
                 ]);
             } catch (Exception $e) {
                 dd($e->getMessage());
@@ -73,7 +73,7 @@ class TeamService
                 'team_city' => $request->team_city,
                 'state_id' => $request->team_state,
                 'team_profile'=>$proImage,
-                'age_group' => $request->age_group,
+                'age_group_id' => $request->age_group,
                 'active' => Auth::user()->type == 1 ? $request->active : $team->active
             ]);
         } catch (Exception $e) {

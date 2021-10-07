@@ -3065,3 +3065,131 @@ line-height:24px;
 .custom-btn a{
     padding: 9px 48px;
 }
+
+.custom-color{
+    background-color: rgb(221, 221, 221);
+}
+.box-title p{
+    font-size: 15px;
+    font-weight: bold;
+}
+.small-box-1 p{
+    background-color:rgb(224, 164, 34) !important;
+}
+.custom-column{
+    padding: 0px 5px;
+}
+.grades p{
+    float: right;
+    position: relative;
+    color: white;
+    background-color: rgb(44, 28, 187);
+    padding: 3px 3px;
+    margin-bottom: 2px;
+    border-radius: 5px;
+    font-size: 13px;
+}
+.grades-name p{
+    color: rgb(230, 77, 77);
+    font-weight: bold;
+}
+.grade-closed P{
+    background-color: rgb(224, 164, 34);
+    border-radius: 5px;
+    margin-bottom: 2px;
+    color: white;
+}
+.grade-open P{
+    background-color: #4fa746;
+    border-radius: 5px;
+    margin-bottom: 2px;
+    color: white;
+}
+.map-icon a{
+    color: gray;
+    font-weight: bold;
+    padding-left: 7px;
+}
+
+
+.flex-container {
+    display: flex;
+    }
+
+    .flex-container > div {
+    margin: 2px;
+    padding: 2px;
+    font-size: 14px;
+    }
+    .florida {
+        color: rgb(3, 3, 3);
+        font-weight: bold;
+        font-size: 13px !important;
+        width: 100%;
+        margin-top: 6px !important;
+    }
+    .az span{
+        border-radius: 0px !important;
+    }
+    .dates {
+      width: 200px;
+      text-align: center;
+      margin-top: 5px !important;
+    }
+    .custom-column{
+        padding: 0px 5px;
+    }
+    .AuBurnDale{
+        color: rgb(240, 52, 52);
+        font-weight: bold;
+        margin-top: 5px !important;
+    }
+    .overlay{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+        display: none;
+    }
+    .overlay i{
+        float: right;
+        position: relative;
+        top: 30px;
+        right: 10px;
+        font-size: 20px;
+        display: none;
+
+    }
+    .parent-overlay:hover .overlay{
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+    .parent-overlay:hover .overlay i {
+        display: block;
+    }
+    .age-group span{
+       margin: 1px 0px !important;
+    }
+    .lanwood-link a{
+        color: gray;
+        font-weight: bold;
+    }
+    .custom-background {
+        background-color: rgb(231, 231, 231);
+    }
+        @media only screen and (max-width: 600px) {
+            .florida {
+        color: rgb(3, 3, 3);
+        font-weight: bold;
+        font-size: 10px !important;
+        float: left;
+    }
+    .dates {
+     font-size: 10px !important;
+     font-weight: bold;
+     margin-top: 8px !important;
+    }
+  
+    
