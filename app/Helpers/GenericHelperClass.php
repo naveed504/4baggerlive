@@ -50,6 +50,7 @@ class GenericHelperClass
     {
         return date_diff(date_create(), date_create($date))
             ->format("%Y Years");
+
     }
 
     /**
@@ -140,7 +141,7 @@ class GenericHelperClass
     }
 
     /**
-     * encrypt user bank details step 1 
+     * encrypt user bank details step 1
      * @param string $key
      */
     public function encryptUserBankDetails($key)
@@ -157,8 +158,8 @@ class GenericHelperClass
 
     /**
      * encrypt user bank details step 2
-     * @param int $key 
-     * @param string  $input  
+     * @param int $key
+     * @param string  $input
      */
     public function Encipher($input, $key)
     {
@@ -172,8 +173,8 @@ class GenericHelperClass
 
      /**
      * encrypt user bank details step 3
-     * @param int $key 
-     * @param string $ch  
+     * @param int $key
+     * @param string $ch
      */
     public function Cipher($ch, $key)
     {
@@ -186,7 +187,7 @@ class GenericHelperClass
 
     /**
      * decrypt user bank details step 1
-     * @param string $key 
+     * @param string $key
      */
     public function decryptUserBankDetails($key)
     {
@@ -203,9 +204,9 @@ class GenericHelperClass
 
      /**
      * decrypt user bank details step 2
-     * @param int $key 
-     * @param string $input 
-     *  
+     * @param int $key
+     * @param string $input
+     *
      */
     public function Decipher($input, $key)
     {
@@ -213,34 +214,33 @@ class GenericHelperClass
     }
 
     /**
-     * Insert Image 
-     * @param  
-     * @param string $input 
-     *  
+     * Insert Image
+     * @param
+     * @param string $input
+     *
      */
     public function saveImage($image)
     {
-      
         $usertype = '';
         $getimagePath = $this->checkImagePath($usertype);
         if(empty($image)) {
             $profilePhoto =  '';
-        } else {            
+        } else {
             $destinationPath = $getimagePath;
             $fileName = time().'.'.$image->clientExtension();
             $image->move($destinationPath, $fileName);
             $profilePhoto = $fileName;
-        }          
+        }
         return $profilePhoto;
     }
-     
+
     public function updateImage($image ,$dbrecord)
-    {   
-        $usertype = '';             
+    {
+        $usertype = '';
         $getimagePath = $this->checkImagePath($usertype);
         if(empty($image)) {
             $profilePhoto = $dbrecord;
-        } else {                     
+        } else {
             $imagePath =  $getimagePath.$dbrecord;
             if(File::exists($imagePath)) {
                 File::delete($imagePath);
@@ -250,9 +250,9 @@ class GenericHelperClass
             $fileName = time().'.'.$file->clientExtension();
             $file->move($destinationPath, $fileName);
             $profilePhoto = $fileName;
-        }  
+        }
         return $profilePhoto;
-         
+
     }
 
     public function checkImagePath($imgpath)
@@ -260,10 +260,10 @@ class GenericHelperClass
         if(Auth::check()){
             if(Auth::user()->type == 1) {
                 $imgpath = public_path('admin/allimages/');
-                $this->makeNewDirectory($imgpath);                              
+                $this->makeNewDirectory($imgpath);
              } elseif(Auth::user()->type == 2) {
                  $imgpath = public_path('frontend/director/');
-                 $this->makeNewDirectory($imgpath);                 
+                 $this->makeNewDirectory($imgpath);
              } elseif(Auth::user()->type == 3) {
                  $imgpath = public_path('frontend/coach/');
                  $this->makeNewDirectory($imgpath);
@@ -274,18 +274,17 @@ class GenericHelperClass
         }else{
             $imgpath = public_path('frontend/player/');
             $this->makeNewDirectory($imgpath);
-        }               
-      
+        }          
         return $imgpath;        
+
     }
+
     public function makeNewDirectory($imgpath)
     {
         if(!File::isDirectory($imgpath)){
             File::makeDirectory($imgpath, 0777, true, true);
-        } 
+        }
     }
-
-
 
     public function getFooterData()
     {
@@ -305,5 +304,8 @@ class GenericHelperClass
         });
     }
 
+
+
+
+
 }
- 

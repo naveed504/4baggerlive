@@ -9,8 +9,11 @@ use App\Models\State;
 use App\Models\AgeGroup;
 use App\Models\Team\Team;
 use App\Models\User;
+use App\Models\Event\EventTimeSchedule;
 use App\Services\EventService;
 use App\Models\Event\EventRegisterTeam;
+use App\Models\Player\PlayerData;
+use App\Models\ServiceFee;
 use Illuminate\Http\Request;
 
 class EventController extends Controller
@@ -22,8 +25,8 @@ class EventController extends Controller
      */
     public function index()
     {
-        $eventResults = Event::with('agegroup')->get();  
-         
+        $eventResults = Event::with('agegroup')->get();
+
         return view('director.pages.event.index', compact('eventResults'));
     }
 
@@ -36,7 +39,9 @@ class EventController extends Controller
     {
         $states = State::all();
         $ageGroups = AgeGroup::all();
-        return view('director.pages.event.create', compact('states','ageGroups'));
+        $eventTimeSchedule = EventTimeSchedule::all();
+        // dd($eventTimeSchedule);
+        return view('director.pages.event.create', compact('states','ageGroups', 'eventTimeSchedule'));
     }
 
     /**
@@ -151,15 +156,33 @@ class EventController extends Controller
     }
 
     public function ageGroupDetails(Request $request)
-    {
-        return $request->all();
-        $ageGroupTeams = EventRegisterTeam::where('age_group_id', $request->agegroupId)->where('event_id', $request->eventId)->get();
- 
 
+    {       
+      $ageGroupTeams = EventRegisterTeam::where('age_group_id', $request->agegroupId)->where('event_id', $request->eventId)->FetchRelations()->get();
+        $ageGroupTeams->map(function($e){
+            $e->ageGroups = AgeGroup::where('id', $e->age_group_id)->value('age_group');
+            return $e;
+        });       
+        return view('director.pages.event.teamsinagegroup', compact('ageGroupTeams'));
 
-        
     }
 
 
- 
+    public function playersInEventTeam($teamId, $eventid)
+    {
+        $events = EventRegisterTeam::where('event_id','=', $eventid)->where('team_id','=',$teamId)->first();
+        $playerinTeam = PlayerData::where('team_id','=', $events->team_id)->with('team')->with('user')->get();
+        return view('director.pages.event.playersinteam',compact('playerinTeam'));        
+    }
+
+
+    public function eventHistory($eventid)
+    {      
+           $payments = EventRegisterTeam::where('event_id', $eventid)->FetchRelations()->get();
+           $servicefee = ServiceFee::first();
+           return view('director.pages.event.eventhistory',compact('payments','servicefee')); 
+       
+    }
+
+
 }
