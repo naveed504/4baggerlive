@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Models\Request;
 use Exception;
+use Helpers;
 use App\Models\Player\PlayerData;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -20,10 +21,10 @@ class PlayerService
     public function playerRequestForTeam($data)
     {
 
- 
+
         $resultRequest = Request::where('user_id', $data['player_id'])->where('team_id', $data['team_id'])->count();
         if ($resultRequest > 0) {
-         
+
             return redirect()->back();
         }
 
@@ -53,21 +54,10 @@ class PlayerService
             ]);
         }
 
-        if ($data->hasFile('fileupload')) {
-            $userphoto = empty(Auth::user()->player->player_file) ? 'text.jpg' : Auth::user()->player->player_file;
 
-            if (file_exists(public_path('uploads/' . $userphoto))) {
-                unlink(public_path('uploads/' . $userphoto));
-            }
+            $dbRecord = Auth::user()->player->player_file;
+            $file_name = Helpers::updateImage($data->fileupload, $dbRecord);
 
-            $destinationPath = public_path('uploads/');
-            $file = $data->fileupload;
-            $fileName = time() . '.' . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $fileName);
-            $file_name = $fileName;
-        } else {
-            $file_name = Auth::user()->player->player_file;
-        }
 
         try {
             PlayerData::where('user_id', Auth::user()->id)->update([
