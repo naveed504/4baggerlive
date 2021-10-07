@@ -221,7 +221,6 @@ class GenericHelperClass
      */
     public function saveImage($image)
     {
-
         $usertype = '';
         $getimagePath = $this->checkImagePath($usertype);
         if(empty($image)) {
@@ -276,8 +275,8 @@ class GenericHelperClass
             $imgpath = public_path('frontend/player/');
             $this->makeNewDirectory($imgpath);
         }
-
         return $imgpath;
+
     }
 
     public function makeNewDirectory($imgpath)

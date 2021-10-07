@@ -156,8 +156,9 @@ class EventController extends Controller
     }
 
     public function ageGroupDetails(Request $request)
+
     {
-        $ageGroupTeams = EventRegisterTeam::where('age_group_id', $request->agegroupId)->where('event_id', $request->eventId)->FetchRelations()->get();
+      $ageGroupTeams = EventRegisterTeam::where('age_group_id', $request->agegroupId)->where('event_id', $request->eventId)->FetchRelations()->get();
         $ageGroupTeams->map(function($e){
             $e->ageGroups = AgeGroup::where('id', $e->age_group_id)->value('age_group');
             return $e;
@@ -180,8 +181,6 @@ class EventController extends Controller
            return view('director.pages.event.eventhistory',compact('payments','servicefee'));
 
     }
-
-
 
 
 }
