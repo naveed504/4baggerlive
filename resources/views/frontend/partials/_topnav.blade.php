@@ -37,9 +37,6 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('contactus') }}">contact us</a>
                     </li>
-
-
-
                 </ul>
             </div>
         </nav>
