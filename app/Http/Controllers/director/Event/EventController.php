@@ -40,7 +40,7 @@ class EventController extends Controller
         $states = State::all();
         $ageGroups = AgeGroup::all();
         $eventTimeSchedule = EventTimeSchedule::all();
-        // dd($eventTimeSchedule);
+
         return view('director.pages.event.create', compact('states','ageGroups', 'eventTimeSchedule'));
     }
 
@@ -157,8 +157,14 @@ class EventController extends Controller
 
     public function ageGroupDetails(Request $request)
     {
-        return $request->all();
-        $ageGroupTeams = EventRegisterTeam::where('age_group_id', $request->agegroupId)->where('event_id', $request->eventId)->get();
+        $ageGroupTeams = EventRegisterTeam::where('age_group_id', $request->agegroupId)->where('event_id', $request->eventId)->FetchRelations()->get();
+        $ageGroupTeams->map(function($e){
+            $e->ageGroups = AgeGroup::where('id', $e->age_group_id)->value('age_group');
+            return $e;
+        });
+        return view('director.pages.event.teamsinagegroup', compact('ageGroupTeams'));
+
+    }
 
     public function playersInEventTeam($teamId, $eventid)
     {
@@ -167,9 +173,14 @@ class EventController extends Controller
         return view('director.pages.event.playersinteam',compact('playerinTeam'));
     }
 
-
+    public function eventHistory($eventid)
+    {
+           $payments = EventRegisterTeam::where('event_id', $eventid)->FetchRelations()->get();
+           $servicefee = ServiceFee::first();
+           return view('director.pages.event.eventhistory',compact('payments','servicefee'));
 
     }
+
 
 
 
