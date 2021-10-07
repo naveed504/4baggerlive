@@ -80,42 +80,22 @@
                 </span>
             @endif
         </div>
-        <div class="col-sm-6">
-        @php
-        $ageGroups=json_decode($event->age_group) 
-        
-        @endphp
+        <div class="col-sm-6">      
        
             <label class="label__wrapper required">Age Group</label>
            
-            <select class="form-control input__box--wrapper down-icons" id="js-example-basic-multiple"  multiple="multiple"  name="age_group[]" >
-                
-                {{-- @foreach ($ageGroups as $ageGroup)
-                <option value="{{ $ageGroup }}"  @if(in_array($ageGroup ,$ageGroups)) selected @endif> {{ $ageGroup }}</option>
-                @endforeach --}}
-                
-                <option value="5U"  @if(in_array('5U',$ageGroups)) selected @endif> 5U</option>
-                <option value="6U"  @if(in_array('6U',$ageGroups)) selected @endif> 6U</option>
-                <option value="7U"  @if(in_array('7U',$ageGroups)) selected @endif> 7U</option>
-                <option value="8U"  @if(in_array('8U',$ageGroups)) selected @endif> 8U</option>
-                <option value="9U"  @if(in_array('9U',$ageGroups)) selected @endif> 9U</option>
-                <option value="10U" @if(in_array('10U',$ageGroups)) selected @endif>10U</option>
-                <option value="11U" @if(in_array('11U',$ageGroups)) selected @endif>11U</option>
-                <option value="12U" @if(in_array('12U',$ageGroups)) selected @endif>12U</option>
-                <option value="13U" @if(in_array('13U',$ageGroups)) selected @endif>13U</option>
-                <option value="14U" @if(in_array('14U',$ageGroups)) selected @endif>14U</option>
-                <option value="15U" @if(in_array('15U',$ageGroups)) selected @endif>15U</option>
-                <option value="16U" @if(in_array('16U',$ageGroups)) selected @endif>16U</option>
-                <option value="17U" @if(in_array('17U',$ageGroups)) selected @endif>17U</option>
-                <option value="18U" @if(in_array('18U',$ageGroups)) selected @endif>18U</option> 
+            <select class="form-control input__box--wrapper down-icons" id="js-example-basic-multiple" multiple  name="age_group[]" >
+               
+                @foreach($ageGroups as $agegroup)
+                 <option value="{{ $agegroup->id }}" @if( $event->age_group == $agegroup->age_group ) selected @endif> {{ $agegroup->age_group }}</option>
+                @endforeach 
             </select>
             @if($errors->has('age_group'))
-                                    <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('age_group') }}</strong>
-                                    </span>
-                                @endif
-        </div>
-        
+                <span class="invalid-feedback">
+                    <strong>{{ $errors->first('age_group') }}</strong>
+                </span>
+            @endif
+        </div>        
     </div>
     <div class="row mb-2">
         <div class="col-sm-4">

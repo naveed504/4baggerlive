@@ -54,23 +54,10 @@ class PlayerService
             ]);
         }
 
-        if ($data->hasFile('fileupload')) {
-            $dbRecord = empty(Auth::user()->player->player_file) ? 'text.jpg' : Auth::user()->player->player_file;
-            $form_file = $data->fileupload;
-            $file_name = Helpers::updateImage($form_file, $dbRecord);
 
-            // if (file_exists(public_path('frontend/player/' . $userphoto))) {
-            //     unlink(public_path('frontend/player/' . $userphoto));
-            // }
+            $dbRecord = Auth::user()->player->player_file;
+            $file_name = Helpers::updateImage($data->fileupload, $dbRecord);
 
-            // $destinationPath = public_path('frontend/player/');
-            // $file = $data->fileupload;
-            // $fileName = time() . '.' . $file->getClientOriginalExtension();
-            // $file->move($destinationPath, $fileName);
-            // $file_name = $fileName;
-        } else {
-            $file_name = Auth::user()->player->player_file;
-        }
 
         try {
             PlayerData::where('user_id', Auth::user()->id)->update([

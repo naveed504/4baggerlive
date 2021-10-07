@@ -6,9 +6,12 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\director\CreateEventRequest;
 use App\Models\Event\Event;
 use App\Models\State;
+use App\Models\AgeGroup;
 use App\Models\Team\Team;
 use App\Models\User;
+use App\Models\Event\EventTimeSchedule;
 use App\Services\EventService;
+use App\Models\Event\EventRegisterTeam;
 use Illuminate\Http\Request;
 
 class EventController extends Controller
@@ -20,7 +23,8 @@ class EventController extends Controller
      */
     public function index()
     {
-        $eventResults = Event::all();
+        $eventResults = Event::with('agegroup')->get();
+
         return view('director.pages.event.index', compact('eventResults'));
     }
 
@@ -32,7 +36,10 @@ class EventController extends Controller
     public function create()
     {
         $states = State::all();
-        return view('director.pages.event.create', compact('states'));
+        $ageGroups = AgeGroup::all();
+        $eventTimeSchedule = EventTimeSchedule::all();
+        // dd($eventTimeSchedule);
+        return view('director.pages.event.create', compact('states','ageGroups', 'eventTimeSchedule'));
     }
 
     /**
@@ -74,8 +81,9 @@ class EventController extends Controller
     public function edit($id)
     {
         $states = State::all();
+        $ageGroups = AgeGroup::all();
         $event = Event::find($id);
-        return view('director.pages.event.edit', compact('event', 'states'));
+        return view('director.pages.event.edit', compact('event', 'states','ageGroups'));
     }
 
     /**
@@ -144,4 +152,17 @@ class EventController extends Controller
         $player = User::find($id);
         return view('director.pages.event.showplayer', compact('player'));
     }
+
+    public function ageGroupDetails(Request $request)
+    {
+        return $request->all();
+        $ageGroupTeams = EventRegisterTeam::where('age_group_id', $request->agegroupId)->where('event_id', $request->eventId)->get();
+
+
+
+
+    }
+
+
+
 }

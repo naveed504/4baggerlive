@@ -123,7 +123,7 @@
                                                             <select class="form-control  input__box--wrapper down-icons" name="month">
                                                                 <option selected="" value="" disabled="">-- Month --</option>
                                                                 @for($i = 1; $i < 13; $i++ )
-                                                                    <option value="{{ $i }}"  @if((explode("-", Auth::user()->player['date_of_birth'] ?? '')[0]) == $i)
+                                                                    <option value="{{ $i }}"  @if((explode("-", Auth::user()->player['date_of_birth'] ?? '')[1]) == $i)
                                                                     selected
                                                                 @endif >{{ date("F", mktime(0, 0, 0, $i, 10)) }}</option>
                                                                 @endfor
@@ -142,7 +142,7 @@
 
                                                                 @for($i=1; $i< 32  ; $i++)
 
-                                                            <option value="{{$i}}"  @if((explode("-", Auth::user()->player['date_of_birth'] ?? '')[1] ?? '') == $i)
+                                                            <option value="{{$i}}"  @if((explode("-", Auth::user()->player['date_of_birth'] ?? '')[0] ?? '') == $i)
                                                                     selected
                                                                 @endif > {{$i}}  </option>
                                                             @endfor

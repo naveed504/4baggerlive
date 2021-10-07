@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use App\Models\General\GeneralSetting;
 use App\Models\General\ManageBlog;
+use App\Models\AgeGroup;
+use App\Models\Event\EventRegisterTeam;
 use Auth;
 use File;
 
@@ -48,6 +50,7 @@ class GenericHelperClass
     {
         return date_diff(date_create(), date_create($date))
             ->format("%Y Years");
+
     }
 
     /**
@@ -292,6 +295,16 @@ class GenericHelperClass
         return $data;
     }
 
+    public function teamsInAgeGroups($event)
+    {
+        return $event->map(function($e) {
+            $e->ageGroups = AgeGroup::whereIn('id', explode(",", $e->age_group_id))->get()->toArray();
+            $e->countTeam = array_map(function($ages) use ($e) {
+                return EventRegisterTeam::where('age_group_id', $ages)->where('event_id',$e->id)->count('team_id');
+            }, explode(",", $e->age_group_id));
+            return $e;
+        });
+    }
 
 
 
