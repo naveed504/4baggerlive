@@ -46,25 +46,43 @@ class ManageTeamController extends Controller
      */
     public function store(Request $request, TeamService $team)
     {
+       
         if (!empty($request->terms_agreement) && !empty($request->site_agreement)) {
-
             if ($request->password != $request->password_confirmation) {
                 parent::dangerMessage('Passwords do not match');
                 return redirect()->back();
             }
-
             try {
-                $user = User::create([
-                    'director_id' => Auth::user()->id,
-                    'name' => $request->name,
-                    'email'  => $request->email,
-                    'password' => Hash::make($request->password),
-                    'type' => 3,
-                    'cell_number' => $request->cell_no
-                ]);
+               $checkresult = User::where('email','=',$request->email)->first();
+                if($checkresult->email > 0) {
+                   $matchpassword= Hash::check($request->password , $checkresult->password);
+                   if(!$matchpassword){
+                    parent::dangerMessage('Your Password does not match with old password');
+                    parent::dangerMessage('This Email already exist please use the same password');
+                    return redirect()->back();
+                   }                
+                
+                } else {
+                    $checkresult =[
+                        'id' => 890890
+                    ];
+
+                    // $checkresult = User::create([
+                    //     'director_id' => Auth::user()->id,
+                    //     'name' => $request->name,
+                    //     'email'  => $request->email,
+                    //     'password' => Hash::make($request->password),
+                    //     'type' => 3,
+                    //     'cell_number' => $request->cell_no
+                    // ]);
+                }
+                 
+
+
+                dd($checkresult);
 
                 // Team Service
-                $created = $team->createTeam($user->id, $request);
+                $created = $team->createTeam($checkresult->id, $request);
                 if ($created != 'true') {
                     throw new Exception("Oops we have encountered a problem. Please try again");
                 }
