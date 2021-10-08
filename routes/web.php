@@ -100,9 +100,10 @@ Route::group(['prefix' => 'admin',  'middleware' => ['auth', 'checkrole']], func
     Route::post('updateservicefee',[ServiceFeeController::class,'updateServiceFee'])->name('updateservicefee');
     Route::get('adminallteams',[AdminTeamController::class, 'getallTeams'])->name('adminallteams');
     Route::post('searchplayer', [PlayerController::class, 'searchPlayer'])->name('search.player');
-
-    
-
+    Route::post('adminagegroupteams',[ManageDirectorController::class,'ageGroupDetails'])->name('adminagegroupteams');
+    Route::post('adminplayersinteam', [ManageDirectorController::class,'playersInEventTeam'])->name('adminplayersinteam');
+    Route::post('admineventhistory',[ManageDirectorController::class, 'eventHistory'])->name('admineventhistory');
+    Route::post('changeagegroupstaus',[ManageDirectorController::class, 'changeagegroupstaus'])->name('changeagegroupstaus');
 
     Route::resource('events', ManageEventController::class);
     Route::resource('adminslider', HomeSliderController::class);
@@ -179,7 +180,7 @@ Route::group(['prefix' => 'director',  'middleware' => ['auth', 'directorrole']]
     Route::get('paymentrefundform/{id}', [DirectorHomeController::class, 'showPaymentRefundForm'])->name('paymentrefundform');
     Route::post('paymentrefund', [DirectorHomeController::class, 'refundTransaction'])->name('paymentrefund');
     Route::post('agegroupteams', [EventController::class,'ageGroupDetails'])->name('agegroupteams');
-    Route::get('playersinteam/{teamid}/{eventid}', [EventController::class,'playersInEventTeam'])->name('playersinteam');
+    Route::post('playersinteam', [EventController::class,'playersInEventTeam'])->name('playersinteam');
     Route::get('eventhistory/{eventid}',[EventController::class, 'eventHistory'])->name('eventhistory');
 });
 Route::get('email_view',function(){

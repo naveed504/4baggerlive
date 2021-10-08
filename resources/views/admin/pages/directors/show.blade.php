@@ -4,6 +4,7 @@
         <div class="col-sm-12 mt-2">
             <h4 class="bg-light p-3">
                 {{ $director->name }}
+               
             </h4>
         </div>
         <div class="col-sm-12 my-3">
@@ -52,33 +53,60 @@
                 <table class="table">
                     <thead>
                         <th style="width:2%">#</th>
-                        <th class="padding-1" style="width:9%">Event Name</th>
-                        <th class="padding-1" style="width:7%">Teams</th>
-                        <th class="padding-1" style="width:10%">Start Date</th>
-                        <th class="padding-1" style="width:10%">End Date</th>
-                        <th class="padding-1" style="width:4%">Fee</th>
-                        <th class="padding-1" style="width:10%">City</th>
-                        <th class="padding-1" style="width:10%">State</th>
-                        <th class="padding-1" style="width:13%">Venue</th>
-                        <th class="padding-1" style="width:7%">Status</th>
-                        <th class="padding-1" style="width:10%">Actions</th>
+                        <th class="padding-1" >Event Name</th>
+                        <th class="padding-1" >Teams</th>
+                        <th class="padding-1" >AgeGroup</th>
+                        <th class="padding-1" >A-G-S</th>
+                        <th class="padding-1" >Start Date</th>
+                        <th class="padding-1" >End Date</th>
+                        <th class="padding-1" >Fee</th>
+                        <th class="padding-1" >City</th>
+                        <th class="padding-1" >State</th>
+                        <!-- <th class="padding-1" style="width:13%">Venue</th> -->
+                        <th class="padding-1" >Status</th>
+                        <th class="padding-1" >Actions</th>
                     </thead>
                     <tbody>
-                        @forelse($director->events as $event)
+                        @forelse(Helpers::teamsInAgeGroups($director->events) as $event)
+                       
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td class="padding-1">{{ $event->event_name }}</td>
                                 <td class="padding-1">{{ $event->total_matches }}</td>
+                                <td class="padding-1">
+                                @foreach($event->ageGroups as $agegroup) 
+                                        <form action="{{ route('adminagegroupteams') }}" method="post">
+                                            @csrf 
+                                            <input type="hidden" name="agegroupId" value="{{ $agegroup['id'] }}">                               
+                                            <input type="hidden" name="eventId" value="{{ $event->id }}"> 
+                                            <input type="hidden" name="userId" value="{{ $director->id }}">
+                                            <button type="submit" class="badge badge-secondary" style="width:50px;tex-align:center">{{ $agegroup['age_group'] }}</button>
+                                            <input type="checkbox"  id="changestatus_agegroup"   data-userId="{{ $director->id }}" data-eventId="{{ $event->id }}" data-agegroupId="{{ $agegroup['id'] }}" >
+
+                                          
+                                        </form>                             
+                                 @endforeach
+                                
+                                </td>
+                                <td> 
+                                @foreach($event->checkageGroupStatus as $agegroupstatus)
+                                @if($agegroupstatus == "open")
+                                <span class="badge badge-pill badge-success " style="width:50px;tex-align:center">Open</span><br>
+                                @else
+                                <span class="badge badge-pill badge-info  " style="width:50px;tex-align:center">Close</span><br>
+                                @endif                          
+                                @endforeach 
+                                </td>
                                 <td class="padding-1">{{ date('M d, Y', strtotime($event->start_date)) }}</td>
                                 <td class="padding-1">{{ date('M d, Y', strtotime($event->end_date)) }}</td>
                                 <td class="padding-1">{{ $event->entry_fee }}</td>
                                 <td class="padding-1">{{ $event->event_city }}</td>
                                 <td class="padding-1">{{ $event->state->state_name }}</td>
-                                <td class="padding-1">
+                                <!-- <td class="padding-1">
                                     @foreach(json_decode($event->event_venue) as $venue)
                                         {{ !empty($venue) ? $venue . " |" : "" }}
                                     @endforeach
-                                 </td>
+                                 </td> -->
                                  <td class="padding-1"> @if($event->approved == 1)  
                                      <span class="badge badge-pill badge-success">Approve</span> @else
                                      <span class="badge badge-pill badge-warning">Pending</span> @endif
@@ -129,4 +157,44 @@
             </div>
         </div>
     </div>
+    <script> 
+   $(document).on('click','#changestatus_agegroup', function() {
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+       
+    var userid = $(this).attr("data-userId");
+    var eventid = $(this).attr("data-eventId");
+    var agegroupid = $(this).attr("data-agegroupId");
+    $.ajax({
+          data: {userid:userid, eventid:eventid, agegroupid:agegroupid},
+          url: "{{ route('changeagegroupstaus') }}",
+          type: "POST",
+          dataType: 'json',
+          success: function (data) {
+            if(data.status = "updated") {
+                setTimeout(function() {
+                    location.reload();
+                }, 2000);
+            }
+             
+          },
+          error: function (data) {
+              console.log('Error:', data);
+              $('#btn-save').html('Save Changes');
+          }
+      });
+
+          
+    });
+  
+
+</script>
 @endsection
+
+
+
+
+

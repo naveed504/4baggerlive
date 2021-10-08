@@ -10,6 +10,7 @@ use Illuminate\Support\Str;
 use App\Models\General\GeneralSetting;
 use App\Models\General\ManageBlog;
 use App\Models\AgeGroup;
+use App\Models\CheckAgeGroupStatus;
 use App\Models\Event\EventRegisterTeam;
 use Auth;
 use File;
@@ -297,15 +298,30 @@ class GenericHelperClass
     {
         return $event->map(function($e) {
             $e->ageGroups = AgeGroup::whereIn('id', explode(",", $e->age_group_id))->get()->toArray();
+            
             $e->countTeam = array_map(function($ages) use ($e) {
                 return EventRegisterTeam::where('age_group_id', $ages)->where('event_id',$e->id)->count('team_id');
             }, explode(",", $e->age_group_id));
+
+            $e->checkageGroupStatus = array_map(function($age_group) use($e){
+               return CheckAgeGroupStatus::where('age_group_id', $age_group)->where('event_id',$e->id)->value('status');
+            }, explode(",",$e->age_group_id));
+             
             return $e;
         });
     }
 
 
-
+    // public function teamsInAgeGroups($event)
+    // {
+    //     return $event->map(function($e) {
+    //         $e->ageGroups = AgeGroup::whereIn('id', explode(",", $e->age_group_id))->get()->toArray();
+    //         $e->countTeam = array_map(function($ages) use ($e) {
+    //             return EventRegisterTeam::where('age_group_id', $ages)->where('event_id',$e->id)->count('team_id');
+    //         }, explode(",", $e->age_group_id));
+    //         return $e;
+    //     });
+    // }
 
 
 }

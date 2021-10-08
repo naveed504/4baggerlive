@@ -95,7 +95,11 @@ class EventController extends Controller
      */
     public function showTotalTeams($id)
     {
+       
+      
         $event = Event::find($id);
+       
+      
         return view('coach.pages.events.showTeams', compact('event'));
     }
 

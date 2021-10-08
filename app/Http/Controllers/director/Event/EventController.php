@@ -167,11 +167,12 @@ class EventController extends Controller
 
     }
 
-    public function playersInEventTeam($teamId, $eventid)
+
+    public function playersInEventTeam(Request $request)
     {
-        $events = EventRegisterTeam::where('event_id','=', $eventid)->where('team_id','=',$teamId)->first();
+        $events = EventRegisterTeam::where('event_id','=', $request->eventId)->where('team_id','=',$request->teamId)->FetchRelations()->first();
         $playerinTeam = PlayerData::where('team_id','=', $events->team_id)->with('team')->with('user')->get();
-        return view('director.pages.event.playersinteam',compact('playerinTeam'));
+        return view('director.pages.event.playersinteam',compact('playerinTeam','events'));
     }
 
     public function eventHistory($eventid)
