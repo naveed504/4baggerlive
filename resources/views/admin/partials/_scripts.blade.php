@@ -25,4 +25,4 @@
     {!! JsValidator::formRequest('App\Http\Requests\admin\SliderRequest','#sliderRequest') !!}
     {!! JsValidator::formRequest('App\Http\Requests\admin\GeneralContactInfoRequest','#generalprofilesetting') !!}
     @yield('scripts')
-    
+  
