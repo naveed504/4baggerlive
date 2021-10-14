@@ -187,5 +187,5 @@ Route::get('email_view',function(){
     return view('email.adminNotifyDirectorRegister');
 });
 
-Auth::routes();
+// Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
