@@ -52,35 +52,28 @@ class ManageTeamController extends Controller
                 parent::dangerMessage('Passwords do not match');
                 return redirect()->back();
             }
-            try {
-               $checkresult = User::where('email','=',$request->email)->first();
-                if($checkresult->email > 0) {
+
+           try{
+                $checkresult = User::where('email','=',$request->email)->first();
+                if($checkresult !== null) {
                    $matchpassword= Hash::check($request->password , $checkresult->password);
                    if(!$matchpassword){
                     parent::dangerMessage('Your Password does not match with old password');
                     parent::dangerMessage('This Email already exist please use the same password');
                     return redirect()->back();
-                   }                
-                
-                } else {
-                    $checkresult =[
-                        'id' => 890890
-                    ];
+                   }              
+                }  
 
-                    // $checkresult = User::create([
-                    //     'director_id' => Auth::user()->id,
-                    //     'name' => $request->name,
-                    //     'email'  => $request->email,
-                    //     'password' => Hash::make($request->password),
-                    //     'type' => 3,
-                    //     'cell_number' => $request->cell_no
-                    // ]);
+                if($checkresult == null) {
+                    $checkresult= User::create([
+                        'director_id' => Auth::user()->id,
+                        'name' => $request->name,
+                        'email'  => $request->email,
+                        'password' => Hash::make($request->password),
+                        'type' => 3,
+                        'cell_number' => $request->cell_no
+                    ]); 
                 }
-                 
-
-
-                dd($checkresult);
-
                 // Team Service
                 $created = $team->createTeam($checkresult->id, $request);
                 if ($created != 'true') {
@@ -93,7 +86,6 @@ class ManageTeamController extends Controller
         } else {
             parent::dangerMessage('Agree to the terms and services');
         }
-
         return redirect()->route('team.index');
     }
 

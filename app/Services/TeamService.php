@@ -19,12 +19,10 @@ class TeamService
     {
 
         if (!empty($request->all())) {
-            $teamImage = '';            
-            
+            $teamImage = '';           
             if($request->hasFile('team_profile')) {
                 $teamImage = $this->teamProfileWaterMark($request ,$param1=null,  $param2=null);                
-            }          
-            
+            }         
             try {
                 Team::create([
                     'user_id' => $id,
@@ -50,22 +48,17 @@ class TeamService
      * @return string
      */
     public function updateTeam($id, $request)
-    {
-       
+    {       
         $team = Team::find($id);
-       
         try {
             $proImage = '';
-            if(empty($request->team_profile)){
-                $proImage = $team->team_profile;
-                         
+            if (empty($request->team_profile)) {
+                $proImage = $team->team_profile;                         
             } else {
-                if( $request->hasFile( 'team_profile')) { 
-                                   
+                if( $request->hasFile( 'team_profile')) {                                    
                     $proImage = $this->teamProfileWaterMark($request , $id, $a=1); 
                 }               
             }
-            
             
             $team->update([
                 'team_name' => $request->team_name,
