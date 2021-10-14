@@ -8,6 +8,7 @@ use App\Models\State;
 use App\Services\EventService;
 use Illuminate\Http\Request;
 use App\Models\Team\Team;
+use App\Models\AgeGroup;
 
 class ManageEventController extends Controller
 {
@@ -65,7 +66,8 @@ class ManageEventController extends Controller
     {
         $states = State::all();
         $event = Event::find($id);
-        return view('admin.pages.event.edit', compact('event', 'states'));
+        $ageGroups = AgeGroup::all();
+        return view('admin.pages.event.edit', compact('event', 'states','ageGroups'));
     }
 
     /**
