@@ -23,14 +23,24 @@
     <!-- ***********************yajra datatable ************************************************* !-->
     <link href="{{ asset('admin/css/admincss/jquery.datatables.min.css') }}" rel="stylesheet">
     <link href="{{ asset('admin/css/admincss/datatables.bootstrap4.min.css') }}" rel="stylesheet">
-    <script src="{{ asset('admin/css/admincss/jquery1.9.1.js') }}"></script>
-    <script src="{{ asset('admin/css/admincss/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('admin/css/bootstrap.min.js') }}"></script>
     <!-- *************************yajra datatable*********************************************** !-->
 
     <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css"
         rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js">
+    <link src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js">
+
+    <!-- include libraries(jQuery, bootstrap) -->
+
+    {{--
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet"> --}}
+    <script src="{{ asset('admin/css/admincss/jquery35.min.js') }}" crossorigin="anonymous"></script>
+    <script src="{{ asset('admin/css/admincss/popper.js') }}"></script>
+    <script src="{{ asset('admin/js/bootstrap.min.js') }}"></script>
+
+    <link href="{{asset('admin/summernote/summernote-bs4.min.css')}}" rel="stylesheet">
+    <script src="{{asset('admin/summernote/summernote-bs4.min.js')}}"></script>
+
+    <script src="{{ asset('js/all.min.js') }}" crossorigin="anonymous">
     </script>
-    <script src="{{ asset('admin/summernote/summernote-lite.min.js') }}"></script>
-    <script src="{{ asset('js/all.min.js') }}" crossorigin="anonymous"></script>
 </head>
