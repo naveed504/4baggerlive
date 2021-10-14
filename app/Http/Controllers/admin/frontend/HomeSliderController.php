@@ -15,8 +15,8 @@ class HomeSliderController extends Controller
      */
     public function index()
     {
-        $sliders =Slider::all();
-        return view('admin.pages.frontend.slider.show',compact('sliders'));
+        $sliders = Slider::all();
+        return view('admin.pages.frontend.slider.show', compact('sliders'));
     }
 
     /**
@@ -37,13 +37,12 @@ class HomeSliderController extends Controller
      */
     public function store(Request $request)
     {
-        if ($request->hasFile('cover_photo')) {
+        if ($request->has('cover_photo')) {
             $destinationPath = public_path('admin/slider');
             $file = $request->cover_photo;
             $fileName = time() . '.' . $file->getClientOriginalExtension();
             $file->move($destinationPath, $fileName);
             $file_name = $fileName;
-
         }
 
         Slider::create([
@@ -55,7 +54,6 @@ class HomeSliderController extends Controller
 
         parent::successMessage("Home Slider Added Successfully");
         return redirect()->route('adminslider.index');
-
     }
 
     /**
@@ -77,10 +75,8 @@ class HomeSliderController extends Controller
      */
     public function edit($id)
     {
-        $slider =Slider::find($id);
-        return view('admin.pages.frontend.slider.create',compact('slider'));
-
-        
+        $slider = Slider::find($id);
+        return view('admin.pages.frontend.slider.create', compact('slider'));
     }
 
     /**
@@ -92,7 +88,7 @@ class HomeSliderController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $updateSlider =Slider::find($id);
+        $updateSlider = Slider::find($id);
         if ($request->hasFile('update_photo')) {
             if (file_exists(public_path('admin/slider/' . $updateSlider->cover_photo))) {
                 unlink(public_path('admin/slider/' . $updateSlider->cover_photo));
@@ -103,9 +99,8 @@ class HomeSliderController extends Controller
             $file->move($destinationPath, $fileName);
             $file_name = $fileName;
         } else {
-            $file_name = $updateSlider->cover_photo ;
-
-        } 
+            $file_name = $updateSlider->cover_photo;
+        }
 
         $updateSlider->update([
             'title_one' => $request->title_one,
@@ -113,12 +108,9 @@ class HomeSliderController extends Controller
             'content' => $request->content,
             'cover_photo' => $file_name,
         ]);
-        
+
         parent::successMessage("Home Slider Updated Successfully");
         return redirect()->route('adminslider.index');
-
-        
-        
     }
 
     /**
