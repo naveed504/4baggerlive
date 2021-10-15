@@ -275,8 +275,8 @@ class GenericHelperClass
         }else{
             $imgpath = public_path('frontend/player/');
             $this->makeNewDirectory($imgpath);
-        }          
-        return $imgpath;        
+        }
+        return $imgpath;
 
     }
 

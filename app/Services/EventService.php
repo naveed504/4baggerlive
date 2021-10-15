@@ -5,6 +5,7 @@ namespace App\Services;
 use App\Models\Event\Event as EventModel;
 use Exception;
 use Illuminate\Support\Facades\Auth;
+use App\Models\CheckAgeGroupStatus;
 
 class EventService
 {
@@ -36,7 +37,7 @@ class EventService
             }
 
 
-            EventModel::create([
+            $query = EventModel::create([
                 'user_id' => $this->user,
                 'event_name' => $request->event_name,
                 'total_matches' => $request->total_matches,
@@ -58,6 +59,15 @@ class EventService
                 'event_time'=> json_encode($request->event_time),
                 
             ]);
+            $lastInsertedId = $query->id;
+            foreach($request->age_group as $val)
+            {
+                CheckAgeGroupStatus::create([
+                    'age_group_id' => $val,
+                    'event_id' => $lastInsertedId,
+                ]);
+            }
+
         } catch (Exception $e) {
             dd($e->getMessage());
         }
@@ -108,6 +118,30 @@ class EventService
                 'eventclassification'=>$request->eventclassification,
                 'approved' => Auth::user()->type == 1 ? (int) $request->status : 0
             ]);
+
+            $ageGroups = CheckAgeGroupStatus::where('event_id', $id)->get();
+            $reqAgeGroup = $request->age_group;
+            $exitsIds = [];
+            foreach ($ageGroups as $key => $value)
+            {
+                if(in_array($value->age_group_id, $reqAgeGroup)){
+                    $exitsIds[] = $value->age_group_id;
+                }else{
+                    CheckAgeGroupStatus::where('id', '=', $value->id)->delete();
+                }
+            }
+
+            foreach($request->age_group as $val)
+            {
+                if(!in_array($val, $exitsIds)){
+                    CheckAgeGroupStatus::create([
+                        'age_group_id' => $val,
+                        'event_id' => $id,
+                    ]);
+                }
+
+            }
+
         } catch (Exception $e) {
             dd($e->getMessage());
         }
@@ -124,6 +158,7 @@ class EventService
     public function deleteEvent($id)
     {
         try {
+            CheckAgeGroupStatus::where('event_id', $id)->delete();
             EventModel::find($id)->delete();
         } catch (Exception $e) {
             dd($e->getMessage());

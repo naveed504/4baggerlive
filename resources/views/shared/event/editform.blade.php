@@ -80,22 +80,19 @@
                 </span>
             @endif
         </div>
-        <div class="col-sm-6">      
-       
+        <div class="col-sm-6">
             <label class="label__wrapper required">Age Group</label>
-           
             <select class="form-control input__box--wrapper down-icons" id="js-example-basic-multiple" multiple  name="age_group[]" >
-               
                 @foreach($ageGroups as $agegroup)
-                 <option value="{{ $agegroup->id }}" @if( $event->age_group == $agegroup->age_group ) selected @endif> {{ $agegroup->age_group }}</option>
-                @endforeach 
+                    <option value="{{ $agegroup->id }}" @if(in_array($agegroup->id,explode(',',$event->age_group_id)) ) selected @endif> {{ $agegroup->age_group }}</option>
+                @endforeach
             </select>
             @if($errors->has('age_group'))
                 <span class="invalid-feedback">
                     <strong>{{ $errors->first('age_group') }}</strong>
                 </span>
             @endif
-        </div>        
+        </div>
     </div>
     <div class="row mb-2">
         <div class="col-sm-4">
@@ -115,6 +112,7 @@
                     <option value="{{ $state->id }}" @if($event->state_id == $state->id) selected @endif>{{ $state->state_name }}</option>
                 @endforeach
             </select>
+
             @if($errors->has('event_state'))
                 <span class="invalid-feedback">
                     <strong>{{ $errors->first('event_state') }}</strong>

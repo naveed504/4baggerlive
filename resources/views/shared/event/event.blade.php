@@ -34,7 +34,7 @@
                      {{ $implodResult = implode(" or ", json_decode($event->allowed_bats)) }}
                         @else
                         {{ "N/A" }}
-                    @endif                 
+                    @endif
                 </h6>
                 <p class="text-uppercase text-primary sub_line">Bat restrictions</p>
             </div>
