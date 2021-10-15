@@ -35,8 +35,7 @@ class HomeController extends Controller
         $recentsections = RecentContentSection::all();
         $sliders =Slider::all();
         return !(Auth::check())
-            ? 
-            view('frontend.pages.home', compact('sliders','recentsections','officalpartners','latestNews'))
+            ? view('frontend.pages.home', compact('sliders','recentsections','officalpartners','latestNews'))
             : redirect()->back();
     } 
 

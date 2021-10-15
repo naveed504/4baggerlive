@@ -11,6 +11,9 @@
     'fallback_locale' => 'en',
     'faker_locale' => 'en_US',
     'key' => 'base64:4pgaFDKO1ilaRo5kN2PZOEnFc9RZsPciXrcO2oKPw1g=',
+
+    'key' => 'base64:8ZmxRw5iaMm6vSIffs8Zd8DEBCh947hnoDV0LWyVxAY=',
+
     'cipher' => 'AES-256-CBC',
     'merchant_id' => NULL,
     'merchant_key' => NULL,
@@ -194,7 +197,11 @@
       'file' => 
       array (
         'driver' => 'file',
+
         'path' => 'C:\\xampp\\htdocs\\4baggerlive\\storage\\framework/cache/data',
+
+        'path' => '/var/www/html/4bagger/4baggerlive/storage/framework/cache/data',
+
       ),
       'memcached' => 
       array (
@@ -273,7 +280,7 @@
       array (
         'driver' => 'sqlite',
         'url' => NULL,
-        'database' => 'fourbagger',
+        'database' => 'leadcon1_4bagger',
         'prefix' => '',
         'foreign_key_constraints' => true,
       ),
@@ -283,9 +290,9 @@
         'url' => NULL,
         'host' => '127.0.0.1',
         'port' => '3306',
-        'database' => 'fourbagger',
+        'database' => 'leadcon1_4bagger',
         'username' => 'root',
-        'password' => '',
+        'password' => '123asd',
         'unix_socket' => '',
         'charset' => 'utf8mb4',
         'collation' => 'utf8mb4_unicode_ci',
@@ -303,9 +310,9 @@
         'url' => NULL,
         'host' => '127.0.0.1',
         'port' => '3306',
-        'database' => 'fourbagger',
+        'database' => 'leadcon1_4bagger',
         'username' => 'root',
-        'password' => '',
+        'password' => '123asd',
         'charset' => 'utf8',
         'prefix' => '',
         'prefix_indexes' => true,
@@ -318,9 +325,9 @@
         'url' => NULL,
         'host' => '127.0.0.1',
         'port' => '3306',
-        'database' => 'fourbagger',
+        'database' => 'leadcon1_4bagger',
         'username' => 'root',
-        'password' => '',
+        'password' => '123asd',
         'charset' => 'utf8',
         'prefix' => '',
         'prefix_indexes' => true,
@@ -411,12 +418,20 @@
       'local' => 
       array (
         'driver' => 'local',
+
         'root' => 'C:\\xampp\\htdocs\\4baggerlive\\storage\\app',
+
+        'root' => '/var/www/html/4bagger/4baggerlive/storage/app',
+
       ),
       'public' => 
       array (
         'driver' => 'local',
+
         'root' => 'C:\\xampp\\htdocs\\4baggerlive\\storage\\app/public',
+
+        'root' => '/var/www/html/4bagger/4baggerlive/storage/app/public',
+
         'url' => 'http://localhost/storage',
         'visibility' => 'public',
       ),
@@ -433,7 +448,11 @@
     ),
     'links' => 
     array (
+
       'C:\\xampp\\htdocs\\4baggerlive\\public\\storage' => 'C:\\xampp\\htdocs\\4baggerlive\\storage\\app/public',
+
+      '/var/www/html/4bagger/4baggerlive/public/storage' => '/var/www/html/4bagger/4baggerlive/storage/app/public',
+
     ),
   ),
   'hashing' => 
@@ -478,13 +497,21 @@
       'single' => 
       array (
         'driver' => 'single',
+
         'path' => 'C:\\xampp\\htdocs\\4baggerlive\\storage\\logs/laravel.log',
+
+        'path' => '/var/www/html/4bagger/4baggerlive/storage/logs/laravel.log',
+
         'level' => 'debug',
       ),
       'daily' => 
       array (
         'driver' => 'daily',
+
         'path' => 'C:\\xampp\\htdocs\\4baggerlive\\storage\\logs/laravel.log',
+
+        'path' => '/var/www/html/4bagger/4baggerlive/storage/logs/laravel.log',
+
         'level' => 'debug',
         'days' => 14,
       ),
@@ -535,7 +562,11 @@
       ),
       'emergency' => 
       array (
+
         'path' => 'C:\\xampp\\htdocs\\4baggerlive\\storage\\logs/laravel.log',
+
+        'path' => '/var/www/html/4bagger/4baggerlive/storage/logs/laravel.log',
+
       ),
     ),
   ),
@@ -592,7 +623,11 @@
       'theme' => 'default',
       'paths' => 
       array (
+
         0 => 'C:\\xampp\\htdocs\\4baggerlive\\resources\\views/vendor/mail',
+
+        0 => '/var/www/html/4bagger/4baggerlive/resources/views/vendor/mail',
+
       ),
     ),
   ),
@@ -675,7 +710,11 @@
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
+
     'files' => 'C:\\xampp\\htdocs\\4baggerlive\\storage\\framework/sessions',
+
+    'files' => '/var/www/html/4bagger/4baggerlive/storage/framework/sessions',
+
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -741,9 +780,15 @@
   array (
     'paths' => 
     array (
+
       0 => 'C:\\xampp\\htdocs\\4baggerlive\\resources\\views',
     ),
     'compiled' => 'C:\\xampp\\htdocs\\4baggerlive\\storage\\framework\\views',
+
+      0 => '/var/www/html/4bagger/4baggerlive/resources/views',
+    ),
+    'compiled' => '/var/www/html/4bagger/4baggerlive/storage/framework/views',
+
   ),
   'flare' => 
   array (

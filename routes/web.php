@@ -54,13 +54,13 @@ Route::get('/cache', function () {
     Artisan::call('config:cache');
 });
 
-Route::get('/migrate',function(){
+Route::get('/migrate', function () {
     Artisan::call('migrate');
     return 'migrated successfully';
 });
 
-Route::get('phpinfo',function(){
-return phpinfo();
+Route::get('phpinfo', function () {
+    return phpinfo();
 });
 Route::get('phpdebug', [TestController::class, 'phpdebug']);
 
@@ -86,7 +86,7 @@ route::get('view/event/{id}', [FrontendEventController::class, 'viewEvent'])->na
  */
 Route::group(['prefix' => 'admin',  'middleware' => ['auth', 'checkrole']], function () {
     Route::get('dashboard', [AdminHomeController::class, 'index'])->name('admin_dashboard');
-   
+
     Route::get('unapproved/directors', [ManageDirectorController::class, 'unApprovedDirectors'])->name('unapproved.directors');
     Route::post('approve/directors', [ManageDirectorController::class, 'approveDirectors']);
     Route::get('events/showAdminTeams/{id}', [ManageEventController::class, 'showAdminTeams'])->name('showAdminTeams');
@@ -96,14 +96,14 @@ Route::group(['prefix' => 'admin',  'middleware' => ['auth', 'checkrole']], func
     Route::get('generalsetting', [GeneralSettingController::class, 'generalSetting'])->name('generalsetting');
     Route::post('updategeneralsetting', [GeneralSettingController::class, 'updateGeneralSetting'])->name('updategeneralsetting');
 
-    Route::get('servicefee',[ServiceFeeController::class,'index'])->name('servicefee');
-    Route::post('updateservicefee',[ServiceFeeController::class,'updateServiceFee'])->name('updateservicefee');
-    Route::get('adminallteams',[AdminTeamController::class, 'getallTeams'])->name('adminallteams');
+    Route::get('servicefee', [ServiceFeeController::class, 'index'])->name('servicefee');
+    Route::post('updateservicefee', [ServiceFeeController::class, 'updateServiceFee'])->name('updateservicefee');
+    Route::get('adminallteams', [AdminTeamController::class, 'getallTeams'])->name('adminallteams');
     Route::post('searchplayer', [PlayerController::class, 'searchPlayer'])->name('search.player');
-    Route::post('adminagegroupteams',[ManageDirectorController::class,'ageGroupDetails'])->name('adminagegroupteams');
-    Route::post('adminplayersinteam', [ManageDirectorController::class,'playersInEventTeam'])->name('adminplayersinteam');
-    Route::post('admineventhistory',[ManageDirectorController::class, 'eventHistory'])->name('admineventhistory');
-    Route::post('changeagegroupstaus',[ManageDirectorController::class, 'changeagegroupstaus'])->name('changeagegroupstaus');
+    Route::post('adminagegroupteams', [ManageDirectorController::class, 'ageGroupDetails'])->name('adminagegroupteams');
+    Route::post('adminplayersinteam', [ManageDirectorController::class, 'playersInEventTeam'])->name('adminplayersinteam');
+    Route::post('admineventhistory', [ManageDirectorController::class, 'eventHistory'])->name('admineventhistory');
+    Route::post('changeagegroupstaus', [ManageDirectorController::class, 'changeagegroupstaus'])->name('changeagegroupstaus');
 
     Route::resource('events', ManageEventController::class);
     Route::resource('adminslider', HomeSliderController::class);
@@ -111,7 +111,7 @@ Route::group(['prefix' => 'admin',  'middleware' => ['auth', 'checkrole']], func
     Route::resource('recentcontent', RecentContentController::class);
     Route::resource('officialpartner', OfficialPartnerSectionController::class);
     Route::resource('manageblog', BlogController::class);
-    Route::resource('director', ManageDirectorController::class);    
+    Route::resource('director', ManageDirectorController::class);
     Route::resource('adminteams', AdminTeamController::class);
     Route::resource('player', PlayerController::class);
     Route::resource('adminpayout', ManagePayoutController::class);
@@ -120,9 +120,9 @@ Route::group(['prefix' => 'admin',  'middleware' => ['auth', 'checkrole']], func
     Route::resource('managetimeschedule', TimeScheduleController::class);
 
 
-    
+
     // Subscription Resource
-    
+
 
 });
 
@@ -138,7 +138,6 @@ Route::group(['prefix' => 'player',  'middleware' => ['auth', 'playerrole']], fu
     Route::get('playerprofile/{id}', [FrontendTeamController::class, 'viewPlayer'])->name('view.player.profile');
     Route::get('playerprofile', [FrontendTeamController::class, 'playerProfile'])->name('playerprofile');
     Route::post('updateplayerprofile', [FrontendTeamController::class, 'updatePlayerProfile'])->name('updateplayerprofile');
-   
 });
 
 /**
@@ -176,14 +175,14 @@ Route::group(['prefix' => 'director',  'middleware' => ['auth', 'directorrole']]
     Route::post('PlayerBatStatistics', [ManagePlayerStatisticsController::class, 'storeBatStats'])->name('batstats.store');
     Route::post('PlayerRanking', [ManagePlayerStatisticsController::class, 'storeRanking'])->name('ranking.store');
     Route::post('PlayerPitchStatistics', [ManagePlayerStatisticsController::class, 'storePitchStats'])->name('pitchstats.store');
-    Route::get('directorpayout',[DirectorHomeController::class, 'directorPayout'])->name('directorpayout');
+    Route::get('directorpayout', [DirectorHomeController::class, 'directorPayout'])->name('directorpayout');
     Route::get('paymentrefundform/{id}', [DirectorHomeController::class, 'showPaymentRefundForm'])->name('paymentrefundform');
     Route::post('paymentrefund', [DirectorHomeController::class, 'refundTransaction'])->name('paymentrefund');
-    Route::post('agegroupteams', [EventController::class,'ageGroupDetails'])->name('agegroupteams');
-    Route::post('playersinteam', [EventController::class,'playersInEventTeam'])->name('playersinteam');
-    Route::get('eventhistory/{eventid}',[EventController::class, 'eventHistory'])->name('eventhistory');
+    Route::post('agegroupteams', [EventController::class, 'ageGroupDetails'])->name('agegroupteams');
+    Route::post('playersinteam', [EventController::class, 'playersInEventTeam'])->name('playersinteam');
+    Route::get('eventhistory/{eventid}', [EventController::class, 'eventHistory'])->name('eventhistory');
 });
-Route::get('email_view',function(){
+Route::get('email_view', function () {
     return view('email.adminNotifyDirectorRegister');
 });
 

@@ -3538,7 +3538,7 @@ input[type="button"].btn-block {
 .dropdown-item-text {
     display: block;
     padding: 0.25rem 1.5rem;
-    color: #212529;
+    color: #ffffff;
 }
 
 .btn-group,
@@ -4737,18 +4737,54 @@ input[type="button"].btn-block {
     height: 45px;
     margin-top: 10px;
     position: relative;
+    border: none !important;
     left: 4%;
 }
 .custom-btnnn button:hover{
-    border:  2px solid white  !important;
+    border: none !important;
+    background-color: transparent !important;
 }
-.custom-btnnn button:focus{
-box-shadow: none !important;
-outline: none !important;
-border:  2px solid white !important;
-background-color: rgb(255, 255, 255) !important;
-color: #6fad43 !important;
-}
+/* accordion */
+
+
+  .acco-card{
+      border-bottom-right-radius: 0px !important;
+      border-top-right-radius: 0px !important;
+      cursor: pointer;
+  }
+ 
+  .accordion-card .card-body{
+      background-color: transparent !important;
+  }
+  .myaccordion .card,
+  .myaccordion .card:last-child .card-header {
+    border: none;
+  }
+
+  .card-header{
+      background-color: transparent !important;
+  }
+  .card .nav-link:hover{
+    color: #6fad43 !important;
+  }
+  .myaccordion .fa-stack {
+    font-size: 18px;
+  }
+  
+  .card-body .dropdown-item{
+      color: white !important;
+      height: 45px;
+      padding-top: 10px;
+   
+  }
+  .card-body .dropdown-item:hover{
+    color: #6fad43 !important;
+     background-color: white !important;
+     border-radius: 50px;
+  
+  }
+  /*  */
+
 .navbar-expand .navbar-nav-scroll {
     overflow: visible;
 }
@@ -10115,7 +10151,7 @@ a.text-danger:focus {
 
 a.text-light:hover,
 a.text-light:focus {
-    color: #cbd3da !important;
+    color: #cbd3da;
 }
 
 .text-dark {
@@ -12296,7 +12332,7 @@ h6 {
 }
 
 .dropdown-item {
-    color: black !important;
+    color: black ;
 }
 
 /* Pricing Tab */
