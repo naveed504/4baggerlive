@@ -112,6 +112,7 @@
                     <option value="{{ $state->id }}" @if($event->state_id == $state->id) selected @endif>{{ $state->state_name }}</option>
                 @endforeach
             </select>
+
             @if($errors->has('event_state'))
                 <span class="invalid-feedback">
                     <strong>{{ $errors->first('event_state') }}</strong>
