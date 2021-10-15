@@ -10,10 +10,10 @@
     'locale' => 'en',
     'fallback_locale' => 'en',
     'faker_locale' => 'en_US',
-    'key' => 'base64:BiNKAxnjxkScgGcwkw8AJ4mQlTI2QmAY8vQGl0pjxew=',
+    'key' => 'base64:cMgDbuGIWzMc2EBhk94IZCems6Wim0RJ969RGvkfnTc=',
     'cipher' => 'AES-256-CBC',
-    'merchant_id' => '37aC35MeA',
-    'merchant_key' => '534QRYrUE7vn344n',
+    'merchant_id' => NULL,
+    'merchant_key' => NULL,
     'providers' => 
     array (
       0 => 'Illuminate\\Auth\\AuthServiceProvider',
@@ -194,7 +194,7 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => 'C:\\xampp\\htdocs\\3leadconcept-projects\\Fourbagger-Live\\storage\\framework/cache/data',
+        'path' => 'C:\\xampp\\htdocs\\leadconcept\\4baggerlive\\storage\\framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -273,7 +273,7 @@
       array (
         'driver' => 'sqlite',
         'url' => NULL,
-        'database' => 'fourbagger',
+        'database' => '4bagger',
         'prefix' => '',
         'foreign_key_constraints' => true,
       ),
@@ -283,7 +283,7 @@
         'url' => NULL,
         'host' => '127.0.0.1',
         'port' => '3306',
-        'database' => 'fourbagger',
+        'database' => '4bagger',
         'username' => 'root',
         'password' => '',
         'unix_socket' => '',
@@ -303,7 +303,7 @@
         'url' => NULL,
         'host' => '127.0.0.1',
         'port' => '3306',
-        'database' => 'fourbagger',
+        'database' => '4bagger',
         'username' => 'root',
         'password' => '',
         'charset' => 'utf8',
@@ -318,7 +318,7 @@
         'url' => NULL,
         'host' => '127.0.0.1',
         'port' => '3306',
-        'database' => 'fourbagger',
+        'database' => '4bagger',
         'username' => 'root',
         'password' => '',
         'charset' => 'utf8',
@@ -411,12 +411,12 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\xampp\\htdocs\\3leadconcept-projects\\Fourbagger-Live\\storage\\app',
+        'root' => 'C:\\xampp\\htdocs\\leadconcept\\4baggerlive\\storage\\app',
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\xampp\\htdocs\\3leadconcept-projects\\Fourbagger-Live\\storage\\app/public',
+        'root' => 'C:\\xampp\\htdocs\\leadconcept\\4baggerlive\\storage\\app/public',
         'url' => 'http://localhost/storage',
         'visibility' => 'public',
       ),
@@ -433,7 +433,7 @@
     ),
     'links' => 
     array (
-      'C:\\xampp\\htdocs\\3leadconcept-projects\\Fourbagger-Live\\public\\storage' => 'C:\\xampp\\htdocs\\3leadconcept-projects\\Fourbagger-Live\\storage\\app/public',
+      'C:\\xampp\\htdocs\\leadconcept\\4baggerlive\\public\\storage' => 'C:\\xampp\\htdocs\\leadconcept\\4baggerlive\\storage\\app/public',
     ),
   ),
   'hashing' => 
@@ -478,13 +478,13 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => 'C:\\xampp\\htdocs\\3leadconcept-projects\\Fourbagger-Live\\storage\\logs/laravel.log',
+        'path' => 'C:\\xampp\\htdocs\\leadconcept\\4baggerlive\\storage\\logs/laravel.log',
         'level' => 'debug',
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => 'C:\\xampp\\htdocs\\3leadconcept-projects\\Fourbagger-Live\\storage\\logs/laravel.log',
+        'path' => 'C:\\xampp\\htdocs\\leadconcept\\4baggerlive\\storage\\logs/laravel.log',
         'level' => 'debug',
         'days' => 14,
       ),
@@ -535,7 +535,7 @@
       ),
       'emergency' => 
       array (
-        'path' => 'C:\\xampp\\htdocs\\3leadconcept-projects\\Fourbagger-Live\\storage\\logs/laravel.log',
+        'path' => 'C:\\xampp\\htdocs\\leadconcept\\4baggerlive\\storage\\logs/laravel.log',
       ),
     ),
   ),
@@ -547,11 +547,11 @@
       'smtp' => 
       array (
         'transport' => 'smtp',
-        'host' => 'smtp.mailtrap.io',
-        'port' => '465',
-        'encryption' => 'tls',
-        'username' => '1a36ac5c033809',
-        'password' => 'bb299e0e4eaae7',
+        'host' => 'mailhog',
+        'port' => '1025',
+        'encryption' => NULL,
+        'username' => NULL,
+        'password' => NULL,
         'timeout' => NULL,
         'auth_mode' => NULL,
       ),
@@ -584,7 +584,7 @@
     ),
     'from' => 
     array (
-      'address' => '4bagger@gmail.com',
+      'address' => NULL,
       'name' => 'Laravel',
     ),
     'markdown' => 
@@ -592,13 +592,13 @@
       'theme' => 'default',
       'paths' => 
       array (
-        0 => 'C:\\xampp\\htdocs\\3leadconcept-projects\\Fourbagger-Live\\resources\\views/vendor/mail',
+        0 => 'C:\\xampp\\htdocs\\leadconcept\\4baggerlive\\resources\\views/vendor/mail',
       ),
     ),
   ),
   'queue' => 
   array (
-    'default' => 'database',
+    'default' => 'sync',
     'connections' => 
     array (
       'sync' => 
@@ -675,7 +675,7 @@
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => 'C:\\xampp\\htdocs\\3leadconcept-projects\\Fourbagger-Live\\storage\\framework/sessions',
+    'files' => 'C:\\xampp\\htdocs\\leadconcept\\4baggerlive\\storage\\framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -741,9 +741,9 @@
   array (
     'paths' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\3leadconcept-projects\\Fourbagger-Live\\resources\\views',
+      0 => 'C:\\xampp\\htdocs\\leadconcept\\4baggerlive\\resources\\views',
     ),
-    'compiled' => 'C:\\xampp\\htdocs\\3leadconcept-projects\\Fourbagger-Live\\storage\\framework\\views',
+    'compiled' => 'C:\\xampp\\htdocs\\leadconcept\\4baggerlive\\storage\\framework\\views',
   ),
   'flare' => 
   array (
