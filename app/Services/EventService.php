@@ -57,6 +57,7 @@ class EventService
                 'gate_fee'    => $request->gate_fee,
                 'eventclassification'=>$request->eventclassification,
                 'event_time'=> json_encode($request->event_time),
+                
             ]);
             $lastInsertedId = $query->id;
             foreach($request->age_group as $val)
