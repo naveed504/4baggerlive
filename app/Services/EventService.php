@@ -56,6 +56,7 @@ class EventService
                 'gate_fee'    => $request->gate_fee,
                 'eventclassification'=>$request->eventclassification,
                 'event_time'=> json_encode($request->event_time),
+                
             ]);
         } catch (Exception $e) {
             dd($e->getMessage());
