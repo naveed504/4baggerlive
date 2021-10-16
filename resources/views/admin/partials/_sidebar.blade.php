@@ -82,7 +82,9 @@
         <a class="dropdown-item" href="{{ route('adminslider.index') }}">Slider Section</a>
         <a class="dropdown-item" href="{{ route('manageblog.index') }}">Blog Section</a>
         <a class="dropdown-item" href="{{ route('newssection.create') }}">News Section</a>
-        <a class="dropdown-item" href="{{ route('manageblog.index') }}">Blog Section</a>
+        <a class="dropdown-item" href="{{ route('siterule.index') }}">Site Rules</a>
+        <a class="dropdown-item" href="{{ route('aboutus.index') }}">About Us</a>
+
         <a class="dropdown-item" href="{{ route('recentcontent.index') }}">Recent Content Section</a>
         <a class="dropdown-item" href="{{ route('officialpartner.index') }}">Official Partner Section</a>
       </div>

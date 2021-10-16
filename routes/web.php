@@ -30,6 +30,8 @@ use App\Http\Controllers\admin\frontend\RecentContentController;
 use App\Http\Controllers\admin\frontend\OfficialPartnerSectionController;
 use App\Http\Controllers\admin\frontend\BlogController;
 use App\Http\Controllers\admin\schedule\TimeScheduleController;
+use App\Http\Controllers\admin\frontend\SiteRulesController;
+use App\Http\Controllers\admin\frontend\AboutUsController;
 
 
 /*
@@ -110,6 +112,8 @@ Route::group(['prefix' => 'admin',  'middleware' => ['auth', 'checkrole']], func
     Route::resource('adminslider', HomeSliderController::class);
     Route::resource('newssection', HomeNewsSectionController::class);
     Route::resource('recentcontent', RecentContentController::class);
+    Route::resource('siterule', SiteRulesController::class);
+    Route::resource('aboutus', AboutUsController::class);
     Route::resource('officialpartner', OfficialPartnerSectionController::class);
     Route::resource('manageblog', BlogController::class);
     Route::resource('director', ManageDirectorController::class);    
