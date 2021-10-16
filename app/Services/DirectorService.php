@@ -3,6 +3,10 @@
 namespace App\Services;
 
 use App\Models\User;
+use App\Models\CheckAgeGroupStatus;
+use App\Models\Event\Event;
+use App\Models\Event\EventRegisterTeam;
+use App\Models\Director\DirectorData;
 use Exception;
 use Illuminate\Support\Facades\Auth;
 
@@ -50,16 +54,20 @@ class DirectorService
      */
     public function deleteDirector($id)
     {
-        $user = User::find($id);
-
-        if (!empty($user)) {
-            try {
-            } catch (Exception $e) {
-                dd($e->getMessage());
+        try {
+            $eventIds = Event::where('user_id', $id)->get('id')->toArray();
+            foreach($eventIds as $value){
+                CheckAgeGroupStatus::where('event_id', $value)->delete();
             }
-        } else {
-            return false;
+
+            EventRegisterTeam::where('user_id', $id)->delete();
+            Event::where('user_id', $id)->delete();
+            DirectorData::where('user_id', $id)->delete();
+            User::find($id)->delete();
+        } catch (Exception $e) {
+            dd($e->getMessage());
         }
+
 
         return true;
     }

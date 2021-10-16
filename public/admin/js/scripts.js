@@ -6,6 +6,15 @@ $("#layoutSidenav_nav .sb-sidenav a.nav-link").each(function() {
     }
 });
 
+// preparing delete method
+const deleteRecord = (id, uri) => {
+
+    document.getElementById('identity').value ;
+    let route = window.location.origin + uri + id;
+    document.getElementById('deleteForm').setAttribute('action', route)
+    $('#deleteModal').modal('show')
+}
+
 // Toggle the side navigation
 $("#sidebarToggle").on("click", function(e) {
     e.preventDefault();
