@@ -60,10 +60,11 @@ class EventService
                 
             ]);
             $lastInsertedId = $query->id;
-            foreach($request->age_group as $val)
+            
+            foreach($request->age_group as $key => $val)
             {
                 CheckAgeGroupStatus::create([
-                    'age_group_id' => $val,
+                    'age_group_id' => $request->age_group[$key],
                     'event_id' => $lastInsertedId,
                 ]);
             }

@@ -1,5 +1,7 @@
 <div class="container mb-5">
+    @auth
     @include('shared.event._heading')
+    @endauth
     <div class="row">
     <div class="col-sm-8">
         <div class="row">
