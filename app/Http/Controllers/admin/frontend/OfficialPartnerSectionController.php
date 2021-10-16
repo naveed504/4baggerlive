@@ -40,12 +40,12 @@ class OfficialPartnerSectionController extends Controller
      */
     public function store(Request $request)
     {
-        try{  
+        try{
             $request->validate([
                 'title' => 'required',
                 'image' => 'required',
                 'detail' => 'required',
-            ]);         
+            ]);
             $image = Helpers::saveImage($request->image);
             OfficialPartner::create([
                 'title' => $request->title,
@@ -53,7 +53,7 @@ class OfficialPartnerSectionController extends Controller
                 'detail' => $request->detail,
             ]);
             parent::successMessage("Home Setting added Successfully");
-            return redirect()->back();          
+            return redirect()->back();
 
         } catch(Exception $e) {
             dd($e->getMessage());
@@ -92,11 +92,11 @@ class OfficialPartnerSectionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        try{    
+        try{
             $request->validate([
                 'title' => 'required',
                 'detail' => 'required',
-            ]);       
+            ]);
             $updateSection = OfficialPartner::find($id);
             $image = Helpers::updateImage($request->image , $updateSection->image);
             $updateSection->update([
@@ -105,7 +105,7 @@ class OfficialPartnerSectionController extends Controller
                 'detail' => $request->detail
             ]);
             parent::successMessage("Setting Updated Successfully");
-            return redirect()->back();          
+            return redirect()->back();
 
         } catch(Exception $e) {
             dd($e->getMessage());
@@ -120,6 +120,12 @@ class OfficialPartnerSectionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try {
+            OfficialPartner::find($id)->delete();
+        } catch (Exception $e) {
+            dd($e->getMessage());
+        }
+        parent::successMessage("Home Setting deleted Successfully");
+        return redirect()->back();
     }
 }

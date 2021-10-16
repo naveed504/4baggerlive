@@ -9,18 +9,18 @@
     <div class="col-sm-12 text-right my-3">
         <a href="{{ route('manageblog.create') }}">
             <button class="btn btn-success" type="button">
-                Add New  
+                Add New
             </button>
         </a>
     </div>
     <div class="row">
-    
+
         @forelse($blogs as $blog)
         <div class="col-md-4">
             <div class="card custom-cardss">
                 <div class="overlay">
                   <a href="{{ route('manageblog.edit', $blog->id) }}" class="blockeditLink"><i class="fas fa-pencil-alt"></i></a>
-                  <a href="" class="blockeditLink" style="margin-top:40px;"><i class="fas fa-trash-alt "></i></a>
+                  <a href="javascript:void(0)" onclick="deleteRecord({{$blog->id}}, '/admin/manageblog/')" class="blockeditLink" style="margin-top:40px;"><i class="fas fa-trash-alt "></i></a>
                 </div>
                 <img src="{{ asset('admin/allimages/'. $blog->image ) }}" class="card-img-top" style="height:220px;" />
                 <div class="card-body">
@@ -30,10 +30,10 @@
                 </div>
               </div>
         </div>
-        @empty 
+        @empty
         <h4>No ressult found</h4>
         @endforelse
-        
+
     </div>
 </div>
 

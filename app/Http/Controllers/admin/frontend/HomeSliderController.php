@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin\frontend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\General\Slider;
+use Exception;
 
 class HomeSliderController extends Controller
 {
@@ -80,7 +81,7 @@ class HomeSliderController extends Controller
         $slider =Slider::find($id);
         return view('admin.pages.frontend.slider.create',compact('slider'));
 
-        
+
     }
 
     /**
@@ -105,7 +106,7 @@ class HomeSliderController extends Controller
         } else {
             $file_name = $updateSlider->cover_photo ;
 
-        } 
+        }
 
         $updateSlider->update([
             'title_one' => $request->title_one,
@@ -113,12 +114,12 @@ class HomeSliderController extends Controller
             'content' => $request->content,
             'cover_photo' => $file_name,
         ]);
-        
+
         parent::successMessage("Home Slider Updated Successfully");
         return redirect()->route('adminslider.index');
 
-        
-        
+
+
     }
 
     /**
@@ -129,6 +130,11 @@ class HomeSliderController extends Controller
      */
     public function destroy($id)
     {
-        dd($id);
+        try {
+            Slider::find($id)->delete();
+        } catch (Exception $e) {
+            dd($e->getMessage());
+        }
+        return redirect()->route('adminslider.index');
     }
 }

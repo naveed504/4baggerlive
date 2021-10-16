@@ -9,11 +9,11 @@
     <div class="col-sm-12 text-right my-3">
         <a href="{{ route('recentcontent.create') }}">
             <button class="btn btn-success" type="button">
-                Add New  
+                Add New
             </button>
         </a>
     </div>
-   
+
 
 
     @forelse($recentsections as $recentsection)
@@ -21,7 +21,7 @@
             <div class="card custom-cardss">
                 <div class="overlay">
                   <a href="{{ route('recentcontent.edit', $recentsection->id) }}" class="blockeditLink"><i class="fas fa-pencil-alt"></i></a>
-                  <a href="javascript:void(0)"
+                  <a href="javascript:void(0)" onclick="deleteRecord({{$recentsection->id}}, '/admin/recentcontent/')"
                    class="blockeditLink" style="margin-top:40px;"><i class="fas fa-trash-alt "></i></a>
                 </div>
                 <img src="{{ asset('admin/allimages/'. $recentsection->image ) }}" class="card-img-top" style="height:220px;" />
@@ -32,7 +32,7 @@
                 </div>
               </div>
         </div>
-        @empty 
+        @empty
         <h4>No ressult found</h4>
         @endforelse
 </div>

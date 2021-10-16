@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\General\ManageBlog;
 use Helpers;
+use Exception;
 
 class BlogController extends Controller
 {
@@ -15,9 +16,9 @@ class BlogController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {      
-        $blogs = ManageBlog::all();  
-        return view('admin.pages.frontend.blog.show',compact('blogs'));
+    {
+        $blogs = ManageBlog::all();
+        return view('admin.pages.frontend.blog.show', compact('blogs'));
     }
 
     /**
@@ -38,24 +39,24 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-        try{   
+        try {
 
-            $image = Helpers::saveImage($request->image);   
-          $request->validate([
-            'title'  => 'required',
-            'image'  => 'required',                       
-            'detail' => 'required'
-          ]);
+            $image = Helpers::saveImage($request->image);
+
+            $request->validate([
+                'title'  => 'required',
+                'image'  => 'required',
+                'detail' => 'required'
+            ]);
             ManageBlog::create([
                 'title' => $request->title,
                 'slug' => $request->title,
-                'image' => $image,                             
+                'image' => $image,
                 'detail' => $request->detail,
             ]);
             parent::successMessage("Home Setting added Successfully");
-            return redirect()->route('manageblog.index');      
-
-        } catch(Exception $e) {
+            return redirect()->route('manageblog.index');
+        } catch (Exception $e) {
             dd($e->getMessage());
         }
     }
@@ -79,9 +80,9 @@ class BlogController extends Controller
      */
     public function edit($id)
     {
-        $blog =ManageBlog::find($id);
+        $blog = ManageBlog::find($id);
 
-        return view('admin.pages.frontend.blog.edit' ,compact('blog'));
+        return view('admin.pages.frontend.blog.edit', compact('blog'));
     }
 
     /**
@@ -93,10 +94,10 @@ class BlogController extends Controller
      */
     public function update(Request $request, $id)
     {
-        try{  
+        try {
             $blog = ManageBlog::find($id);
 
-            $image = Helpers::updateImage($request->image , $blog->image);   
+            $image = Helpers::updateImage($request->image, $blog->image);
             $blog->update([
                 'title' => $request->title,
                 'slug' => $request->title,
@@ -104,9 +105,8 @@ class BlogController extends Controller
                 'detail' => $request->detail,
             ]);
             parent::successMessage("Home Setting Updated Successfully");
-           return redirect()->route('manageblog.index');   
-
-        } catch(Exception $e) {
+            return redirect()->route('manageblog.index');
+        } catch (Exception $e) {
             dd($e->getMessage());
         }
     }
@@ -119,6 +119,12 @@ class BlogController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try {
+            ManageBlog::find($id)->delete();
+        } catch (Exception $e) {
+            dd($e->getMessage());
+        }
+        parent::successMessage("Home Setting deleted Successfully");
+        return redirect()->back();
     }
 }
