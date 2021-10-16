@@ -44,16 +44,16 @@ class RecentContentController extends Controller
                 'image' => 'required',
                 'detail' => 'required',
             ]);
-           
+
             $image = Helpers::saveImage($request->image);
-          
+
             RecentContentSection::create([
                 'title' => $request->title,
                 'image' => $image,
                 'detail' => $request->detail,
             ]);
             parent::successMessage("Setting added Successfully");
-            return redirect()->back();          
+            return redirect()->back();
 
         } catch(Exception $e) {
             dd($e->getMessage());
@@ -92,11 +92,11 @@ class RecentContentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        try{     
+        try{
             $request->validate([
                 'title' => 'required',
                 'detail' => 'required',
-            ]);      
+            ]);
             $updateSection = RecentContentSection::find($id);
             $image = Helpers::updateImage($request->image , $updateSection->image);
             $updateSection->update([
@@ -105,12 +105,12 @@ class RecentContentController extends Controller
                 'detail' => $request->detail
             ]);
             parent::successMessage("Setting Updated Successfully");
-            return redirect()->back();          
+            return redirect()->back();
 
         } catch(Exception $e) {
             dd($e->getMessage());
         }
-        
+
     }
 
     /**
@@ -121,6 +121,12 @@ class RecentContentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try {
+            RecentContentSection::find($id)->delete();
+        } catch (Exception $e) {
+            dd($e->getMessage());
+        }
+        parent::successMessage("Home Setting deleted Successfully");
+        return redirect()->back();
     }
 }
