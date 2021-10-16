@@ -80,6 +80,7 @@ Route::any('blog/{blog}', [HomeController::class, 'showBlog'])->name('blog');
 
 Route::view('/profile', 'frontend.pages.player.profile');
 route::get('view/event/{id}', [FrontendEventController::class, 'viewEvent'])->name('view.event');
+route::get('liveevents', [FrontendEventController::class, 'liveEvents'])->name('liveevents');
 
 /**
  * Admin Routes

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\team\team;
 
 use App\Http\Controllers\Controller;
+use App\Models\AgeGroup;
 use App\Models\Player\PlayerData;
 use App\Models\Request as ModelsRequest;
 use App\Models\State;
@@ -23,6 +24,7 @@ class ManageTeamController extends Controller
      */
     public function index()
     {
+      
         return view('coach.pages.team.view');
     }
 
@@ -33,9 +35,10 @@ class ManageTeamController extends Controller
      */
     public function create()
     {
+        $agegroups =  AgeGroup::all();       
         $states = State::all();
         
-        return view('coach.pages.team.create', compact('states'));
+        return view('coach.pages.team.create', compact('states','agegroups'));
     }
 
     /**
@@ -46,6 +49,7 @@ class ManageTeamController extends Controller
      */
     public function store(Request $request,  TeamService $team)
     {
+       
         if (!empty($request->terms_agreement) && !empty($request->site_agreement)) {
 
             $team->createTeam(Auth::user()->id, $request) == 'true'

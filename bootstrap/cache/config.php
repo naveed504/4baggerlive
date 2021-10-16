@@ -547,11 +547,11 @@
       'smtp' => 
       array (
         'transport' => 'smtp',
-        'host' => 'mailhog',
-        'port' => '1025',
-        'encryption' => NULL,
-        'username' => NULL,
-        'password' => NULL,
+        'host' => 'smtp.mailtrap.io',
+        'port' => '465',
+        'encryption' => 'tls',
+        'username' => '1a36ac5c033809',
+        'password' => 'bb299e0e4eaae7',
         'timeout' => NULL,
         'auth_mode' => NULL,
       ),
@@ -584,7 +584,7 @@
     ),
     'from' => 
     array (
-      'address' => NULL,
+      'address' => '4bagger.info.mail@gmail.com',
       'name' => 'Laravel',
     ),
     'markdown' => 
