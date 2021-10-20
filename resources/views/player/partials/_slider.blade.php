@@ -59,6 +59,6 @@
     </a>
     </div> -->
     <div class="bg-top">
-        <img src="{{ asset('images/profileBG.jpg') }}" alt="" class="img-bg-top mb-5">
+        <img src="{{ asset('images/profileBG.jpg') }}" alt="" class="img-bg-top mb-5 remove-margin">
     </div>
 </banner>
