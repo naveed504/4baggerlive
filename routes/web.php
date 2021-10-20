@@ -170,6 +170,9 @@ Route::group(['prefix' => 'team',  'middleware' => ['auth', 'teamrole']], functi
  */
 Route::group(['prefix' => 'director',  'middleware' => ['auth', 'directorrole']], function () {
     Route::get('dashboard', [DirectorHomeController::class, 'index'])->name('director_dashboard');
+    Route::get('players-in-director-dashboard', [DirectorHomeController::class, 'playersInDirectorDashboard'])->name('players_in_director');
+    Route::post('search-player-in-director-dashboard', [DirectorHomeController::class, 'playersearchinDirector'])->name('search_player_in_director');
+    Route::get('view-player-profile-in-director-dashboard/{id}', [DirectorHomeController::class, 'playerProfileinDirector'])->name('view_player_profile_in_director');
     Route::get('pay', [DirectorHomeController::class, 'pay'])->name('pay');
     Route::resource('team', ManageTeamController::class);
     Route::resource('event', EventController::class);

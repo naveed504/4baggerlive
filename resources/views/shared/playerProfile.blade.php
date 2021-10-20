@@ -12,12 +12,13 @@
                         @elseif(Auth::check() && Auth::user()->type == 4)
                             @php $player = Auth::user();  @endphp
                         @endif
-                        <div class="player__img">
+                        <div class="player__img" >
                             <img src="{{asset('frontend/player').'/'.$player->player->player_file}}" class="img-fluid" alt="">
                             <h6>
                             </h6>
-                        </div>
 
+                        </div>
+                       
                     </div>
                     <div class="col-md-4 border__right-wrapper">
                         <div>
@@ -31,9 +32,12 @@
                                     </span>
                             </div>
                             <div class="Twenty"></div>
+
                             <div style="background-color: Gray; height: 1px"></div>
                             <div class="Twenty"></div>
+                           
                             <div class="text-center">
+                                
                                 <h2 class="img__heading1">MLB DRAFT</h2>
                                 <div class="img__wrapper3">
                                     <p class="text-light">{{ $player->getLatestRank->mlb_draft ?? "N/A" }}</p>
@@ -62,6 +66,7 @@
                                 </div>
                             </div>
                         </div>
+                       
                     </div>
                     <div class="col-md-5">
                         <div class="row">
@@ -131,6 +136,10 @@
                         </div>
                     </div>
                 </div>
+                <div class="player__video" >
+                        <iframe class="embed-responsive-item" src="{{ asset('frontend/player/' . $player->player->player_video ?? '')}}"></iframe>
+
+                        </div>
             </div>
         </section>
         <section class="player-reg2 bg-white">

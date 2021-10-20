@@ -215,4 +215,9 @@ class ManageDirectorController extends Controller
         return response()->json(['status' => 'updated']);
       
     }
+
+    public function destroydirectorevent($id)
+    {
+        dd($id);
+    }
 }

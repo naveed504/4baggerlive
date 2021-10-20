@@ -1,9 +1,13 @@
 @extends('admin.master')
 @section('content')
-<div class="container mb-5">
-        <div class="col-sm-12 mb-5">
-            <h3 class="text-center p-4 heading-color">Create  Official Partner Section</h3>
-        </div>
+<div class="row">
+    <div class="col-sm-12">
+        <h4 class="bg-light p-3 mt-2">
+           Manage  Official Partner Section
+        </h4>
+    </div>
+    <div class="container mb-5">
+        <br><br>
         <form action="  {{ route('officialpartner.store') }} " method="post" id="" enctype="multipart/form-data">
           
             @csrf
@@ -56,6 +60,7 @@
                 </div>
         </form>
     </div>
+</div>
     <script>
         $('#summernote').summernote({
           placeholder: 'Please Enter Some Detail',

@@ -1,9 +1,14 @@
 @extends('admin.master')
 @section('content')
-<div class="container mb-5">
-        <div class="col-sm-12 mb-5">
-            <h3 class="text-center p-4 heading-color">Manage Privacy Rules</h3>
-        </div>
+<div class="row">
+<div class="col-sm-12">
+        <h4 class="bg-light p-3 mt-2">
+           Manage Policy Rules
+        </h4>
+    </div>
+     <div class="container mb-5">
+         <br><br>
+        
         <form action=" @if(isset($siterule)) {{ route('siterule.update', $siterule->id) }} @else {{ route('siterule.store') }} @endif" method="post"  >
            @if(isset($siterule))
            @method('PUT')
@@ -38,4 +43,5 @@
                 </div>
         </form>
     </div>
+</div>
 @endsection

@@ -15,18 +15,14 @@
                         <a class="nav-link active" href="#">home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">events</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">about us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">game</a>
-                    </li>
+                   
                     <li class="nav-item">
                         <a class="nav-link" href="#">contact us</a>
                     </li>
                     @auth
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('players_in_director') }}">Players</a>
+                    </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           Manage Team
