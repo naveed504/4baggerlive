@@ -13,7 +13,6 @@
             </button>
         </a>
     </div>
-    <div class="row">
 
         @forelse($blogs as $blog)
         <div class="col-md-4">
@@ -31,10 +30,9 @@
               </div>
         </div>
         @empty
-        <h4>No ressult found</h4>
+        <h4 style="margin-left:30px;">No ressult found</h4>
         @endforelse
 
-    </div>
 </div>
 
 @endsection

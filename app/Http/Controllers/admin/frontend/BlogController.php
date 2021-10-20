@@ -41,12 +41,15 @@ class BlogController extends Controller
     {
         try {
 
-            $image = Helpers::saveImage($request->image);
 
             $request->validate([
                 'title'  => 'required',
-                'detail' => 'required'
+                'title' => 'required',
+                'image' => 'required',
+                'detail' => 'required',
             ]);
+            $image = Helpers::saveImage($request->image);
+
             ManageBlog::create([
                 'title' => $request->title,
                 'slug' => $request->title,

@@ -1,9 +1,13 @@
 @extends('admin.master')
 @section('content')
-<div class="container mb-5">
-        <div class="col-sm-12 mb-5">
-            <h3 class="text-center p-4 heading-color">Manage Home News</h3>
-        </div>
+<div class="row">
+    <div class="col-sm-12">
+            <h4 class="bg-light p-3 mt-2">
+            Manage Home News
+            </h4>
+    </div>
+     <div class="container mb-5">
+      <br><br>
         <form action="{{ route('newssection.store') }}" method="post" id="newsRequest" >
             @csrf
 
@@ -47,4 +51,5 @@
                 </div>
         </form>
     </div>
+</div>
 @endsection

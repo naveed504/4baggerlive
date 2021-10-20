@@ -21,40 +21,8 @@ class AdminTeamController extends Controller
      */
     public function index(Request $request)
     {
-        if ($request->ajax()) {
-            $data = Team::all();
-            return Datatables::of($data)
-                    ->addIndexColumn()
-                    ->addColumn('status',function($row){
-                        $active = '<span class="badge badge-pill badge-success">Active</span>';
-                        $inactive = '<span class="badge badge-pill badge-warning">Inactive</span>';
-                        return ($row->active ==1) ? $active : $inactive ;
-                    })
-                    ->addColumn('state',function($row){
-                        
-                        return $row->state->state_name ;
-                    })
-                    ->addColumn('headcoach',function($row){
-                        
-                        return $row->user->name ;
-                    })
-                    ->addColumn('action', function($row){
-                        $btn =  '<a href="'.route('adminteams.show',$row->id).'" class="text-decoration-none pr-1"><i class="fa fa-eye text-primary" aria-hidden="true"></i></a>';
-                        $btn1 = '<a href="'.route('adminteams.edit',$row->id).'" class="text-decoration-none pr-1"><i class="fas fa-edit text-info"></i></a>';
-                        $btn2 = '<a href="javascript:void(0);" class="text-decoration-none" onclick="deleteRecord('.$row->id.', /admin/adminteams/)"><i class="fa fa-trash text-danger" aria-hidden="true"></i></a>';
-                                         
-                                     
-                        
-                        return $btns = $btn.''.$btn1 .''.$btn2;
-                       
-                    })
-                    ->rawColumns(['action','status'])
-                    ->make(true);
-        }
-       
-        
-       
-        return view('admin.pages.teams.index');
+       $teams = Team::all();
+        return view('admin.pages.teams.index',compact('teams'));
     }
 
     /**
@@ -139,7 +107,11 @@ class AdminTeamController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $team = Team::find($id);
+        $team->delete();
+        parent::successMessage("Team deleted successfully");
+        return redirect()->back();
+
     }
     public function getallTeams(Request $request)
     {

@@ -38,6 +38,7 @@ class HomeSliderController extends Controller
      */
     public function store(Request $request)
     {
+        
         if ($request->hasFile('cover_photo')) {
             $destinationPath = public_path('admin/slider');
             $file = $request->cover_photo;

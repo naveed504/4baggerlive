@@ -670,8 +670,9 @@
                                                 <div class="form-group col-md-6 col__mr-right">
                                                     <label class="label__wrapper required" for="">Throw </label>
                                                     <select  class="form-control  input__box--wrapper down-icons" name="throw" required>
-                                                        <option disabled="" value="" selected="">Right </option>
-                                                        <option value="Right">Left </option>
+                                                        <option disabled="" value="" selected="">Select Options </option>
+                                                        <option value="Left">Left </option>
+                                                        <option value="Right">Right </option>
                                                         <option value="Both">Both</option>
                                                     </select>
                                                     @if($errors->has('throw'))
@@ -783,8 +784,11 @@
                                             <div class="text-right">
                                                 <button class="btn btn-xs btn__add flex__right my-2" type="button" onclick="addParentInfo('parentcontact')">Add Additional Parent Info</button>
                                             </div>
-                                            <div class="form-row align-items-center">
-                                                <div class="form-group col-md-8 col__mr-right mb-0">
+                                          
+                                            <div class="wrapper--append">
+                                                <div class="form-row" id="parentinfo">
+                                                    <div class="form-group col-md-6 col__mr-right">
+                                                    <div class="form-row align-items-center">
                                                     <span class="btn btn__wrapper--four btn-file" id="btnfile">
                                                         Upload Picture <input type="file" id="uploadfile" name="fileupload" accept="image/*">
                                                         @if($errors->has('fileupload'))
@@ -793,6 +797,18 @@
                                                             </span>
                                                         @endif
                                                     </span>
+                                            </div>
+                                                    </div>
+                                                    <div class="form-group col-md-6 col__mr-right">
+                                                        <span class="btn btn__wrapper--four btn-file" id="btnfile">
+                                                            Upload Video <input type="file" id="uploadfile" name="player_video" >
+                                                            @if($errors->has('fileupload'))
+                                                                <span class="invalid-feedback">
+                                                                    <strong>{{ $errors->first('fileupload') }}</strong>
+                                                                </span>
+                                                            @endif
+                                                        </span>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div>

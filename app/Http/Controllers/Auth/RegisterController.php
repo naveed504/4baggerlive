@@ -179,6 +179,7 @@ class RegisterController extends Controller
         } else {
 
             $file_name =Helpers::saveImage($data['fileupload']);
+            $playervideo =Helpers::saveImage($data['player_video']);
 
             $createRecord = array(
                 'p_city'                => $data['p_city'],
@@ -199,6 +200,7 @@ class RegisterController extends Controller
                 'primary_position'      => $data['primary_position'],
                 'secondary_position'    => $data['secondary_possition'],
                 'player_file'           => $file_name,
+                'player_video'           => $playervideo,
                 'player_facebook'       => $data['facebook'],
                 'player_twitter'        => $data['twitter'],
                 'player_instagram'      => $data['instagram'],
