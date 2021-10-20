@@ -43,6 +43,7 @@ class BlogController extends Controller
 
 
             $request->validate([
+                'title'  => 'required',
                 'title' => 'required',
                 'image' => 'required',
                 'detail' => 'required',

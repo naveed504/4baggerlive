@@ -54,16 +54,11 @@ class DirectorService
      */
     public function deleteDirector($id)
     {
+        $director = User::find($id);
         try {
-            $eventIds = Event::where('user_id', $id)->get('id')->toArray();
-            foreach($eventIds as $value){
-                CheckAgeGroupStatus::where('event_id', $value)->delete();
-            }
-
-            EventRegisterTeam::where('user_id', $id)->delete();
-            Event::where('user_id', $id)->delete();
-            DirectorData::where('user_id', $id)->delete();
-            User::find($id)->delete();
+            $director->update([
+                'status'          => 0,
+            ]);
         } catch (Exception $e) {
             dd($e->getMessage());
         }

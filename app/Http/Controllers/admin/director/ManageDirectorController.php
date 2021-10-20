@@ -18,7 +18,7 @@ use App\Models\CheckAgeGroupStatus;
 class ManageDirectorController extends Controller
 {
 
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -59,7 +59,7 @@ class ManageDirectorController extends Controller
      */
     public function show($id)
     {
-       
+
         $states = State::all();
         $director = User::find($id);
         // assigning state names to state Ids
@@ -70,7 +70,7 @@ class ManageDirectorController extends Controller
                     return $state->state_name;
                 })
         );
-        
+
         return view('admin.pages.directors.show', compact('director', 'states'));
     }
 
@@ -143,8 +143,8 @@ class ManageDirectorController extends Controller
 
     public function ageGroupDetails(Request $request)
 
-    {    
-        
+    {
+
         $states = State::all();
         $director = User::find($request->userId);
         // assigning state names to state Ids
@@ -156,12 +156,11 @@ class ManageDirectorController extends Controller
                 })
         );
         $ageGroupTeams = EventRegisterTeam::where('age_group_id', $request->agegroupId)->where('event_id', $request->eventId)->FetchRelations()->get();
-        $ageGroupTeams->map(function($e){
+        $ageGroupTeams->map(function ($e) {
             $e->ageGroups = AgeGroup::where('id', $e->age_group_id)->value('age_group');
             return $e;
-        });       
-        return view('admin.pages.directors.eventschedule.teamsinagegroup', compact('ageGroupTeams','director','states'));
-
+        });
+        return view('admin.pages.directors.eventschedule.teamsinagegroup', compact('ageGroupTeams', 'director', 'states'));
     }
 
     public function playersInEventTeam(Request $request)
@@ -176,13 +175,13 @@ class ManageDirectorController extends Controller
                     return $state->state_name;
                 })
         );
-        $events = EventRegisterTeam::where('event_id','=', $request->eventId)->where('team_id','=',$request->teamId)->first();
-        $playerinTeam = PlayerData::where('team_id','=', $events->team_id)->with('team')->with('user')->get();
-        return view('admin.pages.directors.eventschedule.playersinteam', compact('playerinTeam','events','director','states'));
+        $events = EventRegisterTeam::where('event_id', '=', $request->eventId)->where('team_id', '=', $request->teamId)->first();
+        $playerinTeam = PlayerData::where('team_id', '=', $events->team_id)->with('team')->with('user')->get();
+        return view('admin.pages.directors.eventschedule.playersinteam', compact('playerinTeam', 'events', 'director', 'states'));
     }
 
     public function eventHistory(Request $request)
-    {    
+    {
         $states = State::all();
         $director = User::find($request->userId);
         // assigning state names to state Ids
@@ -193,27 +192,40 @@ class ManageDirectorController extends Controller
                     return $state->state_name;
                 })
         );
-           $payments = EventRegisterTeam::where('event_id', $request->eventId)->FetchRelations()->get();
-           $servicefee = ServiceFee::first();
-           return view('admin.pages.directors.eventschedule.eventhistory',compact('payments','servicefee','director','states')); 
-       
+        $payments = EventRegisterTeam::where('event_id', $request->eventId)->FetchRelations()->get();
+        $servicefee = ServiceFee::first();
+        return view('admin.pages.directors.eventschedule.eventhistory', compact('payments', 'servicefee', 'director', 'states'));
     }
 
     public function changeagegroupstaus(Request $request)
     {
         $result = CheckAgeGroupStatus::where('age_group_id', $request->agegroupid)->where('event_id', $request->eventid)->first();
-        if($result->status == "open") {
+        if ($result->status == "open") {
             $result->update([
                 'status' => "close"
             ]);
         } else {
             $result->update([
                 'status' => "open"
-            ]);            
+            ]);
         }
 
         return response()->json(['status' => 'updated']);
-      
+    }
+
+    public function approveDirector(Request $request)
+    {
+        $result = User::where('id', $request->userid)->first();
+        if ($result->status == 0) {
+            $result->update([
+                'status' => 1
+            ]);
+        } else {
+            $result->update([
+                'status' => 0
+            ]);
+        }
+        return response()->json(['status' => 'updated']);
     }
 
     public function destroydirectorevent($id)
