@@ -4,7 +4,7 @@
         <div class="col-sm-12 mt-2">
             <h4 class="bg-light p-3">
                 {{ $director->name }}
-               
+
             </h4>
         </div>
         <div class="col-sm-12 my-3">
@@ -68,34 +68,34 @@
                     </thead>
                     <tbody>
                         @forelse(Helpers::teamsInAgeGroups($director->events) as $event)
-                       
+
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td class="padding-1">{{ $event->event_name }}</td>
                                 <td class="padding-1">{{ $event->total_matches }}</td>
                                 <td class="padding-1">
-                                @foreach($event->ageGroups as $agegroup) 
+                                @foreach($event->ageGroups as $agegroup)
                                         <form action="{{ route('adminagegroupteams') }}" method="post">
-                                            @csrf 
-                                            <input type="hidden" name="agegroupId" value="{{ $agegroup['id'] }}">                               
-                                            <input type="hidden" name="eventId" value="{{ $event->id }}"> 
+                                            @csrf
+                                            <input type="hidden" name="agegroupId" value="{{ $agegroup['id'] }}">
+                                            <input type="hidden" name="eventId" value="{{ $event->id }}">
                                             <input type="hidden" name="userId" value="{{ $director->id }}">
                                             <button type="submit" class="badge badge-secondary" style="width:50px;tex-align:center">{{ $agegroup['age_group'] }}</button>
                                             <input type="checkbox"  id="changestatus_agegroup"   data-userId="{{ $director->id }}" data-eventId="{{ $event->id }}" data-agegroupId="{{ $agegroup['id'] }}" >
 
-                                          
-                                        </form>                             
+
+                                        </form>
                                  @endforeach
-                                
+
                                 </td>
-                                <td> 
+                                <td>
                                 @foreach($event->checkageGroupStatus as $agegroupstatus)
                                 @if($agegroupstatus == "open")
                                 <span class="badge badge-pill badge-success " style="width:50px;tex-align:center">Open</span><br>
                                 @else
                                 <span class="badge badge-pill badge-info  " style="width:50px;tex-align:center">Close</span><br>
-                                @endif                          
-                                @endforeach 
+                                @endif
+                                @endforeach
                                 </td>
                                 <td class="padding-1">{{ date('M d, Y', strtotime($event->start_date)) }}</td>
                                 <td class="padding-1">{{ date('M d, Y', strtotime($event->end_date)) }}</td>
@@ -107,7 +107,7 @@
                                         {{ !empty($venue) ? $venue . " |" : "" }}
                                     @endforeach
                                  </td> -->
-                                 <td class="padding-1"> @if($event->approved == 1)  
+                                 <td class="padding-1"> @if($event->approved == 1)
                                      <span class="badge badge-pill badge-success">Approve</span> @else
                                      <span class="badge badge-pill badge-warning">Pending</span> @endif
                                     </td>
@@ -119,9 +119,7 @@
                                     <a href="{{ route('events.edit', $event->id) }}" class="text-decoration-none pr-1">
                                        <i class="fas fa-edit text-primary"></i>
                                     </a>
-                                    <a href="javascript:void(0);" class="text-decoration-none">
-                                       <i class="fa fa-trash text-danger" aria-hidden="true"></i>
-                                    </a>
+                                    <a href="javascript:void(0)" onclick="deleteRecord({{$event->id}}, '/director/event/')"> <i class="fas fa-trash-alt mr-1"></i></a>
                                 </td>
                             </tr>
                         @empty
@@ -157,14 +155,14 @@
             </div>
         </div>
     </div>
-    <script> 
+    <script>
    $(document).on('click','#changestatus_agegroup', function() {
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
-       
+
     var userid = $(this).attr("data-userId");
     var eventid = $(this).attr("data-eventId");
     var agegroupid = $(this).attr("data-agegroupId");
@@ -179,7 +177,7 @@
                     location.reload();
                 }, 2000);
             }
-             
+
           },
           error: function (data) {
               console.log('Error:', data);
@@ -187,9 +185,9 @@
           }
       });
 
-          
+
     });
-  
+
 
 </script>
 @endsection

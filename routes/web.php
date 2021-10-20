@@ -87,7 +87,7 @@ route::get('liveevents', [FrontendEventController::class, 'liveEvents'])->name('
  */
 Route::group(['prefix' => 'admin',  'middleware' => ['auth', 'checkrole']], function () {
     Route::get('dashboard', [AdminHomeController::class, 'index'])->name('admin_dashboard');
-   
+
     Route::get('unapproved/directors', [ManageDirectorController::class, 'unApprovedDirectors'])->name('unapproved.directors');
     Route::post('approve/directors', [ManageDirectorController::class, 'approveDirectors']);
     Route::get('events/showAdminTeams/{id}', [ManageEventController::class, 'showAdminTeams'])->name('showAdminTeams');
@@ -105,6 +105,7 @@ Route::group(['prefix' => 'admin',  'middleware' => ['auth', 'checkrole']], func
     Route::post('adminplayersinteam', [ManageDirectorController::class,'playersInEventTeam'])->name('adminplayersinteam');
     Route::post('admineventhistory',[ManageDirectorController::class, 'eventHistory'])->name('admineventhistory');
     Route::post('changeagegroupstaus',[ManageDirectorController::class, 'changeagegroupstaus'])->name('changeagegroupstaus');
+    Route::post('approveDirector',[ManageDirectorController::class, 'approveDirector'])->name('approveDirector');
 
     Route::resource('events', ManageEventController::class);
     Route::resource('adminslider', HomeSliderController::class);
@@ -112,7 +113,7 @@ Route::group(['prefix' => 'admin',  'middleware' => ['auth', 'checkrole']], func
     Route::resource('recentcontent', RecentContentController::class);
     Route::resource('officialpartner', OfficialPartnerSectionController::class);
     Route::resource('manageblog', BlogController::class);
-    Route::resource('director', ManageDirectorController::class);    
+    Route::resource('director', ManageDirectorController::class);
     Route::resource('adminteams', AdminTeamController::class);
     Route::resource('player', PlayerController::class);
     Route::resource('adminpayout', ManagePayoutController::class);
@@ -121,9 +122,9 @@ Route::group(['prefix' => 'admin',  'middleware' => ['auth', 'checkrole']], func
     Route::resource('managetimeschedule', TimeScheduleController::class);
 
 
-    
+
     // Subscription Resource
-    
+
 
 });
 
@@ -139,7 +140,7 @@ Route::group(['prefix' => 'player',  'middleware' => ['auth', 'playerrole']], fu
     Route::get('playerprofile/{id}', [FrontendTeamController::class, 'viewPlayer'])->name('view.player.profile');
     Route::get('playerprofile', [FrontendTeamController::class, 'playerProfile'])->name('playerprofile');
     Route::post('updateplayerprofile', [FrontendTeamController::class, 'updatePlayerProfile'])->name('updateplayerprofile');
-   
+
 });
 
 /**

@@ -45,7 +45,6 @@ class BlogController extends Controller
 
             $request->validate([
                 'title'  => 'required',
-                'image'  => 'required',
                 'detail' => 'required'
             ]);
             ManageBlog::create([

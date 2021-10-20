@@ -3,7 +3,7 @@
 <div class="row">
     <div class="col-sm-12">
         <h4 class="bg-light p-3 mt-2">
-           Approve Directors
+            Approve Directors
         </h4>
     </div>
     <div class="col-sm-12 table-responsive my-3">
@@ -26,15 +26,14 @@
                         <td>{{ $director->cell_number }}</td>
                         <td>{{ $director->events->count() }}</td>
                         <td>
-                            <span href="javascript:void(0)" class="text-decoration-none pr-1">
-                                <input type="checkbox" name="approved" id="{{ $director->id }}" onclick="approveDirector(this)">
-                            </span>
+                            <input type="checkbox" id="changestatus_agegroup" data-userId="{{ $director->id }}">
                         </td>
                         <td>
                             <a href="{{ route('director.show', $director->id) }}" class="text-decoration-none pr-1">
-                               <i class="fa fa-eye text-primary" aria-hidden="true"></i>
+                                <i class="fa fa-eye text-primary" aria-hidden="true"></i>
                             </a>
-                            <a href="javascript:void(0);" class="text-decoration-none" onclick="deleteRecord({{$director->id}}, '/admin/director/')">
+                            <a href="javascript:void(0);" class="text-decoration-none"
+                                onclick="deleteRecord({{ $director->id }}, '/admin/director/')">
                                 <i class="fa fa-trash text-danger" aria-hidden="true"></i>
                             </a>
                         </td>
@@ -48,4 +47,38 @@
         </table>
     </div>
 </div>
+<script>
+    $(document).on('click', '#changestatus_agegroup', function () {
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        var userid = $(this).attr("data-userId");
+        $.ajax({
+            data: {
+                userid: userid
+            },
+            url: "{{ route('approveDirector') }}",
+            type: "POST",
+            dataType: 'json',
+            success: function (data) {
+                if (data.status = "updated") {
+                    setTimeout(function () {
+                        location.reload();
+                    }, 2000);
+                }
+
+            },
+            error: function (data) {
+                console.log('Error:', data);
+                $('#btn-save').html('Save Changes');
+            }
+        });
+
+
+    });
+
+</script>
 @endsection
