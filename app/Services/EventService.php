@@ -125,22 +125,23 @@ class EventService
             $exitsIds = [];
             foreach ($ageGroups as $key => $value)
             {
-                if(in_array($value->age_group_id, $reqAgeGroup)){
+                if(in_array($value->age_group_id, $reqAgeGroup))
+                {
                     $exitsIds[] = $value->age_group_id;
-                }else{
+                } else {
                     CheckAgeGroupStatus::where('id', '=', $value->id)->delete();
                 }
             }
 
             foreach($request->age_group as $val)
             {
-                if(!in_array($val, $exitsIds)){
+                if(!in_array($val, $exitsIds))
+                {
                     CheckAgeGroupStatus::create([
                         'age_group_id' => $val,
                         'event_id' => $id,
                     ]);
                 }
-
             }
 
         } catch (Exception $e) {

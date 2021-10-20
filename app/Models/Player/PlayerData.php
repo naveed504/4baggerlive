@@ -36,6 +36,7 @@ class PlayerData extends Model
         'player_facebook',
         'player_twitter',
         'player_instagram',
+        'player_video',
 
     ];
 

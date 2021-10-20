@@ -1,9 +1,13 @@
 @extends('admin.master')
 @section('content')
-<div class="container mb-5">
-        <div class="col-sm-12 mb-5">
-            <h3 class="text-center p-4 heading-color">Create  Home Blog Section</h3>
-        </div>
+<div class="row">
+     <div class="col-sm-12">
+            <h4 class="bg-light p-3 mt-2">
+            Create  Home Blog Section
+            </h4>
+    </div>
+    <div class="container mb-5">
+<br><br>
         <form action="  {{ route('manageblog.store') }} " method="post" id="" enctype="multipart/form-data">
           
             @csrf
@@ -56,7 +60,8 @@
                     </div>
                 </div>
         </form>
-    </div>
+   </div>
+</div>
     <script>
         $('#summernote').summernote({
           placeholder: 'Enter Official Partner Detail',

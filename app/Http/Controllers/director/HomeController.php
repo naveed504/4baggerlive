@@ -5,6 +5,9 @@ namespace App\Http\Controllers\director;
 use App\AuthorizeNet\RefundPaymentGateway;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Player\PlayerData;
+use App\Models\User;
+
 use net\authorize\api\contract\v1 as AnetAPI;
 use net\authorize\api\controller as AnetController;
 use Session;
@@ -78,5 +81,30 @@ class HomeController extends Controller
 
         return redirect()->back();
     }   
+
+    public function playersInDirectorDashboard()
+    {
+        $players =PlayerData::with('user')->get();
+        return view('director.pages.player.showplayers',compact('players'));
+    }
+
+    public function playersearchinDirector(Request $request)
+    {
+        $players = PlayerData::with('user')->whereHas('user', function ($q) use ($request) {
+            $q->where('type', 4);
+            $q->where('email', 'like', '%' . $request->inputsearch . '%');
+            $q->orWhere('name', 'like', '%' . $request->inputsearch . '%');
+        })->get();
+        return view('director.pages.player.showplayers',compact('players'));
+
+    }
+
+    public function playerProfileinDirector($id) 
+    {
+        $player =User::find($id);
+        return view('director.pages.player.profile', compact('player'));
+
+        
+    }
 
 }

@@ -53,7 +53,7 @@ class EventController extends Controller
      */
     public function store(CreateEventRequest $request, EventService $event)
     {
-       
+
         // event service
         $event->createEvent($request)
             ? parent::successMessage('Event Submitted Successfully')

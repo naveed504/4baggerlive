@@ -55,8 +55,10 @@ class PlayerService
         }
 
 
-            $dbRecord = Auth::user()->player->player_file;
-            $file_name = Helpers::updateImage($data->fileupload, $dbRecord);
+        $dbRecord_player_video = Auth::user()->player->player_video;
+        $dbRecord = Auth::user()->player->player_file;
+        $file_name = Helpers::updateImage($data->fileupload, $dbRecord);
+        $playervideo = Helpers::updateImage($data->player_video, $dbRecord_player_video);
 
 
         try {
@@ -79,6 +81,7 @@ class PlayerService
                 'primary_position'      => $data['primary_position'],
                 'secondary_position'    => $data['secondary_possition'],
                 'player_file'           => $file_name,
+                'player_video'          => $playervideo,
                 'player_facebook'       => $data['facebook'],
                 'player_twitter'        => $data['twitter'],
                 'player_instagram'      => $data['instagram'],

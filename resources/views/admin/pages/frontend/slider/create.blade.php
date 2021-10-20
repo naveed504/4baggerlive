@@ -1,9 +1,15 @@
 @extends('admin.master')
 @section('content')
-<div class="container mb-5">
-        <div class="col-sm-12 mb-5">
-            <h3 class="text-center p-4 heading-color">Manage Home Slider</h3>
-        </div>
+<div class="row">
+    <div class="col-sm-12">
+        <h4 class="bg-light p-3 mt-2">
+           Manage Home Slider
+        </h4>
+    </div>
+    
+     <div class="container mb-5">
+     <br><br>
+
         <form action=" @if(isset($slider)) {{ route('adminslider.update', $slider->id) }} @else {{ route('adminslider.store') }} @endif" method="post" id="sliderRequest" enctype="multipart/form-data">
            @if(isset($slider))
            @method('PUT')
@@ -72,4 +78,5 @@
                 </div>
         </form>
     </div>
+</div>
 @endsection

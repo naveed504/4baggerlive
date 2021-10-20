@@ -14,6 +14,9 @@ use App\Models\General\RecentContentSection;
 use App\Models\General\OfficialPartner;
 use App\Models\General\ManageBlog;
 use App\Models\General\ManageNews;
+use App\Models\General\SiteRule;
+use App\Models\General\AboutUs;
+
 
 use Exception;
 
@@ -70,13 +73,14 @@ class HomeController extends Controller
 
     public function rulesPolicy()
     {
-      
-        return view('frontend.pages.rulespolicy');
+        $siterules= SiteRule::all();      
+        return view('frontend.pages.rulespolicy', compact('siterules'));
     }
 
     public function aboutUs()
     {
+        $aboutus = AboutUs::first();
        
-        return view('frontend.pages.aboutus');
+        return view('frontend.pages.aboutus',compact('aboutus'));
     }
 }
