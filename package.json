@@ -17,10 +17,12 @@
         "lodash": "^4.17.19",
         "popper.js": "^1.12",
         "postcss": "^8.1.14",
+        "resolve-url-loader": "^4.0.0",
         "sass": "^1.15.2",
         "sass-loader": "^8.0.0"
     },
     "dependencies": {
-        "ansi-html": "0.0.7"
+        "ansi-html": "0.0.7",
+        "vue-loader": "^15.9.8"
     }
 }

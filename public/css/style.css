@@ -2239,6 +2239,8 @@ h6 {
     background-repeat: no-repeat;
     background-size: cover;
     padding: 9rem 0;
+    min-height: calc(100vh - 100px);
+    margin-top: -58px;
 }
 
 .d__flex-one {
@@ -3185,11 +3187,22 @@ line-height:24px;
         font-weight: bold;
         font-size: 10px !important;
         float: left;
-    }
+    }}
     .dates {
      font-size: 10px !important;
      font-weight: bold;
      margin-top: 8px !important;
     }
   
-    
+    .wrapper-four-content.table-content-flex{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .d-flex-custom{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 40px 0px 20px;
+        width: 100%;
+    }
