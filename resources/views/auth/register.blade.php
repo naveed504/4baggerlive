@@ -7,12 +7,14 @@
             </div>
             <section class="player-reg">
                 <ul class="nav nav-tabs bagger-pills">
-                    <li>
-                        <a href="#tab1" class="active" data-toggle="tab">Tournament director registration</a>
-                    </li>
+                    
+                     <li> <a href="#tab1" class="active" data-toggle="tab">Director registration</a></li>
                     <li><a href="#tab2" data-toggle="tab">Team registration</a></li>
                     <li><a href="#tab3" data-toggle="tab">Player registration</a></li>
+                    <li><a href="#tab4" data-toggle="tab">User </a></li>
+
                 </ul>
+             
                 <div class="tab-content">
                     <div class="tab-pane active" id="tab1">
                         <div class="panel panel-default">
@@ -872,6 +874,111 @@
                             </div>
                         </div>
                     </div>
+                    <div class="tab-pane" id="tab4">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent=".tab-pane" href="#collapsefour">
+                                        User registration
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapsefour" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <div class="form__mainwrapper">
+                                    <form action="{{route('register')}}" method="post"  id="generaluser_registration_form">
+                                            @csrf
+                                        <input type="hidden" name="type" value="5">
+                                            <div class="form-row">
+                                                <div class="form-group col-md-6 col__mr-right">
+                                                    <label class="label__wrapper required" for="">User Name</label>
+                                                    <input type="text" class="form-control input__box--wrapper"  placeholder="" value="{{ old('name') }}" name="name" required>
+                                                    @if($errors->has('name'))
+                                                        <span class="invalid-feedback">
+                                                            <strong>{{ $errors->first('name') }}</strong>
+                                                        </span>
+                                                    @endif
+                                                </div>
+                                              
+                                            </div>
+                                         
+                                            <div class="form-row">
+                                                <div class="form-group col-md-6 col__mr-right">
+                                                    <label class="label__wrapper required" for=""> Cell Number
+                                                        #</label>
+                                                    <input type="text" class="form-control input__box--wrapper phoneNumber" placeholder="" value="{{ old('cell_no') }}" name="cell_no" required>
+                                                    @if($errors->has('cell_no'))
+                                                        <span class="invalid-feedback">
+                                                            <strong>{{ $errors->first('cell_no') }}</strong>
+                                                        </span>
+                                                    @endif
+                                                </div>
+                                                <div class="form-group col-md-6 col__mr-right">
+                                                    <label class="label__wrapper required" for="">Email
+                                                    </label>
+                                                    <input type="email" class="form-control input__box--wrapper" placeholder="" value="{{ old('email') }}" name="email" required>
+                                                    @if($errors->has('email'))
+                                                        <span class="invalid-feedback">
+                                                            <strong>{{ $errors->first('email') }}</strong>
+                                                        </span>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md-6 col__mr-right">
+                                                    <label class="label__wrapper required" for="">First Name
+                                                        #</label>
+                                                    <input type="text" class="form-control input__box--wrapper " placeholder="" value="{{ old('first_name') }}" name="first_name" required>
+                                                    @if($errors->has('first_name'))
+                                                        <span class="invalid-feedback">
+                                                            <strong>{{ $errors->first('first_name') }}</strong>
+                                                        </span>
+                                                    @endif
+                                                </div>
+                                                <div class="form-group col-md-6 col__mr-right">
+                                                    <label class="label__wrapper required" for="">Last Name
+                                                    </label>
+                                                    <input type="text" class="form-control input__box--wrapper" placeholder="" value="{{ old('last_name') }}" name="last_name" required>
+                                                    @if($errors->has('last_name'))
+                                                        <span class="invalid-feedback">
+                                                            <strong>{{ $errors->first('last_name') }}</strong>
+                                                        </span>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                           
+                                                 <div class="form-row">
+                                                <div class="form-group col-md-6 col__mr-right">
+                                                    <label class="label__wrapper" for="">password </label>
+                                                    <input type="password" name="password" class="form-control input__box--wrapper" placeholder="" required>
+                                                    @if($errors->has('password'))
+                                                        <span class="invalid-feedback">
+                                                            <strong>{{ $errors->first('password') }}</strong>
+                                                        </span>
+                                                    @endif
+                                                </div>
+                                                <div class="form-group col-md-6 col__mr-right">
+                                                    <label class="label__wrapper" for="">confirm password </label>
+                                                    <input type="password" class="form-control input__box--wrapper" name="password_confirmation"  required placeholder="">
+                                                    @if($errors->has('password_confirmation'))
+                                                        <span class="invalid-feedback">
+                                                            <strong>{{ $errors->first('password_confirmation') }}</strong>
+                                                        </span>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                        <div class="text-center">
+                                            <button type="submit" class="btn btn__next">submit</button>
+                                        </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  
+                    
+                    
                 </div>
             </section>
         </div>

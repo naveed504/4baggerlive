@@ -66,5 +66,6 @@ class Kernel extends HttpKernel
         'playerrole' => \App\Http\Middleware\PlayerRole::class,
         'teamrole' => \App\Http\Middleware\TeamRole::class,
         'directorrole' => \App\Http\Middleware\DirectorRole::class,
+        'generaluser' => \App\Http\Middleware\GeneralUser::class,
     ];
 }

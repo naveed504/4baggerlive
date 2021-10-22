@@ -36,9 +36,12 @@ class HomeController extends Controller
 
             parent::successMessage('Team Coach Registered successfully');
             return redirect('team/dashboard');
-        } else {
+        } elseif(Auth::user()->type == 4) {
             parent::successMessage('Player Registered successfully');
             return redirect('player/profile');
+        } else {
+            parent::successMessage('User Registered successfully');
+            return redirect('liveevents');
         }
     }
 }

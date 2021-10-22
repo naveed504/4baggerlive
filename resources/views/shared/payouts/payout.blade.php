@@ -12,7 +12,9 @@
                 <th>Refund Amount</th>
                 <th>Remaining Amount</th>
                 <th>Payment Status</th>
-               @if(Auth::user()->type == 2) <th>Refund</th> @endif
+                @if(Auth::user()->type == 1)
+               <th>Refund</th> 
+               @endif
             </thead>
             <tbody>
 
@@ -39,17 +41,26 @@
                         <td> @if(empty($refAmount)) {{ "N/A" }} @else {{ round($refAmount ,2) }} @endif</td>
                         <td> {{ round($remainingAmount ,2) }}   </td>
                         <td>@if($payment->payment_status == 1) <span class="badge badge-pill badge-success">{{ "Paid" }}</span> @else <span class="badge badge-pill badge-warning">{{ "Pending" }}</span> @endif</td>
-                        @if(Auth::user()->type == 2)
+                      
                             <td>
                                 @if($payment->payment_status != 0)
+                                <!-- @if(Auth::user()->type == 2)
                                     <div class="btn-group">
                                     <a href="{{ route('paymentrefundform', $payment->payments_id) }}" >
                                         <i class="fa fa-credit-card text-info font-large mr-1" aria-hidden="true"></i>
                                     </a>
                                     </div>
+                                @endif -->
+                                @if(Auth::user()->type == 1)
+                                    <div class="btn-group">
+                                    <a href="{{ route('adminpaymentrefundform', $payment->payments_id) }}" >
+                                        <i class="fa fa-credit-card text-info font-large mr-1" aria-hidden="true"></i>
+                                    </a>
+                                    </div>
+                                @endif
                                 @endif
                             </td>
-                        @endif
+                      
 
                     </tr>
                     @empty

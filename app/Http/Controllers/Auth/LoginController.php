@@ -62,9 +62,12 @@ class LoginController extends Controller
         } elseif (Auth::user()->type == 3) {
             parent::successMessage('Team Coach Login successfully');
             return redirect('team/dashboard');
-        } else {
+        } elseif(Auth::user()->type == 4) {
             parent::successMessage('Player Login successfully');
             return redirect('player/profile');
+        } else {
+            parent::successMessage('User Login successfully');
+            return redirect('liveevents');
         }
     }
 }

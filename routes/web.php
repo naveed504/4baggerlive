@@ -71,18 +71,22 @@ Route::get('phpdebug', [TestController::class, 'phpdebug']);
 /**
  * Frontend Routes
  */
+
+route::get('liveevents', [FrontendEventController::class, 'liveEvents'])->name('liveevents');
 Route::get('/', [HomeController::class, 'index'])->name('welcome');
 Route::get('/events', [HomeController::class, 'allEvents'])->name('events');
 route::get('view/events', [HomeController::class, 'allEvents'])->name('view.events');
 route::get('contact-us', [HomeController::class, 'contactUs'])->name('contactus');
 route::get('rules-and-policy', [HomeController::class, 'rulesPolicy'])->name('rules');
 route::get('about-us', [HomeController::class, 'aboutUs'])->name('aboutus');
-Route::get('4baggerer-recent-content-detail/{id}', [HomeController::class, 'recentContentDetail'])->name('recentcontentdetail');
 Route::any('blog/{blog}', [HomeController::class, 'showBlog'])->name('blog');
-
 Route::view('/profile', 'frontend.pages.player.profile');
 route::get('view/event/{id}', [FrontendEventController::class, 'viewEvent'])->name('view.event');
-route::get('liveevents', [FrontendEventController::class, 'liveEvents'])->name('liveevents');
+    Route::get('4baggerer-recent-content-detail/{id}', [HomeController::class, 'recentContentDetail'])->name('recentcontentdetail');
+    Route::get('userpayforsubscription/{id}', [HomeController::class, 'subscriptionForm'])->name('userpayforsubscription');
+    Route::post('subscribeplan', [HomeController::class, 'userPayForSubscribePlan'])->name('subscribeplan');
+    
+
 
 /**
  * Admin Routes
@@ -108,6 +112,9 @@ Route::group(['prefix' => 'admin',  'middleware' => ['auth', 'checkrole']], func
     Route::post('admineventhistory',[ManageDirectorController::class, 'eventHistory'])->name('admineventhistory');
     Route::post('changeagegroupstaus',[ManageDirectorController::class, 'changeagegroupstaus'])->name('changeagegroupstaus');
     Route::post('approveDirector',[ManageDirectorController::class, 'approveDirector'])->name('approveDirector');
+    Route::post('showsubscription',[SubscriptionController::class, 'show'])->name('showsubscription');
+    Route::get('adminpaymentrefundform/{id}', [ManagePayoutController::class, 'showPaymentRefundForm'])->name('adminpaymentrefundform');
+    Route::post('adminpaymentrefund', [ManagePayoutController::class, 'refundTransaction'])->name('adminpaymentrefund');
 
     Route::resource('events', ManageEventController::class);
     Route::resource('adminslider', HomeSliderController::class);

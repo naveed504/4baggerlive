@@ -96,7 +96,6 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
 
-
         try {
             $user = user::create([
                 'name'        => $data['type'] == 4 ? $data['first_name'] . ' ' . $data['last_name'] : $data['name'],
@@ -176,7 +175,7 @@ class RegisterController extends Controller
             /*
             * ------------------ Player Registration ------------------
             */
-        } else {
+        } elseif($user['type'] == '4') {
 
             $file_name =Helpers::saveImage($data['fileupload']);
             $playervideo =Helpers::saveImage($data['player_video']);
