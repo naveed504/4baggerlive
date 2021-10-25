@@ -3,8 +3,10 @@
         <label class="label__wrapper required">Type</label>
         <select name="package_type" class="form-control input__box--wrapper">
             <option selected="" disabled="">--Select Type--</option>
-            <option value="Fourcast" selected="">Fourcast</option>
-            <option value="Premium">Premium</option>
+            <option value="1" selected="">1 Month</option>
+            <option value="3">3 Months</option>
+            <option value="6">6 Months</option>
+            <option value="12">1 year</option>
         </select>
     </div>
     <div class="col-sm-6">
@@ -19,7 +21,7 @@
 
 <div class="row">
 
-        <label class="label__wrapper required ml-3">Description</label>
+    <label class="label__wrapper required ml-3">Description</label>
     <div class="col-sm-10">
         <div id="package_description_row">
             <div class="row">

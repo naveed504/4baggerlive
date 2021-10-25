@@ -17,12 +17,24 @@ use App\Models\General\ManageBlog;
 use App\Models\General\ManageNews;
 use App\Models\General\SiteRule;
 use App\Models\General\AboutUs;
+use App\Models\subscription\SubscriptionPaymentPlan;
+use App\Models\subscription\SubscriptionPlan;
+use App\AuthorizeNet\PaymentGateway;
+use net\authorize\api\contract\v1 as AnetAPI;
+use net\authorize\api\controller as AnetController;
+use App\Services\SubscriptionPlanService;
 
 
 use Exception;
 
 class HomeController extends Controller
 {
+
+    public function __construct(SubscriptionPlanService $subscriptionservice)
+    {
+        $this->subscriptionservice = $subscriptionservice;
+    }
+
     public function allEvents()
     {
         $month = date('m');
@@ -33,15 +45,15 @@ class HomeController extends Controller
     public function index()
     {
 
+
         $latestNews = ManageNews::first();
         $officalpartners = OfficialPartner::all();
 
         $recentsections = RecentContentSection::all();
         $sliders =Slider::all();
-        return !(Auth::check())
-            ?
-            view('frontend.pages.home', compact('sliders','recentsections','officalpartners','latestNews'))
-            : redirect()->back();
+        $generalSetting = GeneralSetting::first();
+        return  view('frontend.pages.home', compact('sliders','recentsections','officalpartners','latestNews','generalSetting'));
+
     }
 
     public function showBlog($blogslug)
@@ -54,9 +66,27 @@ class HomeController extends Controller
 
     public function recentContentDetail($id)
     {
-        $detail = RecentContentSection::find($id);
+        if(Auth::check()){
+            $currentuser = Auth::user()->id;
+            $subscriptionoffer = SubscriptionPaymentPlan::where('user_id',$currentuser)->first();
+           if($subscriptionoffer == null) {
+            parent::dangerMessage("You have no subscription plan");
+            parent::dangerMessage("Continue to read article please select subscription plan");
+            $plans = SubscriptionPlan::all();
+            return view('frontend.pages.subscription.index',compact('plans'));
+           }else {
+            $detail = RecentContentSection::find($id);
+            return view('frontend.pages.recentcontentdetail', compact('detail'));
+           }
 
-        return view('frontend.pages.recentcontentdetail', compact('detail'));
+        } else {
+            parent::dangerMessage("Please login your account");
+            parent::dangerMessage("Please select subscription Plan");
+
+          return redirect()->route('register');
+        }
+
+
 
     }
 
@@ -68,8 +98,9 @@ class HomeController extends Controller
     public function contactUs()
     {
 
+        $setting = GeneralSetting::first();
 
-        return view('frontend.pages.contactus');
+        return view('frontend.pages.contactus',compact('setting'));
     }
 
     public function rulesPolicy()

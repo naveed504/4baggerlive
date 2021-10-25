@@ -118,6 +118,7 @@ class GeneralSettingController extends Controller
     public function updateGeneralSetting(Request $request)
     {
         
+        
         try{
             $general =GeneralSetting::find($request->general_id);
             

@@ -1,24 +1,24 @@
 @extends('player.master')
 @section('content')
-<div class="container">
-    <section class="bgbanner1">
-    </section>
-    <section>
-        <div class="d__flex-one">
-            <div class="mx__50">
-                <div class="logo--wrapper--inner">
-                    <img src="{{ asset('images/logo1.png') }}" class="img-fluid" alt="">
+    <div class="container">
+        <section class="bgbanner1">
+        </section>
+        <section>
+            <div class="d__flex-one">
+                <div class="mx__50">
+                    <div class="logo--wrapper--inner">
+                        <img src="{{ asset('images/logo1.png') }}" class="img-fluid" alt="">
+                    </div>
+                    <h2>My Teams</h2>
                 </div>
-                <h2>My Teams</h2>
-            </div>
-            <div class="mx__60">
+                <div class="mx__60">
 
-                <h2>{{ $team->team_name }}</h2>
+                    <h2>{{ $team->team_name }}</h2>
+                </div>
             </div>
-        </div>
-    </section>
-    <section class="mt--top-40">
-        <div class="col-md-10 offset-md-2">
+        </section>
+        <section class="mt--top-40">
+            <div class="col-md-10 offset-md-2">
                 <div class="row">
                     <div class="col-sm-12 my-4">
                         <a class="btn btn--wrapper float-right text-decoration-none text-dark" href="">Add Players</a>
@@ -48,13 +48,13 @@
                         </div>
                         <div class="wrapper-four-content">
                             <strong>Status:</strong>
-                            <span> @if($team->active == 1)<span class="badge badge-success">Active</span> @else <span class="badge badge-danger">Pending</span> @endif  </span>
+                            <span> @if ($team->active == 1)<span class="badge badge-success">Active</span> @else <span class="badge badge-danger">Pending</span> @endif </span>
                         </div>
                     </div>
                 </div>
-        </div>
-    </section>
-    <section>
+            </div>
+        </section>
+        <section>
             <div id="main">
                 <!-- <div class="container"> -->
                 <div class="accordion" id="faq">
@@ -63,7 +63,8 @@
                             <a href="#" class="btn btn-header-link" data-toggle="collapse" data-target="#faq1"
                                 aria-expanded="true" aria-controls="faq1">TEAM SCHEDULE</a>
                         </div>
-                        <div id="faq1" class="collapse nav__container--wrapper show" aria-labelledby="faqhead1" data-parent="#faq">
+                        <div id="faq1" class="collapse nav__container--wrapper show" aria-labelledby="faqhead1"
+                            data-parent="#faq">
                             <div class="card-body crd-border">
                                 <div class="container-fluid">
                                     <a id="" href="#" style="color:#2763A5;"><i class="fa fa-calendar"></i> Add All to
@@ -91,8 +92,7 @@
                                                                         <span id="" style="color:#2763A5;">2020 PG 9U
                                                                             Hurricane Harvey
                                                                             Memorial Super Regional NIT
-                                                                            (Open)</span>&nbsp;<span
-                                                                            id="">(2-1-0)</span>
+                                                                            (Open)</span>&nbsp;<span id="">(2-1-0)</span>
                                                                     </td>
                                                                 </tr>
                                                             </tbody>
@@ -113,7 +113,8 @@
                                 aria-expanded="true" aria-controls="faq2">STATS</a>
                         </div>
 
-                        <div id="faq2" class="collapse nav__container--wrapper" aria-labelledby="faqhead2" data-parent="#faq">
+                        <div id="faq2" class="collapse nav__container--wrapper" aria-labelledby="faqhead2"
+                            data-parent="#faq">
                             <div class="card-body crd-border">
                                 <nav>
                                     <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -177,7 +178,8 @@
 
                                     </div>
                                     <div class="tab-pane fade" id="nav-profile" role="tabpanel"
-                                        aria-labelledby="nav-profile-tab">      <div class="row justify-content-center my-5">
+                                        aria-labelledby="nav-profile-tab">
+                                        <div class="row justify-content-center my-5">
                                             <div class="col-lg-3 col-md-4 col-sm-12">
                                                 <div>
                                                     <div class="lock-box">
@@ -219,7 +221,8 @@
                                                 </div>
                                             </div>
 
-                                        </div></div>
+                                        </div>
+                                    </div>
                                     <div class="tab-pane fade" id="nav-contact" role="tabpanel"
                                         aria-labelledby="nav-contact-tab">
                                         <div class="row justify-content-center my-5">
@@ -276,48 +279,61 @@
                                 aria-expanded="true" aria-controls="faq3">Players</a>
                         </div>
 
-                        <div id="faq3" class="collapse  nav__container--wrapper" aria-labelledby="faqhead3" data-parent="#faq">
+                        <div id="faq3" class="collapse  nav__container--wrapper" aria-labelledby="faqhead3"
+                            data-parent="#faq">
                             <div class="card-body crd-border">
                                 <div>
                                     <div class="row">
 
-                                        @foreach($team->player as $key => $player)
+                                        @foreach ($team->player as $key => $player)
                                             <div class="col-sm-3 space__left">
                                                 <div class="card text-center">
                                                     <div class="card-body p-0">
-                                                        <p class="lblheading__three text-dark mb-2 text-uppercase text-muted">{{ $player->user->name }}</p>
-                                                      <div class="hover__effect">
+                                                        <p
+                                                            class="lblheading__three text-dark mb-2 text-uppercase text-muted">
+                                                            {{ $player->user->name }}</p>
+                                                        <div class="hover__effect">
 
 
-                                                        <div class="box-img-container">
-                                                        <img class="card-img-top " src="{{ asset('uploads/'.$player->player_file) }}" alt="" width="100">
+                                                            <div class="box-img-container">
+                                                                <img class="card-img-top "
+                                                                    src="{{ asset('uploads/' . $player->player_file) }}"
+                                                                    alt="" width="100">
+                                                            </div>
+                                                            <div class="wrapper-box2">
+                                                                <p>
+                                                                    <strong
+                                                                        class="text-uppercase sub_para">{{ $player->graduation_year }},
+                                                                        {{ $player->primary_position }}</strong>
+                                                                </p>
+                                                                <p class="text-uppercase sub_line text-muted">
+                                                                    HEIGHT WEIGHT
+                                                                </p>
+                                                                <p>
+                                                                    <strong
+                                                                        class="text-uppercase sub_para">{{ $player->player_height }}
+                                                                        {{ $player->player_weight }}</strong>
+                                                                </p>
+                                                                <p class="text-uppercase sub_line text-muted">
+                                                                    high school
+                                                                </p>
+                                                                <p>
+                                                                    <strong
+                                                                        class="text-uppercase sub_para">{{ $player->school_name }}</strong>
+                                                                </p>
+                                                                <p class="text-uppercase sub_line text-muted">
+                                                                    hometown
+                                                                </p>
+                                                                <p>
+                                                                    <strong
+                                                                        class="text-uppercase sub_para">{{ $player->p_city }},
+                                                                        {{ $player->p_state }}</strong>
+                                                                </p>
+                                                                <a class="btn btn--wrapper text-light"
+                                                                    href="{{ route('view.player.profile', $player->user->id) }}">Profile</a>
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                        <div class="wrapper-box2">
-                                                        <p>
-                                                            <strong class="text-uppercase sub_para">{{ $player->graduation_year }}, {{ $player->primary_position }}</strong>
-                                                        </p>
-                                                        <p class="text-uppercase sub_line text-muted">
-                                                            HEIGHT WEIGHT
-                                                        </p>
-                                                        <p>
-                                                            <strong class="text-uppercase sub_para">{{ $player->player_height }} {{ $player->player_weight }}</strong>
-                                                        </p>
-                                                        <p class="text-uppercase sub_line text-muted">
-                                                            high school
-                                                        </p>
-                                                        <p>
-                                                            <strong class="text-uppercase sub_para">{{ $player->school_name }}</strong>
-                                                        </p>
-                                                        <p class="text-uppercase sub_line text-muted">
-                                                            hometown
-                                                        </p>
-                                                        <p>
-                                                            <strong class="text-uppercase sub_para">{{ $player->p_city }}, {{ $player->p_state }}</strong>
-                                                        </p>
-                                                        <a class="btn btn--wrapper text-light" href="{{ route('view.player.profile', $player->user->id) }}">Profile</a>
-                                                    </div>
-                                                    </div>
-                                                </div>
                                                 </div>
                                             </div>
                                         @endforeach
@@ -330,8 +346,8 @@
                 </div>
             </div>
             <!-- </div> -->
-    </section>
-</div>
+        </section>
+    </div>
 
 
 @endsection
