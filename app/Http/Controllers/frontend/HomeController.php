@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Event\Event;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Player\PlayerData;
 use Illuminate\Support\Facades\Auth;
 use App\Models\General\Slider;
 use App\Models\General\GeneralSetting;
@@ -31,22 +32,22 @@ class HomeController extends Controller
 
     public function index()
     {
-       
+
         $latestNews = ManageNews::first();
         $officalpartners = OfficialPartner::all();
-       
+
         $recentsections = RecentContentSection::all();
         $sliders =Slider::all();
         return !(Auth::check())
-            ? 
+            ?
             view('frontend.pages.home', compact('sliders','recentsections','officalpartners','latestNews'))
             : redirect()->back();
-    } 
+    }
 
     public function showBlog($blogslug)
     {
         $blogdetail = ManageBlog::where('slug', '=', $blogslug)->first();
-      
+
         return view('frontend.pages.blogdetail', compact('blogdetail'));
 
     }
@@ -54,9 +55,9 @@ class HomeController extends Controller
     public function recentContentDetail($id)
     {
         $detail = RecentContentSection::find($id);
-       
+
         return view('frontend.pages.recentcontentdetail', compact('detail'));
-        
+
     }
 
     public function register()
@@ -66,21 +67,46 @@ class HomeController extends Controller
 
     public function contactUs()
     {
-        
-       
+
+
         return view('frontend.pages.contactus');
     }
 
     public function rulesPolicy()
     {
-        $siterules= SiteRule::all();      
+        $siterules= SiteRule::all();
         return view('frontend.pages.rulespolicy', compact('siterules'));
     }
 
     public function aboutUs()
     {
         $aboutus = AboutUs::first();
-       
+
         return view('frontend.pages.aboutus',compact('aboutus'));
+    }
+
+    public function playersInHome()
+    {
+        $players =PlayerData::with('user')->get();
+        return view('frontend.pages.player.showPlayer',compact('players'));
+    }
+
+    public function playersearchinHome(Request $request)
+    {
+        $players = PlayerData::with('user')->whereHas('user', function ($q) use ($request) {
+            $q->where('type', 4);
+            $q->where('email', 'like', '%' . $request->inputsearch . '%');
+            $q->orWhere('name', 'like', '%' . $request->inputsearch . '%');
+        })->get();
+        return view('frontend.pages.player.showPlayer',compact('players'));
+
+    }
+
+    public function playerProfileinHome($id)
+    {
+        $player =User::find($id);
+        return view('frontend.pages.player.profile', compact('player'));
+
+
     }
 }

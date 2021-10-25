@@ -119,7 +119,7 @@
                                     <a href="{{ route('events.edit', $event->id) }}" class="text-decoration-none pr-1">
                                        <i class="fas fa-edit text-primary"></i>
                                     </a>
-                                    <a href="javascript:void(0)" onclick="deleteRecord({{$event->id}}, '/director/event/')"> <i class="fas fa-trash-alt mr-1"></i></a>
+                                    <a href="javascript:void(0)" onclick="deleteRecord({{$event->id}}, '/admin/events/')"> <i class="fas fa-trash-alt mr-1"></i></a>
                                 </td>
                             </tr>
                         @empty

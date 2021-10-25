@@ -83,6 +83,9 @@ Route::any('blog/{blog}', [HomeController::class, 'showBlog'])->name('blog');
 Route::view('/profile', 'frontend.pages.player.profile');
 route::get('view/event/{id}', [FrontendEventController::class, 'viewEvent'])->name('view.event');
 route::get('liveevents', [FrontendEventController::class, 'liveEvents'])->name('liveevents');
+Route::get('players-in-home', [HomeController::class, 'playersInHome'])->name('players_in_home');
+Route::post('search-player-in-home', [HomeController::class, 'playersearchinHome'])->name('search_player_in_home');
+Route::get('view-player-profile-in-home/{id}', [HomeController::class, 'playerProfileinHome'])->name('view_player_profile_in_home');
 
 /**
  * Admin Routes
