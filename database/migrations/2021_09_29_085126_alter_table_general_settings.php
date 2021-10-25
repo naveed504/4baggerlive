@@ -34,7 +34,7 @@ class AlterTableGeneralSettings extends Migration
      */
     public function down()
     { 
-        Schema::table('matches', function (Blueprint $table) {     
+        Schema::table('general_settings', function (Blueprint $table) {     
             $table->dropColumn('facebook');
             $table->dropColumn('twitter');
             $table->dropColumn('instagram');

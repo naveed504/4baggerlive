@@ -3,9 +3,9 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12 text-right my-3">
-                <button class="btn btn-success" type="button" data-toggle="modal" data-target="#addSubscriptionPlan">
+                <a href="{{ route('subscription.create') }}" class="btn btn-success" type="button" >
                     <i class="fas fa-plus"></i>Add Subscription
-                </button>
+</a>
             </div>
             <div class="col-md-12">
                 <ul class="nav nav-tabs nav-ctabs" id="myTab" role="tablist">
@@ -22,9 +22,15 @@
                                     <div class="card pricing-box">
                                         <div class="card-body d-flex flex-column text-center">
                                             <div class="mb-4">
-                                                <h3>{!! $item->plan_name !!}</h3>
+                                                <h3>{{ $item->plan_type . " Months" }}</h3>
                                                 <span class="display-4">${!! $item->plan_amount !!}</span>
-                                                <span>/mo</span>
+                                                <span>/
+                                                    @if($item->plan_type == 1) {{ "Silver" }}
+                                                    @elseif($item->plan_type == 3) {{ "Gold" }}
+                                                    @elseif($item->plan_type == 6) {{ "Diamond" }}
+                                                    @endif
+                                                    
+                                                </span>
                                             </div>
                                             <ul>
                                                 @foreach (json_decode($item->plan_des) as $data)
@@ -33,7 +39,7 @@
                                             </ul>
                                            <!--  <a href="#" class="btn btn-lg mt-auto card-edit" data-id="{{ $item->id }}"
                                                 data-toggle="modal" data-target="#edit_plan">Edit</a> -->
-                                            <a href="javascript:;" class="btn btn-lg mt-auto card-edit edit_source" data-id="{{ $item->id }}">Edit</a>    
+                                                <a href="{{ route('subscription.edit', $item->id)}}" class="btn btn-lg mt-auto card-edit edit_source">Edit</a>    
                                         </div>
                                     </div>
                                 </div>
@@ -78,42 +84,39 @@
                                                             <th>Plan</th>
                                                             <th>Plan Type</th>
                                                             <th>Create Date</th>
-                                                            <th>Modified Date</th>
-                                                            <th>Amount</th>
                                                             <th>Subscribed Users</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
+                                                        @forelse($plans as $key => $subscribeuser)
+                                                       
                                                         <tr>
-                                                            <td>Free Trial</td>
-                                                            <td>Monthly</td>
-                                                            <td>9 Nov 2019</td>
-                                                            <td>8 Dec 2019</td>
-                                                            <td>Free</td>
-                                                            <td><a class="btn btn-info btn-sm"
-                                                                    href="subscribed-companies.html">30 Users</a>
+                                                            <td>
+                                                            @if($subscribeuser->plan_type == 1 ) {{ "Silver"}}
+                                                            @elseif($subscribeuser->plan_type == 3 ) {{ "Diamond"}}
+                                                            @elseif($subscribeuser->plan_type == 6 ) {{ "Gold"}}
+                                                            @endif
+                                                                </td>
+                                                            <td>{{ $subscribeuser->plan_type . " Months" }}</td>
+                                                            <td>{{ date('M-d-Y ', strtotime($subscribeuser->created_at)) }}</td>
+
+                                                                   
+                                                            <td><button class="btn btn-info btn-sm"> 
+                                                            {{ \App\Models\subscription\SubscriptionPaymentPlan::where('subscription_plans_id', '=' , $subscribeuser->id)->count('user_id') }}            
+                                                                       
+                                                            Users</button>
+                                                                   
+                                                                     
                                                             </td>
                                                         </tr>
+                                                        @empty
                                                         <tr>
-                                                            <td>Professional</td>
-                                                            <td>Monthly</td>
-                                                            <td>9 Nov 2019</td>
-                                                            <td>8 Dec 2019</td>
-                                                            <td>$21</td>
-                                                            <td><a class="btn btn-info btn-sm"
-                                                                    href="subscribed-companies.html">97 Users</a>
-                                                            </td>
-                                                        </tr>
+                                                        <td></td>                                                            
+                                                        <td></td>                                                            
+                                                        <td>No Record Found</td>                                                            
                                                         <tr>
-                                                            <td>Enterprise</td>
-                                                            <td>Monthly</td>
-                                                            <td>9 Nov 2019</td>
-                                                            <td>8 Dec 2019</td>
-                                                            <td>$38</td>
-                                                            <td><a class="btn btn-info btn-sm"
-                                                                    href="subscribed-companies.html">125 Users</a>
-                                                            </td>
-                                                        </tr>
+                                                        @endforelse
+                                                      
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -133,7 +136,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header heading_para text-uppercase text-light">
-                    <h5><strong>Monthly Package</strong></h5>
+                    <h5><strong>Create  Package</strong></h5>
                     <button type="button" class="close text-light" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -168,4 +171,29 @@
             </div>
         </div>
     </div>
+    <script>
+           $(document).on('click','#planid', function() {
+            $.ajaxSetup({
+                headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+             }            
+             });
+             var planid = $(this).attr("data-planid");
+             $.ajax({
+          data: {planid:planid},
+          url: "{{ route('showsubscription') }}",
+          type: "post",
+          dataType: 'json',
+          success: function (data) {
+            //   $("#addSubscriptionPlan").html(data.html);
+           console.log(data.html);
+
+          },
+         
+      });
+
+
+           });
+
+    </script>
 @endsection

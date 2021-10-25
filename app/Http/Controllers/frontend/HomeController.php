@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Event\Event;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Player\PlayerData;
 use Illuminate\Support\Facades\Auth;
 use App\Models\General\Slider;
 use App\Models\General\GeneralSetting;
@@ -16,12 +17,24 @@ use App\Models\General\ManageBlog;
 use App\Models\General\ManageNews;
 use App\Models\General\SiteRule;
 use App\Models\General\AboutUs;
+use App\Models\subscription\SubscriptionPaymentPlan;
+use App\Models\subscription\SubscriptionPlan;
+use App\AuthorizeNet\PaymentGateway;
+use net\authorize\api\contract\v1 as AnetAPI;
+use net\authorize\api\controller as AnetController;
+use App\Services\SubscriptionPlanService;
 
 
 use Exception;
 
 class HomeController extends Controller
 {
+
+    public function __construct(SubscriptionPlanService $subscriptionservice)
+    {
+        $this->subscriptionservice = $subscriptionservice;
+    }
+
     public function allEvents()
     {
         $month = date('m');
@@ -31,32 +44,50 @@ class HomeController extends Controller
 
     public function index()
     {
-       
+
+
         $latestNews = ManageNews::first();
         $officalpartners = OfficialPartner::all();
-       
+
         $recentsections = RecentContentSection::all();
         $sliders =Slider::all();
-        return !(Auth::check())
-            ? 
-            view('frontend.pages.home', compact('sliders','recentsections','officalpartners','latestNews'))
-            : redirect()->back();
-    } 
+        $generalSetting = GeneralSetting::first();
+        return  view('frontend.pages.home', compact('sliders','recentsections','officalpartners','latestNews','generalSetting'));
+
+    }
 
     public function showBlog($blogslug)
     {
         $blogdetail = ManageBlog::where('slug', '=', $blogslug)->first();
-      
+
         return view('frontend.pages.blogdetail', compact('blogdetail'));
 
     }
 
     public function recentContentDetail($id)
     {
-        $detail = RecentContentSection::find($id);
-       
-        return view('frontend.pages.recentcontentdetail', compact('detail'));
-        
+        if(Auth::check()){
+            $currentuser = Auth::user()->id;
+            $subscriptionoffer = SubscriptionPaymentPlan::where('user_id',$currentuser)->first();
+           if($subscriptionoffer == null) {
+            parent::dangerMessage("You have no subscription plan");
+            parent::dangerMessage("Continue to read article please select subscription plan");
+            $plans = SubscriptionPlan::all();
+            return view('frontend.pages.subscription.index',compact('plans'));
+           }else {
+            $detail = RecentContentSection::find($id);
+            return view('frontend.pages.recentcontentdetail', compact('detail'));
+           }
+
+        } else {
+            parent::dangerMessage("Please login your account");
+            parent::dangerMessage("Please select subscription Plan");
+
+          return redirect()->route('register');
+        }
+
+
+
     }
 
     public function register()
@@ -66,21 +97,47 @@ class HomeController extends Controller
 
     public function contactUs()
     {
-        
-       
-        return view('frontend.pages.contactus');
+
+        $setting = GeneralSetting::first();
+
+        return view('frontend.pages.contactus',compact('setting'));
     }
 
     public function rulesPolicy()
     {
-        $siterules= SiteRule::all();      
+        $siterules= SiteRule::all();
         return view('frontend.pages.rulespolicy', compact('siterules'));
     }
 
     public function aboutUs()
     {
         $aboutus = AboutUs::first();
-       
+
         return view('frontend.pages.aboutus',compact('aboutus'));
+    }
+
+    public function playersInHome()
+    {
+        $players =PlayerData::with('user')->get();
+        return view('frontend.pages.player.showPlayer',compact('players'));
+    }
+
+    public function playersearchinHome(Request $request)
+    {
+        $players = PlayerData::with('user')->whereHas('user', function ($q) use ($request) {
+            $q->where('type', 4);
+            $q->where('email', 'like', '%' . $request->inputsearch . '%');
+            $q->orWhere('name', 'like', '%' . $request->inputsearch . '%');
+        })->get();
+        return view('frontend.pages.player.showPlayer',compact('players'));
+
+    }
+
+    public function playerProfileinHome($id)
+    {
+        $player =User::find($id);
+        return view('frontend.pages.player.profile', compact('player'));
+
+
     }
 }

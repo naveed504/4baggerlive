@@ -4,6 +4,7 @@ namespace App\Models\subscription;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\subscription\SubscriptionPaymentPlan;
 
 class SubscriptionPlan extends Model
 {
@@ -15,4 +16,9 @@ class SubscriptionPlan extends Model
         'plan_type',
         'plan_des',
     ];
+
+    public function subscriptionpaymentstatus()
+    {
+        return $this->hasMany(SubscriptionPaymentPlan::class,'id');
+    }
 }

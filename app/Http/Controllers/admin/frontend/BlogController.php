@@ -39,15 +39,16 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'title'  => 'required',
+            'image' => 'required',
+            'detail' => 'required',
+        ]);
+
         try {
 
 
-            $request->validate([
-                'title'  => 'required',
-                'title' => 'required',
-                'image' => 'required',
-                'detail' => 'required',
-            ]);
+
             $image = Helpers::saveImage($request->image);
 
             ManageBlog::create([
@@ -96,6 +97,10 @@ class BlogController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'title'  => 'required',
+            'detail' => 'required',
+        ]);
         try {
             $blog = ManageBlog::find($id);
 

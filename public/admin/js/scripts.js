@@ -31,3 +31,19 @@ const addmoreFields = () => {
 const removeAdded = (id) => {
     document.getElementById(id).remove();
 }
+
+
+//validate the admins's refund amount form
+function checkRefundAmount(refundAmount) {
+    let payamount = document.getElementById('payamount').value;
+    let totalAmount = refundAmount.getAttribute('data-totalRefundAmount');
+    if (parseInt(payamount) >= parseFloat(totalAmount)) {
+        let errormsg = `Please Pay Less Then Or Equal To ${totalAmount}`;
+        document.getElementById('msgerror').innerHTML = errormsg;
+        document.getElementById('payamount').value = '';
+    } else {
+        document.getElementById('msgerror').innerHTML = '';
+
+    }
+
+}

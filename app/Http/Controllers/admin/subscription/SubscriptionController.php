@@ -8,6 +8,8 @@ use App\Models\Event\Event;
 use App\Models\subscription\SubscriptionPlan;
 use App\Models\subscription\UserSubscription;
 use App\Http\Requests\admin\SubcriptionRequest;
+use App\Models\subscription\SubscriptionPaymentPlan;
+
 
 class SubscriptionController extends Controller
 {
@@ -18,24 +20,54 @@ class SubscriptionController extends Controller
      */
     public function index()
     {
-        $teams = Event::all();
-        $plans = SubscriptionPlan::all();
-        return view('admin.pages.subscription.index', compact(['teams' , 'plans']));
+        // $plans = SubscriptionPlan::all();
+       
+       
+          $plans =SubscriptionPlan::with('subscriptionpaymentstatus')->get();
+        // $plans = SubscriptionPlan::all();
+        // $colleaction = $plans->map(function($pln){
+        //     $pln->subscriptions = SubscriptionPlan::all();
+        //     return SubscriptionPaymentPlan::where('subscription_plans_id', '=', $pln->id)->count('user_id');
+        // });
+
+        // dd($colleaction);
+         
+
+        return view('admin.pages.subscription.index', compact('plans'));
+       
     }
 
-    public function store(SubcriptionRequest $request){
+    public function create()
+    {
+
+        return view('admin.pages.subscription.create');
+
+    }
+
+    public function store(Request $request)
+    {
+       
+       
         SubscriptionPlan::create([
             'plan_name'=>'Monthly',
             'plan_amount'=>$request->package_price,
-            'plan_type'=>$request->package_type,
+            'plan_type'=>$request->plan_type,
             'plan_des'=>json_encode($request->package_description),
         ]);
         return redirect()->route('subscription.index');
     }
 
-    public function show($id)
+    public function edit($id) {
+        $data = SubscriptionPlan::find($id);
+        return view('admin.pages.subscription.edit',compact('data'));
+
+    }
+
+    public function show(Request $request)
     {
-        $data  = SubscriptionPlan::where('id' , $id)->first();
+       
+        $data  = SubscriptionPlan::where('id' , $request->planid)->first();
+      
         return response()->json([
             'html' => view('shared.subscription.update_form', compact('data'))->render()
             ,200, ['Content-Type' => 'application/json']
@@ -43,6 +75,7 @@ class SubscriptionController extends Controller
     }
 
     public function update(SubcriptionRequest $request , $id){
+       
         SubscriptionPlan::where('id', $id)
           ->update([
             'plan_amount' => $request->package_price,

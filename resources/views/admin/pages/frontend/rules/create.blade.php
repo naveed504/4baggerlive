@@ -27,11 +27,9 @@
                                 <div class="col-sm-12">
                                     <label class="label__wrapper required">Content</label>
                                     <textarea  name="rule" class="form-control input__box--wrapper" >@if(isset($siterule->rule)) {{ $siterule->rule }} @endif</textarea>
-                                    @if($errors->has('rule'))
-                                        <span class="invalid-feedback">
-                                            <strong>{{ $errors->first('rule') }}</strong>
-                                        </span>
-                                    @endif
+                                    @error('rule')
+                                    <div class="error text-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                
                             </div>

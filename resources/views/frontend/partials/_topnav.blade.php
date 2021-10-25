@@ -24,9 +24,12 @@
                           <a class="dropdown-item" href="#">Showcases</a>
                         </div>
                     </li>
-                   
+
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('liveevents') }}">Live Events</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('players_in_home') }}">Players</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('aboutus') }}">About Us</a>

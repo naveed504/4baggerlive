@@ -92,9 +92,12 @@ class ManageEventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(EventService $event, $id)
     {
-        //
+        $event->deleteEvent($id)
+            ? parent::successMessage('Event Deleted Successfully')
+            : parent::dangerMessage('Team could not be deleted. Please try again');
+        return redirect()->back();
     }
 
     /**

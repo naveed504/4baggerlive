@@ -7,6 +7,8 @@
  {!! JsValidator::formRequest('App\Http\Requests\DirectorRequest', '#director_registration_form') !!}
  {!! JsValidator::formRequest('App\Http\Requests\CoachRequest', '#team_registration_form') !!}
  {!! JsValidator::formRequest('App\Http\Requests\PlayerRequest', '#player_registration_form') !!}
+ {!! JsValidator::formRequest('App\Http\Requests\Payment\PaymentRequest', '#subscriptionForm') !!}
+{!! JsValidator::formRequest('App\Http\Requests\GeneralUserRequest', '#generaluser_registration_form') !!}
 <script>
     $('.phoneNumber').inputmask("(+1) 999-999-9999");
 </script>

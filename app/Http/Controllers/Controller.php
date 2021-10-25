@@ -45,6 +45,14 @@ class Controller extends BaseController
             $message_text = "Team added to the Event Please make a  payment" ;
             $msg_type     = "success_msg";
             toastr()->success($message_text);       
+        } elseif($tresponse == 2) {
+            $message_text = "Team added to the Event Please make a  payment" ;
+            $msg_type     = "success_msg";
+            toastr()->success($message_text);
+        } elseif($tresponse == 3) {
+            $message_text = "Your Subscription Plan subscribed successfully" ;
+            $msg_type     = "success_msg";
+            toastr()->success($message_text);
         } else {
             $message_text = $tresponse->getMessages()[0]->getDescription() . ", Transaction ID: " . $tresponse->getTransId();
             $msg_type     = "success_msg";
