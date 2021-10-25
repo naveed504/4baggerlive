@@ -48,7 +48,7 @@ class BlogController extends Controller
         try {
 
 
-          
+
             $image = Helpers::saveImage($request->image);
 
             ManageBlog::create([
