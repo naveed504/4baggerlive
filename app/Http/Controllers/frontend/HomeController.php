@@ -65,7 +65,7 @@ class HomeController extends Controller
 
     public function recentContentDetail($id)
     {
-        if(Auth::check()){
+        if(Auth::check()) {
             $currentuser = Auth::user()->id;
             $subscriptionoffer = SubscriptionPaymentPlan::where('user_id',$currentuser)->first();
            if($subscriptionoffer == null) {
@@ -83,9 +83,7 @@ class HomeController extends Controller
             parent::dangerMessage("Please select subscription Plan");
             
           return redirect()->route('register');
-        }
-        
-       
+        }      
         
     }
 
@@ -95,10 +93,8 @@ class HomeController extends Controller
     }
 
     public function contactUs()
-    {
-        
+    {        
         $setting = GeneralSetting::first();
-
         return view('frontend.pages.contactus',compact('setting'));
     }
 
@@ -110,8 +106,7 @@ class HomeController extends Controller
 
     public function aboutUs()
     {
-        $aboutus = AboutUs::first();
-       
+        $aboutus = AboutUs::first();       
         return view('frontend.pages.aboutus',compact('aboutus'));
     }
 
@@ -119,8 +114,6 @@ class HomeController extends Controller
     {
         $item = SubscriptionPlan::find($id);
         return view('frontend.pages.subscription.subscriptionform',compact('item'));
-
-
     }
 
 

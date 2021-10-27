@@ -39,24 +39,22 @@ class HomeNewsSectionController extends Controller
      */
     public function store(Request $request)
     {
-        try{
-            $request->validate([
-                'heading_one' =>  'required',
-                'heading_two' =>  'required',
-                'content' =>  'required',
-            ]);
+        $request->validate([
+            'heading_one' =>  'required',
+            'heading_two' =>  'required',
+            'content' =>  'required',
+        ]);
+
+        try {            
             $newsid =ManageNews::where('id', '=',$request->news_id)->first();
             if(empty($newsid)) {
                 $this->createNews($request);
             } else {
                 $this->updateNews($request);
             }  
-
         } catch (Exception $e) {
             dd($e->getMessage());
-        }
-        
-
+        }       
         parent::successMessage("Home News Updated Successfully");
         return redirect()->back();
     }

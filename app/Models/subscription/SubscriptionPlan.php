@@ -17,8 +17,4 @@ class SubscriptionPlan extends Model
         'plan_des',
     ];
 
-    public function subscriptionpaymentstatus()
-    {
-        return $this->hasMany(SubscriptionPaymentPlan::class,'id');
-    }
 }

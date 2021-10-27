@@ -46,8 +46,7 @@ class OfficialPartnerSectionController extends Controller
             'detail' => 'required',
         ]);
 
-        try{
-           
+        try{           
             $image = Helpers::saveImage($request->image);
             OfficialPartner::create([
                 'title' => $request->title,
@@ -99,8 +98,7 @@ class OfficialPartnerSectionController extends Controller
             'detail' => 'required',
         ]);
         
-        try{
-           
+        try{           
             $updateSection = OfficialPartner::find($id);
             $image = Helpers::updateImage($request->image , $updateSection->image);
             $updateSection->update([

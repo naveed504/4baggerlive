@@ -19,8 +19,4 @@ class SubscriptionPaymentPlan extends Model
         'expiry_date',
     ];
 
-    public function subscriptionplan()
-    {
-        return $this->belongsTo(SubscriptionPlan::class,'subscription_plans_id');
-    }
 }

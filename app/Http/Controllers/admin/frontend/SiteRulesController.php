@@ -42,15 +42,13 @@ class SiteRulesController extends Controller
          $request->validate([
             'rule'  => 'required',            
           ]);
-
           try{
-
                 SiteRule::create([
                     'rule' => $request->rule
                 ]);     
                 parent::successMessage(" Site Rule Added Successfully");
                 return redirect()->route('siterule.index');  
-          } catch (Exception $e) {
+            } catch (Exception $e) {
               dd($e->getMessage());
           }
          

@@ -43,8 +43,7 @@ class AboutUsController extends Controller
             $this->saveAboutUs($request);
         } else {
             $this->updateAboutUs($countresult, $request);
-        }
-       
+        }       
         parent::successMessage("About Us Setting Updated Successfully");
         return redirect()->route('aboutus.index');
     }

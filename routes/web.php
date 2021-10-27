@@ -81,7 +81,7 @@ route::get('rules-and-policy', [HomeController::class, 'rulesPolicy'])->name('ru
 route::get('about-us', [HomeController::class, 'aboutUs'])->name('aboutus');
 Route::any('blog/{blog}', [HomeController::class, 'showBlog'])->name('blog');
 Route::view('/profile', 'frontend.pages.player.profile');
-route::get('view/event/{id}', [FrontendEventController::class, 'viewEvent'])->name('view.event');
+Route::get('view/event/{id}', [FrontendEventController::class, 'viewEvent'])->name('view.event');
     Route::get('4baggerer-recent-content-detail/{id}', [HomeController::class, 'recentContentDetail'])->name('recentcontentdetail');
     Route::get('userpayforsubscription/{id}', [HomeController::class, 'subscriptionForm'])->name('userpayforsubscription');
     Route::post('subscribeplan', [HomeController::class, 'userPayForSubscribePlan'])->name('subscribeplan');

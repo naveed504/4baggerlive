@@ -38,11 +38,7 @@ class TimeScheduleController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-       
-        // $currentDateTime = $request->datetimeschedule;
-        //  $newDateTime = date('h:i A', strtotime($currentDateTime));
-        // dd($newDateTime);
+    {      
         try{
             EventTimeSchedule::create([
                 'event_schedule_time' => $request->event_schedule_time

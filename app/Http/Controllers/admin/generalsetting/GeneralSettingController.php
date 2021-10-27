@@ -49,9 +49,7 @@ class GeneralSettingController extends Controller
                 'email'         => $request->email,
                 'profile_photo' => $updateimage,
                 'password'      => (!empty($newpassword)) ? $newpassword : $admin->password,
-            ]);
-            
-
+            ]);           
         } catch(Exception $e) {
             dd($e->getMessage());
         }
@@ -63,7 +61,6 @@ class GeneralSettingController extends Controller
     {  
              
         $backgroundimage = Helpers::saveImage($request->mission_bgimg);    
-         
         GeneralSetting::create([
             'city'              => $request->city,
             'street'            => $request->street,
@@ -106,19 +103,14 @@ class GeneralSettingController extends Controller
             'mission_bgimgcontent'=> $request->mission_bgimgcontent
         ]);
     }
-
-
     public function generalSetting()
-    {
-       
+    {       
         $generalSetting = GeneralSetting::latest()->first();
         return view('admin.pages.frontend.settings.generalsetting',compact( 'generalSetting'));
     }
 
     public function updateGeneralSetting(Request $request)
-    {
-        
-        
+    {      
         try{
             $general =GeneralSetting::find($request->general_id);
             
@@ -131,8 +123,6 @@ class GeneralSettingController extends Controller
         return redirect()->back();
         } catch(Exception $e) {
             dd($e->getMessage());
-        }
-        
-
+        }       
     }
 }

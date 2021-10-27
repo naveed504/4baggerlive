@@ -45,12 +45,8 @@ class BlogController extends Controller
             'detail' => 'required',
         ]);
 
-        try {
-
-
-          
+        try {          
             $image = Helpers::saveImage($request->image);
-
             ManageBlog::create([
                 'title' => $request->title,
                 'slug' => $request->title,
@@ -84,7 +80,6 @@ class BlogController extends Controller
     public function edit($id)
     {
         $blog = ManageBlog::find($id);
-
         return view('admin.pages.frontend.blog.edit', compact('blog'));
     }
 
@@ -101,9 +96,9 @@ class BlogController extends Controller
             'title'  => 'required',
             'detail' => 'required',
         ]);
+
         try {
             $blog = ManageBlog::find($id);
-
             $image = Helpers::updateImage($request->image, $blog->image);
             $blog->update([
                 'title' => $request->title,

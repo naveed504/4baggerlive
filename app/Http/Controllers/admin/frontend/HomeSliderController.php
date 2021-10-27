@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\General\Slider;
 use Exception;
+use Helpers;
 
 class HomeSliderController extends Controller
 {
@@ -37,27 +38,17 @@ class HomeSliderController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        
-        if ($request->hasFile('cover_photo')) {
-            $destinationPath = public_path('admin/slider');
-            $file = $request->cover_photo;
-            $fileName = time() . '.' . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $fileName);
-            $file_name = $fileName;
-
-        }
-
+    {      
+        $sliderimage = Helpers::saveImage($request->cover_photo);
         Slider::create([
             'title_one' => $request->title_one,
             'title_two' => $request->title_two,
             'content' => $request->content,
-            'cover_photo' => $file_name,
+            'cover_photo' => $sliderimage,
         ]);
 
         parent::successMessage("Home Slider Added Successfully");
         return redirect()->route('adminslider.index');
-
     }
 
     /**
@@ -81,8 +72,6 @@ class HomeSliderController extends Controller
     {
         $slider =Slider::find($id);
         return view('admin.pages.frontend.slider.create',compact('slider'));
-
-
     }
 
     /**
@@ -95,32 +84,16 @@ class HomeSliderController extends Controller
     public function update(Request $request, $id)
     {
         $updateSlider =Slider::find($id);
-        if ($request->hasFile('update_photo')) {
-            if (file_exists(public_path('admin/slider/' . $updateSlider->cover_photo))) {
-                unlink(public_path('admin/slider/' . $updateSlider->cover_photo));
-            }
-            $destinationPath = public_path('admin/slider');
-            $file = $request->update_photo;
-            $fileName = time() . '.' . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $fileName);
-            $file_name = $fileName;
-        } else {
-            $file_name = $updateSlider->cover_photo ;
-
-        }
-
+        $updateSliderImage= Helpers::updateImage($request->update_photo, $updateSlider->cover_photo);
         $updateSlider->update([
             'title_one' => $request->title_one,
             'title_two' => $request->title_two,
             'content' => $request->content,
-            'cover_photo' => $file_name,
+            'cover_photo' => $updateSliderImage,
         ]);
 
         parent::successMessage("Home Slider Updated Successfully");
         return redirect()->route('adminslider.index');
-
-
-
     }
 
     /**

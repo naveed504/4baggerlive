@@ -20,34 +20,32 @@ class SubscriptionController extends Controller
      */
     public function index()
     {
-        // $plans = SubscriptionPlan::all();
-       
-       
-          $plans =SubscriptionPlan::with('subscriptionpaymentstatus')->get();
-        // $plans = SubscriptionPlan::all();
-        // $colleaction = $plans->map(function($pln){
-        //     $pln->subscriptions = SubscriptionPlan::all();
-        //     return SubscriptionPaymentPlan::where('subscription_plans_id', '=', $pln->id)->count('user_id');
-        // });
-
-        // dd($colleaction);
-         
-
+        $planResult= SubscriptionPlan::all();
+        $plans = $planResult->map(function($plan){
+            $plan->countusers= SubscriptionPaymentPlan::where('subscription_plans_id', '=', $plan->id)->count('user_id');
+            return $plan;
+        });
         return view('admin.pages.subscription.index', compact('plans'));
        
     }
 
     public function create()
     {
-
         return view('admin.pages.subscription.create');
-
     }
 
     public function store(Request $request)
     {
-       
-       
+        $request->validate([
+            'plan_type'  => 'required',
+            'package_price' => 'required',
+        ]);   
+        $countresults = SubscriptionPlan::pluck('id')->count();  
+        if($countresults > 2) {
+            parent::dangerMessage("Cannot Create More Then Three Subscription Plans");
+            return redirect()->back();
+        }      
+      
         SubscriptionPlan::create([
             'plan_name'=>'Monthly',
             'plan_amount'=>$request->package_price,
@@ -60,14 +58,11 @@ class SubscriptionController extends Controller
     public function edit($id) {
         $data = SubscriptionPlan::find($id);
         return view('admin.pages.subscription.edit',compact('data'));
-
     }
 
     public function show(Request $request)
-    {
-       
-        $data  = SubscriptionPlan::where('id' , $request->planid)->first();
-      
+    {       
+        $data  = SubscriptionPlan::where('id' , $request->planid)->first();      
         return response()->json([
             'html' => view('shared.subscription.update_form', compact('data'))->render()
             ,200, ['Content-Type' => 'application/json']

@@ -45,16 +45,14 @@ class RecentContentController extends Controller
         ]);
 
         try{
-             $image = Helpers::saveImage($request->image);
-
-            RecentContentSection::create([
-                'title' => $request->title,
-                'image' => $image,
-                'detail' => $request->detail,
-            ]);
+                $image = Helpers::saveImage($request->image);
+                RecentContentSection::create([
+                    'title' => $request->title,
+                    'image' => $image,
+                    'detail' => $request->detail,
+                ]);
             parent::successMessage("Setting added Successfully");
             return redirect()->route('recentcontent.index');
-
         } catch(Exception $e) {
             dd($e->getMessage());
         }
@@ -92,13 +90,12 @@ class RecentContentController extends Controller
      */
     public function update(Request $request, $id)
     {
-            $request->validate([
-                'title' => 'required',
-                'detail' => 'required',
-            ]);
+        $request->validate([
+            'title' => 'required',
+            'detail' => 'required',
+        ]);
 
         try{
-           
                 $updateSection = RecentContentSection::find($id);
                 $image = Helpers::updateImage($request->image , $updateSection->image);
                 $updateSection->update([
