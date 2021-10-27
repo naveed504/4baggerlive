@@ -4,11 +4,11 @@
 
    <section class="mt--top-40 mb-5">
 
-        <div class="col-md-10 offset-md-2">
+        <div class="col-md-12">
 
             <div class="row">
-                <div class="col-md-2"></div>
-                <div class="col-md-6 ">
+                {{-- <div class="col-md-2"></div> --}}
+                <div class="col-md-9 offset-col-3 mx-auto">
                         <form method="post" action="{{ route('search_player_in_home') }}">
                             @csrf
                             <div class="input-group">
@@ -56,7 +56,7 @@
                     </div>
                 </div>
             @empty
-                <!-- <h6 class="text-uppercase">No Player Found</h6> -->
+                <h6 class="text-uppercase text-center mt-5">No Player Found</h6>
             @endforelse
         </div>
         </div>

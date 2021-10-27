@@ -14,7 +14,7 @@
                         <button type="submit" class="border-0 search-btn"><i class="fa fa-search"></i></button>
                     </span>
                 </div>
-                </form>u
+                </form>
 
 
                 <h6 class="text-uppercase text-right requested-players m-0">

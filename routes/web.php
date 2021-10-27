@@ -209,3 +209,5 @@ Route::get('email_view',function(){
 
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/scheduler', [App\Http\Controllers\SchedulerController::class, 'index']);
