@@ -23,26 +23,10 @@
                                     </div>
                                 </div>
                             @empty
+                            <div class="col-md-4"></div>
                                 <div class="col-md-4">
-                                    <div class="card pricing-box">
-                                        <div class="card-body d-flex flex-column text-center">
-                                            <div class="mb-4">
-                                                <h3>Free</h3>
-                                                <span class="display-4">$0</span>
-                                                <span>/mo</span>
-                                            </div>
-                                            <ul>
-                                                <li><i class="fa fa-check"></i> <b>Unlimited Users </b></li>
-                                                <li><i class="fa fa-check"></i> Unlimited Projects</li>
-                                                <li><i class="fa fa-check"></i> 500 GB Storage</li>
-                                                <li><i class="fa fa-check"></i> Unlimited Message</li>
-                                                <li><i class="fa fa-check"></i> Voice and Video Call</li>
-                                                <li><i class="fa fa-check"></i> 24/7 Customer Support</li>
-                                            </ul>
-                                            <a href="javascript:;" class="btn btn-lg mt-auto edit_plan">Edit</a>
-                                        </div>
-                                    </div>
-                                </div>
+                                   <h4 style="text: center;">No Subscription Plan Found</h4>
+                            </div>
                             @endforelse
 
 
