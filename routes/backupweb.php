@@ -72,28 +72,28 @@ Route::get('phpdebug', [TestController::class, 'phpdebug']);
  * Frontend Routes
  */
 
-Route::get('liveevents', [FrontendEventController::class, 'liveEvents'])->name('liveevents');
+route::get('liveevents', [FrontendEventController::class, 'liveEvents'])->name('liveevents');
 Route::get('/', [HomeController::class, 'index'])->name('welcome');
 Route::get('/events', [HomeController::class, 'allEvents'])->name('events');
-Route::get('view/events', [HomeController::class, 'allEvents'])->name('view.events');
-Route::get('contact-us', [HomeController::class, 'contactUs'])->name('contactus');
-Route::get('rules-and-policy', [HomeController::class, 'rulesPolicy'])->name('rules');
-Route::get('about-us', [HomeController::class, 'aboutUs'])->name('aboutus');
+route::get('view/events', [HomeController::class, 'allEvents'])->name('view.events');
+route::get('contact-us', [HomeController::class, 'contactUs'])->name('contactus');
+route::get('rules-and-policy', [HomeController::class, 'rulesPolicy'])->name('rules');
+route::get('about-us', [HomeController::class, 'aboutUs'])->name('aboutus');
 Route::any('blog/{blog}', [HomeController::class, 'showBlog'])->name('blog');
 Route::view('/profile', 'frontend.pages.player.profile');
 Route::get('view/event/{id}', [FrontendEventController::class, 'viewEvent'])->name('view.event');
-Route::get('players-in-home', [HomeController::class, 'playersInHome'])->name('players_in_home');
-Route::post('search-player-in-home', [HomeController::class, 'playersearchinHome'])->name('search_player_in_home');
-Route::get('view-player-profile-in-home/{id}', [HomeController::class, 'playerProfileinHome'])->name('view_player_profile_in_home');
-Route::get('4baggerer-recent-content-detail/{id}', [HomeController::class, 'recentContentDetail'])->name('recentcontentdetail');
-Route::get('userpayforsubscription/{id}', [HomeController::class, 'subscriptionForm'])->name('userpayforsubscription');
-Route::post('subscribeplan', [HomeController::class, 'userPayForSubscribePlan'])->name('subscribeplan');
- 
+    Route::get('4baggerer-recent-content-detail/{id}', [HomeController::class, 'recentContentDetail'])->name('recentcontentdetail');
+    Route::get('userpayforsubscription/{id}', [HomeController::class, 'subscriptionForm'])->name('userpayforsubscription');
+    Route::post('subscribeplan', [HomeController::class, 'userPayForSubscribePlan'])->name('subscribeplan');
+    
+
+
 /**
  * Admin Routes
  */
 Route::group(['prefix' => 'admin',  'middleware' => ['auth', 'checkrole']], function () {
     Route::get('dashboard', [AdminHomeController::class, 'index'])->name('admin_dashboard');
+
     Route::get('unapproved/directors', [ManageDirectorController::class, 'unApprovedDirectors'])->name('unapproved.directors');
     Route::post('approve/directors', [ManageDirectorController::class, 'approveDirectors']);
     Route::get('events/showAdminTeams/{id}', [ManageEventController::class, 'showAdminTeams'])->name('showAdminTeams');
@@ -102,6 +102,7 @@ Route::group(['prefix' => 'admin',  'middleware' => ['auth', 'checkrole']], func
     Route::post('updateadminprofile', [GeneralSettingController::class, 'updateadminprofile'])->name('updateadminprofile');
     Route::get('generalsetting', [GeneralSettingController::class, 'generalSetting'])->name('generalsetting');
     Route::post('updategeneralsetting', [GeneralSettingController::class, 'updateGeneralSetting'])->name('updategeneralsetting');
+
     Route::get('servicefee',[ServiceFeeController::class,'index'])->name('servicefee');
     Route::post('updateservicefee',[ServiceFeeController::class,'updateServiceFee'])->name('updateservicefee');
     Route::get('adminallteams',[AdminTeamController::class, 'getallTeams'])->name('adminallteams');
@@ -114,6 +115,7 @@ Route::group(['prefix' => 'admin',  'middleware' => ['auth', 'checkrole']], func
     Route::post('showsubscription',[SubscriptionController::class, 'show'])->name('showsubscription');
     Route::get('adminpaymentrefundform/{id}', [ManagePayoutController::class, 'showPaymentRefundForm'])->name('adminpaymentrefundform');
     Route::post('adminpaymentrefund', [ManagePayoutController::class, 'refundTransaction'])->name('adminpaymentrefund');
+
     Route::resource('events', ManageEventController::class);
     Route::resource('adminslider', HomeSliderController::class);
     Route::resource('newssection', HomeNewsSectionController::class);
@@ -129,12 +131,17 @@ Route::group(['prefix' => 'admin',  'middleware' => ['auth', 'checkrole']], func
     Route::resource('subscription', SubscriptionController::class);
     //Manage Time Schedule
     Route::resource('managetimeschedule', TimeScheduleController::class);
+
+
+
+    // Subscription Resource
+
+
 });
 
 /**
  * Player Routes
  */
-
 Route::group(['prefix' => 'player',  'middleware' => ['auth', 'playerrole']], function () {
     Route::get('profile', [PlayerHomeController::class, 'index'])->name('player_dashboard');
     Route::get('myteam', [FrontendTeamController::class, 'myTeam'])->name('myteams');
@@ -144,6 +151,7 @@ Route::group(['prefix' => 'player',  'middleware' => ['auth', 'playerrole']], fu
     Route::get('playerprofile/{id}', [FrontendTeamController::class, 'viewPlayer'])->name('view.player.profile');
     Route::get('playerprofile', [FrontendTeamController::class, 'playerProfile'])->name('playerprofile');
     Route::post('updateplayerprofile', [FrontendTeamController::class, 'updatePlayerProfile'])->name('updateplayerprofile');
+
 });
 
 /**
@@ -191,7 +199,11 @@ Route::group(['prefix' => 'director',  'middleware' => ['auth', 'directorrole']]
     Route::post('playersinteam', [EventController::class,'playersInEventTeam'])->name('playersinteam');
     Route::get('eventhistory/{eventid}',[EventController::class, 'eventHistory'])->name('eventhistory');
 });
+Route::get('email_view',function(){
+    return view('email.adminNotifyDirectorRegister');
+});
 
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 Route::get('/scheduler', [App\Http\Controllers\SchedulerController::class, 'index']);
