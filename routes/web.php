@@ -30,6 +30,7 @@ use App\Http\Controllers\admin\frontend\RecentContentController;
 use App\Http\Controllers\admin\frontend\OfficialPartnerSectionController;
 use App\Http\Controllers\admin\frontend\BlogController;
 use App\Http\Controllers\admin\schedule\TimeScheduleController;
+use App\Http\Controllers\admin\schedule\ScheduleController;
 use App\Http\Controllers\admin\frontend\SiteRulesController;
 use App\Http\Controllers\admin\frontend\AboutUsController;
 
@@ -129,6 +130,7 @@ Route::group(['prefix' => 'admin',  'middleware' => ['auth', 'checkrole']], func
     Route::resource('subscription', SubscriptionController::class);
     //Manage Time Schedule
     Route::resource('managetimeschedule', TimeScheduleController::class);
+    Route::resource('manageschedule', ScheduleController::class);
 });
 
 /**

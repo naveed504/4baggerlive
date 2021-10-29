@@ -22,6 +22,7 @@ class ManageTeamController extends Controller
      */
     public function index()
     {
+       
         return view('director.pages.team.view');
     }
 

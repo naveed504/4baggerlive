@@ -10,6 +10,7 @@ const SCHEDULED_TIMES_AVAILABLE = array(
     '05:30 PM',
     '09:00 PM',
 );
+use App\Models\Team\Team;
 
 class RoundRobin
 {
@@ -28,6 +29,7 @@ class RoundRobin
      */
 
     public $teams;
+    public $time;
 
     /**
      * @property Array Scheduled Matches
@@ -35,9 +37,10 @@ class RoundRobin
 
     public $schedule;
 
-    public function __construct($teams)
+    public function __construct($teams , $time)
     {
         $this->teams = $teams;
+        $this->time = $time;
     }
 
     /**
@@ -53,11 +56,12 @@ class RoundRobin
             for ($i = $key + 1; $i < count($this->teams); $i++) {
                 $result[] = [
                     'team' => $team,
-                    'opponent' => $this->teams[$i]
+                    'team_name' => Team::where('id',$team)->value('team_name'),
+                    'opponent' => $this->teams[$i],
+                    'opponent_name' => Team::where('id',$this->teams[$i])->value('team_name') 
                 ];
             }
         }
-
         $this->matches = $result;
         return $this;
     }
@@ -103,7 +107,7 @@ class RoundRobin
                 foreach ($matchChunk as $index => $matches) {
                     $day = $index + 1;
                     $this->schedule["day-{$day}"] = array_map(function ($match) use ($index) {
-                        $match['scheduled_time'] = SCHEDULED_TIMES_AVAILABLE[random_int(0, 4)];
+                        $match['scheduled_time'] = $this->time[random_int(0, count($this->time)-1)];
                         $match['scheduled_date'] = $this->dates[$index];
                         return $match;
                     }, $matches);

@@ -12,6 +12,7 @@ use App\Models\General\ManageBlog;
 use App\Models\AgeGroup;
 use App\Models\CheckAgeGroupStatus;
 use App\Models\Event\EventRegisterTeam;
+use App\Models\Team\Team;
 use Auth;
 use File;
 
@@ -309,6 +310,12 @@ class GenericHelperClass
              
             return $e;
         });
+    }
+  
+    public function countTeamsInAgeGroup($agegroup, $eventid)
+    {
+       $result=  Team::where(['age_group_id' =>$agegroup,'event_id'=>$eventid])->count('age_group_id');
+       return $result;    
     }
 
 

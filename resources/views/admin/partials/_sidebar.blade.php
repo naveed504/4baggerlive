@@ -63,6 +63,13 @@
                     </div>
                     Manage Profile
                 </a>
+                <a class="nav-link"
+                    href="{{ route('manageschedule.index') }}">
+                    <div class="sb-nav-link-icon">
+                        <i class="far fa-edit"></i>
+                    </div>
+                    Manage Schedule
+                </a>
                 <div id="accordion" class="accordion custom-acordion ">
                     <div class="card acco-card mb-0 " style="background-color: transparent !important;">
                         <div class="onclick-toggle" data-toggle="collapse" href="#subnav" aria-expanded="false">

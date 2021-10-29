@@ -47,6 +47,7 @@
                             <th>Action</th>
                         </thead>
                         <tbody>
+                         
                             @foreach(Auth::user()->children()->get() as $index => $coaches)
                                 @foreach($coaches->team()->get() as $key => $team)
                                     <tr>
@@ -56,7 +57,7 @@
                                         <td>{{ $team->division }}</td>
                                         <td>{{ $team->team_city }}</td>
                                         <td>{{ $team->state->state_name }}</td>
-                                        <td>{{ $team->age_group}}</td>
+                                        <td>{{ $team->agegroup->age_group}}</td>
                                         <td>{{ ($team->active == 1) ? 'Active' : 'Inactive'}}</td>
                                         <td>
 

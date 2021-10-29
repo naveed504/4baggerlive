@@ -131,6 +131,7 @@ class User extends Authenticatable
     {
         return $this->hasMany(EventRegisterTeam::class);
     }
-
+    
+   
 
 }
