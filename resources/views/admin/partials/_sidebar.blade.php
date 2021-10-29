@@ -56,6 +56,7 @@
                     </div>
                     Manage Subscriptions
                 </a>
+               
                 <a class="nav-link" href="{{ route('manageprofile') }}">
                     <div class="sb-nav-link-icon">
                         <i class="far fa-calendar-alt"></i>

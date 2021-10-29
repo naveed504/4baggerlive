@@ -4,10 +4,9 @@ namespace App\Http\Controllers\admin\schedule;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\models\Event\EventTimeSchedule;
-use Exception;
+use App\Models\Schedule\Schedule;
 
-class TimeScheduleController extends Controller
+class ScheduleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +15,7 @@ class TimeScheduleController extends Controller
      */
     public function index()
     {
-        $timeschedules = EventTimeSchedule::all();
-        return view('admin.pages.scheduletime.show', compact('timeschedules'));
-    
+        return view('admin.pages.schedule.index');
     }
 
     /**
@@ -28,7 +25,7 @@ class TimeScheduleController extends Controller
      */
     public function create()
     {
-        return view('admin.pages.scheduletime.create');
+        //
     }
 
     /**
@@ -38,17 +35,8 @@ class TimeScheduleController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {      
-        try{
-            EventTimeSchedule::create([
-                'event_schedule_time' => $request->event_schedule_time
-            ]);
-            parent::successMessage('Event Time Schedule added Successfuly');
-            return redirect()->route('managetimeschedule.index');
-        } catch(Exception $e) {
-            dd($e->getMessage());
-
-        }
+    {
+        //
     }
 
     /**
