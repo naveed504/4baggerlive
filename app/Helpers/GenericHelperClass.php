@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use App\Models\General\GeneralSetting;
 use App\Models\General\ManageBlog;
+use App\Models\General\RecentContentSection;
 use App\Models\AgeGroup;
 use App\Models\CheckAgeGroupStatus;
 use App\Models\Event\EventRegisterTeam;
@@ -221,10 +222,11 @@ class GenericHelperClass
      * @param string $input
      *
      */
-    public function saveImage($image)
+    public function saveImage($image, $imgpath)
     {
+
         $usertype = '';
-        $getimagePath = $this->checkImagePath($usertype);
+        $getimagePath = $this->checkImagePath($imgpath);
         if(empty($image)) {
             $profilePhoto =  '';
         } else {
@@ -236,10 +238,9 @@ class GenericHelperClass
         return $profilePhoto;
     }
 
-    public function updateImage($image ,$dbrecord)
+    public function updateImage($image ,$dbrecord, $imgpath)
     {
-        $usertype = '';
-        $getimagePath = $this->checkImagePath($usertype);
+        $getimagePath = $this->checkImagePath($imgpath);
         if(empty($image)) {
             $profilePhoto = $dbrecord;
         } else {
@@ -257,11 +258,11 @@ class GenericHelperClass
 
     }
 
-    public function checkImagePath($imgpath)
+    public function checkImagePath($imagegpath)
     {
         if(Auth::check()){
             if(Auth::user()->type == 1) {
-                $imgpath = public_path('admin/allimages/');
+                $imgpath = $imagegpath;
                 $this->makeNewDirectory($imgpath);
              } elseif(Auth::user()->type == 2) {
                  $imgpath = public_path('frontend/director/');
@@ -270,7 +271,7 @@ class GenericHelperClass
                  $imgpath = public_path('frontend/coach/');
                  $this->makeNewDirectory($imgpath);
              } elseif(Auth::user()->type == 4) {
-                $imgpath = public_path('frontend/player/');
+                $imgpath = $imagegpath;
                 $this->makeNewDirectory($imgpath);
              }
         }else{
@@ -299,7 +300,7 @@ class GenericHelperClass
     {
         return $event->map(function($e) {
             $e->ageGroups = AgeGroup::whereIn('id', explode(",", $e->age_group_id))->get()->toArray();
-            
+
             $e->countTeam = array_map(function($ages) use ($e) {
                 return EventRegisterTeam::where('age_group_id', $ages)->where('event_id',$e->id)->count('team_id');
             }, explode(",", $e->age_group_id));
@@ -307,19 +308,26 @@ class GenericHelperClass
             $e->checkageGroupStatus = array_map(function($age_group) use($e){
                return CheckAgeGroupStatus::where('age_group_id', $age_group)->where('event_id',$e->id)->value('status');
             }, explode(",",$e->age_group_id));
-             
+
             return $e;
         });
     }
-  
+
     public function countTeamsInAgeGroup($agegroup, $eventid)
     {
        $result=  Team::where(['age_group_id' =>$agegroup,'event_id'=>$eventid])->count('age_group_id');
-       return $result;    
+       return $result;
+    }
+
+    public function getContentData()
+    {
+       $recentsections = RecentContentSection::all();
+       return  $recentsections;
     }
 
 
- 
+
+
 
 
 }

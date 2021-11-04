@@ -68,6 +68,7 @@
                     setTimeout(function () {
                         location.reload();
                     }, 2000);
+                    toastr.success("Director Approve Successfully");
                 }
 
             },

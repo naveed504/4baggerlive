@@ -28,6 +28,22 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('liveevents') }}">Live Events</a>
                     </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Content
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            @php
+                                $recentsections = Helpers::getContentData();
+                            @endphp
+                            @if(!empty($recentsections))
+                                @foreach($recentsections as $recentsection)
+                                    <a href="{{ route('recentcontentdetail', $recentsection->id) }}" class="dropdown-item">{{ $recentsection->title }}</a>
+                                    <div class="dropdown-divider"></div>
+                                @endforeach
+                            @endif
+                        </div>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('players_in_home') }}">Players</a>
                     </li>

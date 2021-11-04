@@ -23,10 +23,10 @@
                                 <label class="label__wrapper required">Team Name</label>
                                 <input type="text" name="team_name" class="form-control input__box--wrapper" value="{{ $team->team_name }}">
                                 @if($errors->has('team_name'))
-                                                        <span class="invalid-feedback">
-                                                            <strong>{{ $errors->first('team_name') }}</strong>
-                                                        </span>
-                                                    @endif
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('team_name') }}</strong>
+                                    </span>
+                                @endif
                             </div>
                             <div class="col-sm-6">
                                 <label class="label__wrapper required">Division</label>
@@ -36,10 +36,10 @@
                                     <option value="Majors" @if($team->division == 'Majors') selected @endif>Majors</option>
                                 </select>
                                 @if($errors->has('division'))
-                                                        <span class="invalid-feedback">
-                                                            <strong>{{ $errors->first('division') }}</strong>
-                                                        </span>
-                                                    @endif
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('division') }}</strong>
+                                    </span>
+                                @endif
                             </div>
                         </div>
                         <div class="row mb-2">
@@ -47,10 +47,10 @@
                                 <label class="label__wrapper required">Team City</label>
                                 <input type="text" name="team_city" class="form-control input__box--wrapper" value="{{ $team->team_city }}">
                                 @if($errors->has('team_city'))
-                                                        <span class="invalid-feedback">
-                                                            <strong>{{ $errors->first('team_city') }}</strong>
-                                                        </span>
-                                                    @endif
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('team_city') }}</strong>
+                                    </span>
+                                @endif
                             </div>
                             <div class="col-sm-6">
                                 <label class="label__wrapper required">Team State</label>
@@ -60,37 +60,44 @@
                                     @endforeach
                                 </select>
                                 @if($errors->has('team_state'))
-                                                        <span class="invalid-feedback">
-                                                            <strong>{{ $errors->first('team_state') }}</strong>
-                                                        </span>
-                                                    @endif
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('team_state') }}</strong>
+                                    </span>
+                                @endif
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-6">
+                                <label class="label__wrapper required">Select Event</label>
+
+                                <select class="form-control input__box--wrapper down-icons" name="event" required="">
+                                    @foreach($directorEventState as $event)
+                                        <option value="{{ $event->id }}" @if($team->event_id == $event->id) selected @endif>
+                                            {{ $event->event_name }}&nbsp&nbsp&nbsp{{ $event->state->state_name }}</option>
+                                    @endforeach
+
+                                </select>
+                                @if($errors->has('event'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('event') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                            <div class="col-sm-6">
                                 <label class="label__wrapper required">Age Group</label>
                                 <select class="form-control input__box--wrapper down-icons" name="age_group" required="" id="age_group">
-                                    <option value="5U"> 5U</option>
-                                    <option value="6U"> 6U</option>
-                                    <option value="7U"> 7U</option>
-                                    <option value="8U"> 8U</option>
-                                    <option value="9U"> 9U</option>
-                                    <option value="10U">10U</option>
-                                    <option value="11U">11U</option>
-                                    <option value="12U">12U</option>
-                                    <option value="13U">13U</option>
-                                    <option value="14U">14U</option>
-                                    <option value="15U">15U</option>
-                                    <option value="16U">16U</option>
-                                    <option value="17U">17U</option>
-                                    <option value="18U">18U</option>
+                                    @foreach($ageGroups as $agegroup)
+                                        <option value="{{ $agegroup->id }}" @if($team->age_group_id == $agegroup->id) selected @endif> {{ $agegroup->age_group }}</option>
+                                    @endforeach
                                 </select>
                                 @if($errors->has('age_group'))
-                                                        <span class="invalid-feedback">
-                                                            <strong>{{ $errors->first('age_group') }}</strong>
-                                                        </span>
-                                                    @endif
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('age_group') }}</strong>
+                                    </span>
+                                @endif
                             </div>
+                        </div>
+                        <div class="row">
                             <div class="col-sm-6">
                                 <label class="label__wrapper ">Active</label>
                                 <select class="form-control input__box--wrapper down-icons" name="active" required="" id="active">

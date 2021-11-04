@@ -5,7 +5,9 @@ namespace App\Http\Controllers\director\Team;
 use App\Http\Controllers\Controller;
 use App\Models\State;
 use App\Models\AgeGroup;
+use App\Models\CheckAgeGroupStatus;
 use App\Models\Team\Team;
+use App\Models\Event\Event;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Services\TeamService;
@@ -22,7 +24,7 @@ class ManageTeamController extends Controller
      */
     public function index()
     {
-       
+
         return view('director.pages.team.view');
     }
 
@@ -35,8 +37,9 @@ class ManageTeamController extends Controller
     {
         $states = State::all();
         $ageGroups = AgeGroup::all();
+        $directorEventState = Event::with('state')->where('user_id', Auth::user()->id)->get();
 
-        return view('director.pages.team.create', compact('states','ageGroups'));
+        return view('director.pages.team.create', compact('states', 'ageGroups', 'directorEventState'));
     }
 
     /**
@@ -47,7 +50,7 @@ class ManageTeamController extends Controller
      */
     public function store(Request $request, TeamService $team)
     {
-       
+
         if (!empty($request->terms_agreement) && !empty($request->site_agreement)) {
             if ($request->password != $request->password_confirmation) {
                 parent::dangerMessage('Passwords do not match');
@@ -55,6 +58,12 @@ class ManageTeamController extends Controller
             }
 
            try{
+                $checkstatus =  CheckAgeGroupStatus::where('age_group_id', '=', $request->age_group)->where('event_id', '=', $request->event)->first('status');
+                if ($checkstatus == null or $checkstatus->status == 'close') {
+                    parent::dangerMessage('Age-Group does not exist Please select another ');
+                    parent::dangerMessage('Age-Group OR Tournament is Closed Now');
+                    return redirect()->back();
+                }
                 $checkresult = User::where('email','=',$request->email)->first();
                 if($checkresult !== null) {
                    $matchpassword= Hash::check($request->password , $checkresult->password);
@@ -62,8 +71,8 @@ class ManageTeamController extends Controller
                     parent::dangerMessage('Your Password does not match with old password');
                     parent::dangerMessage('This Email already exist please use the same password');
                     return redirect()->back();
-                   }              
-                }  
+                   }
+                }
 
                 if($checkresult == null) {
                     $checkresult= User::create([
@@ -73,7 +82,7 @@ class ManageTeamController extends Controller
                         'password' => Hash::make($request->password),
                         'type' => 3,
                         'cell_number' => $request->cell_no
-                    ]); 
+                    ]);
                 }
                 // Team Service
                 $created = $team->createTeam($checkresult->id, $request);
@@ -110,9 +119,11 @@ class ManageTeamController extends Controller
      */
     public function edit($id)
     {
+        $ageGroups = AgeGroup::all();
         $states = State::all();
         $team = Team::find($id);
-        return view('director.pages.team.edit', compact('team', 'states'));
+        $directorEventState = Event::with('state')->where('user_id', Auth::user()->id)->get();
+        return view('director.pages.team.edit', compact('ageGroups', 'team', 'states', 'directorEventState'));
     }
 
     /**
@@ -131,6 +142,12 @@ class ManageTeamController extends Controller
             }
 
             try {
+                $checkstatus =  CheckAgeGroupStatus::where('age_group_id', '=', $request->age_group)->where('event_id', '=', $request->event)->first('status');
+                if ($checkstatus == null or $checkstatus->status == 'close') {
+                    parent::dangerMessage('Age-Group does not exist Please select another ');
+                    parent::dangerMessage('Age-Group OR Tournament is Closed Now');
+                    return redirect()->back();
+                }
                 $user = User::where('id', $request->coach_id)->first();
                 $user->update([
                     'name' => $request->name,

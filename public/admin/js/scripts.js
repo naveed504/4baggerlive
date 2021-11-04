@@ -15,6 +15,18 @@ const deleteRecord = (id, uri) => {
     $('#deleteModal').modal('show')
 }
 
+// add more parent information fields on player registration
+const addParentInfo = (id) => {
+
+    let element = document.getElementById(id)
+    let section = document.getElementById('parentinfo').outerHTML
+    let section1 = document.getElementById('parentcontact').outerHTML
+    let divId = Math.floor(Math.random() * 11);
+
+    element.insertAdjacentHTML('afterend', "<div id=" + divId + " class='enclosing'>" + "<div class='form-row flex__right'><button class='btn btn-xs btn-danger close_btn' type='button' onclick='removeAdded(" + divId + ")'>&times;</button></div>" + section + section1 + "</div>")
+
+}
+
 // Toggle the side navigation
 $("#sidebarToggle").on("click", function(e) {
     e.preventDefault();

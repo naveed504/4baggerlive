@@ -89,7 +89,7 @@ Route::get('view-player-profile-in-home/{id}', [HomeController::class, 'playerPr
 Route::get('4baggerer-recent-content-detail/{id}', [HomeController::class, 'recentContentDetail'])->name('recentcontentdetail');
 Route::get('userpayforsubscription/{id}', [HomeController::class, 'subscriptionForm'])->name('userpayforsubscription');
 Route::post('subscribeplan', [HomeController::class, 'userPayForSubscribePlan'])->name('subscribeplan');
- 
+
 /**
  * Admin Routes
  */
@@ -115,6 +115,7 @@ Route::group(['prefix' => 'admin',  'middleware' => ['auth', 'checkrole']], func
     Route::post('showsubscription',[SubscriptionController::class, 'show'])->name('showsubscription');
     Route::get('adminpaymentrefundform/{id}', [ManagePayoutController::class, 'showPaymentRefundForm'])->name('adminpaymentrefundform');
     Route::post('adminpaymentrefund', [ManagePayoutController::class, 'refundTransaction'])->name('adminpaymentrefund');
+    Route::post('editplayerprofile', [PlayerController::class, 'editplayerprofile'])->name('editplayerprofile');
     Route::resource('events', ManageEventController::class);
     Route::resource('adminslider', HomeSliderController::class);
     Route::resource('newssection', HomeNewsSectionController::class);

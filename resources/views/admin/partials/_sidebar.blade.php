@@ -56,7 +56,7 @@
                     </div>
                     Manage Subscriptions
                 </a>
-               
+
                 <a class="nav-link" href="{{ route('manageprofile') }}">
                     <div class="sb-nav-link-icon">
                         <i class="far fa-calendar-alt"></i>
@@ -86,6 +86,8 @@
                                         <a class="nav-link" href="{{ route('manageblog.index') }}">Blog Section</a>
                                         <a class="nav-link" href="{{ route('newssection.create') }}">News Section</a>
                                         <a class="nav-link" href="{{ route('manageblog.index') }}">Blog Section</a>
+                                        <a class="nav-link" href="{{ route('aboutus.index') }}">About Us</a>
+                                        <a class="nav-link" href="{{ route('siterule.index') }}">Rules</a>
                                         <a class="nav-link" href="{{ route('recentcontent.index') }}">Recent Content
                                             Section</a>
                                         <a class="nav-link" href="{{ route('officialpartner.index') }}">Official Partner
