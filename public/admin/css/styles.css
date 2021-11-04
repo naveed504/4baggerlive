@@ -12453,3 +12453,13 @@ h6 {
     color: #6fad2f !important;
     cursor: pointer
 }
+.custom-card-overlay{
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: none;
+}
+
+.card:hover .custom-card-overlay{
+    display: block;
+}

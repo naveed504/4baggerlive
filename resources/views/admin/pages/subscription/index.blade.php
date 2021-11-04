@@ -35,6 +35,10 @@
                         <div class="col-md-4">
                             <div class="card pricing-box">
                                 <div class="card-body d-flex flex-column text-center">
+                                    <div class="custom-card-overlay">
+                                    <a href="{{ route('subscription.edit', $item->id)}}" style="color: #3b8004;">  <i class="fas fa-pen ml-2 mt-2"></i></a>  <br>
+                                       
+                                    </div>
                                     <div class="mb-4">
                                         <h3>{{ $item->plan_type . " Months" }}</h3>
                                         <span class="display-4">${!! $item->plan_amount !!}</span>
@@ -43,7 +47,7 @@
                                             @elseif($item->plan_type == 3) {{ "Gold" }}
                                             @elseif($item->plan_type == 6) {{ "Diamond" }}
                                             @endif
-
+                                            
                                         </span>
                                     </div>
                                     <ul>
@@ -54,7 +58,7 @@
                                     <!--  <a href="#" class="btn btn-lg mt-auto card-edit" data-id="{{ $item->id }}"
                                                 data-toggle="modal" data-target="#edit_plan">Edit</a> -->
                                  
-                                   <a href="{{ route('subscription.edit', $item->id)}}" class="btn btn-lg mt-auto card-edit edit_source">Edit</a>
+                                   <!-- <a href="{{ route('subscription.edit', $item->id)}}" class="btn btn-lg mt-auto card-edit edit_source">Edit</a> -->
                                     <!-- <a href="{{ route('subscription.edit', $item->id)}}" class="btn ml-3 custom-edit-btn mt-auto card-edit edit_source">Delete</a> -->
                                   
                                 </div>
