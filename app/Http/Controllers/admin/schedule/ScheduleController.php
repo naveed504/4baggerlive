@@ -41,18 +41,13 @@ class ScheduleController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        $eventresult = Event::with('team')->find($id);
+        foreach($request->teamsinagegroup as $teams) {
+            if($teams <2) {
+                parent::dangerMessage("Each Age Group Must be More Then Two Teams");
+                return redirect()->back();
+            }
+        }
+        $eventresult = Event::with('team')->find($request->eventid);
         $teamids= [];
         foreach($eventresult->team as $team) {
             array_push($teamids, $team->id);
@@ -76,6 +71,17 @@ class ScheduleController extends Controller
         $teamMatches= $a;
         return view('admin.pages.schedule.showschedule',compact('teamMatches','eventresult' ));
 
+       
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
        
     }
 

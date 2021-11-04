@@ -21,6 +21,7 @@
                   
                   
                     <tbody>
+                      
                         @foreach($teamMatches as $key =>$value1) 
                      
                         @foreach($value1 as $k => $value2)

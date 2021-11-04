@@ -32,9 +32,13 @@
                                 </td>
                                 
                                 <td>
+                                    @php
+                                    $validateagegroup = [];
+                                    @endphp
                                 @foreach($event->ageGroups as $agegroup)
                                 @php
-                                $resultagegroup= Helpers::countTeamsInAgeGroup($agegroup['id'], $event->id)
+                                $resultagegroup= Helpers::countTeamsInAgeGroup($agegroup['id'], $event->id);
+                                array_push($validateagegroup ,$resultagegroup);
                                 @endphp
                             
                               {{ $resultagegroup }} <br>
@@ -42,10 +46,21 @@
                                 @endforeach
                                 </td>
                                 <td>
-                                    <a href="{{ route('manageschedule.show', $event->id) }}" class="btn btn-info ">
-                                        Create Schedule
-                                    </a>
+                                    <form action="{{ route('manageschedule.store') }}" method="post">
+                                        @csrf
+                                       
+                                        <input type="hidden" name="eventid" value="{{ $event->id }}">
+                                        @foreach($validateagegroup as $teamsinagegroup)
+                                        <input type="hidden" name="teamsinagegroup[]" value="{{ $teamsinagegroup }}">
+                                        @endforeach
+
+                                        <input type="submit" class="btn btn-primary" value="Create Schedule">
+                                    </form>
+                            
+                                                                 
+                                  
                                 </td>
+                               
                             
 
                             </tr>
