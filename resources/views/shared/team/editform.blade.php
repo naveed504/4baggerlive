@@ -57,6 +57,22 @@
                     </div>
                 </div>
                 <div class="row">
+                     <div class="col-sm-6">
+                        <label class="label__wrapper required">Select Event</label>
+
+                        <select class="form-control input__box--wrapper down-icons" name="event" required="">
+                            @foreach($directorEventState as $event)
+                                <option value="{{ $event->id }}" @if($team->event_id == $event->id) selected @endif>
+                                    {{ $event->event_name }}&nbsp&nbsp&nbsp{{ $event->state->state_name }}</option>
+                            @endforeach
+
+                        </select>
+                        @if($errors->has('event'))
+                            <span class="invalid-feedback">
+                                <strong>{{ $errors->first('event') }}</strong>
+                            </span>
+                        @endif
+                    </div>
                     <div class="col-sm-6">
                         <label class="label__wrapper required">Age Group</label>
                         <select class="form-control input__box--wrapper down-icons" name="age_group" required="">

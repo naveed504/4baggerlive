@@ -11,6 +11,8 @@ use App\Models\Event\EventRegisterTeam;
 use App\Models\Event\Event;
 use App\Models\User;
 use DataTables;
+use App\Models\AgeGroup;
+use App\Models\CheckAgeGroupStatus;
 
 class AdminTeamController extends Controller
 {
@@ -78,9 +80,12 @@ class AdminTeamController extends Controller
      */
     public function edit($id)
     {
+      
         $team = Team::find($id);
+        $directorEventState= Event::all();     
         $states = State::all();
-        return view('admin.pages.teams.edit', compact('team', 'states'));
+        $ageGroups = AgeGroup::all();
+        return view('admin.pages.teams.edit', compact('team', 'states','directorEventState','ageGroups'));
     }
 
     /**
@@ -93,6 +98,12 @@ class AdminTeamController extends Controller
      */
     public function update(TeamService $team, Request $request, $id)
     {
+        $checkstatus =  CheckAgeGroupStatus::where('age_group_id', '=', $request->age_group)->where('event_id', '=', $request->event)->first('status');
+                if ($checkstatus == null or $checkstatus->status == 'close') {
+                    parent::dangerMessage('Age-Group does not exist Please select another ');
+                    parent::dangerMessage('Age-Group OR Tournament is Closed Now');
+                    return redirect()->back();
+                }
         $team->updateTeam($id, $request)
             ? parent::successMessage("Team Updated Successfully")
             : parent::dangerMessage("Oops! We have encountered an issue, please try again");

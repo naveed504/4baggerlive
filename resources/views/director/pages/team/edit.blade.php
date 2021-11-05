@@ -86,9 +86,9 @@
                             <div class="col-sm-6">
                                 <label class="label__wrapper required">Age Group</label>
                                 <select class="form-control input__box--wrapper down-icons" name="age_group" required="" id="age_group">
-                                    @foreach($ageGroups as $agegroup)
-                                        <option value="{{ $agegroup->id }}" @if($team->age_group_id == $agegroup->id) selected @endif> {{ $agegroup->age_group }}</option>
-                                    @endforeach
+                                @foreach($ageGroups as $agegroup)
+                                <option value="{{ $agegroup->id }}" @if($team->age_group_id == $agegroup->id) selected @endif> {{ $agegroup->age_group }}</option>
+                            @endforeach
                                 </select>
                                 @if($errors->has('age_group'))
                                     <span class="invalid-feedback">
