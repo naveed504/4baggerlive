@@ -44,8 +44,34 @@
                               {{ $resultagegroup }} <br>
                            
                                 @endforeach
+                              
                                 </td>
                                 <td>
+                                @php
+                                    $validateagegroup = [];
+                                 @endphp
+                                @foreach($event->ageGroups as $agegroup)
+                                @php
+                                $resultagegroup= Helpers::countTeamsInAgeGroup($agegroup['id'], $event->id);
+                                array_push($validateagegroup ,$resultagegroup);
+                                @endphp
+                            
+                            
+                              
+                                     <form action="{{ route('manageschedule.store') }}" method="post">
+                                        @csrf
+                                       
+                                        <input type="hidden" name="eventid" value="{{ $event->id }}">
+                                        <input type="hidden" name="agegroupid" value="{{ $agegroup['id'] }}">
+                                        @foreach($validateagegroup as $teamsinagegroup)
+                                        <input type="hidden" name="teamsinagegroup[]" value="{{ $teamsinagegroup }}">
+                                        @endforeach
+                                        <button type="submit" class="badge badge-secondary" style="width:150px;tex-align:center">create Schedule</button>
+                                     </form> 
+                           
+                                @endforeach
+                                </td>
+                                <!-- <td>
                                     <form action="{{ route('manageschedule.store') }}" method="post">
                                         @csrf
                                        
@@ -59,7 +85,7 @@
                             
                                                                  
                                   
-                                </td>
+                                </td> -->
                                
                             
 

@@ -97,16 +97,7 @@
                                 @endif
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <label class="label__wrapper ">Active</label>
-                                <select class="form-control input__box--wrapper down-icons" name="active" required="" id="active">
-                                    <option value="1" @if($team->active == 1) selected @endif> Yes</option>
-                                    <option value="0" @if($team->active == 0) selected @endif> No</option>
-                                </select>
-
-                            </div>
-                        </div>
+                    
                     </div>
                 </div>
                 <div class="col-sm-10 mx-auto border p-0 mt-4">
