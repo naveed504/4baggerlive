@@ -41,7 +41,7 @@ class ScheduleController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
+       
         foreach($request->teamsinagegroup as $teams) {
             if($teams <2) {
                 parent::dangerMessage("Each Age Group Must be More Then Two Teams");
