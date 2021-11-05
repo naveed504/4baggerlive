@@ -45,8 +45,9 @@ class BlogController extends Controller
             'detail' => 'required',
         ]);
 
-        try {          
-            $image = Helpers::saveImage($request->image);
+        try {
+            $imgpath= public_path('admin/allimages/');
+            $image = Helpers::saveImage($request->image, $imgpath);
             ManageBlog::create([
                 'title' => $request->title,
                 'slug' => $request->title,
@@ -99,7 +100,8 @@ class BlogController extends Controller
 
         try {
             $blog = ManageBlog::find($id);
-            $image = Helpers::updateImage($request->image, $blog->image);
+            $imgpath= public_path('admin/allimages/');
+            $image = Helpers::updateImage($request->image, $blog->image, $imgpath);
             $blog->update([
                 'title' => $request->title,
                 'slug' => $request->title,

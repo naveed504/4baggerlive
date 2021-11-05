@@ -54,15 +54,35 @@ class PlayerService
             ]);
         }
 
+        if(Auth::user()->type == 1) {
+            $userrecord= PlayerData::find($data['player_id']);
+            $dbRecord_player_video = $userrecord->player_video;
+            $dbRecord = $userrecord->player_file;
 
-        $dbRecord_player_video = Auth::user()->player->player_video;
-        $dbRecord = Auth::user()->player->player_file;
-        $file_name = Helpers::updateImage($data->fileupload, $dbRecord);
-        $playervideo = Helpers::updateImage($data->player_video, $dbRecord_player_video);
+        } elseif(Auth::user()->type == 4) {
+            $dbRecord_player_video = Auth::user()->player->player_video;
+            $dbRecord = Auth::user()->player->player_file;
+        }
+
+        if(Auth::user()->type == 1) {
+            $imgpath= public_path('frontend/player/');
+            $file_name = Helpers::updateImage($data['fileupload'] ?? null, $dbRecord, $imgpath);
+            $playervideo = Helpers::updateImage($data['player_video'] ?? null, $dbRecord_player_video, $imgpath);
+        } elseif(Auth::user()->type == 4) {
+            $imgpath= public_path('frontend/player/');
+            $file_name = Helpers::updateImage($data->fileupload, $dbRecord, $imgpath);
+            $playervideo = Helpers::updateImage($data['player_video'], $dbRecord_player_video,$imgpath);
+        }
+
 
 
         try {
-            PlayerData::where('user_id', Auth::user()->id)->update([
+            if(Auth::user()->type == 1) {
+                $playerdata =PlayerData::where('id', $data['player_id'])->first();
+            } elseif(Auth::user()->type == 4) {
+                $playerdata=  PlayerData::where('user_id', Auth::user()->id)->first();
+            }
+           $playerdata->update([
                 'p_city'                => $data['p_city'],
                 'state_id'               => $data['p_state'],
                 'zip_code'              => $data['zip_code'],
@@ -87,8 +107,13 @@ class PlayerService
                 'player_instagram'      => $data['instagram'],
 
             ]);
+            if(Auth::user()->type == 1) {
+                $playerdatauser =User::where('id', $data['user_id'])->first();
+             } elseif(Auth::user()->type == 4) {
+                $playerdatauser=  User::where('id', Auth::user()->id)->first();
+             }
 
-            User::where('id', Auth::user()->id)->update([
+            $playerdatauser->update([
                 'first_name'           => $data['first_name'],
                 'email'                => $data['email'],
                 'last_name'            => $data['last_name'],

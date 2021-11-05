@@ -11395,6 +11395,19 @@ body {
     display: block;
 }
 
+.btn__add {
+    background: #ce8452;
+    color: white;
+    border-radius: 10px;
+}
+.flex__right {
+    flex-direction: row-reverse;
+}
+
+.btn__add:hover{
+    text-decoration: none;
+    color: white;
+}
 .label__wrapper {
     text-transform: uppercase;
     font-size: 12px;
@@ -12444,7 +12457,7 @@ h6 {
     position: absolute;
     left: 0;
     top: 0;
-    display: none;   
+    display: none;
 }
 
 .card:hover .custom-card-overlay{

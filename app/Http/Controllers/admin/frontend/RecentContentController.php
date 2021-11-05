@@ -45,7 +45,8 @@ class RecentContentController extends Controller
         ]);
 
         try{
-                $image = Helpers::saveImage($request->image);
+                $imgpath= public_path('admin/allimages/');
+                $image = Helpers::saveImage($request->image, $imgpath);
                 RecentContentSection::create([
                     'title' => $request->title,
                     'image' => $image,
@@ -96,8 +97,9 @@ class RecentContentController extends Controller
         ]);
 
         try{
+                $imgpath= public_path('admin/allimages/');
                 $updateSection = RecentContentSection::find($id);
-                $image = Helpers::updateImage($request->image , $updateSection->image);
+                $image = Helpers::updateImage($request->image , $updateSection->image, $imgpath);
                 $updateSection->update([
                     'title' => $request->title,
                     'image' => $image,

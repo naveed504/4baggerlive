@@ -54,8 +54,8 @@ class AdminTeamController extends Controller
      */
     public function show($id)
     {
-        
-      
+
+
 
         $teamevents = EventRegisterTeam::where('team_id',$id)->fetchRelations()->first();
         $team = Team::find($id)->first();
@@ -65,8 +65,8 @@ class AdminTeamController extends Controller
         } elseif($teamevents->payment_status == 0){
             parent::dangerMessage("Team does not Pay payment for event");
             return redirect()->back();
-        }       
-    
+        }
+
         return view('admin.pages.teams.show', compact('team', 'teamevents'));
     }
 
@@ -107,8 +107,7 @@ class AdminTeamController extends Controller
      */
     public function destroy($id)
     {
-        $team = Team::find($id);
-        $team->delete();
+        Team::find($id)->user()->delete();
         parent::successMessage("Team deleted successfully");
         return redirect()->back();
 
@@ -117,21 +116,21 @@ class AdminTeamController extends Controller
     {
         if ($request->ajax()) {
             $data = User::select('*');
-            
+
             return Datatables::of($data)
                     ->addIndexColumn()
                     ->addColumn('action', function($row){
-     
+
                            $btn = '<a href="javascript:void(0)" class="edit btn btn-primary btn-sm">View</a>';
-    
+
                             return $btn;
                     })
                     ->rawColumns(['action'])
                     ->make(true);
         }
-        
-        
-       
+
+
+
         return view('test.index');
     }
 }

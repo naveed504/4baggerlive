@@ -43,7 +43,7 @@ class AboutUsController extends Controller
             $this->saveAboutUs($request);
         } else {
             $this->updateAboutUs($countresult, $request);
-        }       
+        }
         parent::successMessage("About Us Setting Updated Successfully");
         return redirect()->route('aboutus.index');
     }
@@ -93,21 +93,23 @@ class AboutUsController extends Controller
         //
     }
 
-    public function saveAboutUs($request) 
+    public function saveAboutUs($request)
     {
-       $image =  Helpers::saveImage($request->image);
+        $imgpath= public_path('admin/allimages/');
+       $image =  Helpers::saveImage($request->image, $imgpath);
         AboutUs::create([
             'tagline' => $request->tagline,
             'image' => $image,
             'mission_statment' => $request->mission_statment,
             'content' => $request->content,
         ]);
-        
+
     }
 
-    public function updateAboutUs($dbResult , $request) 
+    public function updateAboutUs($dbResult , $request)
     {
-        $updateImage = Helpers::updateImage($request->image ,$dbResult->image);
+        $imgpath= public_path('admin/allimages/');
+        $updateImage = Helpers::updateImage($request->image ,$dbResult->image, $imgpath);
         $dbResult->update([
             'tagline' => $request->tagline,
             'image' => $updateImage,
@@ -115,6 +117,6 @@ class AboutUsController extends Controller
             'content' => $request->content,
         ]);
 
-       
+
     }
 }

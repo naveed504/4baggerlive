@@ -19,13 +19,14 @@ class TeamService
     {
 
         if (!empty($request->all())) {
-            $teamImage = '';           
+            $teamImage = '';
             if($request->hasFile('team_profile')) {
-                $teamImage = $this->teamProfileWaterMark($request ,$param1=null,  $param2=null);                
-            }         
+                $teamImage = $this->teamProfileWaterMark($request ,$param1=null,  $param2=null);
+            }
             try {
                 Team::create([
                     'user_id' => $id,
+                    'event_id' => $request->event,
                     'team_name' => $request->team_name,
                     'division' => $request->division,
                     'state_id' => $request->team_state,
@@ -48,23 +49,24 @@ class TeamService
      * @return string
      */
     public function updateTeam($id, $request)
-    {       
+    {
         $team = Team::find($id);
         try {
             $proImage = '';
             if (empty($request->team_profile)) {
-                $proImage = $team->team_profile;                         
+                $proImage = $team->team_profile;
             } else {
-                if( $request->hasFile( 'team_profile')) {                                    
-                    $proImage = $this->teamProfileWaterMark($request , $id, $a=1); 
-                }               
+                if( $request->hasFile( 'team_profile')) {
+                    $proImage = $this->teamProfileWaterMark($request , $id, $a=1);
+                }
             }
-            
+
             $team->update([
                 'team_name' => $request->team_name,
                 'division' => $request->division,
                 'team_city' => $request->team_city,
                 'state_id' => $request->team_state,
+                'event_id' => $request->event,
                 'team_profile'=>$proImage,
                 'age_group_id' => $request->age_group,
                 'active' => Auth::user()->type == 1 ? $request->active : $team->active
@@ -84,7 +86,7 @@ class TeamService
     public function deleteTeam($id)
     {
         try {
-            Team::find($id)->delete();
+            Team::find($id)->user()->delete();
         } catch (Exception $e) {
             dd($e->getMessage());
         }
@@ -92,7 +94,7 @@ class TeamService
     }
 
     public function teamProfileWaterMark($request , $id ,$a)
-    {              
+    {
         $destinationPath = public_path( 'images/team/teamimages/' );
         $file = $request->team_profile;
         $fileName = time() . '.'.$file->clientExtension();

@@ -20,6 +20,7 @@ class Team extends Model
     use HasFactory;
     protected $fillable = [
         'user_id',
+        'event_id',
         'team_name',
         'team_city',
         'state_id',

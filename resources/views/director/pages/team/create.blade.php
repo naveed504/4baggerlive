@@ -19,10 +19,10 @@
                                 <label class="label__wrapper required">Team Name</label>
                                 <input type="text" name="team_name" class="form-control input__box--wrapper" value="{{ old('team_name') }}">
                                 @if($errors->has('team_name'))
-                                                        <span class="invalid-feedback">
-                                                            <strong>{{ $errors->first('team_name') }}</strong>
-                                                        </span>
-                                                    @endif
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('team_name') }}</strong>
+                                    </span>
+                                @endif
                             </div>
                             <div class="col-sm-6">
                                 <label class="label__wrapper required">Division</label>
@@ -33,10 +33,10 @@
                                     <option value="Majors">Majors</option>
                                 </select>
                                 @if($errors->has('division'))
-                                                        <span class="invalid-feedback">
-                                                            <strong>{{ $errors->first('division') }}</strong>
-                                                        </span>
-                                                    @endif
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('division') }}</strong>
+                                    </span>
+                                @endif
                             </div>
                         </div>
                         <div class="row mb-2">
@@ -44,10 +44,10 @@
                                 <label class="label__wrapper required">Team City</label>
                                 <input type="text" name="team_city" class="form-control input__box--wrapper" value="{{ old('team_city') }}">
                                 @if($errors->has('team_city'))
-                                                        <span class="invalid-feedback">
-                                                            <strong>{{ $errors->first('team_city') }}</strong>
-                                                        </span>
-                                                    @endif
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('team_city') }}</strong>
+                                    </span>
+                                @endif
                             </div>
                             <div class="col-sm-6">
                                 <label class="label__wrapper required">Team State</label>
@@ -58,21 +58,39 @@
                                     @endforeach
                                 </select>
                                 @if($errors->has('team_state'))
-                                                        <span class="invalid-feedback">
-                                                            <strong>{{ $errors->first('team_state') }}</strong>
-                                                        </span>
-                                                    @endif
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('team_state') }}</strong>
+                                    </span>
+                                @endif
                             </div>
                         </div>
                         <div class="row">
+                            <div class="col-sm-6">
+                                <label class="label__wrapper required">Select Event</label>
+
+                                <select class="form-control input__box--wrapper down-icons" name="event" required="">
+                                    <option disabled="" selected="" value="">Select Events</option>
+
+                                    @foreach($directorEventState as $event)
+                                        <option value="{{ $event->id }}">
+                                            {{ $event->event_name }}&nbsp&nbsp&nbsp{{ $event->state->state_name }}</option>
+                                    @endforeach
+
+                                </select>
+                                @if($errors->has('event'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('event') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
                             <div class="col-sm-6">
                                 <label class="label__wrapper required">Age Group</label>
                                 <select class="form-control input__box--wrapper down-icons" name="age_group" required="">
                                     <option disabled="" selected="" value="">Age Group</option>
                                     @foreach($ageGroups as $agegroup)
-                                    <option value="{{ $agegroup->id}}"> {{ $agegroup->age_group}}</option>
+                                        <option value="{{ $agegroup->id }}"> {{ $agegroup->age_group }}</option>
                                     @endforeach
-                                  
+
                                 </select>
                                 @if($errors->has('age_group'))
                                     <span class="invalid-feedback">
@@ -93,19 +111,19 @@
                                 <label class="label__wrapper required">Coach Name</label>
                                 <input type="text" name="name" class="form-control input__box--wrapper" value="{{ old('name') }}">
                                 @if($errors->has('name'))
-                                                        <span class="invalid-feedback">
-                                                            <strong>{{ $errors->first('name') }}</strong>
-                                                        </span>
-                                                    @endif
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('name') }}</strong>
+                                    </span>
+                                @endif
                             </div>
                             <div class="col-sm-6">
                                 <label class="label__wrapper required">Coach Email</label>
                                 <input type="email" class="form-control input__box--wrapper" name="email" value="{{ old('email') }}">
                                 @if($errors->has('email'))
-                                                        <span class="invalid-feedback">
-                                                            <strong>{{ $errors->first('email') }}</strong>
-                                                        </span>
-                                                    @endif
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                @endif
                             </div>
                         </div>
                         <div class="row mb-2">
@@ -113,10 +131,10 @@
                                 <label class="label__wrapper required">Coach Cell Number</label>
                                 <input type="text" name="cell_no" class="form-control input__box--wrapper phoneNumber" value="{{ old('cell_no') }}">
                                 @if($errors->has('cell_no'))
-                                                        <span class="invalid-feedback">
-                                                            <strong>{{ $errors->first('cell_no') }}</strong>
-                                                        </span>
-                                                    @endif
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('cell_no') }}</strong>
+                                    </span>
+                                @endif
                             </div>
                         </div>
                         <div class="row mb-2">
@@ -124,19 +142,19 @@
                                 <label class="label__wrapper required">Password</label>
                                 <input type="password" name="password" class="form-control input__box--wrapper">
                                 @if($errors->has('password'))
-                                                        <span class="invalid-feedback">
-                                                            <strong>{{ $errors->first('password') }}</strong>
-                                                        </span>
-                                                    @endif
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                @endif
                             </div>
                             <div class="col-sm-6">
                                 <label class="label__wrapper required">Confirm Password</label>
                                 <input type="password" class="form-control input__box--wrapper" name="password_confirmation">
                                 @if($errors->has('password_confirmation'))
-                                                        <span class="invalid-feedback">
-                                                            <strong>{{ $errors->first('password_confirmation') }}</strong>
-                                                        </span>
-                                                    @endif
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('password_confirmation') }}</strong>
+                                    </span>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -152,10 +170,10 @@
                                 I agree to the terms and conditions of FourBaager USA.
                             </label>
                             @if($errors->has('terms_agreement'))
-                                                        <span class="invalid-feedback">
-                                                            <strong>{{ $errors->first('terms_agreement') }}</strong>
-                                                        </span>
-                                                    @endif
+                                <span class="invalid-feedback">
+                                    <strong>{{ $errors->first('terms_agreement') }}</strong>
+                                </span>
+                            @endif
                         </div>
                         <div class="row mb-2">
                             <input type="checkbox" value="2" name="site_agreement" class="mr-2 h-25">
@@ -163,10 +181,10 @@
                                 By checking this box, I agree to comply with the FourBagger Website Agreement
                             </label>
                             @if($errors->has('site_agreement'))
-                                                        <span class="invalid-feedback">
-                                                            <strong>{{ $errors->first('site_agreement') }}</strong>
-                                                        </span>
-                                                    @endif
+                                <span class="invalid-feedback">
+                                    <strong>{{ $errors->first('site_agreement') }}</strong>
+                                </span>
+                            @endif
                         </div>
                     </div>
                 </div>

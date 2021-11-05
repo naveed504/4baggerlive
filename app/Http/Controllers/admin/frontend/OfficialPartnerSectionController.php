@@ -46,8 +46,9 @@ class OfficialPartnerSectionController extends Controller
             'detail' => 'required',
         ]);
 
-        try{           
-            $image = Helpers::saveImage($request->image);
+        try{
+            $imgpath= public_path('admin/allimages/');
+            $image = Helpers::saveImage($request->image, $imgpath);
             OfficialPartner::create([
                 'title' => $request->title,
                 'image' => $image,
@@ -97,10 +98,11 @@ class OfficialPartnerSectionController extends Controller
             'title' => 'required',
             'detail' => 'required',
         ]);
-        
-        try{           
+
+        try{
             $updateSection = OfficialPartner::find($id);
-            $image = Helpers::updateImage($request->image , $updateSection->image);
+            $imgpath= public_path('admin/allimages/');
+            $image = Helpers::updateImage($request->image , $updateSection->image, $imgpath);
             $updateSection->update([
                 'title' => $request->title,
                 'image' => $image,

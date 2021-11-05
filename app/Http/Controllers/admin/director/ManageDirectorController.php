@@ -216,6 +216,7 @@ class ManageDirectorController extends Controller
     public function approveDirector(Request $request)
     {
         $result = User::where('id', $request->userid)->first();
+
         if ($result->status == 0) {
             $result->update([
                 'status' => 1
@@ -226,6 +227,7 @@ class ManageDirectorController extends Controller
             ]);
         }
         return response()->json(['status' => 'updated']);
+
     }
 
     public function destroydirectorevent($id)

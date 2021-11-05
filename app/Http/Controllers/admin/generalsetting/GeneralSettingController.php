@@ -16,51 +16,51 @@ class GeneralSettingController extends Controller
 {
     public function index()
     {
-        $admin =User::where('type','=',1)->first();      
+        $admin =User::where('type','=',1)->first();
         return view('admin.pages.frontend.settings.adminprofile',compact('admin'));
     }
 
     public function updateadminprofile(Request $request)
     {
         $admin =User::where('type','=',1)->first();
-      
+
         if(!empty($request->current_password)){
             $request->validate([
                 'password' => 'required|min:8',
                 'confirmpassword' => 'required|same:password',
-            ]);          
-               
-                if(Hash::check($request->current_password, $admin->password)){  
-                   $newpassword = Hash::make($request->password);    
-                   parent::successMessage("Your Password updated successfully");            
+            ]);
+
+                if(Hash::check($request->current_password, $admin->password)){
+                   $newpassword = Hash::make($request->password);
+                   parent::successMessage("Your Password updated successfully");
 
                 } else{
                     parent::dangerMessage("Your Current password does not match our records");
                     return redirect()->back();
                 }
-                                
-        } 
-        
-        $updateimage = Helpers::updateImage($request->profile_photo, $admin->profile_photo);
-        
+
+        }
+        $imgpath= public_path('admin/allimages/');
+        $updateimage = Helpers::updateImage($request->profile_photo, $admin->profile_photo, $imgpath);
+
         try{
             $admin->update([
                 'name'          => $request->name,
                 'email'         => $request->email,
                 'profile_photo' => $updateimage,
                 'password'      => (!empty($newpassword)) ? $newpassword : $admin->password,
-            ]);           
+            ]);
         } catch(Exception $e) {
             dd($e->getMessage());
         }
         parent::successMessage('Admin Profile Updated Successfully"');
         return redirect()->back();
     }
-     
+
     public function createSetting($request)
-    {  
-             
-        $backgroundimage = Helpers::saveImage($request->mission_bgimg);    
+    {
+        $imgpath= public_path('admin/allimages/');
+        $backgroundimage = Helpers::saveImage($request->mission_bgimg, $imgpath);
         GeneralSetting::create([
             'city'              => $request->city,
             'street'            => $request->street,
@@ -77,14 +77,14 @@ class GeneralSettingController extends Controller
             'mission_bgimgtitle'=> $request->mission_bgimgtitle,
             'mission_statment'  => $request->mission_statment,
             'mission_bgimgcontent'=> $request->mission_bgimgcontent
-           
+
         ]);
     }
 
     public function updateSetting($updateGeneralSetting, $request)
-    {    
+    {
         $updateGeneralSetting = GeneralSetting::find($request->general_id);
-        $updateimage = Helpers::updateImage($request->mission_bgimg, $updateGeneralSetting->mission_bgimg);    
+        $updateimage = Helpers::updateImage($request->mission_bgimg, $updateGeneralSetting->mission_bgimg);
         $updateGeneralSetting->update([
             'city'              => $request->city,
             'street'            => $request->street,
@@ -104,16 +104,16 @@ class GeneralSettingController extends Controller
         ]);
     }
     public function generalSetting()
-    {       
+    {
         $generalSetting = GeneralSetting::latest()->first();
         return view('admin.pages.frontend.settings.generalsetting',compact( 'generalSetting'));
     }
 
     public function updateGeneralSetting(Request $request)
-    {      
+    {
         try{
             $general =GeneralSetting::find($request->general_id);
-            
+
             if(empty($general)) {
                 $this->createSetting($request);
             } else {
@@ -123,6 +123,6 @@ class GeneralSettingController extends Controller
         return redirect()->back();
         } catch(Exception $e) {
             dd($e->getMessage());
-        }       
+        }
     }
 }
