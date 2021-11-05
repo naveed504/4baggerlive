@@ -63,7 +63,7 @@
                         <th class="padding-1" >City</th>
                         <th class="padding-1" >State</th>
                         <!-- <th class="padding-1" style="width:13%">Venue</th> -->
-                        <th class="padding-1" >Status</th>
+                        <th class="padding-1" >Event Status</th>
                         <th class="padding-1" >Actions</th>
                     </thead>
                     <tbody>

@@ -103,9 +103,9 @@
                                                         </td>
                                                         <td>{{ $subscribeuser->plan_type . " Months" }}</td>
                                                         <td>{{ date('M-d-Y ', strtotime($subscribeuser->created_at)) }}</td>
-                                                        <td><button class="btn btn-info btn-sm">
+                                                        <td><a href="{{ route('subscription.show', $subscribeuser->id) }}" class="btn btn-info btn-sm">
                                                                 {{$subscribeuser->countusers }}
-                                                                Users</button>
+                                                                Users</a>
                                                         </td>
                                                     </tr>
                                                     @empty
@@ -129,69 +129,5 @@
         </div>
     </div>
 </div>
-<!--Add Plan Modal -->
-<div class="modal fade" id="addSubscriptionPlan" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header heading_para text-uppercase text-light">
-                <h5><strong>Create Package</strong></h5>
-                <button type="button" class="close text-light" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form method="POST" id="edit_coach_team" action="{{ route('subscription.store') }}">
-                    @csrf
-                    @include('shared.subscription.edit_form')
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Save</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-<!--Edit Plan Modal -->
-<div class="modal fade" id="editSubscriptionPlan" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header heading_para text-uppercase text-light">
-                <h5><strong>Monthly Package</strong></h5>
-                <button type="button" class="close text-light" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body update_model">
 
-            </div>
-        </div>
-    </div>
-</div>
-<script>
-    $(document).on('click', '#planid', function() {
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-        var planid = $(this).attr("data-planid");
-        $.ajax({
-            data: {
-                planid: planid
-            },
-            url: "{{ route('showsubscription') }}",
-            type: "post",
-            dataType: 'json',
-            success: function(data) {
-                //   $("#addSubscriptionPlan").html(data.html);
-                console.log(data.html);
-
-            },
-
-        });
-
-
-    });
-</script>
 @endsection

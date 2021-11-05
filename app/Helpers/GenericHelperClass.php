@@ -14,7 +14,7 @@ use App\Models\AgeGroup;
 use App\Models\CheckAgeGroupStatus;
 use App\Models\Event\EventRegisterTeam;
 use App\Models\Team\Team;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 use File;
 
 
@@ -265,16 +265,16 @@ class GenericHelperClass
                 $imgpath = $imagegpath;
                 $this->makeNewDirectory($imgpath);
              } elseif(Auth::user()->type == 2) {
-                 $imgpath = public_path('frontend/director/');
+                 $imgpath = $imagegpath;
                  $this->makeNewDirectory($imgpath);
              } elseif(Auth::user()->type == 3) {
-                 $imgpath = public_path('frontend/coach/');
+                 $imgpath = $imagegpath;
                  $this->makeNewDirectory($imgpath);
              } elseif(Auth::user()->type == 4) {
                 $imgpath = $imagegpath;
                 $this->makeNewDirectory($imgpath);
              }
-        }else{
+        } else {
             $imgpath = public_path('frontend/player/');
             $this->makeNewDirectory($imgpath);
         }

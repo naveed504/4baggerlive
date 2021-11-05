@@ -83,8 +83,10 @@ class GeneralSettingController extends Controller
 
     public function updateSetting($updateGeneralSetting, $request)
     {
+        
+        $imgpath= public_path('admin/allimages/');
         $updateGeneralSetting = GeneralSetting::find($request->general_id);
-        $updateimage = Helpers::updateImage($request->mission_bgimg, $updateGeneralSetting->mission_bgimg);
+        $updateimage = Helpers::updateImage($request->mission_bgimg, $updateGeneralSetting->mission_bgimg, $imgpath);
         $updateGeneralSetting->update([
             'city'              => $request->city,
             'street'            => $request->street,

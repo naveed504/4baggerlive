@@ -361,20 +361,20 @@
                                                     <label class="label__wrapper required" for="">Age Group </label>
                                                     <select  class="form-control  input__box--wrapper down-icons" name="age_group" required >
                                                         <option disabled="" selected value="">Age Group</option>
-                                                        <option value="5U"> 5U</option>
-                                                        <option value="6U"> 6U</option>
-                                                        <option value="7U"> 7U</option>
-                                                        <option value="8U"> 8U</option>
-                                                        <option value="9U"> 9U</option>
-                                                        <option value="10U">10U</option>
-                                                        <option value="11U">11U</option>
-                                                        <option value="12U">12U</option>
-                                                        <option value="13U">13U</option>
-                                                        <option value="14U">14U</option>
-                                                        <option value="15U">15U</option>
-                                                        <option value="16U">16U</option>
-                                                        <option value="17U">17U</option>
-                                                        <option value="18U">18U</option>
+                                                        <option value="1"> 5U</option>
+                                                        <option value="2"> 6U</option>
+                                                        <option value="3"> 7U</option>
+                                                        <option value="4"> 8U</option>
+                                                        <option value="5"> 9U</option>
+                                                        <option value="6">10U</option>
+                                                        <option value="7">11U</option>
+                                                        <option value="8">12U</option>
+                                                        <option value="9">13U</option>
+                                                        <option value="10">14U</option>
+                                                        <option value="11">15U</option>
+                                                        <option value="12">16U</option>
+                                                        <option value="13">17U</option>
+                                                        <option value="14">18U</option>
                                                     </select>
                                                     @if($errors->has('age_group'))
                                                         <span class="invalid-feedback">
@@ -801,16 +801,7 @@
                                                     </span>
                                             </div>
                                                     </div>
-                                                    <div class="form-group col-md-6 col__mr-right">
-                                                        <span class="btn btn__wrapper--four btn-file" id="btnfile">
-                                                            Upload Video <input type="file" id="uploadfile" name="player_video" >
-                                                            @if($errors->has('fileupload'))
-                                                                <span class="invalid-feedback">
-                                                                    <strong>{{ $errors->first('fileupload') }}</strong>
-                                                                </span>
-                                                            @endif
-                                                        </span>
-                                                    </div>
+                                                   
                                                 </div>
                                             </div>
                                             <div>

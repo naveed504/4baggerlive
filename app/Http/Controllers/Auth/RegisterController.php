@@ -159,7 +159,7 @@ class RegisterController extends Controller
                 'team_name'  => $data['team_name'],
                 'team_city'  => $data['t_city'],
                 'state_id'   => $data['t_state'],
-                'age_group'  => $data['age_group'],
+                'age_group_id'  => $data['age_group'],
                 'division'   => $data['division']
             );
             try {
@@ -177,9 +177,12 @@ class RegisterController extends Controller
             */
         } elseif($user['type'] == '4') {
 
-            $file_name =Helpers::saveImage($data['fileupload']);
-            $playervideo =Helpers::saveImage($data['player_video']);
+            $imgpath= public_path('frontend/player/');
+           
 
+
+            $file_name =Helpers::saveImage($data['fileupload'], $imgpath);         
+           
             $createRecord = array(
                 'p_city'                => $data['p_city'],
                 'state_id'              => $data['p_state'],
@@ -199,7 +202,6 @@ class RegisterController extends Controller
                 'primary_position'      => $data['primary_position'],
                 'secondary_position'    => $data['secondary_possition'],
                 'player_file'           => $file_name,
-                'player_video'           => $playervideo,
                 'player_facebook'       => $data['facebook'],
                 'player_twitter'        => $data['twitter'],
                 'player_instagram'      => $data['instagram'],

@@ -42,9 +42,11 @@ class Controller extends BaseController
     public function transPassMsg($tresponse)
     {
         if($tresponse == 1) {
-            $message_text = "Team added to the Event Please make a  payment" ;
+            $message_text = "Team added to the Event Successfully" ;
+            $message_text1 = "Event Payment Paid Successfully" ;
             $msg_type     = "success_msg";
-            toastr()->success($message_text);       
+            toastr()->success($message_text); 
+            toastr()->success($message_text1);
         } elseif($tresponse == 2) {
             $message_text = "Team added to the Event Please make a  payment" ;
             $msg_type     = "success_msg";

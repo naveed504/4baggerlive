@@ -128,7 +128,7 @@ class ManagePayoutController extends Controller
             parent::refundErrorMsg($errorMsg); //err 3    
         }
 
-        return redirect()->back();
+        return redirect()->route('adminpayout.index');
     }   
 
 

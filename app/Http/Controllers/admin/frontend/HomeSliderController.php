@@ -38,8 +38,9 @@ class HomeSliderController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {      
-        $sliderimage = Helpers::saveImage($request->cover_photo);
+    {   
+        $imgpath= public_path('admin/allimages/');   
+        $sliderimage = Helpers::saveImage($request->cover_photo, $imgpath);
         Slider::create([
             'title_one' => $request->title_one,
             'title_two' => $request->title_two,
@@ -84,7 +85,8 @@ class HomeSliderController extends Controller
     public function update(Request $request, $id)
     {
         $updateSlider =Slider::find($id);
-        $updateSliderImage= Helpers::updateImage($request->update_photo, $updateSlider->cover_photo);
+        $imgpath= public_path('admin/allimages/');
+        $updateSliderImage= Helpers::updateImage($request->update_photo, $updateSlider->cover_photo,$imgpath);
         $updateSlider->update([
             'title_one' => $request->title_one,
             'title_two' => $request->title_two,

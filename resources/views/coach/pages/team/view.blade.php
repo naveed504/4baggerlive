@@ -39,7 +39,7 @@
                                     <td>{{ $team->division }}</td>
                                     <td>{{ $team->team_city }}</td>
                                     <td>{{ $team->state->state_name }}</td>
-                                    <td>{{ $team->age_group}}</td>
+                                    <td>{{ $team->age_group_id}}</td>
                                     <td>{{ ($team->active == 1) ? 'Active' : 'Inactive'}}</td>
                                     <td>
                                     <div class="btn-group">

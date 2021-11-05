@@ -11,6 +11,7 @@ use App\Http\Requests\admin\SubcriptionRequest;
 use App\Models\subscription\SubscriptionPaymentPlan;
 
 
+
 class SubscriptionController extends Controller
 {
     /**
@@ -52,6 +53,7 @@ class SubscriptionController extends Controller
             'plan_type'=>$request->plan_type,
             'plan_des'=>json_encode($request->package_description),
         ]);
+        parent::successMessage("Subscription Plans Created Successfully");
         return redirect()->route('subscription.index');
     }
 
@@ -60,13 +62,13 @@ class SubscriptionController extends Controller
         return view('admin.pages.subscription.edit',compact('data'));
     }
 
-    public function show(Request $request)
-    {       
-        $data  = SubscriptionPlan::where('id' , $request->planid)->first();      
-        return response()->json([
-            'html' => view('shared.subscription.update_form', compact('data'))->render()
-            ,200, ['Content-Type' => 'application/json']
-        ]);
+    public function show($id)
+    {     
+        $subscribedUsers= SubscriptionPaymentPlan::with('subscribeusers')->with('subscriptiondata')->where('subscription_plans_id', '=', $id)->get();
+        
+        return view('admin.pages.subscription.showsubscribeusers',compact('subscribedUsers'));
+           
+      
     }
 
     public function update(SubcriptionRequest $request , $id){
@@ -77,6 +79,7 @@ class SubscriptionController extends Controller
             'plan_type' => $request->package_type,
             'plan_des' => json_encode($request->package_description),
             ]);
+        parent::successMessage("Subscription Plans Updated Successfully");
         return redirect()->route('subscription.index');
     }
 
