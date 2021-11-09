@@ -21,6 +21,7 @@
                 <th>Email</th>
                 <th>Cell Number</th>
                 <th>Registered Events</th>
+              
                 <th>Action</th>
             </thead>
             <tbody>
@@ -31,6 +32,7 @@
                         <td>{{ $director->email }}</td>
                         <td>{{ $director->cell_number }}</td>
                         <td>{{ $director->events->count() }}</td>
+                     
                         <td>
                             <a href="{{ route('director.show', $director->id) }}" class="text-decoration-none pr-1">
                                <i class="fa fa-eye text-primary" aria-hidden="true"></i>

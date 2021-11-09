@@ -792,7 +792,7 @@
                                                     <div class="form-group col-md-6 col__mr-right">
                                                     <div class="form-row align-items-center">
                                                     <span class="btn btn__wrapper--four btn-file" id="btnfile">
-                                                        Upload Picture <input type="file" id="uploadfile" name="fileupload" accept="image/*">
+                                                        Upload Picture <input type="file" id="uploadfile" name="fileupload" >
                                                         @if($errors->has('fileupload'))
                                                             <span class="invalid-feedback">
                                                                 <strong>{{ $errors->first('fileupload') }}</strong>

@@ -150,6 +150,7 @@
                     </li>
                     <li><a href="#tab2" data-toggle="tab"><span>16</span> EVENTS/REPORTS</a></li>
                     <li><a href="#tab3" data-toggle="tab">STATS</a></li>
+                    <li><a href="#tab4" data-toggle="tab">VIDEO</a></li>
                 </ul>
                 <div class="tab-content">
                     <div class="tab-pane active" id="tab1">
@@ -351,6 +352,20 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div class="tab-pane" id="tab4">
+                      <section>
+                          <div class="container">
+                              <div class="row">
+                                  <div class="col-md-12">
+                                      <div class="video-area">
+                                      <iframe class="responsive-iframe" width="100%" height="400px" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
+
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </section>
                     </div>
                 </div>
             </div>

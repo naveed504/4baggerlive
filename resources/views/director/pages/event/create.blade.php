@@ -25,7 +25,7 @@
                             @endif
                         </div>
                         <div class="col-sm-6">
-                            <label class="label__wrapper required">Total Matches</label>
+                            <label class="label__wrapper required">Total Number Of Games</label>
                             <input type="number" name="total_matches" class="form-control input__box--wrapper" value="">
                             @if($errors->has('total_matches'))
                                 <span class="invalid-feedback">
@@ -148,7 +148,7 @@
 
                         <div class="row mb-2"  id="addMorevenue">
                             <div class="col-sm-6">
-                                <label class="label__wrapper required">Event Venue</label> <!--haxxan-->
+                                <label class="label__wrapper required">Main Site  Venue</label> <!--haxxan-->
                                 <input  type="text" name="event_venue[]" class="form-control input__box--wrapper" value="{{ old('event_venue[]')}}">
                                 @if($errors->has('event_venue'))
                                     <span class="invalid-feedback">

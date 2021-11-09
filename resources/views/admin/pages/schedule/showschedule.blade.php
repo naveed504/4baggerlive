@@ -14,25 +14,36 @@
                             <th class="padding-1" >Team Name</th>
                             <th class="padding-1" >Opponent</th>
                             <th class="padding-1" >Time</th>
+                            <th class="padding-1" >Place</th>
                             <th class="padding-1" >Days</th>
                         </tr>
                     </thead>
 
-                  
-                  
+
+
                     <tbody>
-                      
-                        @foreach($teamMatches as $key =>$value1) 
-                     
+                        @foreach($schedular as $key =>$value1)
+                        {{-- @dd($key); --}}
+                        <tr>
+                            <td style="width:7%">
+                                {{$key}}
+                            </td>
+                        </tr>
                         @foreach($value1 as $k => $value2)
-                        @foreach($value2 as $val)
-                      
+
+                        @foreach($value2 as $t => $val)
+                            @php
+                                $i=$loop->parent->iteration;
+
+                            @endphp
+                            {{-- @dd($loop->parent->iteration) --}}
                             <tr>
-                                <td>{{$loop->iteration}}</td>
+                                <td>{{$i}}</td>
                                 <td>{{$eventresult->event_name}}</td>
-                                <td>{{$val['team_name']}}</td>
-                                <td>{{ $val['opponent_name']}}</td>
+                                <td>{{$val['team']}}</td>
+                                <td>{{ $val['opponent']}}</td>
                                 <td>{{$val['scheduled_time']}}</td>
+                                <td>{{$val['place']}}</td>
                                 <td>{{$k}}</td>
                             </tr>
                             @endforeach

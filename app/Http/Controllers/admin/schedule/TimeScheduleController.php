@@ -4,7 +4,7 @@ namespace App\Http\Controllers\admin\schedule;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\models\Event\EventTimeSchedule;
+use App\Models\Event\EventTimeSchedule;
 use Exception;
 
 class TimeScheduleController extends Controller
