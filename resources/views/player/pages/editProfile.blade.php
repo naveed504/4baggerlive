@@ -397,16 +397,7 @@
                                                         @endif
                                                     </span>
                                                 </div>
-                                                <div class="form-group col-md-6 col__mr-right mb-0">
-                                                    <span class="btn btn__wrapper--four btn-file" id="btnfile">
-                                                        Upload video <input type="file" id="uploadfile" name="player_video" >
-                                                        @if($errors->has('fileupload'))
-                                                            <span class="invalid-feedback">
-                                                                <strong>{{ $errors->first('fileupload') }}</strong>
-                                                            </span>
-                                                        @endif
-                                                    </span>
-                                                </div>
+
                                             </div>
                                             <div>
                                                 <h3 class="social__heading">Social media information</h3>

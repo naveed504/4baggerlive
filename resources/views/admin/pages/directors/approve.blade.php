@@ -21,7 +21,7 @@
                 @forelse($directors as $director)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $director->name }}</td>
+                        <td>{{ $director->director->director_name }}</td>
                         <td>{{ $director->email }}</td>
                         <td>{{ $director->cell_number }}</td>
                         <td>{{ $director->events->count() }}</td>

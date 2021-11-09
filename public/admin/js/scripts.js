@@ -59,3 +59,38 @@ function checkRefundAmount(refundAmount) {
     }
 
 }
+
+
+// submit create event form
+const submitForm = (form, e) => {
+
+    e.preventDefault();
+
+    let selectedOption = document.querySelectorAll('.drop-options div a.hide, .drop-options div a.remove')
+
+    for (let i = 0; i < selectedOption.length; i++) {
+        let input = document.createElement("input")
+        input.setAttribute('name', "bat_type[]")
+        input.setAttribute('type', "hidden")
+        input.setAttribute('value', selectedOption[i].innerText)
+        checkExisting = document.querySelector("input[value='" + selectedOption[i].innerText + "']")
+        if (checkExisting == null) {
+            form.appendChild(input)
+        }
+    }
+
+    var counter = 0;
+
+    setTimeout(() => {
+        let checkValidatedRules = document.getElementsByClassName('invalid-feedback');
+
+        for (let j = 0; j < checkValidatedRules.length; j++) {
+            if (checkValidatedRules[j].innerText != "") {
+                counter += 1;
+            }
+        }
+        if (counter == 0) {
+            form.submit()
+        }
+    }, 100);
+}

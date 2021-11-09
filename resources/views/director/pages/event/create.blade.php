@@ -55,20 +55,24 @@
                         </div>
                     </div>
                     <div class="row mb-2">
+
                         <div class="col-sm-6">
-                            <label class="label__wrapper required">Age Restriction </label> <small>No Older Than ______(12-July-21)</small>
-                            <input type="date" name="age_restriction" class="form-control input__box--wrapper" value="{{ old('age_restriction')}}">
-                            @if($errors->has('age_restriction'))
+                            <label class="label__wrapper required">Age Group</label>
+                            <select class="form-control input__box--wrapper down-icons" id="js-example-basic-multiple"  multiple name="age_group[]" >
+                                @foreach($ageGroups as $agegroup)
+                                <option value="{{ $agegroup->id }}"> {{ $agegroup->age_group }}</option>
+                                @endforeach
+                            </select>
+                            @if($errors->has('age_group'))
                                 <span class="invalid-feedback">
-                                    <strong>{{ $errors->first('age_restriction') }}</strong>
+                                    <strong>{{ $errors->first('age_group') }}</strong>
                                 </span>
                             @endif
                         </div>
                         <div class="col-sm-6">
                             <label class="label__wrapper required">Graduation Year Restriction</label>
-                            <select name="grad_restriction" class="form-control input__box--wrapper">
+                            <select name="grad_restriction[]" class="form-control input__box--wrapper" id="js-example-basic" multiple>
 
-                                    <option value="">--Graduation Year--</option>
                                 @for($i = date('Y') ; $i <= 2050; $i++)
                                     <option value={{ $i }}>{{ $i }}</option>
                                 @endfor
@@ -97,21 +101,6 @@
                             @endif
                         </div>
                         <div class="col-sm-6">
-                            <label class="label__wrapper required">Age Group</label>
-                            <select class="form-control input__box--wrapper down-icons" id="js-example-basic-multiple"  multiple name="age_group[]" >
-                                @foreach($ageGroups as $agegroup)
-                                <option value="{{ $agegroup->id }}"> {{ $agegroup->age_group }}</option>
-                                @endforeach
-                            </select>
-                            @if($errors->has('age_group'))
-                                <span class="invalid-feedback">
-                                    <strong>{{ $errors->first('age_group') }}</strong>
-                                </span>
-                            @endif
-                        </div>
-                    </div>
-                    <div class="row mb-2">
-                        <div class="col-sm-4">
                             <label class="label__wrapper required">Event City</label>
                             <input type="text" name="event_city" class="form-control input__box--wrapper" value="{{ old('event_city')}}">
                             @if($errors->has('event_city'))
@@ -120,7 +109,11 @@
                                 </span>
                             @endif
                         </div>
-                        <div class="col-sm-4">
+
+                    </div>
+                    <div class="row mb-2">
+
+                        <div class="col-sm-6">
                             <label class="label__wrapper required">Event State</label>
                             <select  class="form-control  input__box--wrapper down-icons" value="" name="event_state" required >
                                 <option  disabled="" selected value="">select state</option>
@@ -135,7 +128,7 @@
                             @endif
                         </div>
 
-                        <div class="col-sm-4">
+                        <div class="col-sm-6">
                             <label class="label__wrapper required">Entry Fee</label>
                             <input type="number" name="entry_fee" class="form-control input__box--wrapper" value="{{ old('entry_fee') }}">
                             @if($errors->has('entry_fee'))
@@ -257,6 +250,9 @@
     <script>
          $('#js-example-basic-multiple').select2({
              placeholder : "Select Age Group"
+         });
+         $('#js-example-basic').select2({
+             placeholder : "Select Graduation Years"
          });
     </script>
 

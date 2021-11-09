@@ -27,6 +27,7 @@ class EventService
      */
     public function createEvent($request)
     {
+
         try {
 
 
@@ -43,8 +44,7 @@ class EventService
                 'total_matches' => $request->total_matches,
                 'start_date' => $request->start_date,
                 'end_date' => $request->end_date,
-                'age_restriction' => $request->age_restriction,
-                'graduation_restriction' => $request->grad_restriction,
+                'graduation_restriction' => implode(",", $request->grad_restriction),
                 'allowed_bats' => json_encode($request->bat_type),
                 'age_group_id'    => implode(",", $request->age_group),
                 'entry_fee' => $request->entry_fee,
@@ -57,10 +57,10 @@ class EventService
                 'gate_fee'    => $request->gate_fee,
                 'eventclassification'=>$request->eventclassification,
                 'event_time'=> json_encode($request->event_time),
-                
+
             ]);
             $lastInsertedId = $query->id;
-            
+
             foreach($request->age_group as $key => $val)
             {
                 CheckAgeGroupStatus::create([
@@ -104,8 +104,7 @@ class EventService
                 'total_matches' => $request->total_matches,
                 'start_date' => $request->start_date,
                 'end_date' => $request->end_date,
-                'age_restriction' => $request->age_restriction,
-                'graduation_restriction' => $request->grad_restriction,
+                'graduation_restriction' => implode(",", $request->grad_restriction),
                 'allowed_bats' => json_encode($request->bat_type),
                 'age_group_id'    =>implode(",", $request->age_group),
                 'entry_fee' => $request->entry_fee,

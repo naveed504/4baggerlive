@@ -13,28 +13,31 @@
                 <form action="{{ route('event.update', $event->id) }}" enctype="multipart/form-data" method="post" id="editEvent" onsubmit="return submitForm(this, event);">
                     @method('PUT')
                     @csrf
-                 
 
-                   
-                 
+
+
+
                     @include('shared.event.editform')
 
                 </form>
             </div>
         </div>
     </div>
- 
 
-   
+
+
 
 @endsection
 @section('scripts')
     <script>
-        
+
          $('#js-example-basic-multiple').select2({
              placeholder: "Select Age Group"
          });
-  
+         $('#js-example-basic').select2({
+             placeholder : "Select Graduation Years"
+         });
+
         let teamState = @php echo "'".$event->event_state."'" @endphp;
         let bats = @php  echo "'".$event->allowed_bats."'"  @endphp;
     </script>
