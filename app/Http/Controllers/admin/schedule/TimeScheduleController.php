@@ -18,7 +18,7 @@ class TimeScheduleController extends Controller
     {
         $timeschedules = EventTimeSchedule::all();
         return view('admin.pages.scheduletime.show', compact('timeschedules'));
-    
+
     }
 
     /**
@@ -38,7 +38,7 @@ class TimeScheduleController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {      
+    {
         try{
             EventTimeSchedule::create([
                 'event_schedule_time' => $request->event_schedule_time

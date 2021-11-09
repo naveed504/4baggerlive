@@ -28,8 +28,6 @@ class CreateEventRequest extends FormRequest
             'total_matches'     => 'required|numeric',
             'start_date'        => ['required','date','after:yesterday'],
             'end_date'          => ['required','date','after:start_date'],
-            'age_restriction'   => 'required|date',
-            'grad_restriction'  => 'required|numeric',
             'entry_fee'         => 'required|numeric',
             'event_format'      => 'required',
             'event_summary'     => 'required',
@@ -39,7 +37,7 @@ class CreateEventRequest extends FormRequest
             'event_venue'       => 'required',
             'eventclassification'=>'required',
             'gate_fee'          => 'required',
-            'bat_type'          => 'required' 
+            'bat_type'          => 'required'
          ];
     }
 

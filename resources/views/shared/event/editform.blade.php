@@ -42,19 +42,23 @@
     </div>
     <div class="row mb-2">
         <div class="col-sm-6">
-            <label class="label__wrapper required">Age Restriction</label>
-            <input type="date" name="age_restriction" class="form-control input__box--wrapper" value="{{ $event->age_restriction }}">
-            @if($errors->has('age_restriction'))
+            <label class="label__wrapper required">Age Group</label>
+            <select class="form-control input__box--wrapper down-icons" id="js-example-basic-multiple" multiple  name="age_group[]" >
+                @foreach($ageGroups as $agegroup)
+                    <option value="{{ $agegroup->id }}" @if(in_array($agegroup->id,explode(',',$event->age_group_id)) ) selected @endif> {{ $agegroup->age_group }}</option>
+                @endforeach
+            </select>
+            @if($errors->has('age_group'))
                 <span class="invalid-feedback">
-                    <strong>{{ $errors->first('age_restriction') }}</strong>
+                    <strong>{{ $errors->first('age_group') }}</strong>
                 </span>
             @endif
         </div>
         <div class="col-sm-6">
             <label class="label__wrapper required">Graduation Year Restriction</label>
-            <select name="grad_restriction" class="form-control input__box--wrapper">
-                @for($i = 1990; $i < date('Y'); $i++)
-                    <option value={{ $i }} @if($event->graduation_restriction == $i) selected @endif>{{ $i }}</option>
+            <select name="grad_restriction[]" class="form-control input__box--wrapper" id="js-example-basic" multiple>
+                @for($i = date('Y') ; $i <= 2050; $i++)
+                    <option value="{{ $i }}" @if(in_array($i,explode(',' , $event->graduation_restriction)) ) selected @endif>{{ $i }}</option>
                 @endfor
             </select>
             @if($errors->has('grad_restriction'))
@@ -81,21 +85,6 @@
             @endif
         </div>
         <div class="col-sm-6">
-            <label class="label__wrapper required">Age Group</label>
-            <select class="form-control input__box--wrapper down-icons" id="js-example-basic-multiple" multiple  name="age_group[]" >
-                @foreach($ageGroups as $agegroup)
-                    <option value="{{ $agegroup->id }}" @if(in_array($agegroup->id,explode(',',$event->age_group_id)) ) selected @endif> {{ $agegroup->age_group }}</option>
-                @endforeach
-            </select>
-            @if($errors->has('age_group'))
-                <span class="invalid-feedback">
-                    <strong>{{ $errors->first('age_group') }}</strong>
-                </span>
-            @endif
-        </div>
-    </div>
-    <div class="row mb-2">
-        <div class="col-sm-4">
             <label class="label__wrapper required">Event City</label>
             <input type="text" name="event_city" class="form-control input__box--wrapper" value="{{ $event->event_city }}">
             @if($errors->has('event_city'))
@@ -104,7 +93,10 @@
                 </span>
             @endif
         </div>
-        <div class="col-sm-4">
+    </div>
+    <div class="row mb-2">
+
+        <div class="col-sm-6">
             <label class="label__wrapper required">Event State</label>
             <select  class="form-control  input__box--wrapper down-icons" id="team_state" name="event_state" required >
                 <option  disabled="" selected value="">select state</option>
@@ -119,7 +111,7 @@
                 </span>
             @endif
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-6">
             <label class="label__wrapper required">Entry Fee</label>
             <input type="number" name="entry_fee" class="form-control input__box--wrapper" value="{{ $event->entry_fee }}">
             @if($errors->has('entry_fee'))

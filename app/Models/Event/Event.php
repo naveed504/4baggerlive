@@ -22,7 +22,6 @@ class Event extends Model
         'total_matches',
         'start_date',
         'end_date',
-        'age_restriction',
         'graduation_restriction',
         'allowed_bats',
         'entry_fee',

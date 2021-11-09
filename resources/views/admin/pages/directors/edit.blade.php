@@ -45,9 +45,11 @@
                         </div>
                         <div class="form-group col-md-3 col__mr-right">
                             <label class="label__wrapper required" for="">State</label>
+
                             <select  class="form-control  input__box--wrapper down-icons" value="" name="state" required  @if(Auth::user()->type == 1) disabled @endif>
+
                                 @foreach($states as $state)
-                                    <option value="{{ $state->id }}" @if($director->state_id == $state->id) selected @endif>{{ $state->state_name }}</option>
+                                    <option value="{{ $state->id }}" @if($director->director->state_id == $state->id) selected @endif>{{ $state->state_name }}</option>
                                 @endforeach
                             </select>
                             @if($errors->has('state'))
@@ -70,7 +72,8 @@
                 <div class="form-row">
                     <div class="form-group col-md-6 col__mr-right">
                         <label class="label__wrapper required" for="">director cell number</label>
-                        <input type="number" class="form-control input__box--wrapper" @if(Auth::user()->type == 1) disabled @endif value="{{ $director->cell_number }}"  pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" name="cell_no" required>
+
+                        <input type="text" class="form-control input__box--wrapper" @if(Auth::user()->type == 1) disabled @endif value="{{ $director->cell_number }}"  pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" name="cell_no" required>
                         @if($errors->has('cell_no'))
                             <span class="invalid-feedback">
                                 <strong>{{ $errors->first('cell_no') }}</strong>

@@ -18,6 +18,13 @@
 @endsection
 @section('scripts')
     <script>
+        $('#js-example-basic-multiple').select2({
+             placeholder: "Select Age Group"
+         });
+         $('#js-example-basic').select2({
+             placeholder : "Select Graduation Years"
+         });
+
         let teamState = @php echo "'".$event->event_state."'" @endphp;
         let bats = @php echo "'".$event->allowed_bats."'" @endphp;
     </script>
