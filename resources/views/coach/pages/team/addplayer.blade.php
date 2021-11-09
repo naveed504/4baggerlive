@@ -5,7 +5,6 @@
 
 
         <section class="mt--top-40 mb-5">
-
             <div class="col-md-12">
                 <div class="input-group">
                     <input type="search" class="form-control " placeholder="Search player" name="inputsearch">
@@ -15,11 +14,9 @@
                     </span>
                 </div>
                 </form>
-
-
                 <h6 class="text-uppercase text-right requested-players m-0">
                     <a href="{{ route('requested.player', $team->id) }}">Player Requests <span
-                            class="request-count">{{ $team->request->count() }}</span></a>
+                       class="request-count">{{ $team->request->count() }}</span></a>
                 </h6>
             </div>
     </div>
@@ -72,6 +69,5 @@
         <input type="hidden" name="player_id" id="player_id">
         <input type="hidden" name="team_id" id="team_id">
     </form>
-
     </div>
 @endsection

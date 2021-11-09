@@ -1,45 +1,60 @@
 @extends('director.newmaster')
 @section('content')
-<div class="container-fluid">
-                <div class="row">
-                  <div class="col-md-12" style="padding-right: 0px !important; !important;">
-                    <div class="dashboard-main-heading">
-                      <h4 class="text-dark p-3 pl-3" >Pellentesque in ipsum id orci porta dapibus.</h4>
-                    </div>
-                    <div class=" responsive-table">
-                      <table class="table table-borderless">
-                        <thead class="">
-                          <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">First</th>
-                            <th scope="col">Last</th>
-                            <th scope="col">Handle</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                          </tr>
-                          <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                          </tr>
-                          <tr>
-                            <th scope="row">3</th>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td>@twitter</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                 
-                  </div>
-                </div>
-              </div>
+<div class="row ">
+      <div class="col-md-6">
+        <div class="card custom-cards custom-card-1 text-white">
+          <div class="card-body">
+            <div class="float-left card-image mt-3">
+              <img src="{{ asset('director_assets/image/card-0.png')}}" alt="" />
+            </div>
+            <span class="vertical-line"></span>
+
+            <div class="float-right card-content mt-3">
+              <span>Director</span>
+            
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card custom-cards custom-card-2 text-white">
+          <div class="card-body">
+            <div class="float-left card-image mt-2">
+              <img src="{{ asset('director_assets/image/card-1.png') }}" alt="" />
+            </div>
+            <span class="vertical-line"></span>
+            <div class="float-right card-content mt-3">
+              <span>Teams</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card custom-cards custom-card-3 text-white">
+          <div class="card-body">
+            <div class="float-left card-image mt-2">
+              <img src="{{ asset('director_assets/image/card-2.png ')}}" alt="" />
+            </div>
+            <span class="vertical-line"></span>
+            <div class="float-right card-content mt-3">
+              <span>Events</span>
+             
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card custom-cards custom-card-4 text-white">
+          <div class="card-body">
+            <div class="float-left card-image mt-3">
+              <img src="{{ asset('director_assets/image/card-3.png')}}" alt="" />
+            </div>
+            <span class="vertical-line"></span>
+            <div class="float-right card-content mt-3">
+              <span>Players</span>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
 @endsection
