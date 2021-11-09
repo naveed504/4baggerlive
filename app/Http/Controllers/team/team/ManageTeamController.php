@@ -14,6 +14,7 @@ use App\Models\User;
 use App\Services\TeamService;
 use Exception;
 use Image;
+use App\Models\Event\Event;
 
 class ManageTeamController extends Controller
 {

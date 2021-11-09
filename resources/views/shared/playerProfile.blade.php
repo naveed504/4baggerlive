@@ -1,8 +1,8 @@
 <main>
-    <div class="container-fluid">
+    <div class="container-fluid" style="margin-top: 22px;">
         <section class="bg__wrappertwo bg-light">
             <div class="container">
-                <div class=" row">
+                <div class=" row" >
                     <div class="col-md-3">
 
                         @if(Auth::check() && Auth::user()->type == 2)
@@ -136,10 +136,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="player__video" >
-                        <iframe class="embed-responsive-item" src="{{ asset('frontend/player/' . $player->player->player_video ?? '')}}"></iframe>
-
-                        </div>
+               
             </div>
         </section>
         <section class="player-reg2 bg-white">
@@ -359,7 +356,11 @@
                               <div class="row">
                                   <div class="col-md-12">
                                       <div class="video-area">
-                                      <iframe class="responsive-iframe" width="100%" height="400px" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
+                                          @if(!empty($player->player->player_video))
+                                      <iframe class="responsive-iframe" width="100%" height="400px" src="{{ asset('frontend/player/' . $player->player->player_video ?? '')}}"></iframe>
+                                      @else 
+                                      <h3>No Player's Video found</h3>
+                                      @endif
 
                                       </div>
                                   </div>

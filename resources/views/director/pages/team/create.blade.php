@@ -1,6 +1,6 @@
-@extends('director.master')
+@extends('director.newmaster')
 @section('content')
-    <div class="container mb-5">
+    <div class="container mb-5" >
         <div class="col-sm-12 mb-5">
             <h3 class="text-center p-4 heading-color">TEAM REGISTRATION</h3>
             <h5 class="text-center heading-color">BASEBALL TEAM</h5>

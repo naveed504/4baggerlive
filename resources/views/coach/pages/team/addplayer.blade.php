@@ -1,4 +1,4 @@
-@extends('coach.master')
+@extends('coach.newmaster')
 @section('content')
     @include('shared.team._banner')
     <div class="container">
@@ -6,7 +6,7 @@
 
         <section class="mt--top-40 mb-5">
 
-            <div class="col-md-12">category:formatters php
+            <div class="col-md-12">
                 <div class="input-group">
                     <input type="search" class="form-control " placeholder="Search player" name="inputsearch">
                     <input type="hidden" name="team_id" value="{{ $team->id }}">
