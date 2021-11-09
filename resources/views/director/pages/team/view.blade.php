@@ -1,4 +1,4 @@
-@extends('director.master')
+@extends('director.newmaster')
 @section('content')
 <div class="container mb-5">
     <div class="row">
@@ -30,7 +30,7 @@
                 @endif
             @endforeach
             <p class="text-light text-uppercase text-center p-0 bg-dark m-0 heading_para py-2">
-                <strong>{{ __('Teams') }}</strong>
+                <strong>{{ __('All Teams') }}</strong>
             </p>
             <div class="col-sm-12 mt-2 p-4 overflow-auto">
                 <div class="row mb-2 ">

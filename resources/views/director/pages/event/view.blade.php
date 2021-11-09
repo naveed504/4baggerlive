@@ -1,4 +1,4 @@
-@extends('director.master')
+@extends('director.newmaster')
 @section('content')
     @include("shared.event.event")
 @endsection

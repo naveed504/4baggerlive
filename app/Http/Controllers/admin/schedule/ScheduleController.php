@@ -42,7 +42,11 @@ class ScheduleController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
+        $count = Helpers::countTeamsInAgeGroup($request->agegroupid, $request->eventid);
+        if($count <3) {
+            parent::dangerMessage("Each Age Group Must be More Then Three Teams");
+            return redirect()->back();
+        }
         $eventresult = Event::find($request->eventid);
         $teams=  Team::where(['age_group_id' =>$request->agegroupid,'event_id'=>$request->eventid])->pluck('id')->toArray();
         $event = Event::find($request->eventid);

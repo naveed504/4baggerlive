@@ -14,6 +14,7 @@ use App\Models\User;
 use App\Services\TeamService;
 use Exception;
 use Image;
+use App\Models\Event\Event;
 
 class ManageTeamController extends Controller
 {
@@ -86,9 +87,10 @@ class ManageTeamController extends Controller
     {
         $states = State::all();
         $team = Team::find($id);
+        $directorEventState = Event::all();
        
        
-        return view('coach.pages.team.edit', compact('team', 'states'));
+        return view('coach.pages.team.edit', compact('team', 'states','directorEventState'));
     }
 
     /**

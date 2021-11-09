@@ -45,6 +45,7 @@ body {
     padding: 0;
     margin: 0;
     font-family: "OpenSans-Regular";
+    overflow-x: hidden;
 }
 
 ul {
@@ -2239,8 +2240,8 @@ h6 {
     background-repeat: no-repeat;
     background-size: cover;
     padding: 9rem 0;
-    min-height: calc(100vh - 100px);
-    margin-top: -58px;
+    height: 50vh !important;
+    margin-top: 23px;
 }
 
 .d__flex-one {
@@ -2622,6 +2623,8 @@ h6 {
 
 .requested-players a {
     color: white;
+    position: relative;
+    top: 24px;
     text-decoration: none;
     background: #ce8452;
     padding: 10px 20px;

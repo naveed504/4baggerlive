@@ -1,4 +1,4 @@
-@extends('director.master')
+@extends('director.newmaster')
 @push('css')
 <style>
     .bagger-pills li a {

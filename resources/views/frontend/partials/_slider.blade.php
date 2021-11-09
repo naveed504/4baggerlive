@@ -10,7 +10,7 @@
         <div class="carousel-inner">
            @foreach($sliders as $slider)
             <div class="carousel-item  {{ $loop->first ? ' active' : '' }}">
-                <img src="{{ asset('admin/slider/'. $slider->cover_photo) }}" alt="Los Angeles" />
+                <img src="{{ asset('admin/allimages/'. $slider->cover_photo) }}" alt="Los Angeles" />
                 <div class="banner-inner">
                     <div class="banner-inner-text">
                         <h1>
