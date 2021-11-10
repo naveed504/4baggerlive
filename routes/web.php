@@ -194,7 +194,8 @@ Route::group(['prefix' => 'director',  'middleware' => ['auth', 'directorrole']]
     Route::post('playersinteam', [EventController::class,'playersInEventTeam'])->name('playersinteam');
     Route::get('eventhistory/{eventid}',[EventController::class, 'eventHistory'])->name('eventhistory');
 });
-
-Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/scheduler', [App\Http\Controllers\SchedulerController::class, 'index']);
+Route::post('logout', [App\Http\Controllers\Auth\LoginController::class ,'logout']);
+Auth::routes();
+
