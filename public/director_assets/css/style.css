@@ -36,14 +36,19 @@ body {
 li{
   list-style: none;
 }
-.navbar-wrapper,
+
 nav.navbar {
   background-color: 
   #69a628!important;
   color: black !important;
   position: relative !important;
   height: 50px !important;
-
+  margin-top: 80px;
+}
+.navbar-wrapper{
+  background-color: rgb(255, 255, 255) !important;
+  height: 20vh;
+  margin-top: -80px;
 }
 .navbar-collapse{
   background-color: 
@@ -189,7 +194,10 @@ body,
   position: relative;
   padding-left: 15px;
 }
-
+#wrapper.toggled .iconsetting{
+  margin-left: -16px;
+  margin-top: -9px;
+}
 
 #wrapper.toggled #page-content-wrapper {
   position: relative;
@@ -286,7 +294,7 @@ body,
   }
   #wrapper.toggled #page-content-wrapper {
     position: relative;
-    margin-right: 0;
+    
   }
 }
 
@@ -384,11 +392,13 @@ body,
   width: 100%;
   position: absolute;
   padding-left: 64px;
+  padding-right: 40px;
 }
 
 #wrapper.toggled #page-content-wrapper {
   position: absolute;
   margin-right: -150px;
+  padding-left: 60px !important;
   -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
@@ -449,7 +459,7 @@ body,
  
   #page-content-wrapper {
     position: relative;
-    padding-left: 230px;
+    padding-left: 280px;
   }
   #wrapper.toggled #page-content-wrapper {
     position: relative;
@@ -503,12 +513,29 @@ body,
     width: 220px;
     margin-top: 103px !important;
   }
-  #wrapper.toggled #sidebar-wrapper {
-    width: 0px;
-  }
+ 
   .sidebar-nav{
     margin-top: 50px;
   }
+  .navbar-wrapper{
+    background-color: rgb(255, 255, 255) !important;
+    height: 20vh;
+    margin-top: -80px;
+  }
+  nav.navbar {
+    background-color: 
+    #69a628!important;
+    color: black !important;
+    position: relative !important;
+    margin-top: 50px;
+    height: 90px !important;
+  }
+  .navbar-brand img{
+    margin-top: -2px;
+    width: 70px;
+  }
+  
+
 }
 
 @media (min-width: 992px) and (max-width: 1200px) {
@@ -534,12 +561,12 @@ body,
     font-size: 14px;
     font-weight: 500  ;
   }
-  .navbar-wrapper,
-  nav.navbar {
-   position: fixed !important;
-   width: 100%;
-   height: 100px !important;
-  }
+  .navbar-wrapper, nav.navbar {
+    position: fixed !important;
+    width: 100%;
+    height: 126px!important;
+    margin-top: -10px;
+}
 
   #sidebar-wrapper {
     width: 220px;
@@ -548,6 +575,19 @@ body,
   #wrapper.toggled #sidebar-wrapper {
     width: 0px;
   }
+  #wrapper.toggled #page-content-wrapper {
+    position: absolute;
+    margin-right: -150px;
+    padding-left: 0px!important;
+
+}
+.custom-cards {
+  padding: 3px 8px!important;
+  border-radius: 10px;
+  font-weight: 400;
+  margin-top: 19px !important;
+  min-height: 100px;
+}
 }
 
 @media (max-width: 767.98px) {
@@ -661,4 +701,8 @@ transform: translate(-50%,-50%);
   margin-left: 15px;
   color: white;
   font-size: medium;
+}
+#wrapper.toggled a span,
+#wrapper.toggled .fa-chevron-down{
+  display: none;
 }
