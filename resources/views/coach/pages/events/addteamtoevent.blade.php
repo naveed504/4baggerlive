@@ -19,8 +19,9 @@
                 </span>
             @endif
             @php $count = 0; @endphp
-          
+
             @forelse ($teams as $team)
+
                <div class="row">
                     @php $count += 1; @endphp
                     <div class="col-sm-4">
@@ -32,7 +33,7 @@
                         <p><b>Age Group :{{ $team->agegroup->age_group }}</b> </p>
                     </div>
                     <div class="col-sm-2">
-                        <input   type="checkbox" data-teamId="{{ $team->id}}"  name="teamId[]"  value="{{ $team->id }}" class="w-50 h-50 selectTeam" id="{{ $team->id }}" onclick="CalculateAmount(this)">
+                        <input type="checkbox" data-eventId="{{ $team->event_id}}" data-ageGroupId="{{ $team->age_group_id}}" data-teamId="{{ $team->id}}"  name="teamId[]"  value="{{ $team->id }}" class="w-50 h-50 selectTeam" id="{{ $team->id }}" onclick="CalculateAmount(this)">
                    <input type="hidden" value="{{$team->agegroup->age_group}}" name="age_group[]">
                       </div>
                   @php $count += 1; @endphp
@@ -50,7 +51,7 @@
             </p>
                 <input type="hidden" name="amount" id="amountTotal">
                 <input type="hidden" name="totalTeams" id="teamsTotal">
-              
+
                 <input type="hidden" name="event_id" value="{{$event->id}}" >
                 <input type="hidden" name="event_amount" value="{{$event->entry_fee}}" >
                 <input type="hidden" name="coach_id" value="{{ Auth::user()->id }}"/>
@@ -121,6 +122,40 @@
 <script>
     const eventPrice = "{{ $event->entry_fee }}";
     const chargeservicefee = "{{ $servicefee->servicefee}}";
+
+    function CalculateAmount(obj){
+        if($(obj).is(":checked")){
+            let eventId = obj.getAttribute('data-eventId');
+            let ageGroupId = obj.getAttribute('data-ageGroupId');
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            $.ajax({
+                data: {eventId:eventId, ageGroupId:ageGroupId},
+                url: "{{ route('verifyagegroupforeventteam') }}",
+                type: "POST",
+                dataType: 'json',
+                success: function(data) {
+                    if(data.status == 'close'){
+                        $(obj).prop("checked", false);
+                        toastr.error("You can't add team into event, AgeGroup of this team is closed");
+                        toastr.error("Please update your team AgeGroup");
+                    }
+                    if(data.status == "" || data.status == null){
+                        $(obj).prop("checked", false);
+                        toastr.error("You can't add team into event, AgeGroup of this team is not exist");
+                    }
+
+                }
+            });
+        }
+
+    }
+
+
 </script>
 
 @endsection

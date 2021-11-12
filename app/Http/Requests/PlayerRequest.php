@@ -38,7 +38,7 @@ class PlayerRequest extends FormRequest
             'height' => ['required'],
             'inches' => ['required'],
             'weight' => ['required'],
-            
+
             'throw' => ['required'],
             'bat' => ['required'],
             'primary_position' => ['required'],
@@ -47,10 +47,10 @@ class PlayerRequest extends FormRequest
             'parent_lastname[]' => ['regex:/[a-zA-Z][a-zA-Z ]+/', 'required'],
             'parent_cellno[]' => ['required'],
             'parent_email[]' => ['email', 'required'],
-            'facebook' => ['required','german_url'],
-            'twitter' => ['required','url'],
-            'instagram' => ['required','url'],
-            'fileupload' => ['required','mimes:jpeg,png,jpg,gif,svg|max:2048'],
+            // 'facebook' => ['required','german_url'],
+            // 'twitter' => ['required','url'],
+            // 'instagram' => ['required','url'],
+            // 'fileupload' => ['required','mimes:jpeg,png,jpg,gif,svg|max:2048'],
             'password' => [
                 'required', 'confirmed', 'string',
                 'min:8',             // must be at least 10 characters in length
@@ -80,7 +80,7 @@ class PlayerRequest extends FormRequest
             'height.required' => "height is required",
             'inches.required' => "inches is required",
             'weight.required' => "weight is required",
-           
+
             'throw.required' => "Player throw is required",
             'bat.required' => "Player bat is required",
             'primary_position.required' => "Primary possition  is required",

@@ -194,11 +194,21 @@
                         </div>
 
                     </div>
-
-
-
-
-
+                    <div class="row ">
+                        <div class="form-group col-md-6 col__mr-right">
+                            <div class="wrapper--append">
+                                <div class="custom-file">
+                                    <input type="file" name="event_logo" class="form-control input__box--wrapper custom-file-input" id="validatedCustomFile" >
+                                    <span class="custom-file-label" for="validatedCustomFile">Choose event logo...</span>
+                                    @if($errors->has('event_logo'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('event_logo') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="row mb-2">
                         <div class="col-sm-12">
                             <label class="label__wrapper required">Event Format</label>
@@ -212,7 +222,7 @@
                     </div>
                     <div class="row mb-4">
                         <div class="col-sm-12">
-                            <label class="label__wrapper required">Event Summary</label>
+                            <label class="label__wrapper required">Tournament Details</label>
                             <textarea name="event_summary" class="form-control input__box--wrapper" id="event_summary" placeholder="Event Summary..."></textarea>
                             @if($errors->has('event_summary'))
                                 <span class="invalid-feedback">
@@ -221,18 +231,7 @@
                             @endif
                         </div>
                     </div>
-                    <div class="row mb-2">
-                        <div class="col-sm-6">
-                            <span class="btn btn__wrapper--four btn-file" id="btnfile">
-                                Upload Event Logo <input type="file" id="uploadfile" name="event_logo" accept="image/*">
-                                @if($errors->has('event_logo'))
-                                    <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('event_logo') }}</strong>
-                                    </span>
-                                @endif
-                            </span>
-                        </div>
-                    </div>
+
                 </div>
                 <div class="row mb-5">
                     <div class="col-sm-3 mx-auto">

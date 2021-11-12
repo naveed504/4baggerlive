@@ -38,10 +38,10 @@ class CreatePlayerDataTable extends Migration
             $table->string('player_bat');
             $table->string('primary_position');
             $table->string('secondary_position');
-            $table->string('player_file');
-            $table->string('player_facebook');
-            $table->string('player_twitter');
-            $table->string('player_instagram');
+            $table->string('player_file')->nullable();
+            $table->string('player_facebook')->nullable();
+            $table->string('player_twitter')->nullable();
+            $table->string('player_instagram')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
