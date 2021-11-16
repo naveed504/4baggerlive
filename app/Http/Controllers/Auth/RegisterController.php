@@ -93,13 +93,16 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\Models\User
      */
+    public function redirectTo()
+    {
+
+        return '/home';
+    }
 
     protected function create(array $data)
     {
 
         try {
-
-           
 
             $user = user::create([
                 'name'        => $data['type'] == 4 ? $data['first_name'] . ' ' . $data['last_name'] : $data['name'],
@@ -110,8 +113,6 @@ class RegisterController extends Controller
                 'cell_number' => $data['cell_no'] ?? "",
                 'password'    => Hash::make($data['password']),
             ]);
-
-
 
         } catch (Exception $e) {
             dd($e->getMessage());
@@ -182,11 +183,13 @@ class RegisterController extends Controller
         } elseif($user['type'] == '4') {
 
             $imgpath= public_path('frontend/player/');
-           
 
 
-            $file_name =Helpers::saveImage($data['fileupload'], $imgpath);         
-           
+            if(!empty($data['fileupload'])){
+                $file_name =Helpers::saveImage($data['fileupload'], $imgpath);
+            }
+
+
             $createRecord = array(
                 'p_city'                => $data['p_city'],
                 'state_id'              => $data['p_state'],
@@ -205,7 +208,7 @@ class RegisterController extends Controller
                 'player_bat'            => $data['bat'],
                 'primary_position'      => $data['primary_position'],
                 'secondary_position'    => $data['secondary_possition'],
-                'player_file'           => $file_name,
+                'player_file'           => $file_name ?? Null,
                 'player_facebook'       => $data['facebook'],
                 'player_twitter'        => $data['twitter'],
                 'player_instagram'      => $data['instagram'],

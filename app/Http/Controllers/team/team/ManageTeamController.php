@@ -25,7 +25,7 @@ class ManageTeamController extends Controller
      */
     public function index()
     {
-      
+
         return view('coach.pages.team.view');
     }
 
@@ -36,9 +36,9 @@ class ManageTeamController extends Controller
      */
     public function create()
     {
-        $agegroups =  AgeGroup::all();       
+        $agegroups =  AgeGroup::all();
         $states = State::all();
-        
+
         return view('coach.pages.team.create', compact('states','agegroups'));
     }
 
@@ -50,7 +50,7 @@ class ManageTeamController extends Controller
      */
     public function store(Request $request,  TeamService $team)
     {
-       
+
         if (!empty($request->terms_agreement) && !empty($request->site_agreement)) {
 
             $team->createTeam(Auth::user()->id, $request) == 'true'
@@ -72,7 +72,7 @@ class ManageTeamController extends Controller
      */
     public function show($id)
     {
-       
+
         $team = Team::find($id);
         return view('coach.pages.team.show', compact('team'));
     }
@@ -88,9 +88,9 @@ class ManageTeamController extends Controller
         $states = State::all();
         $team = Team::find($id);
         $directorEventState = Event::all();
-       
-       
-        return view('coach.pages.team.edit', compact('team', 'states','directorEventState'));
+        $ageGroups = AgeGroup::all();
+
+        return view('coach.pages.team.edit', compact('team', 'states','directorEventState', 'ageGroups'));
     }
 
     /**
@@ -102,7 +102,7 @@ class ManageTeamController extends Controller
      */
     public function update(TeamService $team, Request $request, $id)
     {
-       
+
         $team->updateTeam($id, $request)
             ? parent::successMessage("Team Updated Successfully")
             : parent::dangerMessage("Oops! We have encountered and issue, Please try again");
@@ -118,14 +118,14 @@ class ManageTeamController extends Controller
     public function destroy($id)
     {
        $player_id = PlayerData::find($id);
-      
+
         $player_id->update([
             'team_id' => null ,
         ]);
         parent::successMessage("Player removed from team");
         return redirect()->back();
-       
-        
+
+
     }
 
     /**

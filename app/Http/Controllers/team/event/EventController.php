@@ -20,6 +20,7 @@ use App\PaymentError\CustomError;
 use App\Services\CustomAuthorizeErrorService;
 use App\Services\PaymentService;
 use App\Exceptions\PaymentException;
+use App\Models\CheckAgeGroupStatus;
 use DB;
 
 
@@ -77,13 +78,13 @@ class EventController extends Controller
      */
     public function addToEvent($id)
     {
-       
+
         $userId     = Auth::user()->id;
         $teamId     = EventRegisterTeam::where(['user_id'=>$userId])->where('payment_status', '=' ,1)->pluck('team_id')->all();
         $teams      = Team::where(['user_id'=>$userId])->whereNotIn('id',$teamId)->with('agegroup')->get();
         $event      = Event::find($id);
         $servicefee = ServiceFee::first();
-      
+
         return view('coach.pages.events.addteamtoevent', compact('event', 'servicefee','teams'));
     }
 
@@ -95,11 +96,11 @@ class EventController extends Controller
      */
     public function showTotalTeams($id)
     {
-       
-      
+
+
         $event = Event::find($id);
-       
-      
+
+
         return view('coach.pages.events.showTeams', compact('event'));
     }
 
@@ -113,7 +114,7 @@ class EventController extends Controller
     {
 
         $input = $request->all();
-      
+
         if (empty($request['checkbox'])) {
             $response = $payment->setPaymentData($request->all())
                 ->setRefId()
@@ -137,5 +138,11 @@ class EventController extends Controller
             $this->paymentservice->registerTeamInToEventWithoutPayment($input);
         }
          return redirect()->back();
-    }    
+    }
+
+    public function verifyagegroupforeventteam(Request $request){
+        $result = CheckAgeGroupStatus::where('event_id', $request->eventId)->where('age_group_id', $request->ageGroupId)->first();
+        $checkExist = $result->status ?? '';
+        return response()->json(['status' => $checkExist]);
+    }
 }

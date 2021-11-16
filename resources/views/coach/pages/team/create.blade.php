@@ -74,7 +74,7 @@
                                     @foreach($agegroups as $agegroup)
                                     <option value="{{ $agegroup->age_group }}"> {{ $agegroup->age_group }}</option>
                                     @endforeach
-                                  
+
                                 </select>
                                 @if($errors->has('age_group'))
                                                         <span class="invalid-feedback">
@@ -82,18 +82,18 @@
                                                         </span>
                                                     @endif
                             </div>
+
                             <div class="col-sm-6">
-                                <div class="form-row align-items-center" style="margin-top:20px;">
-                                    <div class="form-group col-md-8 col__mr-right mb-0">
-                                        <span class="btn btn__wrapper--four btn-file" id="btnfile">
-                                            Team Profile <input type="file" id="team_profile" name="team_profile" accept="image/*">
-                                           
-                                        </span>
+                                <div class="wrapper--append">
+                                    <label class="label__wrapper required">Team Profile</label>
+                                    <div class="custom-file">
+                                        <input type="file" name="team_profile" class="form-control input__box--wrapper custom-file-input" id="team_profile" accept="image/*">
+                                        <span class="custom-file-label" for="validatedCustomFile">Choose team profile...</span>
                                         @if($errors->has('team_profile'))
                                         <span class="invalid-feedback">
                                             <strong>{{ $errors->first('team_profile') }}</strong>
                                         </span>
-                                    @endif
+                                        @endif
                                     </div>
                                 </div>
                             </div>

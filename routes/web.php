@@ -163,6 +163,7 @@ Route::group(['prefix' => 'team',  'middleware' => ['auth', 'teamrole']], functi
     Route::get('allevents', [TeamEventController::class, 'index'])->name('allevents');
     Route::post('add-team-to-event', [TeamEventController::class, 'addTeamToEvent'])->name('addTeamToEvent');
     Route::get('add-to-event/{id}', [TeamEventController::class, 'addToEvent'])->name('addToEvent');
+    Route::post('verifyagegroupforeventteam', [TeamEventController::class, 'verifyagegroupforeventteam'])->name('verifyagegroupforeventteam');
     Route::get('event/{id}', [TeamEventController::class, 'viewEvent'])->name('view.event.coach');
     Route::post('payevents', [TeamEventController::class, 'payTeamForEvent'])->name('payevents');
     Route::get('showTotalTeams/{id}', [TeamEventController::class, 'showTotalTeams'])->name('showTotalTeams');
