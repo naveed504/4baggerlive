@@ -18,6 +18,7 @@ use Helpers;
 use Illuminate\Support\Str;
 use App\Jobs\RegisterationJob;
 use Carbon\Carbon;
+use Illuminate\Validation\Rule;
 
 class RegisterController extends Controller
 {
@@ -67,7 +68,7 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             // 'name' => ['string', 'digits:10'],
-            // 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             // 'password' => [
             //     'required',
             //     'confirmed',
@@ -97,6 +98,9 @@ class RegisterController extends Controller
     {
 
         try {
+
+           
+
             $user = user::create([
                 'name'        => $data['type'] == 4 ? $data['first_name'] . ' ' . $data['last_name'] : $data['name'],
                 'email'       => $data['email'],
