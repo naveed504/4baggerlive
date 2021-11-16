@@ -184,52 +184,6 @@
     </div>
 </section>
 
-{{-- section 5 --}}
-<section class="select-inner">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-3 col-md-3">
-                <div>
-                    <select class="custom-select select__custm__wrapper" id="inputGroupSelect01">
-        <option selected>Choose...</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
-      </select>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-3">
-                <div>
-                    <select class="custom-select select__custm__wrapper" id="inputGroupSelect012">
-        <option selected>Choose...</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
-      </select>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-3">
-                <div>
-                    <select class="custom-select select__custm__wrapper" id="inputGroupSelect013">
-        <option selected>Choose...</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
-      </select>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-3">
-                <div>
-                    <select class="custom-select select__custm__wrapper" id="inputGroupSelect014">
-        <option selected>Choose...</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
-      </select>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+
 @endsection
 

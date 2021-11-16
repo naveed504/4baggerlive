@@ -1,5 +1,5 @@
 
-@extends('director.newmaster')
+@extends('director.master')
 @section('content')
 <div class="container mb-5">
     <div class="row">
