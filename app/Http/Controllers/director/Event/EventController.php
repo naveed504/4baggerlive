@@ -26,7 +26,7 @@ class EventController extends Controller
     public function index()
     {
         $eventResults = Event::with('agegroup')->get();
-      
+
 
         return view('director.pages.event.index', compact('eventResults'));
     }

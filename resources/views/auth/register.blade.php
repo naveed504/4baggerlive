@@ -7,14 +7,14 @@
             </div>
             <section class="player-reg">
                 <ul class="nav nav-tabs bagger-pills">
-                    
+
                      <li> <a href="#tab1" class="active" data-toggle="tab">Director registration</a></li>
                     <li><a href="#tab2" data-toggle="tab">Team registration</a></li>
                     <li><a href="#tab3" data-toggle="tab">Player registration</a></li>
                     <li><a href="#tab4" data-toggle="tab">User </a></li>
 
                 </ul>
-             
+
                 <div class="tab-content">
                     <div class="tab-pane active" id="tab1">
                         <div class="panel panel-default">
@@ -786,7 +786,7 @@
                                             <div class="text-right">
                                                 <button class="btn btn-xs btn__add flex__right my-2" type="button" onclick="addParentInfo('parentcontact')">Add Additional Parent Info</button>
                                             </div>
-                                          
+
                                             <div class="wrapper--append">
                                                 <div class="form-row" id="parentinfo">
                                                     <div class="form-group col-md-6 col__mr-right">
@@ -801,7 +801,7 @@
                                                     </span>
                                             </div>
                                                     </div>
-                                                   
+
                                                 </div>
                                             </div>
                                             <div>
@@ -890,9 +890,9 @@
                                                         </span>
                                                     @endif
                                                 </div>
-                                              
+
                                             </div>
-                                         
+
                                             <div class="form-row">
                                                 <div class="form-group col-md-6 col__mr-right">
                                                     <label class="label__wrapper required" for=""> Cell Number
@@ -937,7 +937,7 @@
                                                     @endif
                                                 </div>
                                             </div>
-                                           
+
                                                  <div class="form-row">
                                                 <div class="form-group col-md-6 col__mr-right">
                                                     <label class="label__wrapper" for="">password </label>
@@ -967,9 +967,9 @@
                             </div>
                         </div>
                     </div>
-                  
-                    
-                    
+
+
+
                 </div>
             </section>
         </div>

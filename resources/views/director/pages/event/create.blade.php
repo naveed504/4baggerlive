@@ -141,7 +141,7 @@
 
                         <div class="row mb-2"  id="addMorevenue">
                             <div class="col-sm-6">
-                                <label class="label__wrapper required">Main Site  Venue</label> <!--haxxan-->
+                                <label class="label__wrapper required">Main Site Venue</label> <!--haxxan-->
                                 <input  type="text" name="event_venue[]" class="form-control input__box--wrapper" value="{{ old('event_venue[]')}}">
                                 @if($errors->has('event_venue'))
                                     <span class="invalid-feedback">
