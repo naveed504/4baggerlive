@@ -18,6 +18,7 @@ use Helpers;
 use Illuminate\Support\Str;
 use App\Jobs\RegisterationJob;
 use Carbon\Carbon;
+use Illuminate\Validation\Rule;
 
 class RegisterController extends Controller
 {

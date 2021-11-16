@@ -197,6 +197,5 @@ Route::group(['prefix' => 'director',  'middleware' => ['auth', 'directorrole']]
 });
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/scheduler', [App\Http\Controllers\SchedulerController::class, 'index']);
-Route::post('logout', [App\Http\Controllers\Auth\LoginController::class ,'logout']);
 Auth::routes();
 

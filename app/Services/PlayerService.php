@@ -24,7 +24,6 @@ class PlayerService
 
         $resultRequest = Request::where('user_id', $data['player_id'])->where('team_id', $data['team_id'])->count();
         if ($resultRequest > 0) {
-
             return redirect()->back();
         }
 

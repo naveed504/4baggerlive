@@ -11,4 +11,14 @@
 {!! JsValidator::formRequest('App\Http\Requests\GeneralUserRequest', '#generaluser_registration_form') !!}
 <script>
     $('.phoneNumber').inputmask("(+1) 999-999-9999");
+   
+   
+
 </script>
+@if (count($errors) > 0)
+    <script type="text/javascript">
+        $( document ).ready(function() {
+             $('#myModal').modal('show');
+        });
+    </script>
+  @endif

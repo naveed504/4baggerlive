@@ -386,18 +386,20 @@
                                             <div class="text-right">
                                                 <button class="btn btn-xs btn__add flex__right my-2" type="button" onclick="addParentInfo('appendAfter')">Add</button>
                                             </div>
-                                            <div class="form-row align-items-center">
-                                                <div class="form-group col-md-6 col__mr-right mb-0">
-                                                    <span class="btn btn__wrapper--four btn-file" id="btnfile">
-                                                        Upload Picture <input type="file" id="uploadfile" name="fileupload" accept="image/*">
-                                                        @if($errors->has('fileupload'))
+                                            <div class="form-row">
+                                                <div class="form-group col-md-6 col__mr-right">
+                                                    <div class="wrapper--append">
+                                                        <div class="custom-file">
+                                                            <input type="file" name="fileupload" class="custom-file-input" id="validatedCustomFile" >
+                                                            <span class="custom-file-label" for="validatedCustomFile">Choose player Profile...</span>
+                                                            @if($errors->has('fileupload'))
                                                             <span class="invalid-feedback">
                                                                 <strong>{{ $errors->first('fileupload') }}</strong>
                                                             </span>
-                                                        @endif
-                                                    </span>
+                                                            @endif
+                                                        </div>
+                                                    </div>
                                                 </div>
-
                                             </div>
                                             <div>
                                                 <h3 class="social__heading">Social media information</h3>

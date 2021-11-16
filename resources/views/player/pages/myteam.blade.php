@@ -20,9 +20,9 @@
         <section class="mt--top-40">
             <div class="col-md-10 offset-md-2">
                 <div class="row">
-                    <div class="col-sm-12 my-4">
+                    <!-- <div class="col-sm-12 my-4">
                         <a class="btn btn--wrapper float-right text-decoration-none text-dark" href="">Add Players</a>
-                    </div>
+                    </div> -->
                     <div class="col-md-6">
                         <div class="wrapper-four-content">
                             <strong>TEAM NAME:</strong>
