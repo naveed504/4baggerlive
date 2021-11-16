@@ -1,4 +1,4 @@
-@extends('director.newmaster')
+@extends('director.master')
 @section('content')
 <div class="container">
     <div class="row my-5 ">
