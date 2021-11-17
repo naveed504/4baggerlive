@@ -171,8 +171,12 @@
           url: "{{ route('changeagegroupstaus') }}",
           type: "POST",
           dataType: 'json',
+          beforeSend: function(){
+              $('.loader-wrapper').css("display","block");
+          },
           success: function (data) {
             if(data.status = "updated") {
+                toastr.success('Group status successfully updated');
                 setTimeout(function() {
                     location.reload();
                 }, 2000);
@@ -182,6 +186,10 @@
           error: function (data) {
               console.log('Error:', data);
               $('#btn-save').html('Save Changes');
+          },
+          complete: function(){
+            $('.loader-wrapper').css("display","none");
+
           }
       });
 

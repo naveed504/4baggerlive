@@ -4,8 +4,8 @@
     @include('coach.modals.login')
 <body>
     {{-- header --}}
-    @include('coach.partials._header')
 
+    @include('coach.partials._header')
     {{-- slider --}}
     @include('coach.partials._slider')
 

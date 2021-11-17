@@ -17,7 +17,7 @@
                         @else
                         <div >
                                <span>{{ Auth::user()->name }}</span>
-                                    
+
                                </div?
 
                                 <div >
