@@ -131,4 +131,6 @@ class BlogController extends Controller
         parent::successMessage("Home Setting deleted Successfully");
         return redirect()->back();
     }
+
+   
 }

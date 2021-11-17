@@ -1,4 +1,5 @@
-@extends('frontend.master')
+@extends('director.master')
 @section('content')
 @include('shared.frontend.blogdetail')
+
 @endsection

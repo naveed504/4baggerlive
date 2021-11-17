@@ -124,7 +124,6 @@ Route::group(['prefix' => 'admin',  'middleware' => ['auth', 'checkrole']], func
     Route::resource('aboutus', AboutUsController::class);
     Route::resource('officialpartner', OfficialPartnerSectionController::class);
     Route::resource('manageblog', BlogController::class);
-
     Route::resource('director', ManageDirectorController::class);
     Route::resource('adminteams', AdminTeamController::class);
     Route::resource('player', PlayerController::class);
@@ -168,7 +167,7 @@ Route::group(['prefix' => 'team',  'middleware' => ['auth', 'teamrole']], functi
     Route::get('event/{id}', [TeamEventController::class, 'viewEvent'])->name('view.event.coach');
     Route::post('payevents', [TeamEventController::class, 'payTeamForEvent'])->name('payevents');
     Route::get('showTotalTeams/{id}', [TeamEventController::class, 'showTotalTeams'])->name('showTotalTeams');
-    Route::any('blog/{blog}', [TeamHomeController::class, 'showBlog'])->name('teamblog');
+        Route::any('blog/{blog}', [TeamHomeController::class, 'showBlog'])->name('teamblog');
 
 });
 
@@ -183,8 +182,6 @@ Route::group(['prefix' => 'director',  'middleware' => ['auth', 'directorrole']]
     Route::get('pay', [DirectorHomeController::class, 'pay'])->name('pay');
     Route::resource('team', ManageTeamController::class);
     Route::resource('event', EventController::class);
-    Route::any('blog/{blog}', [DirectorHomeController::class, 'showBlog'])->name('directorblog');
-
     Route::get('showteamsinevent/{id}', [EventController::class, 'showTeamsInEvent'])->name('showteamsinevent');
     Route::get('showteamdetails/{id}', [EventController::class, 'showTeamDetails'])->name('show.teamdetails');
     Route::get('ShowPlayer/{id}', [EventController::class, 'showPlayer'])->name('show.player');
@@ -199,8 +196,10 @@ Route::group(['prefix' => 'director',  'middleware' => ['auth', 'directorrole']]
     Route::post('agegroupteams', [EventController::class,'ageGroupDetails'])->name('agegroupteams');
     Route::post('playersinteam', [EventController::class,'playersInEventTeam'])->name('playersinteam');
     Route::get('eventhistory/{eventid}',[EventController::class, 'eventHistory'])->name('eventhistory');
+    Route::any('blog/{blog}', [DirectorHomeController::class, 'showBlog'])->name('directorblog');
+
 });
+
+Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/scheduler', [App\Http\Controllers\SchedulerController::class, 'index']);
-Auth::routes();
-

@@ -1,33 +1,32 @@
 <footer>
+    @php
+    $footerResults = Helpers::getFooterData()
+    @endphp   
     <div class="row w-100 m-0">
         <div class="col-md-5 p-0">
             <div class="footer-left-sec">
                 <div class="foote-left-inner">
-                    <h2>Lorem ipsum</h2>
-                    <p>Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. </p>
+                    <h2>{{ $footerResults['generalSetting']->mission_title ?? ''}}</h2>
+                    <p>{{ $footerResults['generalSetting']->mission_statment ?? ''}} </p>
                     <ul class="social-list">
                         <li>
-                            <a href="#">
+                            <a href="{{ $footerResults['generalSetting']->facebook ?? '' }}">
                                 <span><i class="fa fa-facebook" aria-hidden="true"></i></span>
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="{{ $footerResults['generalSetting']->twitter ?? ''}}">
                                 <span><i class="fa fa-twitter" aria-hidden="true"></i></span>
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="{{ $footerResults['generalSetting']->instagram ?? ''}}">
                                 <span><i class="fa fa-instagram" aria-hidden="true"></i></span>
                             </a>
                         </li>
+                       
                         <li>
-                            <a href="#">
-                                <span><i class="fa fa-youtube-play" aria-hidden="true"></i></span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
+                            <a href="{{ $footerResults['generalSetting']->google ?? ''}}">
                                 <span><i class="fa fa-google-plus" aria-hidden="true"></i></span>
                             </a>
                         </li>
@@ -37,25 +36,17 @@
             </div>
 
         </div>
+        
         <div class="col-md-7 p-0">
             <div class="footer-right">
-                <ul>
-                    <li>
-                        <a href="#">About Perfect Game</a>
-                    </li>
-                    <li><a href="#">Contact us</a></li>
-                    <li><a href="#">Terms of Use</a></li>
-                    <li><a href="#">Privacy Policy </a></li>
-                    <li><a href="#">Testimonials</a></li>
-
+                <ul>  
+                    @forelse($footerResults['blogs'] as $blog)                  
+                    <li><a href="{{ route('directorblog', $blog->slug ?? '') }}">{{ $blog->title ??''}}</a></li>  
+                    @empty
+                    <li>No Result Found</li>   
+                    @endforelse              
                 </ul>
-                <ul>
-                    <li><a href="#">PG Athlete Safety Program</a></li>
-                    <li><a href="#">COVID-19 Update</a></li>
-                    <li><a href="#">Event Guidelines</a></li>
-                    <li><a href="#">Message from Jerry Ford</a></li>
-
-                </ul>
+                
             </div>
         </div>
     </div>

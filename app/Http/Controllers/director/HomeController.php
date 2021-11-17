@@ -17,6 +17,12 @@ use App\Models\Payments\RefundPayment;
 use App\Models\ServiceFee;
 use App\Models\Event\EventRegisterTeam;
 use App\Services\RefundPaymentService;
+use App\Models\General\Slider;
+use App\Models\General\GeneralSetting;
+use App\Models\General\RecentContentSection;
+use App\Models\General\OfficialPartner;
+use App\Models\General\ManageBlog;
+use App\Models\General\ManageNews;
 
 class HomeController extends Controller
 {
@@ -27,7 +33,12 @@ class HomeController extends Controller
 
     public function index()
     {
-        return view('director.pages.dashboard');
+        $latestNews = ManageNews::first();
+        $officalpartners = OfficialPartner::all();
+        $recentsections = RecentContentSection::all();
+        $sliders =Slider::all();
+        $generalSetting = GeneralSetting::first();
+        return view('director.pages.dashboard' , compact('sliders','recentsections','officalpartners','latestNews','generalSetting'));
     }
 
     /**
@@ -105,6 +116,13 @@ class HomeController extends Controller
         return view('director.pages.player.profile', compact('player'));
 
         
+    }
+
+    public function showBlog($blogslug)
+    {
+       
+        $blogdetail = ManageBlog::where('slug', '=', $blogslug)->first();
+        return view('director.pages.frontendpages.blogdetail', compact('blogdetail'));
     }
 
 }

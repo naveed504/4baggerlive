@@ -15,6 +15,7 @@ use App\Models\Event\EventRegisterTeam;
 use App\Models\Player\PlayerData;
 use App\Models\ServiceFee;
 use Illuminate\Http\Request;
+use Auth;
 
 class EventController extends Controller
 {
@@ -25,9 +26,7 @@ class EventController extends Controller
      */
     public function index()
     {
-        $eventResults = Event::with('agegroup')->get();
-      
-
+       $eventResults = Auth::user()->events()->get(); 
         return view('director.pages.event.index', compact('eventResults'));
     }
 
