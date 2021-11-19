@@ -26,10 +26,10 @@ class CoachRequest extends FormRequest
         return [
             'team_name' => ['regex:/[a-zA-Z][a-zA-Z ]+/','required'],
             'team_city' => ['alpha', 'required'],
-            't_state' => ['string', 'required'],
+            'team_state' => ['string', 'required'],
             'age_group' => ['required'],
             'division' => ['required'],
-
+            'team_profile' => ['required'],
             'terms_agreement'=>['required'],
             'site_agreement'=>['required'],
         ];
@@ -40,11 +40,12 @@ class CoachRequest extends FormRequest
 
             'team_name.required' => "Coach name is required",
             'team_city.required' => "Team city is required",
-            't_state.required' => "Team state is required",
+            'team_state.required' => "Team state is required",
             'site_agreement.required' => "Site agreement  is required",
             'terms_agreement.required' => "Terms agreement is required",
             'age_group.required' => "Age Group is required",
             'division.required' => "Division State is required",
+            'team_profile.required' => "Please select team Profile "
 
 
         ];

@@ -12,7 +12,7 @@
         @if(Auth::user()->type == 3)
             href="{{ route('addToEvent', $event->id) }}"
         @endif
-    >Invite Team</a>
+    >join Event</a>
     <a class="btn btn-primary heading_btn text-uppercase"
         @if(Auth::user()->type == 1)
             href="{{ route('events.show', $event->id) }}"

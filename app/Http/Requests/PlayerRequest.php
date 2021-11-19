@@ -24,8 +24,8 @@ class PlayerRequest extends FormRequest
     public function rules()
     {
         return [
-            'first_name' => ['regex:/[a-zA-Z][a-zA-Z ]+/', 'required'],
-            'last_name' => ['regex:/[a-zA-Z][a-zA-Z ]+/', 'required'],
+            'first_name' => [ 'required'],
+            'last_name' => ['required'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'p_city' => ['string', 'required'],
             'p_state' => ['string', 'required'],
@@ -63,9 +63,9 @@ class PlayerRequest extends FormRequest
     {
         return [
             'first_name.required' => "player first name is required",
-            'first_name.regex' => "player first name must be alphabetic",
+         
             'last_name.required' => "player last name is required",
-            'last_name.regex' => "player last name must be alphabetic",
+       
             'email.email' => "Email format invalid ",
             'email.unique' => "The email has already been taken",
             'p_city.required' => "City is required",

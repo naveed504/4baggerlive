@@ -41,7 +41,7 @@ class HomeController extends Controller
             return redirect('player/profile');
         } else {
             parent::successMessage('User Registered successfully');
-            return redirect('liveevents');
+            return redirect()->route('welcome');
         }
     }
 }

@@ -37,7 +37,11 @@ class CreateEventRequest extends FormRequest
             'event_venue'       => 'required',
             'eventclassification'=>'required',
             'gate_fee'          => 'required',
-            'bat_type'          => 'required'
+            'bat_type'          => 'required',
+            'event_time'      => 'required',
+            'age_group'       => 'required', 
+            'grad_restriction'=> 'required', 
+            
          ];
     }
 
@@ -68,7 +72,9 @@ class CreateEventRequest extends FormRequest
             'event_city.regex'          => 'City may only have alphabets',
             'event_state.required'      => 'Please enter state',
             'event_venue.required'      => 'Please enter field',
-            'bat_type.required'         => 'Please select bat type'
+            'bat_type.required'         => 'Please select bat type',
+            'event_time.required'     => 'Please select event schedule time',
+            'age_group.required'      =>  'Please select age group',
 
         ];
     }

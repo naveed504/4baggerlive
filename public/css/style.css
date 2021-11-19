@@ -3305,3 +3305,20 @@ h6 {
 
 
 /*  */
+.carousel-inner img {
+    width: 100%;
+    height: 100%;
+    
+  }
+
+  .slidermargin {
+      margin-bottom: 20px;
+  }
+  .img_profile{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+  }
+  .img_coloum{
+      padding-left: 30px;
+  }

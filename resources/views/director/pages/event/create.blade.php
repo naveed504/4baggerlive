@@ -58,17 +58,19 @@
 
                         <div class="col-sm-6">
                             <label class="label__wrapper required">Age Group</label>
-                            <select class="form-control input__box--wrapper down-icons" id="js-example-basic-multiple"  multiple name="age_group[]" >
+                            <select class="form-control input__box--wrapper down-icons" id="js-example-basic-multiple"  multiple name="age_group[]" required>
                                 @foreach($ageGroups as $agegroup)
                                 <option value="{{ $agegroup->id }}"> {{ $agegroup->age_group }}</option>
                                 @endforeach
-                            </select>
-                            @if($errors->has('age_group'))
+                                @if($errors->has('age_group[]'))
                                 <span class="invalid-feedback">
-                                    <strong>{{ $errors->first('age_group') }}</strong>
+                                    <strong>{{ $errors->first('age_group[]') }}</strong>
                                 </span>
                             @endif
+                            </select>
+                           
                         </div>
+                      
                         <div class="col-sm-6">
                             <label class="label__wrapper required">Graduation Year Restriction</label>
                             <select name="grad_restriction[]" class="form-control input__box--wrapper" id="js-example-basic" multiple>
@@ -77,9 +79,9 @@
                                     <option value={{ $i }}>{{ $i }}</option>
                                 @endfor
                             </select>
-                            @if($errors->has('grad_restriction'))
+                            @if($errors->has('grad_restriction[]'))
                                 <span class="invalid-feedback">
-                                    <strong>{{ $errors->first('grad_restriction') }}</strong>
+                                    <strong>{{ $errors->first('grad_restriction[]') }}</strong>
                                 </span>
                             @endif
                         </div>
@@ -87,16 +89,16 @@
                     <div class="row mb-2">
                         <div class="col-sm-6">
                             <label class="label__wrapper required">Allowed Bat Types</label>
-                            <select multiple="multiple" class="label__wrapper required" id="myMulti" name="bat_type[]">
+                            <select multiple="multiple" class="label__wrapper required" id="myMulti" name="bat_type[]" required>
                                 <option value="Wood">Wood</option>
                                 <option value="BBCOR">BBCOR</option>
                                 <option value="-5">-5</option>
                                 <option value="-8">-8</option>
                                 <option value="-10">-10</option>
                             </select>
-                            @if($errors->has('bat_type[]'))
+                            @if($errors->has('bat_type'))
                                 <span class="invalid-feedback">
-                                    <strong>{{ $errors->first('bat_type[]') }}</strong>
+                                    <strong>{{ $errors->first('bat_type') }}</strong>
                                 </span>
                             @endif
                         </div>
@@ -143,26 +145,26 @@
                             <div class="col-sm-6">
                                 <label class="label__wrapper required">Main Site  Venue</label> <!--haxxan-->
                                 <input  type="text" name="event_venue[]" class="form-control input__box--wrapper" value="{{ old('event_venue[]')}}">
-                                @if($errors->has('event_venue'))
+                                @if($errors->has('event_venue[]'))
                                     <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('event_venue') }}</strong>
+                                        <strong>{{ $errors->first('event_venue[]') }}</strong>
                                     </span>
                                 @endif
                                 <br>
                             </div>
                             <div class="col-sm-6">
                                 <label class="label__wrapper required">Event Schedule</label>
-                                <select  class="form-control  input__box--wrapper down-icons" value="" name="event_time[]" required >
-                                    <option  disabled="" selected value="">Select Schedule</option>
+                                <select  class="form-control  input__box--wrapper down-icons" name="event_time[]" required >
+                                    <option  disabled="" selected value="0">Select Schedule</option>
                                     @foreach($eventTimeSchedule as $eventSchedule)
                                         <option value="{{ $eventSchedule->event_schedule_time }}">{{ date('h:i A', strtotime($eventSchedule->event_schedule_time))}} &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp {{date('M-d-Y ', strtotime($eventSchedule->event_schedule_time)) }}</option>
                                     @endforeach
                                 </select>
-                                @if($errors->has('event_time'))
-                                    <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('event_time') }}</strong>
-                                    </span>
-                                @endif
+                                @if($errors->has('event_time[]'))
+                                                <span class="invalid-feedback">
+                                                    <strong>{{ $errors->first('event_time[]') }}</strong>
+                                                </span>
+                                 @endif
                             </div>
                         </div>
                         <button class="btn btn-xs btn__add mt-1" onclick="addMoreVenue()" type="button">Add More</button>

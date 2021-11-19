@@ -14,6 +14,7 @@
     @include('frontend.partials._footer')
     @include('frontend.partials._scripts')
     
+    
 </body>
 @toastr_render
 </html>

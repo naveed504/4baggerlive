@@ -26,17 +26,20 @@ class EditEventRequest extends FormRequest
         return [
             'event_name'        => 'required|regex:/[a-zA-Z0-9][a-zA-Z0-9 ]+/',
             'total_matches'     => 'required|numeric',
-            'start_date'        => 'required|date',
-            'end_date'          => 'required|date',
+            'start_date'        => ['required','date','after:yesterday'],
+            'end_date'          => ['required','date','after:start_date'],
             'entry_fee'         => 'required|numeric',
-            'max_division'      => 'required',
             'event_format'      => 'required',
-            'event_summary'     => 'required',
-            'event_logo'        => 'mimes:jpg,jpeg,png',
+            'event_summary'     => 'required',           
             'event_city'        => 'required|regex:/[a-zA-Z][a-zA-Z ]+/',
             'event_state'       => 'required',
             'event_venue'       => 'required',
-            'bat_type'          => 'required'
+            'eventclassification'=>'required',
+            'gate_fee'          => 'required',
+            'bat_type[]'          => 'required',
+            'event_time[]'      => 'required',
+            'age_group[]'       => 'required', 
+            'grad_restriction[]'=> 'required', 
         ];
     }
 
@@ -49,23 +52,27 @@ class EditEventRequest extends FormRequest
             'total_matches.numeric'     => "Please enter a numeric value",
             'start_date.required'       => "Please enter event start date",
             'start_date.date'           => "Please enter a valid date",
+            'start_date.after'          => "Please select future date",
             'end_date.required'         => "Please enter event end date",
             'end_date.date'             => "Please enter a valid date",
+            'end_date.after'            => "Please select date after start date",
             'age_restriction.required'  => 'Please specify minimum age restriction',
             'age_restriction.date'      => 'Please enter a valid date',
-            'grad_restriction.required' => 'Please specify minimum graduation year limit',
-            'grad_restriction.numeric'  => 'Please enter a numeric value',
+            'grad_restriction[].required' => 'Please specify minimum graduation year limit',
+            'grad_restriction[].numeric'  => 'Please enter a numeric value',
             'entry_fee.required'        => 'Please specify the entry fee',
             'entry_fee.numeric'         => 'Please enter a numeric value',
-            'max_division.required'     => 'Please enter maximum allowed division',
             'event_format.required'     => 'Please enter event format details',
             'event_summary.required'    => 'Please enter event summary',
-            'event_logo.mimes'          => 'Only .JPEG, .JPG and .PNG files are allowed',
+           
             'event_city.required'       => 'Please enter city',
             'event_city.regex'          => 'City may only have alphabets',
             'event_state.required'      => 'Please enter state',
             'event_venue.required'      => 'Please enter field',
-            'bat_type.required'         => 'Please Select bat type'
+            'bat_type[].required'         => 'Please select bat type',
+            'event_time[].required'     => 'Please select event schedule time',
+            'age_group[].required'      =>  'Please select age group',
+
 
         ];
     }

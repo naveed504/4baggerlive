@@ -86,7 +86,8 @@ class EventController extends Controller
         $states = State::all();
         $ageGroups = AgeGroup::all();
         $event = Event::find($id);
-        return view('director.pages.event.edit', compact('event', 'states','ageGroups'));
+        $eventTimeSchedule = EventTimeSchedule::all();
+        return view('director.pages.event.edit', compact('event', 'states','ageGroups','eventTimeSchedule'));
     }
 
     /**

@@ -6,6 +6,7 @@ use App\Models\Event\Event as EventModel;
 use Exception;
 use Illuminate\Support\Facades\Auth;
 use App\Models\CheckAgeGroupStatus;
+use App\Models\Team\Team;
 
 class EventService
 {
@@ -158,8 +159,10 @@ class EventService
      */
     public function deleteEvent($id)
     {
+        
         try {
             CheckAgeGroupStatus::where('event_id', $id)->delete();
+            Team::where('event_id', $id)->delete();
             EventModel::find($id)->delete();
         } catch (Exception $e) {
             dd($e->getMessage());

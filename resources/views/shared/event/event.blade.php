@@ -121,11 +121,12 @@
             <thead>
                 <tr>
                     <th class="small-size">Start Date</th>
-                    <td class="small-size">{{ $event->start_date }}</td>
+                    <td class="small-size">{{ date('M-d-Y ', strtotime($event->start_date)) }}</td>
+                  
                 </tr>
                 <tr>
                     <th class="small-size">End Date</th>
-                    <td class="small-size">{{ $event->end_date }}</td>
+                    <td class="small-size"> {{ date('M-d-Y ', strtotime($event->end_date)) }}</td>
                 </tr>
                 <tr>
                     <th class="small-size">Expected Arrival/Departure</th>

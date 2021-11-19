@@ -16,4 +16,9 @@ class TestController extends Controller
         }
         
     }
+
+    public function loginform()
+    {
+        return "ok";
+    }
 }

@@ -14,20 +14,22 @@
                     </span>
                 </div>
                 </form>
-                <h6 class="text-uppercase text-right requested-players m-0">
-                    <a href="{{ route('requested.player', $team->id) }}">Player Requests <span
-                       class="request-count">{{ $team->request->count() }}</span></a>
-                </h6>
             </div>
+            <div class="col-12 text-uppercase requested-players m-0">
+                <div class="text-right">
+                    <a href="{{ route('requested.player', $team->id) }}">Player Requests <span
+                    class="request-count">{{ $team->request->count() }}</span></a>
+                </div>
+             </div>
     </div>
-    <div class="player-search" id="player_search">
+    <div class="container player-search" id="player_search">
         @forelse ($players as $player)
             <div class="row mb-4 mt-5">
-                <div class="col-sm-2 col-md-2 col-lg-2">
+                <div class="col-sm-2 col-md-2 col-lg-2 img_coloum">
                     @if (isset($player->player_file) && !empty($player->player_file))
-                        <img src="{{ asset('uploads/' . $player->player_file) }}" alt="" width="100">
+                        <img src="{{ asset('frontend/player/' . $player->player_file) }}" alt="" class="rounded-circle img_profile">
                     @else
-                        <img src="{{ asset('images/image002.png') }}" alt="" width="100">
+                        <img src="{{ asset('images/image002.png') }}" alt="" class="rounded-circle img_profile">
                     @endif
                 </div>
                 <div class="col-sm-5 col-md-5 col-lg-5">
@@ -50,7 +52,7 @@
                         Throw : {{ $player->player_throw }}
                     </p>
                 </div>
-                <div class="col-sm-5 col-md-5 col-lg-5 text-right">
+                <div class="col-sm-5 col-md-5 col-lg-5">
                     <a class="btn btn--wrapper text-dark"
                         href="{{ route('view.player', $player->user->id) }}">Profile</a>
                     <a class="btn btn--wrapper text-dark" data-player-id={{ $player->user->id }}
