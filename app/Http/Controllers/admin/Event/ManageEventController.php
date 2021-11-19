@@ -9,6 +9,7 @@ use App\Services\EventService;
 use Illuminate\Http\Request;
 use App\Models\Team\Team;
 use App\Models\AgeGroup;
+use App\Models\Event\EventTimeSchedule;
 
 class ManageEventController extends Controller
 {
@@ -67,7 +68,8 @@ class ManageEventController extends Controller
         $states = State::all();
         $event = Event::find($id);
         $ageGroups = AgeGroup::all();
-        return view('admin.pages.event.edit', compact('event', 'states','ageGroups'));
+        $eventTimeSchedule = EventTimeSchedule::all();
+        return view('admin.pages.event.edit', compact('event', 'states','ageGroups','eventTimeSchedule'));
     }
 
     /**

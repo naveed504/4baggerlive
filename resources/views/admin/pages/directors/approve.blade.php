@@ -21,7 +21,7 @@
                 @forelse($directors as $director)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $director->director->director_name }}</td>
+                        <td>{{ $director->director_name }}</td>
                         <td>{{ $director->email }}</td>
                         <td>{{ $director->cell_number }}</td>
                         <td>{{ $director->events->count() }}</td>
@@ -33,7 +33,7 @@
                                 <i class="fa fa-eye text-primary" aria-hidden="true"></i>
                             </a>
                             <a href="javascript:void(0);" class="text-decoration-none"
-                                onclick="deleteRecord({{ $director->id }}, '/admin/director/')">
+                                onclick="deleteRecord({{ $director->id }}, '/admin/delete-director/')">
                                 <i class="fa fa-trash text-danger" aria-hidden="true"></i>
                             </a>
                         </td>

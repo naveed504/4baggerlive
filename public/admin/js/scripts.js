@@ -94,3 +94,10 @@ const submitForm = (form, e) => {
         }
     }, 100);
 }
+
+//add more fields on director's manage events
+const addMoreVenue = () => {
+    let addMore = document.getElementById('addMorevenue')
+    let divId = Math.floor(Math.random() * 11)
+    document.getElementById('addMorevenue').insertAdjacentHTML('afterend', "<div id=" + divId + " class='enclosing'>" + "<div class='form-row flex__right'><button class='btn btn-xs btn-danger close_btn' type='button' onclick='removeAdded(" + divId + ")'>&times;</button></div>" + addMore.outerHTML + "</div>")
+}

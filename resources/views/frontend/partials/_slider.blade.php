@@ -4,7 +4,7 @@
         <ul class="carousel-indicators custm__indicators">
             @foreach($sliders as $key=>$slider)
             <li data-target="#demo" data-slide-to="{{ $slider->key }}" class="{{ $loop->first ? 'active' : '' }}"></li>
-            
+
             @endforeach
         </ul>
         <div class="carousel-inner">
@@ -16,14 +16,14 @@
                         <h1>
                             {{ $slider->title_one }}<span> {{ $slider->title_two }}</span>
                         </h1>
-                        <p>{{ $slider->content }} </p>
-                        
+                        <p>{!! $slider->content !!} </p>
+
                     </div>
                 </div>
             </div>
             @endforeach
-            
-           
+
+
         </div>
 
     </div>

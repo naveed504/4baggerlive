@@ -97,7 +97,7 @@ class EventService
             }
         }
 
-
+        // dd($request->all());
         try {
             $event->update([
                 'event_name' => $request->event_name,
@@ -116,6 +116,7 @@ class EventService
                 'event_venue' => json_encode($request->event_venue),
                 'gate_fee' => $request->gate_fee,
                 'eventclassification'=>$request->eventclassification,
+                'event_time'=> json_encode($request->event_time),
                 'approved' => Auth::user()->type == 1 ? (int) $request->status : 0
             ]);
 

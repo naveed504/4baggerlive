@@ -9,7 +9,7 @@
     <div class="container mb-5">
 <br><br>
         <form action="  {{ route('manageblog.store') }} " method="post" id="" enctype="multipart/form-data">
-          
+
             @csrf
 
             <div class="row">
@@ -19,7 +19,7 @@
                     </p>
                     <div class="col-sm-12 mt-2 p-4">
                         <div class="row mb-2">
-                            
+
                                 <div class="col-sm-6">
                                     <label class="label__wrapper required">Title </label>
                                     <input type="text" name="title" class="form-control input__box--wrapper"  >
@@ -33,14 +33,14 @@
                                             <span class="btn btn__wrapper--four btn-file" id="btnfile">
                                                 Cover Photo <input type="file" id="image"  name="image" >
                                             </span>
-                                            
+
                                         </div>
                                     </div>
                                     @error('image')
                                     <div class="error text-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
-                               
+
                             </div>
 
                             <div class="row mb-2">
@@ -51,7 +51,7 @@
                                     <div class="error text-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
-                               
+
                             </div>
                         </div>
                     </div>
@@ -68,6 +68,6 @@
           tabsize: 2,
           height: 200
         });
-      
+
       </script>
 @endsection

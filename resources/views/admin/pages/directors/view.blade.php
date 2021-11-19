@@ -21,18 +21,18 @@
                 <th>Email</th>
                 <th>Cell Number</th>
                 <th>Registered Events</th>
-              
+
                 <th>Action</th>
             </thead>
             <tbody>
                 @forelse($directors->where('status', 1) as $director)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $director->director->director_name }}</td>
+                        <td>{{ $director->director_name }}</td>
                         <td>{{ $director->email }}</td>
                         <td>{{ $director->cell_number }}</td>
                         <td>{{ $director->events->count() }}</td>
-                     
+
                         <td>
                             <a href="{{ route('director.show', $director->id) }}" class="text-decoration-none pr-1">
                                <i class="fa fa-eye text-primary" aria-hidden="true"></i>

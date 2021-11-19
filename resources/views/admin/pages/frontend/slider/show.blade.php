@@ -9,7 +9,7 @@
     <div class="col-sm-12 text-right my-3">
         <a href="{{ route('adminslider.create') }}">
             <button class="btn btn-success" type="button">
-                Add New Slider 
+                Add New Slider
             </button>
         </a>
     </div>
@@ -28,7 +28,7 @@
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $slider->title_one }} <br> {{ $slider->title_two }}</td>
                     <td><img src="{{ asset('admin/allimages/'. $slider->cover_photo ) }}" class="img img-responsive rounded "  style="height:70px; width:70px;"></td>
-                    <td>{{ Str::limit($slider->content, 100) }}</td>
+                    <td>{!! Str::limit($slider->content, 100) !!}</td>
                     <td class="padding-1">
                         <a href="{{ route('adminslider.edit', $slider->id) }}" class="text-decoration-none pr-1">
                            <i class="fas fa-edit text-primary"></i>
@@ -39,7 +39,7 @@
                     </a>
                     </td>
                 </tr>
-                @empty 
+                @empty
                 <tr>
                     <td></td>
                     <td></td>
@@ -47,7 +47,7 @@
                     <td>No Record Found</td>
                 </tr>
                 @endforelse
-               
+
             </tbody>
         </table>
     </div>

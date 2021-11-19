@@ -14,6 +14,7 @@ use App\Models\Player\PlayerData;
 use App\Models\ServiceFee;
 use App\Models\Event\Event;
 use App\Models\CheckAgeGroupStatus;
+use App\Models\Director\DirectorData;
 
 class ManageDirectorController extends Controller
 {
@@ -111,6 +112,7 @@ class ManageDirectorController extends Controller
      */
     public function destroy(DirectorService $director, $id)
     {
+        // dd('okay');
 
         $director->deleteDirector($id)
             ? parent::successMessage('Director Deleted Successfully')
@@ -230,8 +232,9 @@ class ManageDirectorController extends Controller
 
     }
 
-    public function destroydirectorevent($id)
+    public function deletedirectorPermanent($id)
     {
-        dd($id);
+        DirectorData::where('user_id', $id)->delete();
+        User::find($id)->delete();
     }
 }

@@ -96,6 +96,7 @@ Route::post('subscribeplan', [HomeController::class, 'userPayForSubscribePlan'])
 Route::group(['prefix' => 'admin',  'middleware' => ['auth', 'checkrole']], function () {
     Route::get('dashboard', [AdminHomeController::class, 'index'])->name('admin_dashboard');
     Route::get('unapproved/directors', [ManageDirectorController::class, 'unApprovedDirectors'])->name('unapproved.directors');
+    Route::delete('delete-director/{id}', [ManageDirectorController::class, 'deletedirectorPermanent']);
     Route::post('approve/directors', [ManageDirectorController::class, 'approveDirectors']);
     Route::get('events/showAdminTeams/{id}', [ManageEventController::class, 'showAdminTeams'])->name('showAdminTeams');
     Route::get('events/showTeamDetails/{id}', [ManageEventController::class, 'showTeamDetails'])->name('showTeamDetails');

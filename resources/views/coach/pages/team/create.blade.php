@@ -72,7 +72,7 @@
                                 <select class="form-control input__box--wrapper down-icons" name="age_group" required="">
                                     <option disabled="" selected="" value="">Age Group</option>
                                     @foreach($agegroups as $agegroup)
-                                    <option value="{{ $agegroup->age_group }}"> {{ $agegroup->age_group }}</option>
+                                    <option value="{{ $agegroup->id }}"> {{ $agegroup->age_group }}</option>
                                     @endforeach
 
                                 </select>
