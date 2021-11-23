@@ -159,13 +159,16 @@ class RegisterController extends Controller
             * ------------------ Team Registration ------------------
             */
         } elseif ($user['type'] == '3') {
+            $teamProfile = Helpers::saveteamProfileWaterMark($data['team_profile']);
 
             $teamData = array(
                 'team_name'  => $data['team_name'],
                 'team_city'  => $data['t_city'],
                 'state_id'   => $data['t_state'],
                 'age_group_id'  => $data['age_group'],
-                'division'   => $data['division']
+                'division'   => $data['division'],
+                'team_profile' => $teamProfile
+
             );
             try {
                 $user->team()->create($teamData);

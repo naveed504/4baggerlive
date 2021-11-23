@@ -22,7 +22,7 @@
             </div>
             <div class="col-sm-8">
                 <h6 class="text-uppercase">
-                    {{ $event->graduation_restriction }} Graduate or younger or born on or after {{ date('M d, Y', strtotime($event->age_restriction)) }}
+                    {{ $event->graduation_restriction }} Graduate or younger or born on or after {{ date('M d', strtotime($event->age_restriction)) }}
                 </h6>
             </div>
         </div>
@@ -121,12 +121,12 @@
             <thead>
                 <tr>
                     <th class="small-size">Start Date</th>
-                    <td class="small-size">{{ date('M-d-Y ', strtotime($event->start_date)) }}</td>
+                    <td class="small-size">{{ date('M-d ', strtotime($event->start_date)) }}</td>
                   
                 </tr>
                 <tr>
                     <th class="small-size">End Date</th>
-                    <td class="small-size"> {{ date('M-d-Y ', strtotime($event->end_date)) }}</td>
+                    <td class="small-size"> {{ date('M-d ', strtotime($event->end_date)) }}</td>
                 </tr>
                 <tr>
                     <th class="small-size">Expected Arrival/Departure</th>

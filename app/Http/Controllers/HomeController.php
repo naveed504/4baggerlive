@@ -39,7 +39,7 @@ class HomeController extends Controller
         } elseif(Auth::user()->type == 4) {
             parent::successMessage('Player Registered successfully');
             return redirect('player/profile');
-        } else {
+        } elseif(Auth::user()->type == 5) {
             parent::successMessage('User Registered successfully');
             return redirect()->route('welcome');
         }

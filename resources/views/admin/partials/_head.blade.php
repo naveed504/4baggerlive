@@ -20,6 +20,7 @@
 
 
     <link href="{{ asset('admin/css/styles.css') }}" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
     <link href="{{ asset('css/multiselect.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/toastr.css') }}" rel="stylesheet" />
     <script src="{{ asset('js/jquery.js') }}"></script>

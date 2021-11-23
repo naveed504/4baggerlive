@@ -86,6 +86,7 @@ class EventService
      */
     public function updateEvent($id, $request)
     {
+       
 
         $event = EventModel::find($id);
 
@@ -98,6 +99,7 @@ class EventService
             }
         }
 
+        
 
         try {
             $event->update([
@@ -117,7 +119,8 @@ class EventService
                 'event_venue' => json_encode($request->event_venue),
                 'gate_fee' => $request->gate_fee,
                 'eventclassification'=>$request->eventclassification,
-                'approved' => Auth::user()->type == 1 ? (int) $request->status : 0
+                'event_time'=> json_encode($request->event_time),
+                'approved' =>$request->status,
             ]);
 
             $ageGroups = CheckAgeGroupStatus::where('event_id', $id)->get();

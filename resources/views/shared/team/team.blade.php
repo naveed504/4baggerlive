@@ -9,7 +9,6 @@
                         <a class="btn btn--wrapper float-right text-decoration-none text-dark"
                             href="{{ route('add.player', $team->id) }}">Add Players</a>
                     @endif
-                    <button class="btn btn__add mt-1 float-right" type="button" onclick="">Update Info</button>
                 </div>
                 <div class="col-md-12">
                     <div class="wrapper-four-content table-content-flex">

@@ -286,7 +286,7 @@
                             <div class="panel-body">
                                 <div class="form__mainwrapper">
                                     <div class="form__mainwrapper">
-                                        <form action="{{route('register')}}" method="post" id="team_registration_form">
+                                        <form action="{{route('register')}}" method="post" id="team_registration_form" enctype="multipart/form-data">
                                             @csrf
                                             <input type="hidden" name="type" value="3">
                                             <div class="form-row">
@@ -332,6 +332,22 @@
                                                         <strong>{{ $errors->first('t_state') }}</strong>
                                                     </span>
                                                     @endif
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="col-sm-6">
+                                                    <div class="wrapper--append">
+                                                        <label class="label__wrapper required">Team Profile</label>
+                                                        <div class="custom-file">
+                                                            <input type="file" name="team_profile" class="form-control input__box--wrapper custom-file-input" id="team_profile" accept="image/*">
+                                                            <span class="custom-file-label" for="validatedCustomFile">Choose team profile...</span>
+                                                            @if($errors->has('team_profile'))
+                                                            <span class="invalid-feedback">
+                                                                <strong>{{ $errors->first('team_profile') }}</strong>
+                                                            </span>
+                                                            @endif
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="form-row">

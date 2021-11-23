@@ -67,7 +67,7 @@ class LoginController extends Controller
             return redirect('player/profile');
         } else {
             parent::successMessage('User Login successfully');
-            return redirect('liveevents');
+            return redirect()->route('welcome');
         }
     }
 }

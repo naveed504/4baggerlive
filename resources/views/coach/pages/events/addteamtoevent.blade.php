@@ -24,18 +24,20 @@
 
                <div class="row">
                     @php $count += 1; @endphp
-                    <div class="col-sm-4">
-                        <img src="{{ asset('images/royals.png') }}" alt="" width="200">
+                    <div class="col-sm-10 py-3 d-flex justify-content-around">
+                        <img src="{{ asset('images/team/teamimages/'.$team->team_profile) }}" alt="" width="120" style="border-radius: 5px;">
+                        <div>
+                          <h6>{{ $team->team_name }}, {{ $team->division }}</h6>
+                          <p>{{ $team->team_city }}, {{ $team->state->state_name }}</p>
+                          <p><b>Age Group :{{ $team->agegroup->age_group }}</b> </p>
+                        </div>
                     </div>
-                    <div class="col-sm-6">
-                        <h6>{{ $team->team_name }}, {{ $team->division }}</h6>
-                        <p>{{ $team->team_city }}, {{ $team->state->state_name }}</p>
-                        <p><b>Age Group :{{ $team->agegroup->age_group }}</b> </p>
-                    </div>
-                    <div class="col-sm-2">
-                        <input type="checkbox" data-eventId="{{ $team->event_id}}" data-ageGroupId="{{ $team->age_group_id}}" data-teamId="{{ $team->id}}"  name="teamId[]"  value="{{ $team->id }}" class="w-50 h-50 selectTeam" id="{{ $team->id }}" onclick="CalculateAmount(this)">
+                
+                    <div class="col-sm-2 py-3">
+                        <input type="checkbox" data-eventId="{{ $event->id}}" data-ageGroupId="{{ $team->age_group_id}}" data-teamId="{{ $team->id}}"  name="teamId[]"  value="{{ $team->id }}" class="w-50 h-50 selectTeam" id="{{ $team->id }}" onclick="CalculateAmount(this)">
                    <input type="hidden" value="{{$team->agegroup->age_group}}" name="age_group[]">
                       </div>
+                      <br>
                   @php $count += 1; @endphp
                 </div>
                 @empty

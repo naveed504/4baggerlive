@@ -46,8 +46,7 @@ class EventRegisterTeam extends Model
     {
         return $this->hasMany(RefundPayment::class);
     }
-
-    
+   
 
     public function scopeFetchRelations($query)
     {
