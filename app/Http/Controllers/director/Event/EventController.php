@@ -182,7 +182,7 @@ class EventController extends Controller
 
     public function eventHistory($eventid)
     {
-           $payments = EventRegisterTeam::where('event_id', $eventid)->FetchRelations()->get();
+           $payments = Event::where('user_id', Auth::user()->id)->with('eventRegTeams')->get();
            $servicefee = ServiceFee::first();
            return view('director.pages.event.eventhistory',compact('payments','servicefee'));
 

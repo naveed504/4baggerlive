@@ -3342,3 +3342,8 @@ h6 {
 position: relative;
 left: 100px;
 }
+
+.custom-file-label {
+    overflow: hidden;
+}
+

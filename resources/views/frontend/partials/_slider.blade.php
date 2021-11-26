@@ -1,6 +1,6 @@
 <banner>
 
-    @if(Route::currentRouteName() == 'welcome')
+    @if(Route::currentRouteName() == 'welcome' ||  Route::currentRouteName() == 'login' )
     <div id="demo" class="carousel slide banner-section" data-ride="carousel">
         <ul class="carousel-indicators custm__indicators">
             @foreach($sliders as $key=>$slider)

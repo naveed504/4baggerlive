@@ -253,20 +253,7 @@
                                                         </span>
                                                     @endif
                                                 </div>
-                                                <div class="form-group col-md-6 col__mr-right">
-                                                    <label class="label__wrapper" for="">Player Classification </label>
-                                                    <select  class="form-control  input__box--wrapper down-icons" name="playerclassification" required>
-                                                        <option selected="" disabled="" selected="" value="">Select Classification</option>
-                                                        <option value="AA"  @if(Auth::user()->player['player_classification'] ?? '' == 'AA') selected @endif>AA</option>
-
-                                                        <option value="Major" @if(Auth::user()->player['player_classification'] ?? '' == 'Major') selected @endif>Major*</option>
-                                                    </select>
-                                                    @if($errors->has('playerclassification'))
-                                                        <span class="invalid-feedback">
-                                                            <strong>{{ $errors->first('playerclassification') }}</strong>
-                                                        </span>
-                                                    @endif
-                                                </div>
+                                               
                                             </div>
                                             <div class="form-row">
                                                 <div class="form-group col-md-6 col__mr-right">

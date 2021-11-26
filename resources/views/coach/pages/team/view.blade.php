@@ -32,6 +32,7 @@
                         </thead>
                         <tbody>
                             @foreach(Auth::user()->team as $index => $team)
+                           
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $team->team_name }}</td>

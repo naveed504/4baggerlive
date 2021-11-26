@@ -31,6 +31,15 @@
                                                         </span>
                                                     @endif
                                                 </div>
+                                                <div class="form-group col-md-6 col__mr-right">
+                                                    <label class="label__wrapper required" for="">College Commitment</label>
+                                                    <input type="text" class="form-control input__box--wrapper"  placeholder="Uncommitted" value="{{ $playerTableData->college_commitment ?? '' }}" name="college_commit" >
+                                                    @if($errors->has('college_commit'))
+                                                        <span class="invalid-feedback">
+                                                            <strong>{{ $errors->first('college_commit') }}</strong>
+                                                        </span>
+                                                    @endif
+                                                </div>
                                                 </div>
                                             <div class="form-row">
                                                 <div class="form-group col-md-6 col__mr-right">
@@ -198,20 +207,23 @@
                                                     @endif
                                                 </div>
                                                 <div class="form-group col-md-6 col__mr-right">
-                                                    <label class="label__wrapper required" for="">College Commitment</label>
-                                                    <input type="text" class="form-control input__box--wrapper"  placeholder="Uncommitted" value="{{ $playerTableData->college_commitment ?? '' }}" name="college_commit" >
-                                                    @if($errors->has('college_commit'))
+                                                    <label class="label__wrapper required" for="">Player Weight Fill In
+                                                    </label>
+                                                    <input  class="form-control input__box--wrapper"  placeholder="" value=" {{ $playerTableData->player_weight ?? '' }}" name="weight" required>
+                                                    @if($errors->has('weight'))
                                                         <span class="invalid-feedback">
-                                                            <strong>{{ $errors->first('college_commit') }}</strong>
+                                                            <strong>{{ $errors->first('weight') }}</strong>
                                                         </span>
                                                     @endif
                                                 </div>
+                                               
 
                                             </div>
                                             <div class="form-row">
                                                 <div class="form-group col-md-6 col__mr-right">
                                                     <label class="label__wrapper required" for="">Player Height </label>
                                                     <select  class="form-control  input__box--wrapper down-icons" value="{{ old('height') }}" name="height" required>
+                                                        <option class="form-control" disabled>Select  Height</option>
                                                     @for($i = 4; $i < 7; $i++)
                                                             <option value="{{ $i }}"
                                                                 @if((explode(".", $playerTableData->player_height ?? '')[0] ?? '') == $i)
@@ -227,8 +239,9 @@
                                                     @endif
                                                 </div>
                                                 <div class="form-group col-md-6 col__mr-right">
-                                                    <label class="label__wrapper required" for=""> </label>
+                                                    <label class="label__wrapper required" for=""> Inches</label>
                                                     <select  class="form-control  input__box--wrapper down-icons" name="inches" required>
+                                                    <option class="form-control" disabled >Inches</option>
                                                        @for($i = 0; $i < 13; $i++)
                                                             <option value="{{ $i }}"
                                                                 @if((explode(".", $playerTableData->player_height ?? '')[1] ?? '') == $i)
@@ -246,38 +259,74 @@
                                             </div>
                                             <div class="form-row">
                                                 <div class="form-group col-md-6 col__mr-right">
-                                                    <label class="label__wrapper required" for="">Player Weight Fill In
-                                                    </label>
-                                                    <input  class="form-control input__box--wrapper"  placeholder="" value=" {{ $playerTableData->player_weight ?? '' }}" name="weight" required>
-                                                    @if($errors->has('weight'))
+                                                    <label class="label__wrapper " for="" >mlb draft</label>
+                                                    <input type="text" class="form-control input__box--wrapper"  placeholder="" value="{{ $playerTableData->mlb_draft ?? '' }}" name="mlb_draft"  >
+                                                    @if($errors->has('mlb_draft'))
                                                         <span class="invalid-feedback">
-                                                            <strong>{{ $errors->first('weight') }}</strong>
+                                                            <strong>{{ $errors->first('mlb_draft') }}</strong>
                                                         </span>
                                                     @endif
                                                 </div>
                                                 <div class="form-group col-md-6 col__mr-right">
-                                                    <label class="label__wrapper" for="">Player Classification </label>
-                                                    <select  class="form-control  input__box--wrapper down-icons" name="playerclassification" required>
-                                                        <option selected="" disabled="" selected="" value="">Select Classification</option>
-                                                        <option value="AA"  @if($playerTableData->player_classification ?? '' == 'AA') selected @endif>AA</option>
-
-                                                        <option value="Major" @if($playerTableData->player_classification ?? '' == 'Major') selected @endif>Major*</option>
-                                                    </select>
-                                                    @if($errors->has('playerclassification'))
+                                                    <label class="label__wrapper " for="">mlb debuted </label>
+                                                    <input type="text" class="form-control input__box--wrapper "  placeholder="" value="{{ $playerTableData->mlb_debuted }}" name="mlb_debuted" >
+                                                    @if($errors->has('mlb_debuted'))
                                                         <span class="invalid-feedback">
-                                                            <strong>{{ $errors->first('playerclassification') }}</strong>
+                                                            <strong>{{ $errors->first('mlb_debuted') }}</strong>
                                                         </span>
                                                     @endif
                                                 </div>
                                             </div>
                                             <div class="form-row">
                                                 <div class="form-group col-md-6 col__mr-right">
+                                                    <label class="label__wrapper " for="" >last team played</label>
+                                                    <input type="text" class="form-control input__box--wrapper"  placeholder="" value="{{ $playerTableData->last_team_played ?? '' }}" name="last_team_played"  >
+                                                    @if($errors->has('last_team_played'))
+                                                        <span class="invalid-feedback">
+                                                            <strong>{{ $errors->first('last_team_played') }}</strong>
+                                                        </span>
+                                                    @endif
+                                                </div>
+                                                <div class="form-group col-md-6 col__mr-right">
+                                                    <label class="label__wrapper " for="">best grade</label>
+                                                    <input type="text" class="form-control input__box--wrapper "  placeholder="" value="{{ $playerTableData->best_grade }}" name="best_grade" >
+                                                    @if($errors->has('best_grade'))
+                                                        <span class="invalid-feedback">
+                                                            <strong>{{ $errors->first('best_grade') }}</strong>
+                                                        </span>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md-6 col__mr-right">
+                                                    <label class="label__wrapper " for="" >national ranking</label>
+                                                    <input type="text" class="form-control input__box--wrapper"  placeholder="" value="{{ $playerTableData->national_ranking ?? '' }}" name="national_ranking"  >
+                                                    @if($errors->has('national_ranking'))
+                                                        <span class="invalid-feedback">
+                                                            <strong>{{ $errors->first('national_ranking') }}</strong>
+                                                        </span>
+                                                    @endif
+                                                </div>
+                                                <div class="form-group col-md-6 col__mr-right">
+                                                    <label class="label__wrapper " for="">state ranking</label>
+                                                    <input type="text" class="form-control input__box--wrapper "  placeholder="" value="{{ $playerTableData->state_ranking }}" name="state_ranking" >
+                                                    @if($errors->has('state_ranking'))
+                                                        <span class="invalid-feedback">
+                                                            <strong>{{ $errors->first('state_ranking') }}</strong>
+                                                        </span>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                           
+                                            <div class="form-row">
+                                                <div class="form-group col-md-6 col__mr-right">
                                                     <label class="label__wrapper required" for="">Throw </label>
+                                                  
                                                     <select  class="form-control  input__box--wrapper down-icons" name="throw" required>
                                                         <option>Select Throw </option>
-                                                        <option value="Right" @if($playerTableData->player_throw ?? '' == 'Right') selected @endif>Right </option>
-                                                        <option value="Left" @if($playerTableData->player_throw ?? '' == 'Left') selected @endif> Left</option>
-                                                        <option value="Both" @if($playerTableData->player_throw ?? '' == 'Both') selected @endif>Both</option>
+                                                        <option value="Right" @if($playerTableData->player_throw  == 'Right') ? selected : ''   @endif>Right </option>
+                                                        <option value="Left" @if($playerTableData->player_throw  == 'Left') ? selected : ''   @endif> Left</option>
+                                                        <option value="Both" @if($playerTableData->player_throw  == 'Both') ? selected : ''   @endif>Both</option>
                                                     </select>
                                                     @if($errors->has('throw'))
                                                         <span class="invalid-feedback">
@@ -289,9 +338,9 @@
                                                     <label class="label__wrapper required" for="">Bat</label>
                                                     <select  class="form-control  input__box--wrapper down-icons" name="bat" required>
                                                         <option disabled="" value=""  selected="">Select Bat </option>
-                                                        <option value="Right" @if($playerTableData->player_bat ?? '' == 'Right') selected @endif>Right </option>
-                                                        <option value="Left" @if($playerTableData->player_bat ?? '' == 'Left') selected @endif> Left</option>
-                                                        <option value="Both" @if($playerTableData->player_bat ?? '' == 'Both') selected @endif>Both</option>
+                                                        <option value="Right" @if($playerTableData->player_bat  == 'Right') ? selected : '' @endif>Right </option>
+                                                        <option value="Left" @if($playerTableData->player_bat ?? '' == 'Left') ? selected : '' @endif> Left</option>
+                                                        <option value="Both" @if($playerTableData->player_bat ?? '' == 'Both') ? selected : '' @endif>Both</option>
                                                     </select>
                                                     @if($errors->has('bat'))
                                                         <span class="invalid-feedback">
@@ -339,6 +388,17 @@
                                                         </span>
                                                     @endif
                                                 </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md-12 col__mr-right">
+                                                    <label class="label__wrapper " for="" >Profile Content</label>
+                                                    <textarea class="form-control input__box--wrapper"  placeholder="" value="{{ $playerTableData->profile_content ?? '' }}" name="profile_content"  >{{ $playerTableData->profile_content ?? '' }}</textarea>
+                                                    @if($errors->has('profile_content'))
+                                                        <span class="invalid-feedback">
+                                                            <strong>{{ $errors->first('profile_content') }}</strong>
+                                                        </span>
+                                                    @endif
+                                                </div>                                               
                                             </div>
 
                                             @for($i = 0; $i < count(json_decode($playerTableData->parents_f_name)) ; $i++)
@@ -465,7 +525,7 @@
                                 </div>
                 <div class="row mb-5">
                     <div class="col-sm-3 mx-auto">
-                        <button class="btn btn__wrapper--four btn-file" type="submit" onclick="">Submit Event</button>
+                        <button class="btn btn__wrapper--four btn-file" type="submit" onclick="">Update Player Profile</button>
                     </div>
                 </div>
             </form>

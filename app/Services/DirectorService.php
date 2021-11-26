@@ -9,9 +9,19 @@ use App\Models\Event\EventRegisterTeam;
 use App\Models\Director\DirectorData;
 use Exception;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Controller;
+use Validator;
+use Illuminate\Support\Facades\Hash;
 
 class DirectorService
 {
+    protected $parent;
+
+    public function __construct(Controller $parent)
+    {
+        $this->parent = $parent;
+        
+    }
 
     /**
      * Update Director
@@ -22,6 +32,17 @@ class DirectorService
     public function updateDirector($id, $request)
     {
 
+        if ($request['password'] != $request['password_confirmation']) {
+            $this->parent->dangerPasswordMessage(1);
+            return redirect()->back();
+        }
+        if ($request['password']) {
+            Validator::make($request->all(), [ // <---
+                'password' => 'required_with:password_confirmation|same:password_confirmation|string|min:8',
+                'password_confirmation' => 'min:8',
+            ]);
+           
+        }
         $director = User::find($id);
 
         try {
@@ -40,11 +61,14 @@ class DirectorService
                 'field_state'           => json_encode($request->field_state),
                 'field_city'            => json_encode($request->field_city),
             ]);
+            $director->update([
+                'password' => ($request->password) ? Hash::make($request->password)   : $director->password,
+            ]);
         } catch (Exception $e) {
             dd($e->getMessage());
         }
 
-        return true;
+        return 'updated';
     }
 
     /**
@@ -57,7 +81,7 @@ class DirectorService
         $director = User::find($id);
         try {
             $director->update([
-                'status'          => 0,
+                'status' => 0,
             ]);
         } catch (Exception $e) {
             dd($e->getMessage());

@@ -12463,3 +12463,6 @@ h6 {
 .card:hover .custom-card-overlay{
     display: block;
 }
+.custom-file-label {
+    overflow: hidden;
+}

@@ -23,6 +23,9 @@ use App\Models\General\RecentContentSection;
 use App\Models\General\OfficialPartner;
 use App\Models\General\ManageBlog;
 use App\Models\General\ManageNews;
+use App\Models\Event\Event;
+use Auth;
+use DB;
 
 class HomeController extends Controller
 {
@@ -46,10 +49,10 @@ class HomeController extends Controller
      */
     public function directorPayout()
     {
-        $servicefee = ServiceFee::first();
-        //$payments=EventRegisterTeam::with('teams')->with('payments')->with('events')->with('users')->with('checkRefundpayments')->get();
-        $payments=EventRegisterTeam::fetchRelations()->get();
-        return view('director.pages.payouts.show',compact('payments','servicefee'));
+        $servicefee = ServiceFee::first();       
+        $payments = Event::where('user_id', Auth::user()->id)->with('eventRegTeams')->get();
+   
+        return view('director.pages.payouts.show',compact('payments','servicefee'));        
     }
 
     /**
@@ -113,9 +116,7 @@ class HomeController extends Controller
     public function playerProfileinDirector($id) 
     {
         $player =User::find($id);
-        return view('director.pages.player.profile', compact('player'));
-
-        
+        return view('director.pages.player.profile', compact('player'));        
     }
 
     public function showBlog($blogslug)

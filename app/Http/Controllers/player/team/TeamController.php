@@ -94,7 +94,7 @@ class TeamController extends Controller
      */
     public function updatePlayerProfile(PlayerService $profile, Request $request)
     {
-        $profileResponse = $profile->updatePlayerProfile($request);
+        $profileResponse = $profile->updatePlayerProfile($request->all());
         $profileResponse == 'updated'
             ? parent::successMessage('Profile Updated Successfully')
             : parent::dangerMessage('Profile does not Updated');

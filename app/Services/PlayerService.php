@@ -9,9 +9,20 @@ use App\Models\Player\PlayerData;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
+
+
 
 class PlayerService
 {
+    protected $parent;
+
+    public function __construct(Controller $parent)
+    {
+        $this->parent = $parent;
+        
+    }
 
     /**
      * @param int $playerid
@@ -45,12 +56,16 @@ class PlayerService
     public function updatePlayerProfile($data)
     {
 
-
+        if ($data['password'] != $data['password_confirmation']) {
+            $this->parent->dangerPasswordMessage(1);
+            return redirect()->back();
+        }
         if ($data['password']) {
-            $data->validate([
+            Validator::make($data, [ // <---
                 'password' => 'required_with:password_confirmation|same:password_confirmation|string|min:8',
                 'password_confirmation' => 'min:8',
             ]);
+           
         }
 
         if(Auth::user()->type == 1) {
@@ -69,8 +84,8 @@ class PlayerService
             $playervideo = Helpers::updateImage($data['player_video'] ?? null, $dbRecord_player_video, $imgpath);
         } elseif(Auth::user()->type == 4) {
             $imgpath= public_path('frontend/player/');
-            $file_name = Helpers::updateImage($data->fileupload, $dbRecord, $imgpath);
-            $playervideo = Helpers::updateImage($data['player_video'], $dbRecord_player_video,$imgpath);
+            $file_name = Helpers::updateImage($data['fileupload'] ?? null, $dbRecord, $imgpath);
+            $playervideo = Helpers::updateImage($data['player_video'] ?? null, $dbRecord_player_video,$imgpath);
         }
 
 
@@ -104,6 +119,13 @@ class PlayerService
                 'player_facebook'       => $data['facebook'],
                 'player_twitter'        => $data['twitter'],
                 'player_instagram'      => $data['instagram'],
+                'mlb_draft'             => $data['mlb_draft'] ?? '',
+                'mlb_debuted'           => $data['mlb_debuted'] ?? '',
+                'last_team_played'      => $data['last_team_played'] ?? '',
+                'national_ranking'      => $data['national_ranking'] ?? '',
+                'state_ranking'         => $data['state_ranking'] ?? '',
+                'best_grade'            => $data['best_grade'] ?? '',
+                'profile_content'       => $data['profile_content'] ?? '',
 
             ]);
             if(Auth::user()->type == 1) {

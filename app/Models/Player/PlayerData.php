@@ -36,8 +36,14 @@ class PlayerData extends Model
         'player_facebook',
         'player_twitter',
         'player_instagram',
-        'player_video',
-
+        'player_video',        
+        'mlb_draft',
+        'mlb_debuted',
+        'last_team_played',
+        'national_ranking',
+        'state_ranking',
+        'best_grade',
+        'profile_content'
     ];
 
     public function user()

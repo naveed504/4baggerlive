@@ -71,6 +71,7 @@
                             </div>
                       
                     </div>
+               
                     <div class="col-sm-6">
                         <label class="label__wrapper required">Age Group</label>
                         <select class="form-control input__box--wrapper down-icons" name="age_group" required="">
@@ -85,6 +86,7 @@
                             </span>
                         @endif
                     </div>
+                  
                    
                     @if(Auth::user()->type == 1)
                         <div class="col-sm-6">

@@ -18,7 +18,7 @@ class FrontendEventController extends Controller
     public function liveEvents()
     {
         $currentDate = date('Y-m-d');    
-        $eventResults = Event::with('agegroup')->where('end_date', '>', $currentDate )->get();
+        $eventResults = Event::with('agegroup')->where('start_date', '>', $currentDate )->where('approved',1 )->get();
         return view('frontend.pages.event.liveevents',compact('eventResults'));
     }
 }

@@ -35,7 +35,7 @@
                 
                     <div class="col-sm-2 py-3">
                         <input type="checkbox" data-eventId="{{ $event->id}}" data-ageGroupId="{{ $team->age_group_id}}" data-teamId="{{ $team->id}}"  name="teamId[]"  value="{{ $team->id }}" class="w-50 h-50 selectTeam" id="{{ $team->id }}" onclick="CalculateAmount(this)">
-                   <input type="hidden" value="{{$team->agegroup->age_group}}" name="age_group[]">
+                   <input type="hidden" value="{{$team->agegroup->id}}" name="age_group[]">
                       </div>
                       <br>
                   @php $count += 1; @endphp

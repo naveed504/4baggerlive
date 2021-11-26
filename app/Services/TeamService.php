@@ -7,6 +7,7 @@ use Exception;
 use Illuminate\Support\Facades\Auth;
 use Image;
 use Helpers;
+use App\Models\Event\EventRegisterTeam;
 
 class TeamService
 {
@@ -62,7 +63,7 @@ class TeamService
                 'team_city' => $request->team_city,
                 'state_id' => $request->team_state,
                 'team_profile'=>$updateteamlogo,
-                'age_group_id' => $request->age_group,
+                'age_group_id' => ($request->age_group) ? $request->age_group : $team->age_group ,
                 'active' => Auth::user()->type == 1 ? $request->active : $team->active
             ]);
         } catch (Exception $e) {
@@ -80,7 +81,12 @@ class TeamService
     public function deleteTeam($id)
     {
         try {
-            Team::find($id)->user()->delete();
+            $results = EventRegisterTeam::where('team_id', $id)->first();
+            if(empty($results)) {
+            Team::find($id)->delete();
+            } else {
+                return redirect()->back();
+            }
         } catch (Exception $e) {
             dd($e->getMessage());
         }

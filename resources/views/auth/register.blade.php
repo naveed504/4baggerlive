@@ -981,7 +981,12 @@
 
             </div>
         </section>
+
     </div>
 </section>
 <script src="{{ asset('js/site.js') }}"></script>
+<script>
+    
+  
+</script>
 @endsection

@@ -28,7 +28,7 @@ class PaymentService
     {
         if ($tresponse != null && $tresponse->getMessages() != null) {
             $this->paymentRepository->savePaymentTransactionInToDB($tresponse, $request);
-            $msg2 = 2;
+            $msg2 = 1;
             $this->parent->transPassMsg($msg2);
         } else {
             $errno1 = 1;
