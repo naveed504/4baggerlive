@@ -32,6 +32,7 @@
                         </thead>
                         <tbody>
                             @foreach(Auth::user()->team as $index => $team)
+                           
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $team->team_name }}</td>
@@ -43,6 +44,10 @@
                                     <td>{{ ($team->active == 1) ? 'Active' : 'Inactive'}}</td>
                                     <td>
                                     <div class="btn-group">
+                                    
+                                        <a class="btn btn-xs edit p-0" href="{{ route('showteamevent', $team->id) }}">
+                                            <i class="fa fa-asterisk text-warning font-large mr-1 pt-1" aria-hidden="true"></i>
+                                        </a>
                                         <a class="btn btn-xs edit p-0" href="{{ route('teams.show', $team->id) }}">
                                             <i class="fa fa-eye text-info font-large mr-1 pt-1" aria-hidden="true"></i>
                                         </a>

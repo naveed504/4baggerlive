@@ -135,4 +135,9 @@ class PlayerController extends Controller
             : parent::dangerMessage('Profile does not Updated');
         return redirect()->back();
     }
+
+    
+
+
+    
 }

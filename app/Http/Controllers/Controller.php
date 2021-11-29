@@ -90,6 +90,14 @@ class Controller extends BaseController
         }
     }
 
+    public function dangerPasswordMessage($msg)
+    {
+        if($msg == 1) {
+            toastr()->error("Passwords does not match ");
+
+        }
+    }
+
 
     /**
      * custom massage for payment integration

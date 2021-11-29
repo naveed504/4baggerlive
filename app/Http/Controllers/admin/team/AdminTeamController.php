@@ -13,7 +13,7 @@ use App\Models\User;
 use DataTables;
 use App\Models\AgeGroup;
 use App\Models\CheckAgeGroupStatus;
-
+use Auth;
 class AdminTeamController extends Controller
 {
     /**
@@ -98,12 +98,15 @@ class AdminTeamController extends Controller
      */
     public function update(TeamService $team, Request $request, $id)
     {
-        $checkstatus =  CheckAgeGroupStatus::where('age_group_id', '=', $request->age_group)->where('event_id', '=', $request->event)->first('status');
-                if ($checkstatus == null or $checkstatus->status == 'close') {
-                    parent::dangerMessage('Age-Group does not exist Please select another ');
-                    parent::dangerMessage('Age-Group OR Tournament is Closed Now');
-                    return redirect()->back();
-                }
+       if(Auth::user()->type != 1) {
+            $checkstatus =  CheckAgeGroupStatus::where('age_group_id', '=', $request->age_group)->where('event_id', '=', $request->event)->first('status');
+            if ($checkstatus == null or $checkstatus->status == 'close') {
+                parent::dangerMessage('Age-Group does not exist Please select another ');
+                parent::dangerMessage('Age-Group OR Tournament is Closed Now');
+                return redirect()->back();
+            }
+       }
+        
         $team->updateTeam($id, $request)
             ? parent::successMessage("Team Updated Successfully")
             : parent::dangerMessage("Oops! We have encountered an issue, please try again");
@@ -118,9 +121,17 @@ class AdminTeamController extends Controller
      */
     public function destroy($id)
     {
-        Team::find($id)->user()->delete();
-        parent::successMessage("Team deleted successfully");
-        return redirect()->back();
+        $results = EventRegisterTeam::where('team_id', $id)->first();
+        if(empty($results)) {
+            Team::find($id)->delete();
+            parent::successMessage("Team deleted successfully");
+            return redirect()->back();            
+        } else {
+            parent::dangerMessage("Team added into event");
+            parent::dangerMessage("You cannot delete this team");
+            return redirect()->back();         
+        }
+        
 
     }
     public function getallTeams(Request $request)

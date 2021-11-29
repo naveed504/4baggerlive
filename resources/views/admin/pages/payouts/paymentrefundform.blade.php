@@ -17,7 +17,7 @@
             @endif
                <div class="row">
                     <div class="col-sm-4">
-                        <img src="{{ asset('images/royals.png') }}" alt="" width="200">
+                        <img src="{{ asset('images/team/teamimages/' . $team->teams->team_profile) }}" alt="" width="200">
                     </div>
                     <div class="col-sm-6">
                         <h6>{{ $team->teams->team_name }}, {{ $team->teams->division }}</h6>

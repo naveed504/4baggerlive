@@ -7,6 +7,12 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\General\Slider;
+use App\Models\General\GeneralSetting;
+use App\Models\General\RecentContentSection;
+use App\Models\General\OfficialPartner;
+use App\Models\General\ManageNews;
+
 
 class LoginController extends Controller
 {
@@ -37,7 +43,13 @@ class LoginController extends Controller
      */
     public function showLoginForm()
     {
-        return view('frontend.pages.home');
+        $latestNews = ManageNews::first();
+        $officalpartners = OfficialPartner::all();
+        $recentsections = RecentContentSection::all();
+        $sliders =Slider::all();
+        $generalSetting = GeneralSetting::first();
+       
+        return view('frontend.pages.home', compact('sliders','recentsections','officalpartners','latestNews','generalSetting'));
     }
 
     public function __construct()
@@ -67,7 +79,7 @@ class LoginController extends Controller
             return redirect('player/profile');
         } else {
             parent::successMessage('User Login successfully');
-            return redirect('liveevents');
+            return redirect()->route('welcome');
         }
     }
 }

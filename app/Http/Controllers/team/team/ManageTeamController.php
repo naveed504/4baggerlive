@@ -15,6 +15,7 @@ use App\Services\TeamService;
 use Exception;
 use Image;
 use App\Models\Event\Event;
+use App\Models\Event\EventRegisterTeam;
 
 class ManageTeamController extends Controller
 {
@@ -241,11 +242,31 @@ class ManageTeamController extends Controller
 
     public function deleteteam($id) 
     {
-       $result= Team::find($id);
-       $result->delete();
-       parent::successMessage("Team deleted successfully");
-       return redirect()->back();
-
+        $results = EventRegisterTeam::where('team_id', $id)->first();
+        if(empty($results)) {
+            $result= Team::find($id);
+            $result->delete();
+            parent::successMessage("Team deleted successfully");
+            return redirect()->back();            
+        } else {
+            parent::dangerMessage("Team added into event");
+            parent::dangerMessage("You cannot delete this team");
+            return redirect()->back();         
+        }    
     }
+
+    public function showteamevent($id)
+    {
+        $eventteam = EventRegisterTeam::where('team_id', $id)->first();
+        $team = Team::find($id);
+        if(empty($eventteam)) {
+            parent::dangerMessage("Team does not added any event");
+            parent::dangerMessage("Please add Team into event");
+            return redirect()->back();
+        } else {
+            return view('coach.pages.team.teamsinevent',compact('eventteam','team'));
+        }
+    }
+    
 
 }

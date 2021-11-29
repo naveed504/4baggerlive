@@ -39,6 +39,7 @@
                             <td>{{ $player->player->team->team_name ?? 'Not Assigned' }}</td>
                             <td>{{ $player->playerBat->count() }}</td>
                             <td>
+                                <a href="{{ route('createplayerstats', $player->id) }}"><i class="fas fa-plus-square text-warning"></i></a>
                                 <a href="{{ route('player.show', $player->id) }}"><i class="fa fa-eye text-info" aria-hidden="true"></i></a>
                                 <a href="{{ route('player.edit', $player->id) }}" class="text-decoration-none pr-1">
                                     <i class="fas fa-edit text-info"></i>
@@ -46,6 +47,7 @@
                                  <a href="javascript:void(0);" class="text-decoration-none" onclick="deleteRecord({{$player->id}}, '/admin/player/')">
                                      <i class="fa fa-trash text-danger" aria-hidden="true"></i>
                                  </a>
+                                 
                             </td>
                         </tr>
                         @empty

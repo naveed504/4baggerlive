@@ -130,7 +130,10 @@ class EventController extends Controller
     public function showTeamsInEvent($id)
     {
         $event = Event::find($id);
-        return view('director.pages.event.showTeams', compact('event'));
+        $eventteams =EventRegisterTeam::where(['event_id'=> $id])->fetchRelations()->groupBy('team_id')->get();
+       
+       
+        return view('director.pages.event.showTeams', compact('event','eventteams'));
     }
 
     /**
@@ -179,7 +182,7 @@ class EventController extends Controller
 
     public function eventHistory($eventid)
     {
-           $payments = EventRegisterTeam::where('event_id', $eventid)->FetchRelations()->get();
+           $payments = Event::where('user_id', Auth::user()->id)->with('eventRegTeams')->get();
            $servicefee = ServiceFee::first();
            return view('director.pages.event.eventhistory',compact('payments','servicefee'));
 

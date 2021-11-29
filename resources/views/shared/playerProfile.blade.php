@@ -40,7 +40,7 @@
                                 
                                 <h2 class="img__heading1">MLB DRAFT</h2>
                                 <div class="img__wrapper3">
-                                    <p class="text-light">{{ $player->getLatestRank->mlb_draft ?? "N/A" }}</p>
+                                    <p class="text-light">{{ $player->player->mlb_draft ?? "N/A" }}</p>
                                 </div>
                                 {{-- <p class="lblheading__three">ROUND 1 - 2019</p> --}}
                             </div>
@@ -52,7 +52,7 @@
                                     <div class="text-center ">
                                         <h2 class="img__heading1 text-uppercase">MLB Debuted</h2>
                                         <div class="img__wrapper3">
-                                            <p class="text-light">{{ $player->getLatestRank->mlb_debuted ?? "N/A" }}</p>
+                                            <p class="text-light">{{ $player->player->mlb_debuted ?? "N/A" }}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -60,7 +60,7 @@
                                     <div class="text-center">
                                         <h2 class="img__heading1">LAST TEAM PLAYED</h2>
                                         <div class="img__wrapper3">
-                                            <p class="text-light">{{ $player->getLatestRank->team_last_played ?? "N/A" }}</p>
+                                            <p class="text-light">{{ $player->player->last_team_played ?? "N/A" }}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -75,7 +75,7 @@
                                     <a class="link2" href="#">NATIONAL RANKING</a>
                                     <div class="flex__wrapper-three flex__responsive justify-content-center">
                                         <div class="label__three text-center">
-                                            <p>{{ $player->getLatestRank->over_all ?? "N/A" }}</p>
+                                            <p>{{ $player->player->national_ranking ?? "N/A" }}</p>
                                             <p>OVERALL</p>
                                         </div>
                                     </div>
@@ -86,7 +86,7 @@
                                     <a class="link2" href="#">{{ $player->player->state->state_code ?? "N/A"}} STATE RANKING</a>
                                     <div class="flex__wrapper-three flex__responsive justify-content-center">
                                         <div class="label__three">
-                                            <p>{{ $player->getLatestRank->mif ?? "N/A" }}</p>
+                                            <p>{{ $player->player->state_ranking ?? "N/A" }}</p>
                                             <p>OVERALL</p>
                                         </div>
                                     </div>
@@ -94,9 +94,7 @@
                             </div>
                         </div>
                         <div>
-                            <p class="font__colr-wraper">OUTSTANDING DEFENSIVE SS AND CAN REALLY HIT. EVERY TIME HE HIT THIS
-                                SUMMER YOU ALMOST
-                                EXPECTED A 100+ EXIT VELOS AND EXTRA BASES. 6.4 60 AT FB NATIONAL. VERY GOOD IN JUPITER</p>
+                            <p class="font__colr-wraper">{{ $player->player->profile_content ?? "N/A" }}</p>
                         </div>
                         <div class="Twenty"></div>
                         <div style="background-color: Gray; height: 1px"></div>
@@ -112,8 +110,8 @@
                                 </p>
                             </div>
                             <div class="text-center ">
-                                <a class="linkwrapper" href="#">{{ $player->getLatestRank->team_last_played ?? "N/A" }}</a>
-                                <p class="heading__four">TEAM LAST PLAYED</p>
+                                <a class="linkwrapper" href="#"></a>
+                                <p class="heading__four"></p>
                                 <p class="font__colr-wraper1">
                                     @if(empty($player->player->date_of_birth))
                                     {{ "N/A" }}
@@ -130,7 +128,7 @@
                                     {{ $player->player->player_height   ?? "N/A" }}
                                     {{ $player->player->player_weight  ?? "N/A"  }}</p>
                                 <p class="heading__four">HEIGHT/WEIGHT</p>
-                                <p class="font__colr-wraper1"> {{ $player->getLatestRank->best_pg_grade ?? "N/A" }} <br> Best Grade
+                                <p class="font__colr-wraper1"> {{ $player->player->best_grade ?? "N/A" }} <br> Best Grade
                                 </p>
                             </div>
                         </div>

@@ -26,7 +26,7 @@ class EditRequest extends FormRequest
     {
         return [
 
-            'team_name' => ['regex:/[a-zA-Z][a-zA-Z ]+/', 'required'],
+            'team_name' => [ 'required'],
             'team_city' => ['alpha', 'required'],
             'team_state' => ['string', 'required'],
             'age_group' => ['required'],

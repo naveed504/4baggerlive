@@ -86,6 +86,7 @@ class EventService
      */
     public function updateEvent($id, $request)
     {
+       
 
         $event = EventModel::find($id);
 
@@ -98,6 +99,11 @@ class EventService
             }
         }
 
+<<<<<<< HEAD
+=======
+        
+
+>>>>>>> 4cd3092c25f6eb105d331749fdfb3b75f58a029e
         try {
             $event->update([
                 'event_name' => $request->event_name,
@@ -117,8 +123,12 @@ class EventService
                 'gate_fee' => $request->gate_fee,
                 'eventclassification'=>$request->eventclassification,
                 'event_time'=> json_encode($request->event_time),
+<<<<<<< HEAD
                 'approved' => Auth::user()->type == 1 ? (int) $request->status : 0,
 
+=======
+                'approved' =>$request->status,
+>>>>>>> 4cd3092c25f6eb105d331749fdfb3b75f58a029e
             ]);
 
             $ageGroups = CheckAgeGroupStatus::where('event_id', $id)->get();

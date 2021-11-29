@@ -245,6 +245,7 @@
             @endif
         </div>
     </div>
+    
     @if(Auth::user()->type == 1)
         <div class="row mb-2">
             <div class="col-sm-6">
@@ -260,6 +261,8 @@
                 @endif
             </div>
         </div>
+        @else
+        <input type="hidden" name="status" value="{{ $event->approved }}" >
     @endif
 </div>
 <div class="row mb-5">

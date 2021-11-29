@@ -37,7 +37,7 @@ class ManageTeamController extends Controller
     {
         $states = State::all();
         $ageGroups = AgeGroup::all();
-        $directorEventState = Event::with('state')->where('user_id', Auth::user()->id)->get();
+        $directorEventState = Event::with('state')->where('user_id', Auth::user()->id)->where('approved',1)->get();
 
         return view('director.pages.team.create', compact('states', 'ageGroups', 'directorEventState'));
     }
@@ -180,10 +180,14 @@ class ManageTeamController extends Controller
      */
     public function destroy(TeamService $team, $id)
     {
-        $team->deleteTeam($id) == 'true'
-            ? parent::successMessage('Team Deleted Successfully')
-            : parent::dangerMessage('Team could not be deleted. Please try again');
-
+        $deleteresult = $team->deleteTeam($id) == 'true' ;
+        if($deleteresult) {
+            parent::successMessage('Team Deleted Successfully');
+        } else {
+            parent::dangerMessage('Team added into event');
+            parent::dangerMessage('You cannot delete this team');
+        }
+           
         return redirect()->back();
     }
 }

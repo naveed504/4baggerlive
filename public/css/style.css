@@ -3199,12 +3199,15 @@ h6 {
 .overlay i {
     float: right;
     position: relative;
-    top: 30px;
-    right: 10px;
+  top: 15px;
+
+
     font-size: 20px;
     display: none;
 }
-
+.age-group span {
+    margin-top: 10px  !important;
+}
 .parent-overlay:hover .overlay {
     display: block;
     width: 100%;
@@ -3216,7 +3219,8 @@ h6 {
 }
 
 .age-group span {
-    margin: 1px 0px !important;
+    margin: 0px 0px !important;
+    padding: 4px 3px;
 }
 
 .lanwood-link a {
@@ -3325,3 +3329,24 @@ h6 {
   .img_coloum{
       padding-left: 30px;
   }
+  .az span {
+      width: 149px;
+  }
+.dates{
+    white-space: nowrap;
+    position: relative;
+    left: 25px;
+}
+.florida{
+    position: relative;
+    left: 45px;
+}
+.AuBurnDale p{
+position: relative;
+left: 100px;
+}
+
+.custom-file-label {
+    overflow: hidden;
+}
+

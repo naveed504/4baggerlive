@@ -11,7 +11,7 @@
                                         <span class="badge badge-pill badge-warning px-4 py-2">{{$eventdata->state->state_name}}</span>
                                     </div>
                                     <div class="dates ">
-                                        {{ date('y-M-d', strtotime($eventdata->start_date)).'-'.date('d', strtotime($eventdata->end_date))  }}
+                                        {{ date('M-d', strtotime($eventdata->start_date)) }} &nbsp; To &nbsp; {{ date('M-d', strtotime($eventdata->end_date))  }}
                                     </div>
                                     <div class="florida">
                                     {{ $eventdata->event_name }}

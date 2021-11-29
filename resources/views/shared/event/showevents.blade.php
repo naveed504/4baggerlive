@@ -15,7 +15,7 @@
                             <img src="{{ asset('/images/event/'.$event->event_logo) }}" alt="" width="50">
                         </div>
                         <div class="col-sm-7 sub_line">
-                            {{ date('M y', strtotime($event->start_date)) }}
+                            {{ date('M-d', strtotime($event->start_date)) }}
                         </div>
                         <div class="col-sm-3">
                             <p class="sub_para text-primary">  {{ $event->eventRegTeams->count() ?? 0 }}  Teams</p>

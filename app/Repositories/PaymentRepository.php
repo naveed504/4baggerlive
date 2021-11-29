@@ -77,8 +77,8 @@ class PaymentRepository
                 $checkTeamExist = EventRegisterTeam::where(['team_id' => $input['teamId'][$key]])->first();
                     if($checkTeamExist === null) {
                         EventRegisterTeam::create($team);
-                         $msg1 = 1;
-                         $this->parent->transPassMsg($msg1);
+                         $msg2 = 2;
+                         $this->parent->transPassMsg($msg2);
                     }else {
                         $error4 = 4;
                         $this->parent->transFailMsg($error4); //err 4

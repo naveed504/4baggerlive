@@ -47,6 +47,13 @@ class PlayerRequest extends FormRequest
             'parent_lastname[]' => ['regex:/[a-zA-Z][a-zA-Z ]+/', 'required'],
             'parent_cellno[]' => ['required'],
             'parent_email[]' => ['email', 'required'],
+            'mlb_draft' => ['required'] ,
+            'mlb_debuted'=> ['required'],
+            'last_team_played'=> ['required'],
+            'national_ranking'=> ['required'],
+            'state_ranking'=> ['required'],
+            'best_grade'=> ['required'],
+            'profile_content'=> ['required'],
             // 'facebook' => ['required','german_url'],
             // 'twitter' => ['required','url'],
             // 'instagram' => ['required','url'],
@@ -105,6 +112,14 @@ class PlayerRequest extends FormRequest
             'password.required' => "password is required",
             'password_confirmation.same' => "The Password confirmation does not same",
             'password_confirmation.required' => "password_confirmation is required",
+
+            'mlb_draft.required' => "Mlb Draft  is required",
+            'mlb_debuted.required' => "Mlb Debuted  is required",
+            'last_team_played.required' => "Last Team Played  is required",
+            'national_ranking.required' => "National ranking  is required",
+            'state_ranking.required' => "State ranking  is required",
+            'best_grade.required' => "Best Grade  is required",
+            'profile_content.required' => "Profile Content  is required",
 
         ];
     }

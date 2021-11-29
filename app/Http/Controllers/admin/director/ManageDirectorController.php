@@ -96,9 +96,9 @@ class ManageDirectorController extends Controller
      */
     public function update(Request $request, DirectorService $director, $id)
     {
-        $director->updateDirector($id, $request)
+        $director->updateDirector($id, $request) == 'updated'
             ? parent::successMessage("Director Updated Successfully")
-            : parent::dangerMessage("Oops we have encountered an error. Please try again");
+            : parent::dangerMessage("Profile does not updated. Please try again");
 
         return redirect()->route('director.index');
     }

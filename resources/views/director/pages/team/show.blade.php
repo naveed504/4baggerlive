@@ -33,12 +33,12 @@
                             <span>Shreveport, LA</span>
                         </div>
                         <div class="wrapper-four-content mb__70--wrapper">
-                            <strong>ORGANIZATION:</strong>
-                            <a href="#" class="font__bold-wrapper">Southern Finest</a>
+                            <strong>TEAM CITY:</strong>
+                            <a href="#" class="font__bold-wrapper">{{ $team->team_city }}</a>
                         </div>
                         <div class="wrapper-four-content">
-                            <strong>MEMBERSHIP YEAR:</strong>
-                            <a href="#" class="font__bold-wrapper">2020-2021</a>
+                            <strong>TEAM STATE:</strong>
+                            <a href="#" class="font__bold-wrapper">{{ $team->state->state_name }}</a>
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -48,17 +48,15 @@
                             <span style="font-weight:normal">(South)</span>
                         </div>
                         <div class="wrapper-four-content">
-                            <strong>HOMETOWN:</strong>
-                            <span>9U</span>
+                            <strong>AGE GROUP:</strong>
+                            <span>{{$team->agegroup->age_group}}</span>
                         </div>
                         <div class="wrapper-four-content">
                             <div class="d__flex-two">
                                 <strong>PG RECORD:</strong>
                                 <div style="margin-left:5px">
                                     <p><span class="sub__wrapper"> 22-2-0 </span><span class="box-sub-contnet">Overall</span></p>
-                                    <p><span class="sub__wrapper"> 14-2-0 </span><span class="box-sub-contnet">vs. Major</span></p>
-                                    <p><span class="sub__wrapper"> 5-0-0 </span><span class="box-sub-contnet">vs. AAA</span></p>
-                                    <p><span class="sub__wrapper"> 3-0-0</span><span class="box-sub-contnet">vs. Non-classified</span></p>
+                                   
 
                                 </div>
                             </div>

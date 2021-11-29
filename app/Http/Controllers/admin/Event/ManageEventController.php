@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Models\Team\Team;
 use App\Models\AgeGroup;
 use App\Models\Event\EventTimeSchedule;
+use App\Models\Event\EventRegisterTeam;
 
 class ManageEventController extends Controller
 {
@@ -112,7 +113,9 @@ class ManageEventController extends Controller
     public function showAdminTeams($id)
     {
         $event = Event::find($id);
-        return view('admin.pages.event.showTeams', compact('event'));
+        $eventteams =EventRegisterTeam::where(['event_id'=> $id])->fetchRelations()->groupBy('team_id')->get();
+
+        return view('admin.pages.event.showTeams', compact('event','eventteams'));
     }
 
     public function showTeamDetails($id)

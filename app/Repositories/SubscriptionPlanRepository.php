@@ -17,14 +17,16 @@ class SubscriptionPlanRepository
 
     public function savePaymentTransactionInToDB($tresponse, $input)
     {
-        
+        $no_of_days = $input['plantype'] * 30;
+        $expirydate=Date('y:m:d H:i:s', strtotime('+' .$no_of_days. 'days'));      
+       
         SubscriptionPaymentPlan::create([
             'subscription_plans_id' => $input['subscription_plans_id'],
             'user_id' => $input['userId'],
             'subscription_amount' => $input['amount'],
             'payment_status' => 1,
             'transaction_no' => $tresponse->getTransId(),
-            'expiry_date'   => '2021-10-01 13:39:29',
+            'expiry_date'   => $expirydate,
         ]);
 
         return true ;

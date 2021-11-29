@@ -139,7 +139,8 @@
                 <div class="form-row">
                     <div class="form-group col-md-6 col__mr-right">
                         <label class="label__wrapper required" for=""> routing number </label>
-                        <input type="number" class="form-control input__box--wrapper"  placeholder="" @if(Auth::user()->type == 1) disabled @endif value="{{ $director->director->dd_routingno }}" name="routing_no" required>
+                   
+                        <input type="text" class="form-control input__box--wrapper"  placeholder="" @if(Auth::user()->type == 1) disabled @endif value="{{ $director->director->dd_routingno }}" name="routing_no" required>
                         @if($errors->has('routing_no'))
                             <span class="invalid-feedback">
                                 <strong>{{ $errors->first('routing_no') }}</strong>
@@ -148,7 +149,7 @@
                     </div>
                     <div class="form-group col-md-6 col__mr-right">
                         <label class="label__wrapper required" for="">Confirm routing number </label>
-                        <input type="number" class="form-control input__box--wrapper"  placeholder="" @if(Auth::user()->type == 1) disabled @endif value="{{ $director->director->dd_routingno }}" name="routing_no_confirmation" required>
+                        <input type="text" class="form-control input__box--wrapper"  placeholder="" @if(Auth::user()->type == 1) disabled @endif value="{{ $director->director->dd_routingno }}" name="routing_no_confirmation" required>
                         @if($errors->has('routing_no_confirmation'))
                             <span class="invalid-feedback">
                                 <strong>{{ $errors->first('routing_no_confirmation') }}</strong>
