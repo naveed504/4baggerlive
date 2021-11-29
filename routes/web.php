@@ -35,6 +35,7 @@ use App\Http\Controllers\admin\frontend\SiteRulesController;
 use App\Http\Controllers\admin\frontend\AboutUsController;
 use App\Http\Controllers\admin\player\PlayerPitchController;
 use App\Http\Controllers\admin\player\PlayerBatsController;
+use App\Http\Controllers\admin\player\PlayerFieldingController;
 
 
 /*
@@ -143,6 +144,8 @@ Route::group(['prefix' => 'admin',  'middleware' => ['auth', 'checkrole']], func
     Route::resource('subscription', SubscriptionController::class);
     Route::resource('playerpitchstat',PlayerPitchController::class);
     Route::resource('playerbatstat',PlayerBatsController::class);
+    Route::resource('playerfieldstat',PlayerFieldingController::class);
+    
     //Manage Time Schedule
     Route::resource('managetimeschedule', TimeScheduleController::class);
     Route::resource('manageschedule', ScheduleController::class);

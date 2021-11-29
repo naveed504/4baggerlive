@@ -4,10 +4,9 @@
 <section class="player-reg2 bg-white">
             <div class="container">
                 <ul class="nav nav-tabs bagger-pills2" id="myTab" role="tablist">
-                    <li><a href="#tab1" class="active" data-toggle="tab" role="tab" aria-controls="tab1" aria-selected="true">Create Batting Stats</a></li>
-                    <li><a href="#tab2" data-toggle="tab"> View Batting Stats</a></li>
-                    <li><a href="#tab3" data-toggle="tab">STATS</a></li>
-                    <li><a href="#tab4" data-toggle="tab">VIDEO</a></li>
+                    <li><a href="#tab1" class="active" data-toggle="tab" role="tab" aria-controls="tab1" aria-selected="true">Create Player Stats</a></li>
+                    <li><a href="#tab2" data-toggle="tab"> View Player Stats</a></li>
+                  
                 </ul>
                 <div class="tab-content"  id="myTabContent">
                     <div class="tab-pane fade show active " id="tab1">
@@ -17,7 +16,7 @@
                                     <div class="card-header" id="headingOne">
                                         <h2 class="mb-0">
                                             <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                                Batting Stats
+                                                Create Batting Stats
                                             </button>
                                         </h2>
                                     </div>
@@ -176,7 +175,7 @@
                                 <div class="card-header" id="headingTwo">
                                     <h2 class="mb-0">
                                     <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                        Pitch Stats
+                                    Create  Pitch Stats
                                     </button>
                                     </h2>
                                 </div>
@@ -258,13 +257,15 @@
                                 <div class="card-header" id="headingThree">
                                     <h2 class="mb-0">
                                     <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                        Fielding Stats
+                                    Create   Fielding Stats
                                     </button>
                                     </h2>
                                 </div>
                                 <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
                                     <div class="card-body">
-                                        <form action="" method="post" id="player_fielding_stats">
+                                        <form action="{{ route('playerfieldstat.store') }}" method="post" id="player_fielding_stats">
+                                            @csrf
+                                            <input type="hidden" name="playerid" value="{{$playerid}}" >
                                             <div class="row">
                                                 <div class="col">
                                                     <label for="formGroupExampleInput">Season</label>
@@ -344,7 +345,7 @@
                                     <div class="card-header" id="headingOne">
                                         <h2 class="mb-0">
                                             <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                                Batting Stats
+                                              View  Batting Stats
                                             </button>
                                         </h2>
                                     </div>
@@ -360,10 +361,10 @@
                                                         <th scope="col">INN</th>
                                                         <th scope="col">1B</th>
                                                         <th scope="col">2B</th>
+                                                        <th scope="col">3B</th>
                                                         <th scope="col">AB</th>
                                                         <th scope="col">AB/HR</th>
-                                                        <th scope="col">BA</th>
-                                                        <th scope="col">3B</th>
+                                                        <th scope="col">BA</th>                                                       
                                                         <th scope="col">BB</th>
                                                         <th scope="col">BB/K</th>
                                                         <th scope="col">BsR</th>
@@ -372,7 +373,6 @@
                                                         <th scope="col">H</th>
                                                         <th scope="col">HBP</th>
                                                         <th scope="col">HR</th>
-                                                        <th scope="col">HR/H</th>
                                                         <th scope="col">K</th>
                                                         <th scope="col">LOB</th>
                                                         <th scope="col">OBP</th>
@@ -382,38 +382,49 @@
                                                         <th scope="col">RBI</th>
                                                         <th scope="col">TA</th>
                                                         <th scope="col">TB</th>
+                                                        <th>Action</th>
                                                     </tr>
                                                     </thead>
                                                     <tbody>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td>1</td>
-                                                        <td>1</td>
-                                                        <td>1</td>
-                                                        <td>1</td>
-                                                        <td>1</td>
-                                                        <td>1</td>
-                                                        <td>1</td>
-                                                        <td>1</td>
-                                                        <td>1</td>
-                                                        <td>1</td>
-                                                        <td>1</td>
-                                                        <td>1</td>
-                                                        <td>1</td>
-                                                        <td>1</td>
-                                                        <td>1</td>
-                                                        <td>1</td>
-                                                        <td>1</td>
-                                                        <td>1</td>
-                                                        <td>1</td>
-                                                        <td>1</td>
-                                                        <td>1</td>
-                                                        <td>1</td>
-                                                        <td>1</td>
-                                                        <td>1</td>
-                                                        <td>1</td>
-                                                        <td>1</td>
+                                                @forelse($batstats as $btstat)
+                                                    <tr>                                                       
+                                                        <td>{{$btstat->season }}</td>
+                                                        <td>{{$btstat->matches }}</td>
+                                                        <td>{{$btstat->innings }}</td>
+                                                        <td>{{$btstat->one_b }}</td>
+                                                        <td>{{$btstat->two_b }}</td>
+                                                        <td>{{$btstat->three_b }}</td>
+                                                        <td>{{$btstat->ab }}</td>
+                                                        <td>{{$btstat->ab_hr }}</td>
+                                                        <td>{{$btstat->ba }}</td>
+                                                        <td>{{$btstat->bb }}</td>
+                                                        <td>{{$btstat->bb_k }}</td>
+                                                        <td>{{$btstat->bsr }}</td>
+                                                        <td>{{$btstat->gpa }}</td>
+                                                        <td>{{$btstat->gs }}</td>
+                                                        <td>{{$btstat->h }}</td>
+                                                        <td>{{$btstat->hbp }}</td>
+                                                        <td>{{$btstat->hr }}</td>
+                                                        <td>{{$btstat->k }}</td>
+                                                        <td>{{$btstat->lob }}</td>
+                                                        <td>{{$btstat->obp }}</td>
+                                                        <td>{{$btstat->r }}</td>
+                                                        <td>{{$btstat->rc }}</td>
+                                                        <td>{{$btstat->rp }}</td>
+                                                        <td>{{$btstat->rbi }}</td>
+                                                        <td>{{$btstat->ta }}</td>
+                                                        <td>{{$btstat->tb }}</td>  
+                                                        <td>
+                                                        <a href="{{ route('playerbatstat.edit', $btstat->id) }}" class="blockeditLink"><i class="fas fa-pencil-alt"></i></a>
+                                                        <a href="javascript:void(0)" onclick="deleteRecord({{$btstat->id}}, '/admin/playerbatstat/')" class="blockeditLink" style="margin-top:40px;"><i class="fas fa-trash-alt "></i></a>
+                                                        </td>                                                     
                                                     </tr>
+                                                    @empty
+                                                    <tr>
+                                                    <td></td>
+                                                    <td>No Record Found</td>
+                                                    </tr>
+                                                 @endforelse
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -424,7 +435,7 @@
                                 <div class="card-header" id="headingTwo">
                                     <h2 class="mb-0">
                                     <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                        Pitch Stats
+                                    View  Pitch Stats
                                     </button>
                                     </h2>
                                 </div>
@@ -439,7 +450,7 @@
                                                         <th scope="col">INN</th>
                                                         <th scope="col">GS</th>
                                                         <th scope="col">CG</th>
-                                                        <th scope="col">AB</th>
+                                                       
                                                         <th scope="col">SHO</th>
                                                         <th scope="col">H</th>
                                                         <th scope="col">R</th>
@@ -447,24 +458,35 @@
                                                         <th scope="col">HR</th>
                                                         <th scope="col">BB</th>
                                                         <th scope="col">K</th>
+                                                        <th>Action</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
+                                                    @forelse($pitchstats as $ptchstat)
                                                     <tr>
-                                                        <td>1</td>
-                                                        <td>1</td>
-                                                        <td>1</td>
-                                                        <td>1</td>
-                                                        <td>1</td>
-                                                        <td>1</td>
-                                                        <td>1</td>
-                                                        <td>1</td>
-                                                        <td>1</td>
-                                                        <td>1</td>
-                                                        <td>1</td>
-                                                        <td>1</td>
-                                                        <td>1</td>
+                                                    <td>{{ $ptchstat->season }}</td>
+                                                    <td>{{ $ptchstat->matches }}</td>
+                                                    <td>{{ $ptchstat->innings }}</td>
+                                                    <td>{{ $ptchstat->game_start }}</td>
+                                                    <td>{{ $ptchstat->game_complete }}</td>
+                                                    <td>{{ $ptchstat->sho }}</td>
+                                                    <td>{{ $ptchstat->h }}</td>
+                                                    <td>{{ $ptchstat->r }}</td>
+                                                    <td>{{ $ptchstat->er }}</td>
+                                                    <td>{{ $ptchstat->hr}}</td>
+                                                    <td>{{ $ptchstat->bb }}</td>
+                                                    <td>{{ $ptchstat->k }}</td>  
+                                                    <td>
+                                                        <a href="{{ route('playerpitchstat.edit', $ptchstat->id) }}" class="blockeditLink"><i class="fas fa-pencil-alt"></i></a>
+                                                        <a href="javascript:void(0)" onclick="deleteRecord({{$ptchstat->id}}, '/admin/playerpitchstat/')" class="blockeditLink" style="margin-top:40px;"><i class="fas fa-trash-alt "></i></a>
+                                                        </td>                                                 
                                                     </tr>
+                                                    @empty
+                                                    <tr>
+                                                        <td>No Record Found</td>
+                                                    </tr>
+                                                    @endforelse
+                                                   
                                                 </tbody>
                                             </table>
                                         </div>
@@ -475,7 +497,7 @@
                                 <div class="card-header" id="headingThree">
                                     <h2 class="mb-0">
                                     <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                        Fielding Stats
+                                    View Fielding Stats
                                     </button>
                                     </h2>
                                 </div>
@@ -495,27 +517,36 @@
                                                         <th scope="col">PB</th>
                                                         <th scope="col">PO</th>
                                                         <th scope="col">E</th>
-                                                        <th scope="col">TC</th>
-                                                        <th scope="col">BB</th>
+                                                        <th scope="col">TC</th>                                                       
                                                         <th scope="col">TP</th>
+                                                        <th>Action</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
+                                                @forelse($fieldstats as $fldstat)
                                                     <tr>
-                                                        <td>1</td>
-                                                        <td>1</td>
-                                                        <td>1</td>
-                                                        <td>1</td>
-                                                        <td>1</td>
-                                                        <td>1</td>
-                                                        <td>1</td>
-                                                        <td>1</td>
-                                                        <td>1</td>
-                                                        <td>1</td>
-                                                        <td>1</td>
-                                                        <td>1</td>
-                                                        <td>1</td>
+                                                        <td>{{ $fldstat->season }}</td>
+                                                        <td>{{ $fldstat->matches }}</td>
+                                                        <td>{{ $fldstat->innings }}</td>
+                                                        <td>{{ $fldstat->a }}</td>
+                                                        <td>{{ $fldstat->ci }}</td>
+                                                        <td>{{ $fldstat->db }}</td>
+                                                        <td>{{ $fldstat->fp }}</td>
+                                                        <td>{{ $fldstat->pb }}</td>
+                                                        <td>{{ $fldstat->po }}</td>
+                                                        <td>{{ $fldstat->e }}</td>
+                                                        <td>{{ $fldstat->tc }}</td>
+                                                        <td>{{ $fldstat->tp }}</td>
+                                                        <td>
+                                                        <a href="{{ route('playerfieldstat.edit', $fldstat->id) }}" class="blockeditLink"><i class="fas fa-pencil-alt"></i></a>
+                                                        <a href="javascript:void(0)" onclick="deleteRecord({{$fldstat->id}}, '/admin/playerfieldstat/')" class="blockeditLink" style="margin-top:40px;"><i class="fas fa-trash-alt "></i></a>
+                                                        </td>
                                                     </tr>
+                                                    @empty 
+                                                    <tr>
+                                                        <td> No record Found</td>
+                                                    </tr>
+                                                    @endforelse
                                                 </tbody>
                                             </table>
                                         </div>

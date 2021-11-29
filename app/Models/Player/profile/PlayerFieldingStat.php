@@ -8,4 +8,20 @@ use Illuminate\Database\Eloquent\Model;
 class PlayerFieldingStat extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'user_id',
+        'season',
+        'matches',
+        'innings',
+        'a',
+        'ci',
+        'db',
+        'fp',
+        'pb',
+        'po',
+        'e',
+        'tc',
+        'tp'
+    ];
 }
