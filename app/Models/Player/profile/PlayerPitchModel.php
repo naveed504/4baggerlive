@@ -14,6 +14,8 @@ class PlayerPitchModel extends Model
     protected $table    = 'player_pitch';
 
     protected $fillable = [
+
+    
         'games_played',
         'games_started',
         'complete_games',

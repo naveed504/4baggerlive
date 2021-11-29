@@ -11,6 +11,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
+use App\Models\Player\profile\PlayerPitchStat;
+use App\Models\Player\profile\PlayerBatStat;
+
 
 
 
@@ -147,5 +150,77 @@ class PlayerService
         }
 
         return 'updated';
+    }
+
+
+
+    public function savePlayerPitchStats($request)
+    {
+        try {
+
+            PlayerPitchStat::create([
+                'user_id' => $request->playerid,
+                'season' => $request->season ,
+                'matches' => $request->matches,
+                'innings' => $request->innings,
+                'game_start' => $request->game_start,
+                'game_complete' => $request->game_complete,
+                'sho' => $request->sho,
+                'h' => $request->h,
+                'r' => $request->r,
+                'hr' => $request->hr,
+                'er' => $request->er,
+                'bb' => $request->bb,
+                'k' => $request->k
+            ]);
+
+        } catch(Exception $e) {
+            dd($e->getMessage());
+        } 
+
+        return "savestats";       
+
+    }
+
+
+    public function savePlayerBatStats($request)
+    {
+        try {
+
+            PlayerBatStat::create([
+                'user_id' => $request->playerid,
+                'season' => $request->season,
+                'matches' => $request->matches,
+                'innings' => $request->innings,
+                'one_b' => $request->one_b,
+                'two_b' => $request->two_b,
+                'three_b' => $request->three_b,
+                'ab' => $request->ab,
+                'ab_hr' => $request->ab_hr,
+                'ba' => $request->ba,
+                'bb' => $request->bb,
+                'bb_k' => $request->bb_k,
+                'bsr' => $request->bsr,
+                'gpa' => $request->gpa,
+                'gs' => $request->gs,
+                'h' => $request->h,
+                'hbp' => $request->hbp,
+                'hr' => $request->hr,
+                'k' => $request->k,
+                'lob' => $request->lob,
+                'obp' => $request->obp,
+                'r' => $request->r,
+                'rc' => $request->rc,
+                'rp' => $request->rp,
+                'rbi' => $request->rbi,
+                'ta' => $request->ta,
+                'tb'  => $request->tb   
+            ]);
+            
+
+        } catch(Exception $e) {
+           return redirect()->back();
+        }
+        return "savestats";
     }
 }

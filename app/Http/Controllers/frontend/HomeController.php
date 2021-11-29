@@ -23,6 +23,8 @@ use App\AuthorizeNet\PaymentGateway;
 use net\authorize\api\contract\v1 as AnetAPI;
 use net\authorize\api\controller as AnetController;
 use App\Services\SubscriptionPlanService;
+use App\Jobs\DeleteSubscriptionPlansJob;
+use Carbon\Carbon;
 
 
 use Exception;
@@ -60,6 +62,10 @@ class HomeController extends Controller
 
     public function recentContentDetail($id)
     {
+        $offers =SubscriptionPaymentPlan::all();
+
+        $send =(new DeleteSubscriptionPlansJob($offers))->delay(Carbon::now()->addMinutes(1));
+        dispatch($send);
         if(Auth::check()) {
             $currentuser = Auth::user()->id;
             $subscriptionoffer = SubscriptionPaymentPlan::where('user_id',$currentuser)->first();
@@ -133,6 +139,9 @@ class HomeController extends Controller
 
     public function userPayForSubscribePlan(Request $request, PaymentGateway $payment)
     {
+       
+      
+
             $input = $request->all();
                 $response = $payment->setPaymentData($request->all())
                     ->setRefId()

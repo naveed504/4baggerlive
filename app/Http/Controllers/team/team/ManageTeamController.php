@@ -252,10 +252,21 @@ class ManageTeamController extends Controller
             parent::dangerMessage("Team added into event");
             parent::dangerMessage("You cannot delete this team");
             return redirect()->back();         
-        }
-       
-      
-
+        }    
     }
+
+    public function showteamevent($id)
+    {
+        $eventteam = EventRegisterTeam::where('team_id', $id)->first();
+        $team = Team::find($id);
+        if(empty($eventteam)) {
+            parent::dangerMessage("Team does not added any event");
+            parent::dangerMessage("Please add Team into event");
+            return redirect()->back();
+        } else {
+            return view('coach.pages.team.teamsinevent',compact('eventteam','team'));
+        }
+    }
+    
 
 }

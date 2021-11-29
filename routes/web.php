@@ -33,6 +33,8 @@ use App\Http\Controllers\admin\schedule\TimeScheduleController;
 use App\Http\Controllers\admin\schedule\ScheduleController;
 use App\Http\Controllers\admin\frontend\SiteRulesController;
 use App\Http\Controllers\admin\frontend\AboutUsController;
+use App\Http\Controllers\admin\player\PlayerPitchController;
+use App\Http\Controllers\admin\player\PlayerBatsController;
 
 
 /*
@@ -124,6 +126,7 @@ Route::group(['prefix' => 'admin',  'middleware' => ['auth', 'checkrole']], func
     Route::get('adminpaymentrefundform/{id}', [ManagePayoutController::class, 'showPaymentRefundForm'])->name('adminpaymentrefundform');
     Route::post('adminpaymentrefund', [ManagePayoutController::class, 'refundTransaction'])->name('adminpaymentrefund');
     Route::post('editplayerprofile', [PlayerController::class, 'editplayerprofile'])->name('editplayerprofile');
+    Route::get('create-player-stats/{id}',[PlayerPitchController::class, 'createPlayerStats'])->name('createplayerstats');
     Route::resource('events', ManageEventController::class);
     Route::resource('adminslider', HomeSliderController::class);
     Route::resource('newssection', HomeNewsSectionController::class);
@@ -138,6 +141,8 @@ Route::group(['prefix' => 'admin',  'middleware' => ['auth', 'checkrole']], func
     Route::resource('player', PlayerController::class);
     Route::resource('adminpayout', ManagePayoutController::class);
     Route::resource('subscription', SubscriptionController::class);
+    Route::resource('playerpitchstat',PlayerPitchController::class);
+    Route::resource('playerbatstat',PlayerBatsController::class);
     //Manage Time Schedule
     Route::resource('managetimeschedule', TimeScheduleController::class);
     Route::resource('manageschedule', ScheduleController::class);
@@ -167,6 +172,7 @@ Route::group(['prefix' => 'team',  'middleware' => ['auth', 'teamrole']], functi
     Route::get('addplayer/{id}', [TeamController::class, 'addPlayer'])->name('add.player');
     Route::get('viewplayer/{id}', [TeamController::class, 'viewPlayer'])->name('view.player');
     Route::post('addplayer', [TeamController::class, 'addPlayerToTeam'])->name('add.teamplayer');
+    Route::get('showteamevent/{id}', [TeamController::class, 'showteamevent'])->name('showteamevent');
     Route::get('requested/players/{id}', [TeamController::class, 'viewRequestedPlayers'])->name('requested.player');
     Route::post('searchplayer', [TeamController::class, 'searchPlayer'])->name('searchplayer');
     Route::get('allevents', [TeamEventController::class, 'index'])->name('allevents');
@@ -176,6 +182,7 @@ Route::group(['prefix' => 'team',  'middleware' => ['auth', 'teamrole']], functi
     Route::get('event/{id}', [TeamEventController::class, 'viewEvent'])->name('view.event.coach');
     Route::post('payevents', [TeamEventController::class, 'payTeamForEvent'])->name('payevents');
     Route::get('showTotalTeams/{id}', [TeamEventController::class, 'showTotalTeams'])->name('showTotalTeams');
+    
     Route::any('blog/{blog}', [TeamHomeController::class, 'showBlog'])->name('teamblog');
     Route::delete('delete-team/{id}', [TeamController::class, 'deleteteam']);
 
