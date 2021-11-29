@@ -17,3 +17,4 @@
 {!! JsValidator::formRequest('App\Http\Requests\player\PlayerPitchRequest', '#player_pitch') !!}
 {!! JsValidator::formRequest('App\Http\Requests\player\PlayerRanksRequest', '#manage_player_ranks') !!}
 {!! JsValidator::formRequest('App\Http\Requests\player\PlayerFieldRequest', '#player_field') !!}
+{!! JsValidator::formRequest('App\Http\Requests\player\PlayerBatStateRequest', '#player_Batting_state') !!}
