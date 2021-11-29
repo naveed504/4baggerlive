@@ -50,6 +50,7 @@ class ManageTeamController extends Controller
      */
     public function store(Request $request, TeamService $team)
     {
+      
 
         if (!empty($request->terms_agreement) && !empty($request->site_agreement)) {
             if ($request->password != $request->password_confirmation) {

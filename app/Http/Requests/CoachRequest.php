@@ -24,8 +24,8 @@ class CoachRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['regex:/[a-zA-Z][a-zA-Z ]+/', 'required'],
-            'team_name' => ['regex:/[a-zA-Z][a-zA-Z ]+/', 'required'],
+            'name' => ['required'],
+            'team_name' => ['required'],
             't_city' => ['alpha', 'required'],
             't_state' => ['string', 'required'],
             'cell_no' => ['required'],

@@ -50,7 +50,7 @@
                                             <i class="fa fa-edit text-primary font-large pt-1" aria-hidden="true"></i>
                                         </a>
                                         <a class="btn btn-xs delete p-0" href="javascript:void(0)"
-                                            onclick="deleteRecord({{$team->id}}, '/coach/teams/')">
+                                            onclick="deleteRecord({{$team->id}}, '/team/delete-team/')">
                                             <i class="fa fa-trash text-danger font-large margin-icon" aria-hidden="true"></i>
                                         </a>
                                         </div>

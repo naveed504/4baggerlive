@@ -84,6 +84,7 @@ class EventController extends Controller
         $teams      = Team::where(['user_id'=>$userId])->whereNotIn('id',$teamId)->with('agegroup')->get();
         $event      = Event::find($id);
         $servicefee = ServiceFee::first();
+    
 
         return view('coach.pages.events.addteamtoevent', compact('event', 'servicefee','teams'));
     }
@@ -97,11 +98,14 @@ class EventController extends Controller
     public function showTotalTeams($id)
     {
 
+        $eventteams =EventRegisterTeam::where(['event_id'=> $id])->fetchRelations()->groupBy('team_id')->get();
+       
+       
 
         $event = Event::find($id);
 
 
-        return view('coach.pages.events.showTeams', compact('event'));
+        return view('coach.pages.events.showTeams', compact('event','eventteams'));
     }
 
     /**
@@ -141,6 +145,7 @@ class EventController extends Controller
     }
 
     public function verifyagegroupforeventteam(Request $request){
+    
         $result = CheckAgeGroupStatus::where('event_id', $request->eventId)->where('age_group_id', $request->ageGroupId)->first();
         $checkExist = $result->status ?? '';
         return response()->json(['status' => $checkExist]);

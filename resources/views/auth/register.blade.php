@@ -219,7 +219,7 @@
                                                 <label class="label__wrapper required">City and State where Fields/Complex are located</label>
                                             </div>
                                             <div class="form-group col-md-6 col__mr-right">
-                                                <label class="label__wrapper" for="">State </label>
+                                                <label class="label__wrapper required" for="">State </label>
                                                 <select class="form-control  input__box--wrapper down-icons" name="field_state[]" required>
                                                     <option disabled="" selected value="">select state</option>
                                                     @foreach($states as $state)
@@ -233,7 +233,7 @@
                                                 @endif
                                             </div>
                                             <div class="form-group col-md-6 col__mr-right" id="addmore">
-                                                <label class="label__wrapper" for="">City</label>
+                                                <label class="label__wrapper required" for="">City</label>
                                                 <input type="text" class="form-control input__box--wrapper" placeholder="" value="{{ old("field_city[]") }}" name="field_city[]" required>
                                                 @if($errors->has('field_city[]'))
                                                 <span class="invalid-feedback">
@@ -245,7 +245,7 @@
                                         <button class="btn btn-xs btn__add mt-1" onclick="addMore()" type="button">Add More</button>
                                         <div class="form-row">
                                             <div class="form-group col-md-6 col__mr-right">
-                                                <label class="label__wrapper" for="">password </label>
+                                                <label class="label__wrapper required" for="">password </label>
                                                 <input type="password" name="password" class="form-control input__box--wrapper" placeholder="">
                                                 @if($errors->has('password'))
                                                 <span class="invalid-feedback">
@@ -254,7 +254,7 @@
                                                 @endif
                                             </div>
                                             <div class="form-group col-md-6 col__mr-right">
-                                                <label class="label__wrapper" for="">confirm password </label>
+                                                <label class="label__wrapper required" for="">confirm password </label>
                                                 <input type="password" class="form-control input__box--wrapper" name="password_confirmation" placeholder="">
                                                 @if($errors->has('password_confirmation'))
                                                 <span class="invalid-feedback">

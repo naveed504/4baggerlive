@@ -6,7 +6,7 @@
             <h5 class="text-center heading-color">BASEBALL TEAM</h5>
             <h5 class="text-center heading-color">FOR {{ date('Y') }} SEASON</h5>
         </div>
-        <form action="{{ route('team.store') }}" method="post" id="dir_tem_reg">
+        <form action="{{ route('team.store') }}" method="post" id="dir_tem_reg" enctype="multipart/form-data">
             @csrf
         <div class="row">
             <div class="col-sm-10 mx-auto border p-0">
@@ -65,7 +65,37 @@
                             </div>
                         </div>
                         <div class="row">
+                           
                             <div class="col-sm-6">
+                                <label class="label__wrapper required">Age Group</label>
+                                <select class="form-control input__box--wrapper down-icons" name="age_group" required="">
+                                    <option disabled="" selected="" value="">Age Group</option>
+                                    @foreach($ageGroups as $agegroup)
+                                        <option value="{{ $agegroup->id }}"> {{ $agegroup->age_group }}</option>
+                                    @endforeach
+
+                                </select>
+                                @if($errors->has('age_group'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('age_group') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                            <div class="col-sm-6">
+                            <label class="label__wrapper required">Team Logo </label>
+                                <div class="custom-file">
+                                    <input type="file" name="team_profile" class="form-control input__box--wrapper custom-file-input" id="team_profile" accept="image/*">
+                                    <span class="custom-file-label" for="validatedCustomFile">Choose team profile...</span>
+                                    @if($errors->has('team_profile'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('team_profile') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>                      
+                        </div>
+                        </div>
+                    <div class="row">
+                    <div class="col-sm-6">
                                 <label class="label__wrapper required">Select Event</label>
 
                                 <select class="form-control input__box--wrapper down-icons" name="event" required="">
@@ -83,22 +113,8 @@
                                     </span>
                                 @endif
                             </div>
-                            <div class="col-sm-6">
-                                <label class="label__wrapper required">Age Group</label>
-                                <select class="form-control input__box--wrapper down-icons" name="age_group" required="">
-                                    <option disabled="" selected="" value="">Age Group</option>
-                                    @foreach($ageGroups as $agegroup)
-                                        <option value="{{ $agegroup->id }}"> {{ $agegroup->age_group }}</option>
-                                    @endforeach
-
-                                </select>
-                                @if($errors->has('age_group'))
-                                    <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('age_group') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
+                       
+                    </div>
                     </div>
                 </div>
                 <div class="col-sm-10 mx-auto border p-0 mt-4">

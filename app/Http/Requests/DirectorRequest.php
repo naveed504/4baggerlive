@@ -25,8 +25,8 @@ class DirectorRequest extends FormRequest
     {
         return [
 
-            'name' => ['regex:/[a-zA-Z][a-zA-Z ]+/', 'required'],
-            'director_name' => ['regex:/[a-zA-Z][a-zA-Z ]+/', 'required'],
+            'name' => ['required'],
+            'director_name' => ['required'],
             'address' => ['alphanumeric', 'required'],
             'field_city[]' => ['alpha', 'required'],
             'city' => ['alpha', 'required'],

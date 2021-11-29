@@ -32,6 +32,7 @@ class DirectorRequest extends FormRequest
             'terms_agreement' => ['required'],
             'site_agreement' => ['required'],
             'event' => ['required'],
+            'team_profile' => ['required'],
 
             'name' => ['regex:/[a-zA-Z][a-zA-Z ]+/', 'required'],
             'cell_no' => ['required'],
@@ -64,6 +65,7 @@ class DirectorRequest extends FormRequest
             'password_confirmation.same' => "The Password confirmation does not same",
             'password_confirmation.required' => "password_confirmation is required",
             'event.required' => "Event is required",
+            'team_profile.required' => 'Team Profile required',
 
         ];
     }

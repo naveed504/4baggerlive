@@ -67,28 +67,36 @@ return phpinfo();
 });
 Route::get('phpdebug', [TestController::class, 'phpdebug']);
 
+Route::get('login',[TestController::class, 'loginform'])->name('login');
+
 
 
 /**
  * Frontend Routes
  */
 
-Route::get('liveevents', [FrontendEventController::class, 'liveEvents'])->name('liveevents');
-Route::get('/', [HomeController::class, 'index'])->name('welcome');
-Route::get('/events', [HomeController::class, 'allEvents'])->name('events');
-Route::get('view/events', [HomeController::class, 'allEvents'])->name('view.events');
-Route::get('contact-us', [HomeController::class, 'contactUs'])->name('contactus');
-Route::get('rules-and-policy', [HomeController::class, 'rulesPolicy'])->name('rules');
-Route::get('about-us', [HomeController::class, 'aboutUs'])->name('aboutus');
-Route::any('blog/{blog}', [HomeController::class, 'showBlog'])->name('blog');
-Route::view('/profile', 'frontend.pages.player.profile');
-Route::get('view/event/{id}', [FrontendEventController::class, 'viewEvent'])->name('view.event');
-Route::get('players-in-home', [HomeController::class, 'playersInHome'])->name('players_in_home');
-Route::post('search-player-in-home', [HomeController::class, 'playersearchinHome'])->name('search_player_in_home');
-Route::get('view-player-profile-in-home/{id}', [HomeController::class, 'playerProfileinHome'])->name('view_player_profile_in_home');
-Route::get('4baggerer-recent-content-detail/{id}', [HomeController::class, 'recentContentDetail'])->name('recentcontentdetail');
-Route::get('userpayforsubscription/{id}', [HomeController::class, 'subscriptionForm'])->name('userpayforsubscription');
-Route::post('subscribeplan', [HomeController::class, 'userPayForSubscribePlan'])->name('subscribeplan');
+Route::group(['middleware'=>['generaluser']] ,function() {
+   
+    Route::get('liveevents', [FrontendEventController::class, 'liveEvents'])->name('liveevents');
+    Route::get('/', [HomeController::class, 'index'])->name('welcome');
+    Route::get('/events', [HomeController::class, 'allEvents'])->name('events');
+    Route::get('view/events', [HomeController::class, 'allEvents'])->name('view.events');
+    Route::get('contact-us', [HomeController::class, 'contactUs'])->name('contactus');
+    Route::get('rules-and-policy', [HomeController::class, 'rulesPolicy'])->name('rules');
+    Route::get('about-us', [HomeController::class, 'aboutUs'])->name('aboutus');
+    Route::any('blog/{blog}', [HomeController::class, 'showBlog'])->name('blog');
+    Route::view('/profile', 'frontend.pages.player.profile');
+    Route::get('view/event/{id}', [FrontendEventController::class, 'viewEvent'])->name('view.event');
+    Route::get('players-in-home', [HomeController::class, 'playersInHome'])->name('players_in_home');
+    Route::post('search-player-in-home', [HomeController::class, 'playersearchinHome'])->name('search_player_in_home');
+    Route::get('view-player-profile-in-home/{id}', [HomeController::class, 'playerProfileinHome'])->name('view_player_profile_in_home');
+    Route::get('4baggerer-recent-content-detail/{id}', [HomeController::class, 'recentContentDetail'])->name('recentcontentdetail');
+    Route::get('userpayforsubscription/{id}', [HomeController::class, 'subscriptionForm'])->name('userpayforsubscription');
+    Route::post('subscribeplan', [HomeController::class, 'userPayForSubscribePlan'])->name('subscribeplan');
+
+});
+
+
 
 /**
  * Admin Routes
@@ -169,6 +177,8 @@ Route::group(['prefix' => 'team',  'middleware' => ['auth', 'teamrole']], functi
     Route::post('payevents', [TeamEventController::class, 'payTeamForEvent'])->name('payevents');
     Route::get('showTotalTeams/{id}', [TeamEventController::class, 'showTotalTeams'])->name('showTotalTeams');
     Route::any('blog/{blog}', [TeamHomeController::class, 'showBlog'])->name('teamblog');
+    Route::delete('delete-team/{id}', [TeamController::class, 'deleteteam']);
+
 
 });
 

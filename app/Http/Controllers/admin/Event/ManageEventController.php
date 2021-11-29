@@ -9,6 +9,7 @@ use App\Services\EventService;
 use Illuminate\Http\Request;
 use App\Models\Team\Team;
 use App\Models\AgeGroup;
+use App\Models\Event\EventTimeSchedule;
 
 class ManageEventController extends Controller
 {
@@ -67,7 +68,8 @@ class ManageEventController extends Controller
         $states = State::all();
         $event = Event::find($id);
         $ageGroups = AgeGroup::all();
-        return view('admin.pages.event.edit', compact('event', 'states','ageGroups'));
+        $eventTimeSchedule = EventTimeSchedule::all();
+        return view('admin.pages.event.edit', compact('event', 'states','ageGroups','eventTimeSchedule'));
     }
 
     /**
@@ -79,6 +81,7 @@ class ManageEventController extends Controller
      */
     public function update(EventService $event, Request $request, $id)
     {
+        // dd($request->all());
         $event->updateEvent($id, $request)
             ? parent::successMessage("Event Updated Successfully")
             : parent::dangerMessage('Oops! We have encountered a problem. Please try again');
@@ -94,6 +97,7 @@ class ManageEventController extends Controller
      */
     public function destroy(EventService $event, $id)
     {
+
         $event->deleteEvent($id)
             ? parent::successMessage('Event Deleted Successfully')
             : parent::dangerMessage('Team could not be deleted. Please try again');

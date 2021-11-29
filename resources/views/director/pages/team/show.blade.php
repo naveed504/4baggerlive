@@ -10,7 +10,7 @@
         <div class="d__flex-one">
             <div class="mx__50">
                 <div class="logo--wrapper--inner">
-                    <img src="{{ asset('images/Default_PGBA_Logo.png') }}" class="img-fluid" alt="">
+                    <img src="{{ asset('images/team/teamimages/' . $team->team_profile) }}" class="img-fluid" alt="">
                 </div>
                 <h2>Team</h2>
             </div>

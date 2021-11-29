@@ -123,37 +123,7 @@
     const eventPrice = "{{ $event->entry_fee }}";
     const chargeservicefee = "{{ $servicefee->servicefee}}";
 
-    function CalculateAmount(obj){
-        if($(obj).is(":checked")){
-            let eventId = obj.getAttribute('data-eventId');
-            let ageGroupId = obj.getAttribute('data-ageGroupId');
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
-
-            $.ajax({
-                data: {eventId:eventId, ageGroupId:ageGroupId},
-                url: "{{ route('verifyagegroupforeventteam') }}",
-                type: "POST",
-                dataType: 'json',
-                success: function(data) {
-                    if(data.status == 'close'){
-                        $(obj).prop("checked", false);
-                        toastr.error("You can't add team into event, AgeGroup of this team is closed");
-                        toastr.error("Please update your team AgeGroup");
-                    }
-                    if(data.status == "" || data.status == null){
-                        $(obj).prop("checked", false);
-                        toastr.error("You can't add team into event, AgeGroup of this team is not exist");
-                    }
-
-                }
-            });
-        }
-
-    }
+   
 
 
 </script>

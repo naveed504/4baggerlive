@@ -16,6 +16,7 @@ use App\Models\Event\EventRegisterTeam;
 use App\Models\Team\Team;
 use Illuminate\Support\Facades\Auth;
 use File;
+use Image;
 
 
 
@@ -279,7 +280,6 @@ class GenericHelperClass
             $this->makeNewDirectory($imgpath);
         }
         return $imgpath;
-
     }
 
     public function makeNewDirectory($imgpath)
@@ -288,6 +288,55 @@ class GenericHelperClass
             File::makeDirectory($imgpath, 0777, true, true);
         }
     }
+
+
+    public function saveteamProfileWaterMark($teamLogo)
+    {
+        if(empty($teamLogo)) {
+            $teamPhoto =  ' ';
+        } else {
+            $destinationPath = public_path( 'images/team/teamimages/' );
+            $file = $teamLogo;
+            $fileName = time() . '.'.$file->clientExtension();        
+            $image_resize=Image::make($file->getRealPath());
+            $image_resize->resizeCanvas(300, 200);
+            $watermark=Image::make(public_path('images/team/logo.png'));
+            $watermark->resize(50, 50);
+            $image_resize->insert($watermark, 'bottom-right');
+            $file->move( $destinationPath, $fileName );
+            $image_resize->save(public_path('images/team/teamimages/' . $fileName));
+            $teamPhoto = $fileName;
+        }
+        
+        return $teamPhoto;
+    }
+
+    public function updateteamProfileWaterMark($dbimage , $teamLogo) 
+    {
+        if(empty($teamLogo)) {
+            $teamPhoto = $dbimage ;
+        } else {
+           $imagePath =  public_path('images/team/teamimages/'. $dbimage);
+            if(File::exists($imagePath)) {
+                File::delete($imagePath);
+            }
+            $destinationPath = public_path( 'images/team/teamimages/' );
+            $file = $teamLogo;
+            $fileName = time() . '.'.$file->clientExtension();        
+            $image_resize=Image::make($file->getRealPath());
+            $image_resize->resizeCanvas(300, 200);
+            $watermark=Image::make(public_path('images/team/logo.png'));
+            $watermark->resize(50, 50);
+            $image_resize->insert($watermark, 'bottom-right');
+            $file->move( $destinationPath, $fileName );
+            $image_resize->save(public_path('images/team/teamimages/' . $fileName));
+            $teamPhoto = $fileName;
+        }
+        return $teamPhoto;
+
+    }
+
+   
 
     public function getFooterData()
     {

@@ -1,10 +1,10 @@
-<div class="modal" id="myModal">
-    <div class="modal-dialog">
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog ">
         <div class="modal-content">
             <div class="modal-body">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <div class="text-center">
-                    <img src="images/logo.png" alt="">
+                    <img src="{{ asset('images/logo.png') }}" alt="">
                     <div>
                         <a href="#" class="poup-sinin">SIGN IN</a>
                     </div>

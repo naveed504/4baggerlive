@@ -6,6 +6,7 @@ use App\Models\Event\Event as EventModel;
 use Exception;
 use Illuminate\Support\Facades\Auth;
 use App\Models\CheckAgeGroupStatus;
+use App\Models\Team\Team;
 
 class EventService
 {
@@ -97,7 +98,6 @@ class EventService
             }
         }
 
-
         try {
             $event->update([
                 'event_name' => $request->event_name,
@@ -116,7 +116,9 @@ class EventService
                 'event_venue' => json_encode($request->event_venue),
                 'gate_fee' => $request->gate_fee,
                 'eventclassification'=>$request->eventclassification,
-                'approved' => Auth::user()->type == 1 ? (int) $request->status : 0
+                'event_time'=> json_encode($request->event_time),
+                'approved' => Auth::user()->type == 1 ? (int) $request->status : 0,
+
             ]);
 
             $ageGroups = CheckAgeGroupStatus::where('event_id', $id)->get();
@@ -158,8 +160,10 @@ class EventService
      */
     public function deleteEvent($id)
     {
+
         try {
             CheckAgeGroupStatus::where('event_id', $id)->delete();
+            Team::where('event_id', $id)->delete();
             EventModel::find($id)->delete();
         } catch (Exception $e) {
             dd($e->getMessage());

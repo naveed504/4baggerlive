@@ -127,7 +127,7 @@
         @endphp
        @foreach($filteredVenus as $v_event)
 
-     <div class="row mb-2" id="addMorevenue">
+     <!-- <div class="row mb-2" id="addMorevenue">
         <div class="col-sm-12">
             <label class="label__wrapper required">Event Venue</label>
             <input type="text"   name="event_venue[]" class="form-control input__box--wrapper" value="{{ $v_event }}">
@@ -137,7 +137,48 @@
                 </span>
             @endif
         </div>
-     </div>
+     </div> -->
+     <!-- @if(!$loop->first)
+        <div id="2" class="form-row flex__right">
+            <button class="btn btn-xs btn-danger close_btn" type="button" onclick="removeAdded(2)">×</button>
+        </div>
+    @endif -->
+     <div class="row mb-2"  id="addMorevenue">
+
+        <div class="col-sm-6">
+            <label class="label__wrapper required">Main Site Venue</label> <!--haxxan-->
+            <input  type="text" name="event_venue[]" class="form-control input__box--wrapper" value="{{ $v_event }}">
+            @if($errors->has('event_venue'))
+                <span class="invalid-feedback">
+                    <strong>{{ $errors->first('event_venue') }}</strong>
+                </span>
+            @endif
+            <br>
+        </div>
+        <div class="col-sm-6">
+            <label class="label__wrapper required">Event Schedule</label>
+            {{-- @foreach ($eventTimeSchedule as $item)
+                @php
+                    var_dump(in_array($item->event_schedule_time,json_decode($event->event_time)));
+                @endphp
+            @endforeach
+            @dd(json_decode($event->event_time),$eventTimeSchedule)
+            @dd($eventTimeSchedule) --}}
+            <select  class="form-control  input__box--wrapper down-icons" name="event_time[]" required >
+                <option  disabled>Select Schedule</option>
+                @foreach($eventTimeSchedule as $eventSchedule)
+                    {{ $eventSchedule->event_schedule_time }}
+                    <option value="{{ $eventSchedule->event_schedule_time }}" @if(in_array($eventSchedule->event_schedule_time,json_decode($event->event_time))) selected @endif>{{ date('h:i A', strtotime($eventSchedule->event_schedule_time))}} &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp {{date('M-d-Y ', strtotime($eventSchedule->event_schedule_time)) }}</option>
+                @endforeach
+            </select>
+            @if($errors->has('event_time'))
+                <span class="invalid-feedback">
+                    <strong>{{ $errors->first('event_time') }}</strong>
+                </span>
+            @endif
+        </div>
+
+    </div>
         @endforeach
         <div id="appendAfter"></div>
         <button class="btn btn__wrapper--four btn-file" onclick="addMoreVenue('appendAfter')" type="button">Add More</button>

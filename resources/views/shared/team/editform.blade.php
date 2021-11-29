@@ -58,20 +58,18 @@
                 </div>
                 <div class="row">
                      <div class="col-sm-6">
-                        <label class="label__wrapper required">Select Event</label>
+                        <label class="label__wrapper ">Team Logo </label>
 
-                        <select class="form-control input__box--wrapper down-icons" name="event" required="">
-                            @foreach($directorEventState as $event)
-                                <option value="{{ $event->id }}" @if($team->event_id == $event->id) selected @endif>
-                                    {{ $event->event_name }}&nbsp&nbsp&nbsp{{ $event->state->state_name }}</option>
-                            @endforeach
-
-                        </select>
-                        @if($errors->has('event'))
-                            <span class="invalid-feedback">
-                                <strong>{{ $errors->first('event') }}</strong>
-                            </span>
-                        @endif
+                        <div class="custom-file">
+                                <input type="file" name="update_team_profile" class="form-control input__box--wrapper custom-file-input" id="team_profile" accept="image/*">
+                                <span class="custom-file-label" for="validatedCustomFile">Choose team profile...</span>
+                                @if($errors->has('update_team_profile'))
+                                <span class="invalid-feedback">
+                                    <strong>{{ $errors->first('update_team_profile') }}</strong>
+                                </span>
+                                @endif
+                            </div>
+                      
                     </div>
                     <div class="col-sm-6">
                         <label class="label__wrapper required">Age Group</label>
@@ -87,20 +85,7 @@
                             </span>
                         @endif
                     </div>
-                    <div class="col-sm-6" style="margin-top: 10px;">
-                        <div class="wrapper--append">
-                            <label class="label__wrapper required">Team Profile</label>
-                            <div class="custom-file">
-                                <input type="file" name="team_profile" class="form-control input__box--wrapper custom-file-input" id="team_profile" accept="image/*">
-                                <span class="custom-file-label" for="validatedCustomFile">Choose team profile...</span>
-                                @if($errors->has('team_profile'))
-                                <span class="invalid-feedback">
-                                    <strong>{{ $errors->first('team_profile') }}</strong>
-                                </span>
-                                @endif
-                            </div>
-                        </div>
-                    </div>
+                   
                     @if(Auth::user()->type == 1)
                         <div class="col-sm-6">
                             <label class="label__wrapper required">Status</label>

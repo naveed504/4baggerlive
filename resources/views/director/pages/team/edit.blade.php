@@ -8,7 +8,7 @@
                 <h5 class="text-center heading-color">FOR {{ date('Y') }} SEASON</h5>
             </div>
         </div>
-        <form action="{{ route('team.update', $team->id) }}" method="post" id="dir_team_edit">
+        <form action="{{ route('team.update', $team->id) }}" method="post" id="dir_team_edit" enctype="multipart/form-data">
             @method('PUT')
             @csrf
             <input type="hidden" name="coach_id" value="{{ $team->user->id }}">
@@ -67,7 +67,37 @@
                             </div>
                         </div>
                         <div class="row">
+                        <div class="col-sm-6">
+                        <label class="label__wrapper ">Team Logo </label>
+
+                        <div class="custom-file">
+                                <input type="file" name="update_team_profile" class="form-control input__box--wrapper custom-file-input" id="team_profile" accept="image/*">
+                                <span class="custom-file-label" for="validatedCustomFile">Choose team profile...</span>
+                                @if($errors->has('update_team_profile'))
+                                <span class="invalid-feedback">
+                                    <strong>{{ $errors->first('update_team_profile') }}</strong>
+                                </span>
+                                @endif
+                            </div>
+                      
+                    </div>
+                           
                             <div class="col-sm-6">
+                                <label class="label__wrapper required">Age Group</label>
+                                <select class="form-control input__box--wrapper down-icons" name="age_group" required="" id="age_group">
+                                @foreach($ageGroups as $agegroup)
+                                <option value="{{ $agegroup->id }}" @if($team->age_group_id == $agegroup->id) selected @endif> {{ $agegroup->age_group }}</option>
+                            @endforeach
+                                </select>
+                                @if($errors->has('age_group'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('age_group') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="row">
+                        <div class="col-sm-6">
                                 <label class="label__wrapper required">Select Event</label>
 
                                 <select class="form-control input__box--wrapper down-icons" name="event" required="">
@@ -83,19 +113,7 @@
                                     </span>
                                 @endif
                             </div>
-                            <div class="col-sm-6">
-                                <label class="label__wrapper required">Age Group</label>
-                                <select class="form-control input__box--wrapper down-icons" name="age_group" required="" id="age_group">
-                                @foreach($ageGroups as $agegroup)
-                                <option value="{{ $agegroup->id }}" @if($team->age_group_id == $agegroup->id) selected @endif> {{ $agegroup->age_group }}</option>
-                            @endforeach
-                                </select>
-                                @if($errors->has('age_group'))
-                                    <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('age_group') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
+
                         </div>
                     
                     </div>

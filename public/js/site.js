@@ -72,6 +72,7 @@ const deleteRecord = (id, uri) => {
   
     document.getElementById('identity').value ;
     let route = window.location.origin + uri + id;
+    
     document.getElementById('deleteForm').setAttribute('action', route)
     $('#deleteModal').modal('show')
 }
@@ -103,9 +104,10 @@ const CalculateAmount = (elem) => {
         let servicefee = eventPrice * chargeservicefee / 100;
         let totalAmountfe = parseFloat(servicefee.toFixed(2)) + parseFloat(eventPrice)
         let value = sessionStorage.getItem('total') == null ? 0 :
+
+      
             sessionStorage.getItem('total');
         if (elem.checked == true) {
-
             sessionStorage.setItem("total", (parseFloat(value) + 1))
             document.getElementById('amount').innerHTML = totalAmountfe * (parseFloat(value) + 1)
             document.getElementById('amountTotal').value = totalAmountfe * (parseFloat(value) + 1)
@@ -116,8 +118,45 @@ const CalculateAmount = (elem) => {
             document.getElementById('amount').innerHTML = parseFloat(document.getElementById('amount').innerHTML) - totalAmountfe
             document.getElementById('amountTotal').value = parseFloat(document.getElementById('amount').innerHTML)
             document.getElementById('teamsTotal').value = parseFloat(document.getElementById('amount').innerHTML)
-
         }
+
+        if($(elem).is(":checked")){
+            let eventId = elem.getAttribute('data-eventId');
+            let ageGroupId = elem.getAttribute('data-ageGroupId');
+            let makeurl =  '/team/verifyagegroupforeventteam';
+             let agegroupurl = window.location.origin + makeurl ;
+            console.log(eventId);
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            console.log()
+
+            $.ajax({
+                data: {eventId:eventId, ageGroupId:ageGroupId},
+                url: agegroupurl,
+                type: "POST",
+                dataType: 'json',
+                success: function(data) {
+                    if(data.status == 'close' || data.status == "" || data.status == null){                      
+                        sessionStorage.setItem("total", (parseFloat(value) - 1))
+                        document.getElementById('amount').innerHTML = parseFloat(document.getElementById('amount').innerHTML) - totalAmountfe
+                        document.getElementById('amountTotal').value = parseFloat(document.getElementById('amount').innerHTML)
+                        document.getElementById('teamsTotal').value = parseFloat(document.getElementById('amount').innerHTML)
+                        $(elem).prop("checked", false);                      
+                        toastr.error("You can't add team into event, AgeGroup of this team is closed");
+                        toastr.error("Please update your team AgeGroup");
+                        setTimeout(function(){
+                            window.location.reload(1);
+                         }, 5000);
+                    }
+                   
+
+                }
+            });
+        }
+
     }
     //if coach click to "payment after register" addteamtoevent.blade.php
     //validate the payment form for coach to pay amount after add to the event

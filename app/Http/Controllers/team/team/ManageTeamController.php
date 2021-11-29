@@ -51,6 +51,7 @@ class ManageTeamController extends Controller
     public function store(Request $request,  TeamService $team)
     {
 
+        
         if (!empty($request->terms_agreement) && !empty($request->site_agreement)) {
 
             $team->createTeam(Auth::user()->id, $request) == 'true'
@@ -102,6 +103,7 @@ class ManageTeamController extends Controller
      */
     public function update(TeamService $team, Request $request, $id)
     {
+      
 
         $team->updateTeam($id, $request)
             ? parent::successMessage("Team Updated Successfully")
@@ -235,6 +237,15 @@ class ManageTeamController extends Controller
         })->get();
         $team = Team::find($request->team_id);
         return view('coach.pages.team.addplayer', compact('players', 'team'));
+    }
+
+    public function deleteteam($id) 
+    {
+       $result= Team::find($id);
+       $result->delete();
+       parent::successMessage("Team deleted successfully");
+       return redirect()->back();
+
     }
 
 }
