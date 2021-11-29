@@ -5,7 +5,9 @@ namespace App\Http\Controllers\admin\player;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Services\PlayerService;
-
+use App\Models\Player\profile\PlayerPitchStat;
+use App\Models\Player\profile\PlayerBatStat;
+use App\Models\Player\profile\PlayerFieldingStat;
 class PlayerPitchController extends Controller
 {
     /**
@@ -16,7 +18,10 @@ class PlayerPitchController extends Controller
 
      public function createPlayerStats($playerid)
      {
-        return view('admin.pages.player.createstats',compact('playerid'));
+        $pitchstats =PlayerPitchStat::all();
+        $batstats   =PlayerBatStat::all();
+        $fieldstats =PlayerFieldingStat::all();
+        return view('admin.pages.player.createstats',compact('playerid','pitchstats','batstats','fieldstats'));
      }
     public function index()
     {
@@ -71,7 +76,8 @@ class PlayerPitchController extends Controller
      */
     public function edit($id)
     {
-        //
+        $results = PlayerPitchStat::find($id);
+        return view('admin.pages.player.editplayerstats', compact('results'));
     }
 
     /**
@@ -94,6 +100,9 @@ class PlayerPitchController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $result = PlayerPitchStat::find($id);
+        $result->delete();
+        parent::successMessage("Player Pitch Stat Deleted Successfully");
+        return redirect()->back();
     }
 }

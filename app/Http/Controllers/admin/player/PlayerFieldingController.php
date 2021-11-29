@@ -4,7 +4,8 @@ namespace App\Http\Controllers\admin\player;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use App\Services\PlayerService;
+use App\Models\Player\profile\PlayerFieldingStat;
 class PlayerFieldingController extends Controller
 {
     /**
@@ -33,9 +34,16 @@ class PlayerFieldingController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, PlayerService $fieldstats)
     {
-        //
+        $results = $fieldstats->savePlayerFieldStats($request);
+        if($results == "savestats") {
+            parent::successMessage("Player Field Stats Save Successfully");
+            return redirect()->back();
+        } else {
+            parent::dangerMessage("Player Stats does not save , Please Try Again");
+            return redirect()->back();
+        }
     }
 
     /**
@@ -80,6 +88,9 @@ class PlayerFieldingController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $result = PlayerFieldingStat::find($id);
+        $result->delete();
+        parent::successMessage("Player Field Stat Deleted Successfully");
+        return redirect()->back();
     }
 }

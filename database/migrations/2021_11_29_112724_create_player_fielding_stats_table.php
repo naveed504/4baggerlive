@@ -14,8 +14,23 @@ class CreatePlayerFieldingStatsTable extends Migration
     public function up()
     {
         Schema::create('player_fielding_stats', function (Blueprint $table) {
-            $table->id();
            
+            $table->id();
+            $table->unsignedBigInteger('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->string('season');
+            $table->string('matches');
+            $table->string('innings');
+            $table->string('a');
+            $table->string('ci');
+            $table->string('db');
+            $table->string('fp');
+            $table->string('pb');
+            $table->string('po');
+            $table->string('e');
+            $table->string('tc');
+            $table->string('tp'); 
+            $table->softDeletes();          
             $table->timestamps();
         });
     }
