@@ -7,7 +7,7 @@
                 </h3>
             </div>
             <div class="col-sm-12 mt-3 table-responsive" >
-                <table class="table" id="admin_teams_table">
+                <table class="table " id="admin_search_table">
                     <thead>
                         <th>#</th>
                         <th>Team Name</th>
@@ -49,7 +49,7 @@
         </div>
         <script>
     $(document).ready(function() {      
-    $('#admin_teams_table').DataTable({
+    $('#admin_search_table').DataTable({
         "bLengthChange": false,
         "bFilter": true,
         "bInfo": false,
