@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin\player;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Services\PlayerService;
+use JsValidator;
 use App\Models\Player\profile\PlayerPitchStat;
 use App\Models\Player\profile\PlayerBatStat;
 use App\Models\Player\profile\PlayerFieldingStat;
@@ -15,6 +16,9 @@ class PlayerPitchController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+   
+
 
      public function createPlayerStats($playerid)
      {

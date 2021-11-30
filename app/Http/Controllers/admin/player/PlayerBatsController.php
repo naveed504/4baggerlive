@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin\player;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Services\PlayerService;
+use App\Http\Requests\player\PlayerBatStateRequest;
 use App\Models\Player\profile\PlayerBatStat;
 class PlayerBatsController extends Controller
 {

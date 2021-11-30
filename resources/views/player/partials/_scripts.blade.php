@@ -14,6 +14,4 @@
 </script>
 @yield('scripts')
 <script type="text/javascript" src="{{ asset('vendor/jsvalidation/js/jsvalidation.js')}}"></script>
-{!! JsValidator::formRequest('App\Http\Requests\player\PlayerPitchRequest', '#player_pitch') !!}
-{!! JsValidator::formRequest('App\Http\Requests\player\PlayerRanksRequest', '#manage_player_ranks') !!}
-{!! JsValidator::formRequest('App\Http\Requests\player\PlayerFieldRequest', '#player_field') !!}
+

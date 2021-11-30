@@ -22,104 +22,105 @@
                                     </div>
                             
                                     <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-                                        <div class="card-body">
+                                        <div class="card-body" >
                                             <form action="{{route('playerbatstat.store') }}" method="post" id="batting_stats">
                                                 @csrf
-                                                <input type="hidden" name="playerid" value="{{ $playerid ?? ''}}" >
+                                                <input type="hidden" name="playerid"  value="{{ $playerid ?? ''}}" >
                                                 <div class="row">
                                                     <div class="col">
                                                         <label for="formGroupExampleInput">Season</label>
-                                                        <input type="text" name="season" class="form-control">
-                                                    </div>
+                                                        <input type="text" name="season" class="form-control" required>
+                                            
+                                                     </div>
                                                     <div class="col">
                                                         <label for="formGroupExampleInput">Matches</label>
-                                                        <input type="text" name="matches" class="form-control">
+                                                        <input type="text" name="matches" class="form-control" required>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col">
                                                         <label for="formGroupExampleInput">INN</label>
-                                                        <input type="text" name="innings" class="form-control">
+                                                        <input type="text" name="innings" class="form-control" required>
                                                     </div>
                                                     <div class="col">
                                                         <label for="formGroupExampleInput">1B</label>
-                                                        <input type="text" name="one_b" class="form-control">
+                                                        <input type="text" name="one_b" class="form-control" required>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col">
                                                         <label for="formGroupExampleInput">2B</label>
-                                                        <input type="text" name="two_b" class="form-control">
+                                                        <input type="text" name="two_b" class="form-control" required>
                                                     </div>
                                                     <div class="col">
                                                         <label for="formGroupExampleInput">3B</label>
-                                                        <input type="text" name="three_b" class="form-control">
+                                                        <input type="text" name="three_b" class="form-control" required>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col">
                                                         <label for="formGroupExampleInput">AB</label>
-                                                        <input type="text" name="ab" class="form-control">
+                                                        <input type="text" name="ab" class="form-control"  required>
                                                     </div>
                                                     <div class="col">
                                                         <label for="formGroupExampleInput">AB/HR</label>
-                                                        <input type="text" name="ab_hr" class="form-control">
+                                                        <input type="text" name="ab_hr" class="form-control" required>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col">
                                                         <label for="formGroupExampleInput">BA</label>
-                                                        <input type="text" name="ba" class="form-control">
+                                                        <input type="text" name="ba" class="form-control" required>
                                                     </div>
                                                     <div class="col">
                                                         <label for="formGroupExampleInput">	BB</label>
-                                                        <input type="text" name= "bb" class="form-control">
+                                                        <input type="text" name= "bb" class="form-control" required>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col">
                                                         <label for="formGroupExampleInput">BB/K</label>
-                                                        <input type="text" name="bb_k" class="form-control">
+                                                        <input type="text" name="bb_k" class="form-control" required>
                                                     </div>
                                                     <div class="col">
                                                         <label for="formGroupExampleInput">BsR</label>
-                                                        <input type="text" name="bsr" class="form-control">
+                                                        <input type="text" name="bsr" class="form-control" required>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col">
                                                         <label for="formGroupExampleInput">GPA</label>
-                                                        <input type="text" name="gpa" class="form-control">
+                                                        <input type="text" name="gpa" class="form-control" required>
                                                     </div>
                                                     <div class="col">
                                                         <label for="formGroupExampleInput">GS</label>
-                                                        <input type="text" name="gs" class="form-control">
+                                                        <input type="text" name="gs" class="form-control" required>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col">
                                                         <label for="formGroupExampleInput">H</label>
-                                                        <input type="text" name="h" class="form-control">
+                                                        <input type="text" name="h" class="form-control" required>
                                                     </div>
                                                     <div class="col">
                                                         <label for="formGroupExampleInput">HBP</label>
-                                                        <input type="text" name="hbp" class="form-control">
+                                                        <input type="text" name="hbp" class="form-control"  required>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col">
                                                         <label for="formGroupExampleInput">HR</label>
-                                                        <input type="text" name="hr" class="form-control">
+                                                        <input type="text" name="hr" class="form-control" required>
                                                     </div>
                                                     <div class="col">
                                                         <label for="formGroupExampleInput">HR/H</label>
-                                                        <input type="text" name="hr_h" class="form-control">
+                                                        <input type="text" name="hr_h" class="form-control" required>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col">
                                                         <label for="formGroupExampleInput">K</label>
-                                                        <input type="text" name="k" class="form-control">
+                                                        <input type="text" name="k" class="form-control" required>
                                                     </div>
                                                     <div class="col">
                                                         <label for="formGroupExampleInput">LOB</label>
@@ -181,7 +182,7 @@
                                     </div>
                                     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                                         <div class="card-body">
-                                            <form action=" {{ route('playerpitchstat.store')}} " method="post" >
+                                            <form action=" {{ route('playerpitchstat.store')}} " method="post" id="player_pitch" >
                                                 @csrf
                                                 <input type="hidden" name="playerid" value="{{ $playerid ?? '' }}">
                                                 <div class="row">
@@ -263,7 +264,7 @@
                                     </div>
                                     <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
                                         <div class="card-body">
-                                            <form action="{{ route('playerfieldstat.store') }}" method="post" id="player_fielding_stats">
+                                            <form action="{{ route('playerfieldstat.store') }}" method="post" id="player_field">
                                                 @csrf
                                                 <input type="hidden" name="playerid" value="{{$playerid}}" >
                                                 <div class="row">

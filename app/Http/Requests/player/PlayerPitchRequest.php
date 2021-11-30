@@ -15,6 +15,7 @@ class PlayerPitchRequest extends FormRequest
     public function authorize()
     {
         return false;
+
     }
 
     /**
@@ -25,17 +26,19 @@ class PlayerPitchRequest extends FormRequest
     public function rules()
     {
         return [
-            'games_played'      => ['integer', 'required'],
-            'games_started'     => ['integer', 'required'],
-            'complete_games'    => ['numeric', 'required'],
-            'shut_out'          => ['integer', 'required'],
-            'innings_pitched'   => ['integer','required'],
-            'hits'              => ['integer','required'],
-            'runs'              => ['integer','required'],
-            'base_on_balls'     => ['integer','required'],
-            'earned_runs'       => ['required', 'numeric'],
-            'home_runs'         => ['integer','required'],
-            'strike_out'        => ['required', 'required'],
+        'season'    =>'required',
+        'matches'    =>'required',
+        'innings'   =>'required',
+        'game_start'         =>'required',
+        'game_complete'  =>'required',
+        'sho'             =>'required',
+        'h'             =>'required',
+        'r'      =>'required',
+        'er'        =>'required',
+        'hr'    =>'required',
+        'bb'       =>'required',
+        'k'       =>'required',
+        
         ];
     }
 
@@ -43,29 +46,20 @@ class PlayerPitchRequest extends FormRequest
     public function messages()
     {
         return [
-            'games_played.integer'    => "Game Played must be integer",
-            'games_started.integer'   => "Game Started must be integer",
-            'complete_games.numeric'  => "Complete Game must be float",
-            'shut_out.integer'        => "Shut Out must be integer",
-            'innings_pitched.integer' => "Innings Pitched must be integer",
-            'hits.integer'            => "Hits must be integer",
-            'runs.integer'            => "Runs must be integer",
-            'earned_runs.numeric'     => "Earned Runs must be float",
-            'home_runs.integer'       => "Home Runs must be integer",
-            'strike_out.integer'      => "Strike Out must be integer",
-            'base_on_balls.integer'   => "Base On Balls must be integer",
+            'season.required'    => "Season Field is required",
+            'matches.required'   => "Matches Field is required",
+            'innings.required'  => "Innings Field is required",
+            'game_start.required'        => "Game Start Out Field is required",
+            'game_complete.required' => "Game Complete Field is required",
+            'sho.required'            => "SHO Field is required",
+            'h.required'            => "H Field is required",
+            'r.required'     => "R Field is required",
+            'er.required'       => "ER Field is required",
+            'hr.required'      => "HR Field is required",
+            'bb.required'   => "BB Field is required",
+            'k.required'   => "K Field is required",
 
-            'games_played.required'   => "Game Played is required",
-            'games_started.required'  => "Game Started is required",
-            'complete_games.required' => "Complete Game is required",
-            'shut_out.required'       => "Shut Out is required",
-            'innings_pitched.required'=> "Innings Pitched is required .",
-            'hits.required'           => "Hits is required",
-            'runs.required'           => "Runs is required",
-            'earned_runs.required'    => "Earned Runs is required",
-            'home_runs.required'      => "Home Runs is required",
-            'strike_out.required'     => "Strike Out is required",
-            'base_on_balls.required'  => "Base On Balls is required",
+           
         ];
     }
 }

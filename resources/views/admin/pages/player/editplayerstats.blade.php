@@ -169,7 +169,7 @@
                                     </div>
                                     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                                         <div class="card-body">
-                                            <form action=" {{ route('playerpitchstat.update', $result->id)}} " method="post" >
+                                            <form action=" {{ route('playerpitchstat.update', $result->id)}} " method="post" id="player_pitch" >
                                                 @csrf
                                                 @method('PUT')
                                                 <input type="hidden" name="playerid" value="{{ $result->player->id ?? '' }}">
@@ -253,7 +253,7 @@
                                     </div>
                                     <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
                                         <div class="card-body">
-                                            <form action="{{ route('playerfieldstat.update', $result->id) }}" method="post" id="player_fielding_stats">
+                                            <form action="{{ route('playerfieldstat.update', $result->id) }}" method="post" id="player_field">
                                                 @csrf
                                                 @method('PUT')
                                                 <input type="hidden" name="playerid" value="{{$result->player->id ?? ''}}" >
