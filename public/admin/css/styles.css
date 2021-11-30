@@ -12510,10 +12510,18 @@ h6 {
     float:right !important;
 
 }
-#admin_teams_table_filter .form-control {
+#admin_search_table_filter .form-control {
     width: 350px !important;
 }
 .dataTables_filter {
     float: right !important;
    
+}
+.page-item.active .page-link {
+    
+    background-color: #28a745 !important;
+    border-color: #28a745 !important;
+}
+.page-link {
+    color: #28a745;
 }
