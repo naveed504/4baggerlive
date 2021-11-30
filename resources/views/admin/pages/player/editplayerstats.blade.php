@@ -35,37 +35,37 @@
                                                     </div>
                                                     <div class="col">
                                                         <label for="formGroupExampleInput">1B</label>
-                                                        <input type="text" name="one_b" value="{{ $result->innings ?? '' }}" class="form-control">
+                                                        <input type="text" name="one_b" value="{{ $result->one_b ?? '' }}" class="form-control">
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col">
                                                         <label for="formGroupExampleInput">2B</label>
-                                                        <input type="text" name="two_b" value="{{ $result->innings ?? '' }}" class="form-control">
+                                                        <input type="text" name="two_b" value="{{ $result->two_b ?? '' }}" class="form-control">
                                                     </div>
                                                     <div class="col">
                                                         <label for="formGroupExampleInput">3B</label>
-                                                        <input type="text" name="three_b" value="{{ $result->innings ?? '' }}" class="form-control">
+                                                        <input type="text" name="three_b" value="{{ $result->three_b ?? '' }}" class="form-control">
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col">
                                                         <label for="formGroupExampleInput">AB</label>
-                                                        <input type="text" name="ab"  value="{{ $result->innings ?? '' }}" class="form-control">
+                                                        <input type="text" name="ab"  value="{{ $result->ab ?? '' }}" class="form-control">
                                                     </div>
                                                     <div class="col">
                                                         <label for="formGroupExampleInput">AB/HR</label>
-                                                        <input type="text" name="ab_hr" value="{{ $result->innings ?? '' }}" class="form-control">
+                                                        <input type="text" name="ab_hr" value="{{ $result->ab_hr ?? '' }}" class="form-control">
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col">
                                                         <label for="formGroupExampleInput">BA</label>
-                                                        <input type="text" name="ba" value="{{ $result->innings ?? '' }}" class="form-control">
+                                                        <input type="text" name="ba" value="{{ $result->ba ?? '' }}" class="form-control">
                                                     </div>
                                                     <div class="col">
                                                         <label for="formGroupExampleInput">	BB</label>
-                                                        <input type="text" name= "bb" value="{{ $result->innings ?? '' }}" class="form-control">
+                                                        <input type="text" name= "bb" value="{{ $result->bb ?? '' }}" class="form-control">
                                                     </div>
                                                 </div>
                                                 <div class="row">

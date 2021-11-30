@@ -6,8 +6,8 @@
                     Manage Teams
                 </h3>
             </div>
-            <div class="col-sm-12 mt-3 table-responsive">
-                <table class="table">
+            <div class="col-sm-12 mt-3 table-responsive" >
+                <table class="table" id="admin_teams_table">
                     <thead>
                         <th>#</th>
                         <th>Team Name</th>
@@ -47,4 +47,18 @@
                 </table>
             </div>
         </div>
+        <script>
+    $(document).ready(function() {      
+    $('#admin_teams_table').DataTable({
+        "bLengthChange": false,
+        "bFilter": true,
+        "bInfo": false,
+        "bAutoWidth": false ,
+        "pageLength": 15,
+        "language": {
+        "search": "Search Team Records:"
+        }
+    });
+} );
+</script>
 @endsection

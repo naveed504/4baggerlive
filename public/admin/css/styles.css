@@ -12505,3 +12505,15 @@ h6 {
 #accordionExample .table td,#accordionExample .table th {
     text-align: center;  
 }
+
+.dataTables_paginate  {
+    float:right !important;
+
+}
+#admin_teams_table_filter .form-control {
+    width: 350px !important;
+}
+.dataTables_filter {
+    float: right !important;
+   
+}

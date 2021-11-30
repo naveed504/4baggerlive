@@ -23,7 +23,7 @@
     <link href="{{ asset('css/multiselect.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/toastr.css') }}" rel="stylesheet" />
     <script src="{{ asset('js/jquery.js') }}"></script>
-
+    
     <script
       src="{{ asset('js/all.min.js') }}"
       crossorigin="anonymous"
