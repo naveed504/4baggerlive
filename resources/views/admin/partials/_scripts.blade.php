@@ -7,11 +7,11 @@
     <script src="{{asset("js/admin.js")}}"></script>
 
 
+
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
 
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-
 
         <!-- *************************yajra datatable*********************************************** !-->
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
@@ -21,6 +21,8 @@
 
     <script type="text/javascript" src="{{ asset('vendor/jsvalidation/js/jsvalidation.js')}}"></script>
         <!-- *************************yajra datatable*********************************************** !-->
+        <script type="text/javascript" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
 
     {!! JsValidator::formRequest('App\Http\Requests\director\CreateEventRequest', '#createEvent') !!}
     {!! JsValidator::formRequest('App\Http\Requests\director\EditEventRequest', '#editEvent') !!}
