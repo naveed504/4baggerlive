@@ -115,6 +115,8 @@ class BlogController extends Controller
             parent::dangerMessage($e->getMessage());
             return redirect()->back();
         }
+
+        
     }
 
     /**
