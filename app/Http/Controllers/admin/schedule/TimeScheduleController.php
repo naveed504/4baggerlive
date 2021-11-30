@@ -46,7 +46,8 @@ class TimeScheduleController extends Controller
             parent::successMessage('Event Time Schedule added Successfuly');
             return redirect()->route('managetimeschedule.index');
         } catch(Exception $e) {
-            dd($e->getMessage());
+            parent::dangerMessage($e->getMessage());
+            return redirect()->back();
 
         }
     }

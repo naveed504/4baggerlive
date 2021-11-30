@@ -179,7 +179,8 @@ class ManageTeamController extends Controller
                     parent::dangerMessage('Player could not be added to the team, Please try Again');
                 }
             } catch (Exception $e) {
-                dd($e->getMessage());
+                parent::dangerMessage($e->getMessage());
+                return redirect()->back();
             }
         } else {
             parent::dangerMessage('Team Already full');

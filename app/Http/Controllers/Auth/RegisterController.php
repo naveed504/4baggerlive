@@ -115,8 +115,10 @@ class RegisterController extends Controller
             ]);
 
         } catch (Exception $e) {
-            dd($e->getMessage());
+            parent::dangerMessage($e->getMessage());
             parent::dangerMessage('Oops! We have encountered an error while adding user');
+            return redirect()->back();
+            
         }
 
         /**
@@ -153,7 +155,8 @@ class RegisterController extends Controller
 
 
             } catch (Exception $e) {
-                dd($e->getMessage());
+                parent::dangerMessage($e->getMessage());
+               return redirect()->back();
             }
             /*
             * ------------------ Team Registration ------------------
@@ -176,7 +179,8 @@ class RegisterController extends Controller
                 $send =(new RegisterationJob($coachData))->delay(Carbon::now()->addMinutes(1));
                 dispatch($send);
             } catch (Exception $e) {
-                dd($e->getMessage());
+                parent::dangerMessage($e->getMessage());
+               return redirect()->back();
             }
 
             return $user;
@@ -220,7 +224,8 @@ class RegisterController extends Controller
             try {
                 $user->player()->create($createRecord);
             } catch (Exception $e) {
-                dd($e->getMessage());
+                parent::dangerMessage($e->getMessage());
+                return redirect()->back();
             }
 
             return $user;

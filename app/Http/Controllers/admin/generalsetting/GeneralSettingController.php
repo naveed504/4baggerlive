@@ -51,7 +51,8 @@ class GeneralSettingController extends Controller
                 'password'      => (!empty($newpassword)) ? $newpassword : $admin->password,
             ]);
         } catch(Exception $e) {
-            dd($e->getMessage());
+            parent::dangerMessage($e->getMessage());
+            return redirect()->back();
         }
         parent::successMessage('Admin Profile Updated Successfully"');
         return redirect()->back();
@@ -124,7 +125,8 @@ class GeneralSettingController extends Controller
             parent::successMessage('Site Setting Updated Successfully"');
         return redirect()->back();
         } catch(Exception $e) {
-            dd($e->getMessage());
+            parent::dangerMessage($e->getMessage());
+            return redirect()->back();
         }
     }
 }

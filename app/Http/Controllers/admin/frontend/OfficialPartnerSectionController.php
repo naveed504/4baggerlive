@@ -58,7 +58,8 @@ class OfficialPartnerSectionController extends Controller
             return redirect()->route('officialpartner.index');
 
         } catch(Exception $e) {
-            dd($e->getMessage());
+            parent::dangerMessage($e->getMessage());
+            return redirect()->back();
         }
     }
 
@@ -112,7 +113,10 @@ class OfficialPartnerSectionController extends Controller
             return redirect()->route('officialpartner.index');
 
         } catch(Exception $e) {
-            dd($e->getMessage());
+            parent::dangerMessage($e->getMessage());
+            return redirect()->back();
+
+           
         }
     }
 
@@ -127,7 +131,8 @@ class OfficialPartnerSectionController extends Controller
         try {
             OfficialPartner::find($id)->delete();
         } catch (Exception $e) {
-            dd($e->getMessage());
+            parent::dangerMessage($e->getMessage());
+            return redirect()->back();
         }
         parent::successMessage("Home Setting deleted Successfully");
         return redirect()->back();
