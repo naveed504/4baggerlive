@@ -22,9 +22,10 @@ class PlayerPitchController extends Controller
 
      public function createPlayerStats($playerid)
      {
-        $pitchstats =PlayerPitchStat::all();
-        $batstats   =PlayerBatStat::all();
-        $fieldstats =PlayerFieldingStat::all();
+        $pitchstats =PlayerPitchStat::where('user_id', '=', $playerid)->get();
+       
+        $batstats   =PlayerBatStat::where('user_id', '=', $playerid)->get();
+        $fieldstats =PlayerFieldingStat::where('user_id', '=', $playerid)->get();
         return view('admin.pages.player.createstats',compact('playerid','pitchstats','batstats','fieldstats'));
      }
     public function index()
@@ -80,8 +81,10 @@ class PlayerPitchController extends Controller
      */
     public function edit($id)
     {
-        $results = PlayerPitchStat::find($id);
-        return view('admin.pages.player.editplayerstats', compact('results'));
+        $result = PlayerPitchStat::with('player')->find($id);
+        $value = 2;
+       
+        return view('admin.pages.player.editplayerstats', compact('result', 'value'));
     }
 
     /**
@@ -91,9 +94,16 @@ class PlayerPitchController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id , PlayerService $pitchstats)
     {
-        //
+        $results = $pitchstats->updatePlayerPitchStats($request ,$id);
+        if($results == "statupdated") {
+            parent::successMessage("Player Pitch Stats Updated Successfully");
+            return redirect()->back();
+        } else {
+            parent::dangerMessage("Player Pitch Stats does not Updated , Please Try Again");
+            return redirect()->back();
+        }
     }
 
     /**

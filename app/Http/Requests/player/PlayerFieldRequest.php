@@ -43,18 +43,18 @@ class PlayerFieldRequest extends FormRequest
     public function messages()
     {
         return [
-            'season.required'     => "season must be required",
-            'matches.required'    => "matches must be required",
-            'innings.required'    => "innings must be required",
-            'a.required'          => "a must be required",
-            'ci.required'         => "ci must be required",
-            'db.required'         => "db must be required",
-            'fp.required'         => "fp must be required",
-            'pb.required'         => "pb  must be required",
-            'po.required'         => "po must be required",
-            'e.required'          => "e must be required",
-            'tc.required'         => "tc must be required",
-            'tp.required'         => "tp must be required",
+            'season.required'     => "Season Field is required",
+            'matches.required'    => "Matches Field is required",
+            'innings.required'    => "Innings Field is required",
+            'a.required'          => "A Field is required",
+            'ci.required'         => "CI Field is required",
+            'db.required'         => "DB Field is required",
+            'fp.required'         => "FP Field is required",
+            'pb.required'         => "PB  Field is required",
+            'po.required'         => "PO Field is required",
+            'e.required'          => "E Field is required",
+            'tc.required'         => "TC Field is required",
+            'tp.required'         => "TP Field is required",
            
         ];
     }

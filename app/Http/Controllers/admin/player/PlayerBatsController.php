@@ -66,7 +66,10 @@ class PlayerBatsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $result = PlayerBatStat::with('player')->find($id);
+        $value = 1;
+       
+        return view('admin.pages.player.editplayerstats', compact('result', 'value'));
     }
 
     /**
@@ -76,9 +79,16 @@ class PlayerBatsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id,  PlayerService $batstats)
     {
-        //
+        $results = $batstats->updatePlayerBatStats($request ,$id);
+        if($results == "statupdated") {
+            parent::successMessage("Player Bat Stats Updated Successfully");
+            return redirect()->back();
+        } else {
+            parent::dangerMessage("Player Bat Stats does not Updated , Please Try Again");
+            return redirect()->back();
+        }
     }
 
     /**

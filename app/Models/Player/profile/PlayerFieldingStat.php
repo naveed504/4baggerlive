@@ -4,7 +4,7 @@ namespace App\Models\Player\profile;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
+use App\Models\User;
 class PlayerFieldingStat extends Model
 {
     use HasFactory;
@@ -24,4 +24,9 @@ class PlayerFieldingStat extends Model
         'tc',
         'tp'
     ];
+
+    public function player()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }

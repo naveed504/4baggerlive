@@ -46,18 +46,18 @@ class PlayerPitchRequest extends FormRequest
     public function messages()
     {
         return [
-            'season.required'    => "season must be required",
-            'matches.required'   => "matches must be required",
-            'innings.required'  => "innings must be required",
-            'game_start.required'        => "game_start Out must be required",
-            'game_complete.required' => "game_complete must be required",
-            'sho.required'            => "sho must be required",
-            'h.required'            => "h must be required",
-            'r.required'     => "r must be required",
-            'er.required'       => "er must be required",
-            'hr.required'      => "hr must be required",
-            'bb.required'   => "bb must be required",
-            'k.required'   => "k must be required",
+            'season.required'    => "Season Field is required",
+            'matches.required'   => "Matches Field is required",
+            'innings.required'  => "Innings Field is required",
+            'game_start.required'        => "Game Start Out Field is required",
+            'game_complete.required' => "Game Complete Field is required",
+            'sho.required'            => "SHO Field is required",
+            'h.required'            => "H Field is required",
+            'r.required'     => "R Field is required",
+            'er.required'       => "ER Field is required",
+            'hr.required'      => "HR Field is required",
+            'bb.required'   => "BB Field is required",
+            'k.required'   => "K Field is required",
 
            
         ];

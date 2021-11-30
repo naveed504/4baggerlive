@@ -28,6 +28,6 @@ class PlayerPitchStat extends Model
 
     public function player()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
 }
