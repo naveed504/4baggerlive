@@ -26,17 +26,18 @@ class PlayerPitchRequest extends FormRequest
     public function rules()
     {
         return [
-        'games_played'    =>['required'],
-        'games_started'    =>['required'],
-        'complete_games'   =>['required'],
-        'shut_out'         =>['required'],
-        'innings_pitched'  =>['required'],
-        'hits'             =>['required'],
-        'runs'             =>['required'],
-        'earned_runs'      =>['required'],
-        'home_runs'        =>['required'],
-        'base_on_balls'    =>['required'],
-        'strike_out'       =>['required'],
+        'season'    =>'required',
+        'matches'    =>'required',
+        'innings'   =>'required',
+        'game_start'         =>'required',
+        'game_complete'  =>'required',
+        'sho'             =>'required',
+        'h'             =>'required',
+        'r'      =>'required',
+        'er'        =>'required',
+        'hr'    =>'required',
+        'bb'       =>'required',
+        'k'       =>'required',
         
         ];
     }
@@ -45,17 +46,18 @@ class PlayerPitchRequest extends FormRequest
     public function messages()
     {
         return [
-            'games_played.required'    => "Game Played must be required",
-            'games_started.required'   => "Game Started must be required",
-            'complete_games.required'  => "Complete Game must be required",
-            'shut_out.required'        => "Shut Out must be required",
-            'innings_pitched.required' => "Innings Pitched must be required",
-            'hits.required'            => "Hits must be required",
-            'runs.required'            => "Runs must be required",
-            'earned_runs.required'     => "Earned Runs must be required",
-            'home_runs.required'       => "Home Runs must be required",
-            'strike_out.required'      => "Strike Out must be required",
-            'base_on_balls.required'   => "Base On Balls must be required",
+            'season.required'    => "season must be required",
+            'matches.required'   => "matches must be required",
+            'innings.required'  => "innings must be required",
+            'game_start.required'        => "game_start Out must be required",
+            'game_complete.required' => "game_complete must be required",
+            'sho.required'            => "sho must be required",
+            'h.required'            => "h must be required",
+            'r.required'     => "r must be required",
+            'er.required'       => "er must be required",
+            'hr.required'      => "hr must be required",
+            'bb.required'   => "bb must be required",
+            'k.required'   => "k must be required",
 
            
         ];

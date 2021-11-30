@@ -29,4 +29,10 @@
     {!! JsValidator::formRequest('App\Http\Requests\admin\EditDirectorRequest','#director_registration_form') !!}
     {!! JsValidator::formRequest('App\Http\Requests\admin\SliderRequest','#sliderRequest') !!}
     {!! JsValidator::formRequest('App\Http\Requests\admin\GeneralContactInfoRequest','#generalprofilesetting') !!}
+
+    
+    {!! JsValidator::formRequest('App\Http\Requests\player\PlayerRanksRequest', '#manage_player_ranks') !!} 
+    {!! JsValidator::formRequest('App\Http\Requests\player\PlayerPitchRequest', '#player_pitch_state') !!}
+    {!! JsValidator::formRequest('App\Http\Requests\player\PlayerFieldRequest', '#player_field') !!}
+    {!! JsValidator::formRequest('App\Http\Requests\player\PlayerBatStateRequest','#batting_stats') !!}
     @yield('scripts')
