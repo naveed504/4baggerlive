@@ -32,23 +32,19 @@
                                         @endif
                                     </div>
                                     <div class="col-sm-6">
-                                        <div class="form-row float-right" style="margin-top:30px;">
-                                            <div class="form-group col-md-8 col__mr-right mb-0">
-                                                <span class="btn btn__wrapper--four btn-file" id="btnfile">
-                                                    Cover Photo <input type="file" id="image"  name="image" >
-                                                </span>
-                                                
-                                            </div>
-                                        </div>
-                                        @if($errors->has('image'))
-                                                <span class="invalid-feedback">
-                                                    <strong>{{ $errors->first('image') }}</strong>
-                                                </span>
-                                                @endif
-                                    </div>
-                                
+                                <label class="label__wrapper ">Blog Photo </label>
+                        <div class="custom-file">
+                                <input type="file" name= "image"  id="image" class="form-control input__box--wrapper custom-file-input"  accept="image/*">
+                                <span class="custom-file-label" for="validatedCustomFile">Choose blog profile...</span>
+                                @if($errors->has('image'))
+                                <span class="invalid-feedback">
+                                    <strong>{{ $errors->first('image') }}</strong>
+                                </span>
+                                @endif
+                            </div>
                                 </div>
-
+                               
+                            </div>
                                 <div class="row mb-2">
                                     <div class="col-sm-12">
                                         <label class="label__wrapper required">Content</label>

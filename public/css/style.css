@@ -3347,3 +3347,9 @@ left: 100px;
     overflow: hidden;
 }
 
+.mm_bagger_slider .carousel-item {
+    height: 736px;
+}
+.mm_bagger_slider .carousel-item img {
+    object-fit: cover;
+}
