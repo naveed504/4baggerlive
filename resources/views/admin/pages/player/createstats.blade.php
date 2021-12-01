@@ -113,8 +113,8 @@
                                                         <input type="text" name="hr" class="form-control" required>
                                                     </div>
                                                     <div class="col">
-                                                        <label for="formGroupExampleInput">HR/H</label>
-                                                        <input type="text" name="hr_h" class="form-control" required>
+                                                    <label for="formGroupExampleInput">TB</label>
+                                                        <input type="text" name="tb" class="form-control">
                                                     </div>
                                                 </div>
                                                 <div class="row">
@@ -155,12 +155,6 @@
                                                     <div class="col">
                                                         <label for="formGroupExampleInput">TA</label>
                                                         <input type="text" name="ta" class="form-control">
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-6">
-                                                        <label for="formGroupExampleInput">TB</label>
-                                                        <input type="text" name="tb" class="form-control">
                                                     </div>
                                                 </div>
                                                 <div class="row">

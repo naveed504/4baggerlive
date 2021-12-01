@@ -55,7 +55,8 @@ class RecentContentController extends Controller
             parent::successMessage("Setting added Successfully");
             return redirect()->route('recentcontent.index');
         } catch(Exception $e) {
-            dd($e->getMessage());
+            parent::dangerMessage($e->getMessage());
+            return redirect()->back();
         }
     }
 
@@ -109,7 +110,8 @@ class RecentContentController extends Controller
                 return redirect()->route('recentcontent.index');
 
             } catch(Exception $e) {
-                dd($e->getMessage());
+                parent::dangerMessage($e->getMessage());
+            return redirect()->back();
             }
 
     }
@@ -125,7 +127,8 @@ class RecentContentController extends Controller
         try {
             RecentContentSection::find($id)->delete();
         } catch (Exception $e) {
-            dd($e->getMessage());
+            parent::dangerMessage($e->getMessage());
+            return redirect()->back();
         }
         parent::successMessage("Home Setting deleted Successfully");
         return redirect()->back();

@@ -57,7 +57,8 @@ class BlogController extends Controller
             parent::successMessage("Home Setting added Successfully");
             return redirect()->route('manageblog.index');
         } catch (Exception $e) {
-            dd($e->getMessage());
+            parent::dangerMessage($e->getMessage());
+            return redirect()->back();
         }
     }
 
@@ -111,8 +112,11 @@ class BlogController extends Controller
             parent::successMessage("Home Setting Updated Successfully");
             return redirect()->route('manageblog.index');
         } catch (Exception $e) {
-            dd($e->getMessage());
+            parent::dangerMessage($e->getMessage());
+            return redirect()->back();
         }
+
+        
     }
 
     /**
@@ -126,7 +130,8 @@ class BlogController extends Controller
         try {
             ManageBlog::find($id)->delete();
         } catch (Exception $e) {
-            dd($e->getMessage());
+            parent::dangerMessage($e->getMessage());
+            return redirect()->back();
         }
         parent::successMessage("Home Setting deleted Successfully");
         return redirect()->back();

@@ -91,7 +91,8 @@ class ManageTeamController extends Controller
                     throw new Exception("Oops we have encountered a problem. Please try again");
                 }
             } catch (Exception $e) {
-                dd($e->getMessage());
+                parent::dangerMessage($e->getMessage());
+                return redirect()->back();
             }
             parent::successMessage('Team Created Successfully');
         } else {
@@ -162,7 +163,8 @@ class ManageTeamController extends Controller
                     throw new Exception("Oops we have encountered a problem. Please try again");
                 }
             } catch (Exception $e) {
-                dd($e->getMessage());
+                parent::dangerMessage($e->getMessage());
+                return redirect()->back();
             }
         } else {
             parent::dangerMessage("You forgot to agree to the FourBagger's terms and conditions");

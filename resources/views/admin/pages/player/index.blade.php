@@ -7,21 +7,8 @@
                     All Players
                 </h3>
             </div>
-            <div class="col-sm-12 mt-5">
-                <form action="{{ route('search.player') }}" method="post">
-                    @csrf
-                    <div class="row justify-content-center">
-                        <div class="col-sm-6">
-                            <input type="text" name="search" class="form-control" placeholder="Search Players ...">
-                        </div>
-                        <div class="col-sm-2">
-                            <button class="btn-success btn" type="submit">Submit</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
             <div class="col-sm-12 mt-3 table-responsive">
-                <table class="table">
+                <table class="table" id="admin_search_table">
                     <thead>
                         <th>#</th>
                         <th>Name</th>
@@ -58,4 +45,18 @@
             </div>
         </div>
     </div>
+    <script>
+    $(document).ready(function() {      
+    $('#admin_search_table').DataTable({
+        "bLengthChange": false,
+        "bFilter": true,
+        "bInfo": false,
+        "bAutoWidth": false ,
+        "pageLength": 15,
+        "language": {
+        "search": "Search Player Records:"
+        }
+    });
+} );
+</script>
 @endsection

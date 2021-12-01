@@ -49,7 +49,8 @@ class SiteRulesController extends Controller
                 parent::successMessage(" Site Rule Added Successfully");
                 return redirect()->route('siterule.index');  
             } catch (Exception $e) {
-              dd($e->getMessage());
+                parent::dangerMessage($e->getMessage());
+                return redirect()->back();
           }
          
     }
@@ -99,7 +100,8 @@ class SiteRulesController extends Controller
                 parent::successMessage(" Site Rule Updated Successfully");
                 return redirect()->route('siterule.index');  
           } catch (Exception $e) {
-              dd($e->getMessage());
+            parent::dangerMessage($e->getMessage());
+            return redirect()->back();
           }    }
 
     /**

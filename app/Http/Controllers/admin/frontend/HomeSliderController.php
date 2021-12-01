@@ -109,7 +109,8 @@ class HomeSliderController extends Controller
         try {
             Slider::find($id)->delete();
         } catch (Exception $e) {
-            dd($e->getMessage());
+            parent::dangerMessage($e->getMessage());
+            return redirect()->back();
         }
         return redirect()->route('adminslider.index');
     }

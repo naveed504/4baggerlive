@@ -53,7 +53,8 @@ class HomeNewsSectionController extends Controller
                 $this->updateNews($request);
             }  
         } catch (Exception $e) {
-            dd($e->getMessage());
+            parent::dangerMessage($e->getMessage());
+            return redirect()->back();
         }       
         parent::successMessage("Home News Updated Successfully");
         return redirect()->back();

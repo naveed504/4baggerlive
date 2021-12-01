@@ -1,5 +1,5 @@
 
-        <table class="table">
+        <table class="table" id="admin_search_table">
             <thead>
                 <th>#</th>
                 <th>Event Name</th>
@@ -60,8 +60,6 @@
                                 @endif
                                 @endif
                             </td>
-                      
-
                     </tr>
                     @empty
                     <td colspan="8" class="text-center">
@@ -70,3 +68,17 @@
                  @endforelse
             </tbody>
         </table>
+        <script>
+    $(document).ready(function() {      
+    $('#admin_search_table').DataTable({
+        "bLengthChange": false,
+        "bFilter": true,
+        "bInfo": false,
+        "bAutoWidth": false ,
+        "pageLength": 15,
+        "language": {
+        "search": "Search Payments Records:"
+        }
+    });
+} );
+</script>
