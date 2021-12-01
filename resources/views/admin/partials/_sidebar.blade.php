@@ -85,7 +85,6 @@
                                         <a class="nav-link" href="{{ route('adminslider.index') }}">Slider Section</a>
                                         <a class="nav-link" href="{{ route('manageblog.index') }}">Blog Section</a>
                                         <a class="nav-link" href="{{ route('newssection.create') }}">News Section</a>
-                                        <a class="nav-link" href="{{ route('manageblog.index') }}">Blog Section</a>
                                         <a class="nav-link" href="{{ route('aboutus.index') }}">About Us</a>
                                         <a class="nav-link" href="{{ route('siterule.index') }}">Rules</a>
                                         <a class="nav-link" href="{{ route('recentcontent.index') }}">Recent Content

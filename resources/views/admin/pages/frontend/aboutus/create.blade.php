@@ -28,22 +28,22 @@
                             </span>
                         @endif
                     </div>
-                    <div class="form-group col-md-3">
-                </div>
-                    <div class="form-group col-md-3 col__mr-right">
+                    <div class="form-group col-md-5">
+                    
+                    <label class="label__wrapper ">Blog Photo </label>
+                                   <div class="custom-file">
+                                <input type="file" name= "image"  id="image" class="form-control input__box--wrapper custom-file-input"  accept="image/*">
+                                <span class="custom-file-label" for="validatedCustomFile">Choose blog profile...</span>
+                                @error('image')
+                                    <div class="error text-danger">{{ $message }}</div>
+                                    @enderror
+                            </div>
+                                </div>
+                     <div class="form-group col-md-1">
                     @if(!empty($aboutus))
                     <img src="{{ asset('admin/allimages/'. $aboutus->image ?? '' )}}" style="height:50px;margin-top:30px;border-radius:5px;" >
                     @endif
-                        <div class="form-row float-right" style="margin-top:30px;">
-                            <div class="form-group col-md-8 col__mr-right mb-0">
-                                <span class="btn btn__wrapper--four btn-file" id="btnfile">
-                                     Image <input type="file" id="image"  name="image" >
-                                </span>
-
-                            </div>
-                         </div>
-                        @error('image')<div class="error text-danger">{{ $message }}</div>@enderror
-                    </div>
+                </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6 col__mr-right">

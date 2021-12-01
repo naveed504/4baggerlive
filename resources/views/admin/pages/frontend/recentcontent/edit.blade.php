@@ -29,18 +29,16 @@
                                     @enderror
                                 </div>
                                 <div class="col-sm-6">
-                                    <div class="form-row float-right" style="margin-top:30px;">
-                                        <div class="form-group col-md-8 col__mr-right mb-0">
-                                            <span class="btn btn__wrapper--four btn-file" id="btnfile">
-                                                Cover Photo <input type="file" id="image"  name="image" >
-                                            </span>
-                                            
-                                        </div>
-                                    </div>
-                                    @error('image')
+                                <label class="label__wrapper ">Home Section Photo </label>
+                                   <div class="custom-file">
+                                <input type="file" name= "image"  id="image" class="form-control input__box--wrapper custom-file-input"  accept="image/*">
+                                <span class="custom-file-label" for="validatedCustomFile">Choose Recent Image...</span>
+                                @error('image')
                                     <div class="error text-danger">{{ $message }}</div>
                                     @enderror
+                            </div>
                                 </div>
+                               
                             </div>
 
                             <div class="row mb-2">
