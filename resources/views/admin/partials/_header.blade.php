@@ -15,12 +15,7 @@
       </form>
       <!-- Navbar-->
       <div class="flex__wrapper--center">
-        <div class="mr__right-10">
-          <button type="button" class="btn noti-icon">
-            <i class="fa fa-bell" aria-hidden="true"></i>
-            <span class="badge badge-light">4</span>
-          </button>
-        </div>
+       
         <div class="dropdown">
          
           <img
