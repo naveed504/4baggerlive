@@ -7,7 +7,7 @@
             <li data-target="#demo" data-slide-to="{{ $key }}" class="{{ $loop->first ? 'active' : 'inactive' }}"></li>
             @endforeach
         </ul>
-        <div class="carousel-inner">
+        <div class="carousel-inner mm_bagger_slider">
            @foreach($sliders as $slider)
             <div class="carousel-item  {{ $loop->first ? ' active' : 'inactive' }}">
                 <img src="{{ asset('admin/allimages/'. $slider->cover_photo) }}" alt="Los Angeles" />
