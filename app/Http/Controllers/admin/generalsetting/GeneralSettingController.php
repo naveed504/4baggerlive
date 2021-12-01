@@ -24,22 +24,27 @@ class GeneralSettingController extends Controller
     {
         $admin =User::where('type','=',1)->first();
 
-        if(!empty($request->current_password)){
-            $request->validate([
-                'password' => 'required|min:8',
-                'confirmpassword' => 'required|same:password',
-            ]);
+        if(!empty($request->current_password )){
+            if(!empty($request->password && $request->confirmpassword)){
+                $request->validate([
+                    'password' => 'required|min:8',
+                    'confirmpassword' => 'required|same:password',
+                ]);
 
                 if(Hash::check($request->current_password, $admin->password)){
-                   $newpassword = Hash::make($request->password);
-                   parent::successMessage("Your Password updated successfully");
-
-                } else{
-                    parent::dangerMessage("Your Current password does not match our records");
-                    return redirect()->back();
-                }
-
-        }
+                    $newpassword = Hash::make($request->password);
+                    parent::successMessage("Your Password updated successfully");
+ 
+                 } else{
+                     parent::dangerMessage("Your Current password does not match our records");
+                     return redirect()->back();
+                 }
+            }  else {
+                parent::dangerMessage("Your  Profile does not updated");
+                parent::dangerMessage("Your  password does not match our records");
+                return redirect()->back();
+            }    
+        } 
         $imgpath= public_path('admin/allimages/');
         $updateimage = Helpers::updateImage($request->profile_photo, $admin->profile_photo, $imgpath);
 
