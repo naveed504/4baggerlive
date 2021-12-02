@@ -53,6 +53,7 @@ class EventController extends Controller
      */
     public function viewEvent($id)
     {
+      
         $active = 2;
         $event = Event::find($id);
         return view('coach.pages.events.event', compact('event', 'active'));
@@ -85,7 +86,7 @@ class EventController extends Controller
         $event      = Event::find($id);
         $servicefee = ServiceFee::first();
       
-    
+  
 
         return view('coach.pages.events.addteamtoevent', compact('event', 'servicefee','teams'));
     }
