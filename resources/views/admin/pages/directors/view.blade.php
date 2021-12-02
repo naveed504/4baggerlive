@@ -13,8 +13,8 @@
             </button>
         </a>
     </div>
-    <div class="col-sm-12 table-responsive">
-        <table class="table" id="admin_search_table">
+    <div class="col-sm-12 table-responsive mm_table_main">
+        <table class="table mm_dt_new" id="admin_search_table">
             <thead>
                 <th>#</th>
                 <th>Director Name</th>

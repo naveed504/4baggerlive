@@ -3353,3 +3353,7 @@ left: 100px;
 .mm_bagger_slider .carousel-item img {
     object-fit: cover;
 }
+.imgsixeofspan {
+    font-size: 10px;
+    margin-left: 3px !important;
+}

@@ -337,7 +337,7 @@
                                             <div class="form-row">
                                                 <div class="col-sm-6">
                                                     <div class="wrapper--append">
-                                                        <label class="label__wrapper required">Team Profile</label>
+                                                        <label class="label__wrapper required">Team Profile</label><span class="imgsixeofspan">Size(1024*720px)</span>
                                                         <div class="custom-file">
                                                             <input type="file" name="team_profile" class="form-control input__box--wrapper custom-file-input" id="team_profile" accept="image/*">
                                                             <span class="custom-file-label" for="validatedCustomFile">Choose team profile...</span>
@@ -801,6 +801,7 @@
                                         <div class="form-row">
                                             <div class="form-group col-md-6 col__mr-right">
                                                 <div class="wrapper--append">
+                                                <label class="label__wrapper required">Player Profile</label><span class="imgsixeofspan">Size(1024*720px)</span>
                                                     <div class="custom-file">
                                                         <input type="file" name="fileupload" class="custom-file-input" id="validatedCustomFile" >
                                                         <span class="custom-file-label" for="validatedCustomFile">Choose player Profile...</span>
