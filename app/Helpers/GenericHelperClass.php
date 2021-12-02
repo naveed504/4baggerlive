@@ -299,9 +299,11 @@ class GenericHelperClass
             $file = $teamLogo;
             $fileName = time() . '.'.$file->clientExtension();        
             $image_resize=Image::make($file->getRealPath());
-            $image_resize->resizeCanvas(300, 200);
+            $image_resize->resize(150, 150, function($constraint){
+                $constraint->aspectRatio();
+               });
             $watermark=Image::make(public_path('images/team/logo.png'));
-            $watermark->resize(50, 50);
+            $watermark->resize(25, 25);
             $image_resize->insert($watermark, 'bottom-right');
             $file->move( $destinationPath, $fileName );
             $image_resize->save(public_path('images/team/teamimages/' . $fileName));
@@ -324,9 +326,11 @@ class GenericHelperClass
             $file = $teamLogo;
             $fileName = time() . '.'.$file->clientExtension();        
             $image_resize=Image::make($file->getRealPath());
-            $image_resize->resizeCanvas(300, 200);
+            $image_resize->resize(150, 150, function($constraint){
+                $constraint->aspectRatio();
+               });
             $watermark=Image::make(public_path('images/team/logo.png'));
-            $watermark->resize(50, 50);
+            $watermark->resize(25, 25);
             $image_resize->insert($watermark, 'bottom-right');
             $file->move( $destinationPath, $fileName );
             $image_resize->save(public_path('images/team/teamimages/' . $fileName));

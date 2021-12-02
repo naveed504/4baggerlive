@@ -72,20 +72,20 @@
                                 <select class="form-control input__box--wrapper down-icons" name="age_group" required="">
                                     <option disabled="" selected="" value="">Age Group</option>
                                     @foreach($agegroups as $agegroup)
-                                    <option value="{{ $agegroup->id }}"> {{ $agegroup->age_group }}</option>
+                                         <option value="{{ $agegroup->id }}"> {{ $agegroup->age_group }}</option>
                                     @endforeach
 
                                 </select>
                                 @if($errors->has('age_group'))
-                                                        <span class="invalid-feedback">
-                                                            <strong>{{ $errors->first('age_group') }}</strong>
-                                                        </span>
+                                        <span class="invalid-feedback">
+                                            <strong>{{ $errors->first('age_group') }}</strong>
+                                        </span>
                                                     @endif
                             </div>
 
                             <div class="col-sm-6">
                                 <div class="wrapper--append">
-                                    <label class="label__wrapper required">Team Profile</label>
+                                    <label class="label__wrapper required">Team Profile</label><span class="imgsixeofspan">Size(1024*720px)</span>
                                     <div class="custom-file">
                                         <input type="file" name="team_profile" class="form-control input__box--wrapper custom-file-input" id="team_profile" accept="image/*">
                                         <span class="custom-file-label" for="validatedCustomFile">Choose team profile...</span>
@@ -112,9 +112,9 @@
                                 I agree to the terms and conditions of FourBaager USA.
                             </label>
                             @if($errors->has('terms_agreement'))
-                                                        <span class="invalid-feedback">
-                                                            <strong>{{ $errors->first('terms_agreement') }}</strong>
-                                                        </span>
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('terms_agreement') }}</strong>
+                                        </span>
                                                     @endif
                         </div>
                         <div class="row mb-2">
@@ -123,9 +123,9 @@
                                 By checking this box, I agree to comply with the FourBagger Website Agreement
                             </label>
                             @if($errors->has('site_agreement'))
-                                                        <span class="invalid-feedback">
-                                                            <strong>{{ $errors->first('site_agreement') }}</strong>
-                                                        </span>
+                               <span class="invalid-feedback">
+                                <strong>{{ $errors->first('site_agreement') }}</strong>
+                               </span>
                                                     @endif
                         </div>
                     </div>

@@ -30,7 +30,7 @@
                     </div>
                     <div class="form-group col-md-5">
                     
-                    <label class="label__wrapper ">Blog Photo </label>
+                    <label class="label__wrapper ">Blog Photo </label><span class="imgsixeofspan">Size(1024*720px)</span>
                                    <div class="custom-file">
                                 <input type="file" name= "image"  id="image" class="form-control input__box--wrapper custom-file-input"  accept="image/*">
                                 <span class="custom-file-label" for="validatedCustomFile">Choose blog profile...</span>
