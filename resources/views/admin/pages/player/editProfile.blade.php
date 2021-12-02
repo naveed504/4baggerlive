@@ -380,25 +380,25 @@
                                                 <button class="btn btn-xs btn__add flex__right my-2" type="button" onclick="addParentInfo('appendAfter')">Add</button>
                                             </div>
                                             <div class="form-row align-items-center">
-                                                <div class="form-group col-md-6 col__mr-right mb-0">
-                                                    <span class="btn btn__wrapper--four btn-file" id="btnfile">
-                                                        Upload Picture <input type="file" id="uploadfile" name="fileupload" accept="image/*">
-                                                        @if($errors->has('fileupload'))
-                                                            <span class="invalid-feedback">
-                                                                <strong>{{ $errors->first('fileupload') }}</strong>
-                                                            </span>
-                                                        @endif
-                                                    </span>
+                                            <div class="form-group col-md-6 col__mr-right mb-0">
+                                                <label class="label__wrapper ">Blog Photo </label>
+                                                    <div class="custom-file">
+                                <input type="file" name= "fileupload"  id="uploadfile" class="form-control input__box--wrapper custom-file-input"  accept="image/*">
+                                <span class="custom-file-label" for="validatedCustomFile">Choose blog profile...</span>
+                                @error('fileupload')
+                                    <div class="error text-danger">{{ $message }}</div>
+                                    @enderror
+                                         </div>
                                                 </div>
                                                 <div class="form-group col-md-6 col__mr-right mb-0">
-                                                    <span class="btn btn__wrapper--four btn-file" id="btnfile">
-                                                        Upload video <input type="file" id="uploadfile" name="player_video" >
-                                                        @if($errors->has('fileupload'))
-                                                            <span class="invalid-feedback">
-                                                                <strong>{{ $errors->first('fileupload') }}</strong>
-                                                            </span>
-                                                        @endif
-                                                    </span>
+                                                <label class="label__wrapper ">Blog Photo </label>
+                                                    <div class="custom-file">
+                                <input type="file" name= "player_video"  id="uploadfile" class="form-control input__box--wrapper custom-file-input"  >
+                                <span class="custom-file-label" for="validatedCustomFile">Choose blog profile...</span>
+                                @error('player_video')
+                                    <div class="error text-danger">{{ $message }}</div>
+                                    @enderror
+                                         </div>
                                                 </div>
                                             </div>
                                             <div>
