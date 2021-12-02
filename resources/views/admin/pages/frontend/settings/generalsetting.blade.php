@@ -90,9 +90,14 @@
                                     <input type="text" name="mission_title" class="form-control input__box--wrapper" value="{{ $generalSetting->mission_title ?? '' }}" >
                                 </div>
                                 <div class="col-sm-4">
-                                    <label class="label__wrapper required">Background Image</label>
-                                    <input type="file" name="mission_bgimg" class="form-control input__box--wrapper">
-                                   
+                                <label class="label__wrapper ">Background Image </label><span class="imgsixeofspan">Size(1024*720px)</span>
+                                   <div class="custom-file">
+                                <input type="file" name= "mission_bgimg"   class="form-control input__box--wrapper custom-file-input"  accept="image/*">
+                                <span class="custom-file-label" for="validatedCustomFile">Choose Image...</span>
+                                @error('mission_bgimg')
+                                    <div class="error text-danger">{{ $message }}</div>
+                                    @enderror
+                            </div>
                                 </div>
                                 <div class="col-sm-4">
                                     <label class="label__wrapper required">Image Title </label>

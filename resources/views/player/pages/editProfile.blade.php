@@ -376,6 +376,7 @@
                                             <div class="form-row">
                                                 <div class="form-group col-md-6 col__mr-right">
                                                     <div class="wrapper--append">
+                                                    <label class="label__wrapper ">Player Profile </label><span class="imgsixeofspan">Size(1024*720px)</span>
                                                         <div class="custom-file">
                                                             <input type="file" name="fileupload" class="custom-file-input" id="validatedCustomFile" >
                                                             <span class="custom-file-label" for="validatedCustomFile">Choose player Profile...</span>

@@ -27,6 +27,25 @@ const addParentInfo = (id) => {
 
 }
 
+
+//addmore
+const addMore = () => {
+    let sec2 = document.getElementById('sec2')
+    let sec3 = document.getElementById('sec3')
+
+    section2 = sec2.cloneNode(true)
+    section3 = sec3.cloneNode(true)
+
+    section2.querySelectorAll('input').forEach((g) => { console.log(g.value) })
+    section3.querySelectorAll('input').forEach((g) => { g.value = "" })
+
+    console.log(section2)
+    let divId = Math.floor(Math.random() * 11);
+    document.getElementById('sec3').insertAdjacentHTML('afterend', "<div id=" + divId + " class='enclosing'>" + "<div class='form-row flex__right float-right'><button class='btn btn-xs btn-danger close_btn' type='button' onclick='removeAdded(" + divId + ")'>&times;</button></div>" + section2.outerHTML + section3.outerHTML + "</div>")
+
+}
+//end addmore
+
 // Toggle the side navigation
 $("#sidebarToggle").on("click", function(e) {
     e.preventDefault();

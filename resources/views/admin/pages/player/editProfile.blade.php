@@ -126,10 +126,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-row">
-                                                <div class="form-group col-md-12 col__mr-right">
-                                                    <label class="label__wrapper required" for="">DOB</label>
-                                                <div class="flex__cotent--wrapper">
-                                                        <div class="mr__right20">
+                                                        <div class="form-group col-md-4 col__mr-right">
                                                             <label class="label__wrapper required" for="">Month </label>
                                                             <select class="form-control  input__box--wrapper down-icons" name="month">
                                                                 <option selected="" value="" disabled="">-- Month --</option>
@@ -145,7 +142,7 @@
                                                                 </span>
                                                             @endif
                                                         </div>
-                                                        <div class="mr__right20">
+                                                        <div class="form-group col-md-4 col__mr-right">
                                                             <label class="label__wrapper required" for="">Day </label>
                                                             <select class="form-control input__box--wrapper down-icons" name="day" required >
                                                                 <option selected disabled="" value="">day</option>
@@ -168,7 +165,7 @@
                                                             $currentYear = date('Y');
                                                             $lastYear = date('Y', strtotime('-80 years'));
                                                         @endphp
-                                                        <div class="mr__right20">
+                                                        <div class="form-group col-md-4 col__mr-right">
                                                             <label class="label__wrapper required" for="">Year </label>
                                                             <select  class="form-control  input__box--wrapper down-icons" name="year" required>
                                                                 <option disabled="" selected="" value="">year</option>
@@ -184,8 +181,6 @@
                                                                 </span>
                                                             @endif
                                                         </div>
-                                                    </div>
-                                                </div>
                                             </div>
                                             <div class="form-row">
                                                 <div class="form-group col-md-6 col__mr-right">
@@ -380,29 +375,33 @@
                                                 <button class="btn btn-xs btn__add flex__right my-2" type="button" onclick="addParentInfo('appendAfter')">Add</button>
                                             </div>
                                             <div class="form-row align-items-center">
-                                            <div class="form-group col-md-6 col__mr-right mb-0">
-                                                <label class="label__wrapper ">Blog Photo </label>
-                                                    <div class="custom-file">
-                                <input type="file" name= "fileupload"  id="uploadfile" class="form-control input__box--wrapper custom-file-input"  accept="image/*">
-                                <span class="custom-file-label" for="validatedCustomFile">Choose blog profile...</span>
-                                @error('fileupload')
-                                    <div class="error text-danger">{{ $message }}</div>
-                                    @enderror
-                                         </div>
-                                                </div>
                                                 <div class="form-group col-md-6 col__mr-right mb-0">
-                                                <label class="label__wrapper ">Blog Photo </label>
+                                                    <label class="label__wrapper ">Upload Player Photo </label><span class="imgsixeofspan">Size(1024*720px)</span>
                                                     <div class="custom-file">
-                                <input type="file" name= "player_video"  id="uploadfile" class="form-control input__box--wrapper custom-file-input"  >
-                                <span class="custom-file-label" for="validatedCustomFile">Choose blog profile...</span>
-                                @error('player_video')
-                                    <div class="error text-danger">{{ $message }}</div>
-                                    @enderror
-                                         </div>
+                                                        <input type="file" name= "fileupload"  id="uploadfile" class="form-control input__box--wrapper custom-file-input"  accept="image/*">
+                                                        <span class="custom-file-label" for="validatedCustomFile">Choose Player Image...</span>
+                                                            @error('fileupload')
+                                                            <div class="error text-danger">{{ $message }}</div>
+                                                            @enderror
+                                                    </div>
                                                 </div>
+                                                    <div class="form-group col-md-6 col__mr-right mb-0">
+                                                        <label class="label__wrapper ">Upload Player Video  </label>
+                                                        <div class="custom-file">
+                                                            <input type="file" name= "player_video"  id="uploadfile" class="form-control input__box--wrapper custom-file-input"  >
+                                                            <span class="custom-file-label" for="validatedCustomFile">Choose Player Video...</span>
+                                                                @error('player_video')
+                                                                <div class="error text-danger">{{ $message }}</div>
+                                                                @enderror
+                                                        </div>
+                                                    </div>
                                             </div>
-                                            <div>
-                                                <h3 class="social__heading">Social media information</h3>
+
+                                            <p class="text-light text-uppercase text-center p-0 bg-dark mt-3 m-0 heading_para py-2">
+                                                <strong>Social Media Information</strong>
+                                            </p>
+                                          
+                                           
                                                 <div class="form-row">
                                                     <div class="form-group col-md-12 col__mr-right">
                                                         <label class="label__wrapper" for="">Facebook </label>
@@ -432,7 +431,7 @@
                                                         @endif
                                                     </div>
                                                 </div>
-                                            </div>
+                                           
                                             <p class="text-light text-uppercase text-center p-0 bg-dark m-0 heading_para py-2">
                                                 <strong>Player Profile Stats</strong>
                                             </p>
@@ -538,238 +537,7 @@
         </div>
 
 
-        <section class="player-reg2 bg-white">
-            <div class="container">
-                <ul class="nav nav-tabs bagger-pills2">
-                    <li>
-                        <a href="#tab1" class="active" data-toggle="tab">PLAYER HOME</a>
-                    </li>
-                    <li><a href="#tab2" data-toggle="tab"><span>16</span> EVENTS/REPORTS</a></li>
-                    <li><a href="#tab3" data-toggle="tab">STATS</a></li>
-                    <li><a href="#tab4" data-toggle="tab">VIDEO</a></li>
-                </ul>
-                <div class="tab-content">
-                    <div class="tab-pane active" id="tab1">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <a data-toggle="collapse" data-parent=".tab-pane" href="#collapseOne">
-                                        Player Home
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="collapseOne" class="panel-collapse collapse show">
-                                <div class="panel-body">
-                                    <div class="">
-                                        <div class="ContentPlaceHolder1">
-                                            <h3>EVENT RESULTS</h3>
-                                            <div class="flex__wrapper-three">
-                                                <div class="lbl-wraper-three">
-                                                    <h2> 91</h2>
-                                                    <p>FB VELO</p>
-                                                </div>
-                                                <div class="lbl-wraper-three">
-                                                    <h2> 6.40 </h2>
-                                                    <p> 60 YARD DASH</p>
-                                                </div>
-                                                <div class="lbl-wraper-three">
-                                                    <h2> 1.54</h2>
-                                                    <p> 10 YARD SPLIT</p>
-                                                </div>
-                                                <div class="lbl-wraper-three">
-                                                    <h2>92</h2>
-                                                    <p>IF VELO</p>
-                                                </div>
-                                                <div class="lbl-wraper-three">
-                                                    <h2>100</h2>
-                                                    <p>EXIT VELO</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <section>
-                                            <!-- <div class="container"> -->
-                                                <div class="ContentPlaceHolder1">
-                                                    <h2>LATEST SHOWCASE REPORT</h2>
-                                                    <p>
-                                                        2018 NATIONAL SHOWCASE </p>
-                                                    <p>Bobby Witt Jr is a 2019 SS/RHP with a 6-1 185 lb. frame from Colleyville, TX who attends Colleyville
-                                                        Heritage HS. Tall and lean athletic build with lots of wiry strength and plenty of room for more.
-                                                        6.40 runner, has outstanding defensive tools in the infield and has proven equally adept at all the
-                                                        infield positions. Very soft and quick hands, outstanding at tags, very smooth and clean through the
-                                                        ball, plus arm strength with the ability to throw from all angles. Right handed hitter, very loose
-                                                        hands in his swing, can get extended and put a charge into balls, fluid swing with very high exit
-                                                        velocities, will occasionally get too middle/oppo oriented in games and lose his leverage and raw
-                                                        bat speed. All the physical tools are there and loves to play. Very good student, verbal commitment
-                                                        to Oklahoma. Son of former MLB right hander Bobby Witt. Selected to play in the 2018 Perfect Game
-                                                        All-American Classic.
-                                                    </p>
-
-                                                </div>
-                                                <div class="ContentPlaceHolder1">
-                                                    <h3 class="pg-heading">CAREER PROGRESSION</h3>
-                                                    <div class="flex__wrapper-three">
-                                                        <div class="text-center">
-                                                        <span class="label--wrapperfour">   -.31 SEC </span> <br>
-                                                            60 TIME SINCE 06/12/2017
-                                                        </div>
-                                                        <div class="text-center">
-                                                        <span class="label--wrapperfour"> +4 MPH </span><br>
-                                                            IF VELO SINCE 08/15/2016
-                                                        </div>
-                                                        <div class="text-center">
-                                                        <span class="label--wrapperfour"> +7 MPH</span> <br>
-                                                            EXIT VELO SINCE 08/15/2016
-                                                        </div>
-                                                        <div class="text-center">
-                                                        <span class="label--wrapperfour">  +9.92 Gs</span> <br>
-                                                            DK MA SINCE 06/12/2017
-                                                        </div>
-                                                    </div>
-                                                    <div class="text-center mt-4">
-                                                        <a href="#">VIEW PROGRESSION CHARTS</a>
-                                                    </div>
-                                                </div>
-                                            <!-- </div> -->
-                                        </section>
-                                        <section>
-                                        <!-- <div class="container"> -->
-                                            <div class="mb-wrapper">
-                                                <h3 class="pg-heading">PERCENTILE RANKINGS</h3>
-                                                <p> CLASS OF 2019 in the recorded year</p>
-                                            </div>
-
-                                            <div class="table-responsive">
-                                                <table class="table">
-                                                    <thead>
-                                                    <tr>
-                                                        <th scope="col">#</th>
-                                                        <th scope="col">First</th>
-                                                        <th scope="col">Last</th>
-                                                        <th scope="col">Handle</th>
-                                                    </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                    <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>Mark</td>
-                                                        <td>Otto</td>
-                                                        <td>@mdo</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">2</th>
-                                                        <td>Jacob</td>
-                                                        <td>Thornton</td>
-                                                        <td>@fat</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">3</th>
-                                                        <td>Larry</td>
-                                                        <td>the Bird</td>
-                                                        <td>@twitter</td>
-                                                    </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                            <div class="ContentPlaceHolder12"></div>
-                                        <!-- </div> -->
-                                        </section>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane" id="tab2">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <a data-toggle="collapse" data-parent=".tab-pane" href="#collapseTwo">
-                                        16 Events/Reports
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="collapseTwo" class="panel-collapse collapse">
-                                <div class="panel-body">
-                                    <div class="">
-                                        <div>
-                                            <h2>EXIT VELO</h2>
-                                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat quia esse
-                                                cupiditate, labore eius, molestiae inventore pariatur consectetur enim
-                                                consequuntur voluptas eos tenetur dolorem obcaecati amet sit quis incidunt
-                                                atque.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane" id="tab3">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <a data-toggle="collapse" data-parent=".tab-pane" href="#collapseThree">
-                                        Stats
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="collapseThree" class="panel-collapse collapse">
-                                <div class="panel-body">
-                                    <div class="">
-                                        <div>
-                                            <strong class="text-uppercase">
-                                                Season Statistics (Jan 1st - Dec 31st)
-                                            </strong>
-                                            <h5 class="my-2">
-                                               Batting Stats
-                                            </h5>
-                                            <div class="col-sm-12 table-responsive">
-                                              
-                                            </div>
-                                        </div>
-
-                                        {{-- Pitch Stats --}}
-                                        <div>
-                                            <h5 class="my-5">
-                                               Pitch Stats
-                                            </h5>
-                                            <div class="col-sm-12 table-responsive">
-                                             
-                                            </div>
-                                        </div>
-
-                                        <div>
-                                            <h5 class="my-5">
-                                               Fielding Stats
-                                            </h5>
-                                            <div class="col-sm-12 table-responsive">
-                                               
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane" id="tab4">
-                      <section>
-                          <div class="container">
-                              <div class="row">
-                                  <div class="col-md-12">
-                                      <div class="video-area">
-                                          @if(!empty($player->player->player_video))
-                                      <iframe class="responsive-iframe" width="100%" height="400px" src="{{ asset('frontend/player/' . $player->player->player_video ?? '')}}"></iframe>
-                                      @else 
-                                      <h3>No Player's Video found</h3>
-                                      @endif
-
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                      </section>
-                    </div>
-                </div>
-            </div>
-        </section>
+        
     </div>
 @endsection
 @section('scripts')

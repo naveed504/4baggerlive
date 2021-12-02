@@ -43,7 +43,7 @@
                                     @endif
                                 </div>
                         <div class="col-sm-4">
-                        <label class="label__wrapper ">Slider Photo </label>
+                        <label class="label__wrapper ">Slider Photo </label><span class="imgsixeofspan">Size(1024*720px)</span>
                         <div class="custom-file">
                                 <input type="file" name= @if(isset($slider->cover_photo)) {{"update_photo" }} @else {{ "cover_photo" }} @endif  id="cover_photo" class="form-control input__box--wrapper custom-file-input" id="team_profile" accept="image/*">
                                 <span class="custom-file-label" for="validatedCustomFile">Choose team profile...</span>

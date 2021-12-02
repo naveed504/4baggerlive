@@ -1,5 +1,5 @@
 
-        <table class="table" id="admin_search_table">
+        <table class="table mm_dt_new" id="admin_search_table">
             <thead>
                 <th>#</th>
                 <th>Event Name</th>
