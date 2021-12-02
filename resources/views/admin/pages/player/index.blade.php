@@ -7,8 +7,8 @@
                     All Players
                 </h3>
             </div>
-            <div class="col-sm-12 mt-3 table-responsive">
-                <table class="table" id="admin_search_table">
+            <div class="col-sm-12 mt-3 table-responsive mm_table_main">
+                <table class="table mm_dt_new" id="admin_search_table">
                     <thead>
                         <th>#</th>
                         <th>Name</th>

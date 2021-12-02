@@ -12525,3 +12525,17 @@ h6 {
 .page-link {
     color: #28a745;
 }
+.imgsixeofspan {
+    font-size: 10px;
+    margin-left: 3px !important;
+}
+
+
+
+
+.mm_dt_new.dataTable thead .sorting:before,
+ .mm_dt_new.dataTable thead .sorting_asc:after,
+ .mm_dt_new.dataTable thead .sorting:after,
+ .mm_table_main .dataTables_filter>label:after {
+   display: none;
+} 
