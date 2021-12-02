@@ -8,7 +8,7 @@
     </div>
    
     <div class="row my-5">
-    @foreach($eventteams as $evntteam)
+    @forelse($eventteams as $evntteam)
         <div class="col-sm-6">
        
             <div class="row">
@@ -27,7 +27,10 @@
            
      
        </div>
-       @endforeach
+
+       @empty
+       <h5 style="margin-left: 15px;">No Record Found</h5>
+       @endforelse
     </div>
    
 </div>
