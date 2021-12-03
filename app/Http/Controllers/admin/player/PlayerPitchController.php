@@ -9,6 +9,9 @@ use JsValidator;
 use App\Models\Player\profile\PlayerPitchStat;
 use App\Models\Player\profile\PlayerBatStat;
 use App\Models\Player\profile\PlayerFieldingStat;
+use App\Models\Player\profile\PlayerRanksStat;
+use App\Models\Player\PlayerData;
+use App\Models\User;
 class PlayerPitchController extends Controller
 {
     /**
@@ -22,11 +25,36 @@ class PlayerPitchController extends Controller
 
      public function createPlayerStats($playerid)
      {
-        $pitchstats =PlayerPitchStat::where('user_id', '=', $playerid)->get();
-       
-        $batstats   =PlayerBatStat::where('user_id', '=', $playerid)->get();
-        $fieldstats =PlayerFieldingStat::where('user_id', '=', $playerid)->get();
-        return view('admin.pages.player.createstats',compact('playerid','pitchstats','batstats','fieldstats'));
+         
+        // $pitchstats =PlayerPitchStat::where('user_id', '=', $playerid)->get();
+        // $batstats   =PlayerBatStat::where('user_id', '=', $playerid)->get();
+        // $fieldstats =PlayerFieldingStat::where('user_id', '=', $playerid)->get();
+        // $playerInEvent = PlayerData::find($playerid);
+        // $playerranks =PlayerRanksStat::where('user_id', $playerid)->get();
+       $playerusers =User::find($playerid); 
+           
+        return view('admin.pages.player.createstats',compact('playerusers'));
+     }
+
+     public function createPlayerRanks(Request $request) 
+     {
+        PlayerRanksStat::create([
+            'user_id' =>$request->playerid,
+            'player_participate_in_event' => $request->player_participate_in_event,
+            'score' => $request->score,
+            'showcase_report' => $request->showcase_report
+        ]);
+        
+        parent::successMessage('Player Profile Ranks Created Successfully');
+        return redirect()->back();
+     }
+
+     public function editplayerrankstat($id)
+     {
+        $result =PlayerRanksStat::find($id);
+        $value = 4;
+        return view('admin.pages.player.editplayerstats', compact('result', 'value'));
+
      }
     public function index()
     {
@@ -105,7 +133,30 @@ class PlayerPitchController extends Controller
             return redirect()->back();
         }
     }
+public function updateplayerranstat(Request $request,$id)
+{
+    $rankresult =PlayerRanksStat::find($id);
+    $rankresult->update([
+        'user_id' =>$request->playerid,
+        'player_participate_in_event' => $request->player_participate_in_event,
+        'score' => $request->score,
+        'showcase_report' => $request->showcase_report
+    ]);
+    
+    parent::successMessage('Player Profile Ranks Updated Successfully');
+    return redirect()->back();
+}
 
+public function deleteplayerranksrecord($id)
+{
+    
+    $results = PlayerRanksStat::find($id);
+    $results->delete();
+    parent::successMessage('Player Profile Deleted Successfully');
+    return redirect()->back();
+   
+
+}
     /**
      * Remove the specified resource from storage.
      *

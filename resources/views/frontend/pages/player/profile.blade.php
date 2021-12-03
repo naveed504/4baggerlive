@@ -1,4 +1,4 @@
 @extends('frontend.master')
 @section('content')
- @include('shared.playerProfile')
+ @include('shared.modifyplayerProfile')
 @endsection

@@ -9,6 +9,10 @@ use App\Models\State;
 use Illuminate\Http\Request;
 use App\Services\PlayerService;
 use File;
+use App\Models\Player\profile\PlayerPitchStat;
+use App\Models\Player\profile\PlayerBatStat;
+use App\Models\Player\profile\PlayerFieldingStat;
+use App\Models\Player\profile\PlayerRanksStat;
 class PlayerController extends Controller
 {
     /**
@@ -51,7 +55,10 @@ class PlayerController extends Controller
      */
     public function show($id)
     {
+       
         $player = User::find($id);
+       
+
         return view('admin.pages.player.profile', compact('player'));
     }
 

@@ -9,7 +9,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Blade;
-
+use App\Models\subscription\SubscriptionPaymentPlan;
+use Carbon\Carbon;
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -37,5 +38,7 @@ class AppServiceProvider extends ServiceProvider
         Blade::directive('route', function ($expression) {
             return "<?php echo route($expression); ?>";
         });
+        SubscriptionPaymentPlan::where('expiry_date', '<' ,Carbon::now())->delete();
+        
     }
 }

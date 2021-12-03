@@ -7,7 +7,7 @@
             <h5 class="text-center heading-color">
                 {{ __('CURRENT EVENT :') }}
                
-                <b style="color:#ce8452"> {{ $events->events->event_name ?? 0 }} </b>
+                <b style="color:#ce8452"> {{ $events->events->event_name ?? ' ' }} </b>
 
                 
             </h5>

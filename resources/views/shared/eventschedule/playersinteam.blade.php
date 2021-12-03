@@ -17,8 +17,8 @@
                             @forelse($playerinTeam as $teamplayer)     
                             <tr>
                                 <td>{{  $loop->iteration }}</td>
-                                <td>{{ $teamplayer->user->name }}</td>
                                 <td>{{ $teamplayer->team->team_name }}</td>
+                                <td>{{ $teamplayer->user->name }}</td>
                                 <td><img src="{{ asset('frontend/player/'. $teamplayer->player_file)}}" style="height:50px;width:50px"></td>
                                 <td>{{ $teamplayer->p_city }}</td>
                                 <td>{{ $teamplayer->player_height }}</td>
