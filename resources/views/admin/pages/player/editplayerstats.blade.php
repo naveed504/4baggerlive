@@ -326,6 +326,51 @@
                                         </div>
                                     </div>
                                 </div>
+                              
+                                @elseif($value == 4)
+                                <div class="card">
+                                    <div class="card-header" id="headingTwo">
+                                        <h2 class="mb-0">
+                                        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                        Create  Player Ranking
+                                        </button>
+                                        </h2>
+                                    </div>
+                                    <div id="collapseFour" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                                        <div class="card-body">
+                                            <form action="{{ route('updateplayerranstat', $result->id) }}" method="post" id="" >
+                                                @csrf
+                                               
+                                                <input type="hidden" name="playerid" value="{{ $result->user_id ?? '' }}">
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <label for="formGroupExampleInput">Select Event</label>
+                                                       <input type="text" name="player_participate_in_event" value="{{$result->player_participate_in_event ?? '' }}" class="form-control" readonly>
+                                                    </div>
+                                                    <div class="col">
+                                                        <label for="formGroupExampleInput">Score</label>
+                                                        <input type="text" name="score" value="{{$result->score}}" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <label for="formGroupExampleInput">ShowCase Report</label>
+                                                        <textarea name="showcase_report" value="{{$result->showcase_report}}" class="form-control">{{$result->showcase_report}}</textarea>
+                                                    </div>
+                                                </div>
+            
+                                                <div class="row">
+                                                  
+                                                   
+                                                    <div class="col text-center">
+                                                            <button type="submit" class="btn btn__next " style="text: center;">Submit Rank Stats </button>
+                                                    </div>
+                                                  
+                                                    </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
                                 @endif
                             </div>
 </div>
@@ -334,6 +379,7 @@ $(document).ready(function(){
     $("#collapseOne").show();
     $("#collapseTwo").show();
     $("#collapseThree").show();
+    $("#collapseFour").show();
 
 });
 </script>

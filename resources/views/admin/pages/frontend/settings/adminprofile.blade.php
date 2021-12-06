@@ -28,9 +28,14 @@
                                    
                                 </div>
                                 <div class="col-sm-6">
-                                    <label class="label__wrapper required">Profile</label>
-                                    <input type="file" name="profile_photo" class="form-control input__box--wrapper">
-                                   
+                                <label class="label__wrapper ">Admin Profile </label><span class="imgsixeofspan">Size(1024*720px)</span>
+                                   <div class="custom-file">
+                                <input type="file" name= "profile_photo"  id="profile_photo" class="form-control input__box--wrapper custom-file-input"  accept="image/*">
+                                <span class="custom-file-label" for="validatedCustomFile">Choose Admin Profile...</span>
+                                @error('profile_photo')
+                                    <div class="error text-danger">{{ $message }}</div>
+                                    @enderror
+                            </div>
                                 </div>
                                
                                 <div class="col-sm-6">

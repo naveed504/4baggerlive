@@ -41,6 +41,7 @@ class HomeController extends Controller
     {
         $month = date('m');
         $events = Event::whereRaw("month(created_at) >= {$month}")->where('approved', 1)->get();
+       
         return view('frontend.pages.event.index', compact('events'));
     }
 
@@ -62,10 +63,9 @@ class HomeController extends Controller
 
     public function recentContentDetail($id)
     {
-        $offers =SubscriptionPaymentPlan::all();
-
-        $send =(new DeleteSubscriptionPlansJob($offers))->delay(Carbon::now()->addMinutes(1));
-        dispatch($send);
+        // $offers =SubscriptionPaymentPlan::all();
+        // $send =(new DeleteSubscriptionPlansJob($offers))->delay(Carbon::now()->addMinutes(1));
+        // dispatch($send);
         if(Auth::check()) {
             $currentuser = Auth::user()->id;
             $subscriptionoffer = SubscriptionPaymentPlan::where('user_id',$currentuser)->first();

@@ -16,8 +16,12 @@ use App\Models\Request;
 use App\Models\Payment;
 use App\Models\Player\profile\PlayerBatModel;
 use App\Models\Player\profile\PlayerRanksModel;
+use App\Models\Player\profile\PlayerRanksStat;
 use App\Models\PaymentPayout;
 use App\Models\Event\EventRegisterTeam;
+use App\Models\Player\profile\PlayerPitchStat;
+use App\Models\Player\profile\PlayerBatStat;
+use App\Models\Player\profile\PlayerFieldingStat;
 
 class User extends Authenticatable
 {
@@ -132,6 +136,23 @@ class User extends Authenticatable
         return $this->hasMany(EventRegisterTeam::class);
     }
     
-   
+    public function playerrankstat()
+    {
+        return $this->hasMany(PlayerRanksStat::class, 'user_id');
+    }
+    public function playerbatstats()
+    {
+        return $this->hasMany(PlayerBatStat::class);
+    }
+
+    public function playerpitchstats()
+    {
+        return $this->hasMany(PlayerPitchStat::class);
+    }
+
+    public function playerfieldstats()
+    {
+        return $this->hasMany(PlayerFieldingStat::class);
+    }
 
 }

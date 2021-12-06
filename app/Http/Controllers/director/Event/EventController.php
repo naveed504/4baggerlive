@@ -26,6 +26,7 @@ class EventController extends Controller
      */
     public function index()
     {
+      
        $eventResults = Auth::user()->events()->get(); 
         return view('director.pages.event.index', compact('eventResults'));
     }
@@ -70,6 +71,7 @@ class EventController extends Controller
      */
     public function show($id)
     {
+       
         $event = Event::find($id);
         $active = 2;
         return view('director.pages.event.view', compact('event', 'active'));
@@ -129,6 +131,7 @@ class EventController extends Controller
      */
     public function showTeamsInEvent($id)
     {
+        
         $event = Event::find($id);
         $eventteams =EventRegisterTeam::where(['event_id'=> $id])->fetchRelations()->groupBy('team_id')->get();
        

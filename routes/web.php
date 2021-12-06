@@ -128,6 +128,10 @@ Route::group(['prefix' => 'admin',  'middleware' => ['auth', 'checkrole']], func
     Route::post('adminpaymentrefund', [ManagePayoutController::class, 'refundTransaction'])->name('adminpaymentrefund');
     Route::post('editplayerprofile', [PlayerController::class, 'editplayerprofile'])->name('editplayerprofile');
     Route::get('create-player-stats/{id}',[PlayerPitchController::class, 'createPlayerStats'])->name('createplayerstats');
+    Route::post('create-player-ranks',[PlayerPitchController::class, 'createPlayerRanks'])->name('createplayerranks');
+    Route::get('edit-player-ranks/{id}',[PlayerPitchController::class, 'editplayerrankstat'])->name('editplayerrankstat');
+    Route::post('update-player-ranks/{id}',[PlayerPitchController::class, 'updateplayerranstat'])->name('updateplayerranstat');
+    Route::delete('delete-player-rank-record/{id}',[PlayerPitchController::class, 'deleteplayerranksrecord']);
     Route::resource('events', ManageEventController::class);
     Route::resource('adminslider', HomeSliderController::class);
     Route::resource('newssection', HomeNewsSectionController::class);

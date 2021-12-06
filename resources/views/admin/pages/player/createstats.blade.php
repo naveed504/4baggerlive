@@ -25,7 +25,7 @@
                                         <div class="card-body" >
                                             <form action="{{route('playerbatstat.store') }}" method="post" id="batting_stats">
                                                 @csrf
-                                                <input type="hidden" name="playerid"  value="{{ $playerid ?? ''}}" >
+                                                <input type="hidden" name="playerid"  value="{{ $playerusers->id ?? ''}}" >
                                                 <div class="row">
                                                     <div class="col">
                                                         <label for="formGroupExampleInput">Season</label>
@@ -178,7 +178,7 @@
                                         <div class="card-body">
                                             <form action=" {{ route('playerpitchstat.store')}} " method="post" id="player_pitch" >
                                                 @csrf
-                                                <input type="hidden" name="playerid" value="{{ $playerid ?? '' }}">
+                                                <input type="hidden" name="playerid" value="{{ $playerusers->id?? '' }}">
                                                 <div class="row">
                                                     <div class="col">
                                                         <label for="formGroupExampleInput">Season</label>
@@ -256,11 +256,12 @@
                                         </button>
                                         </h2>
                                     </div>
+                                 
                                     <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
                                         <div class="card-body">
                                             <form action="{{ route('playerfieldstat.store') }}" method="post" id="player_field">
                                                 @csrf
-                                                <input type="hidden" name="playerid" value="{{$playerid}}" >
+                                                <input type="hidden" name="playerid" value="{{$playerusers->id}}" >
                                                 <div class="row">
                                                     <div class="col">
                                                         <label for="formGroupExampleInput">Season</label>
@@ -330,6 +331,50 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                 <div class="card">
+                                    <div class="card-header" id="headingTwo">
+                                        <h2 class="mb-0">
+                                        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                        Create  Player Ranking
+                                        </button>
+                                        </h2>
+                                    </div>
+                                    <div id="collapseFour" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                                        <div class="card-body">
+                                            <form action="{{ route('createplayerranks') }}" method="post" id="" >
+                                                @csrf
+                                                <input type="hidden" name="playerid" value="{{ $playerusers->id ?? '' }}">
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <label for="formGroupExampleInput">Select Event</label>
+                                                       <input type="text" name="player_participate_in_event" value="{{ $playerusers->player->team->event->event_name ?? '' }}" class="form-control" readonly>
+                                                    </div>
+                                                    <div class="col">
+                                                        <label for="formGroupExampleInput">Score</label>
+                                                        <input type="text" name="score" class="form-control" required>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <label for="formGroupExampleInput">ShowCase Report</label>
+                                                        <textarea name="showcase_report" class="form-control" required></textarea>
+                                                    </div>
+                                                </div>
+            
+                                                <div class="row">
+                                                  
+                                                   @if(!empty($playerusers->player->team->event))
+                                                    <div class="col text-center">
+                                                            <button type="submit" class="btn btn__next " style="text: center;">Submit Pitch Stats </button>
+                                                    </div>
+                                                    @endif
+                                                  
+                                                    </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -381,7 +426,7 @@
                                                     </tr>
                                                     </thead>
                                                     <tbody>
-                                                @forelse($batstats as $btstat)
+                                                @forelse($playerusers->playerbatstats as $btstat)
                                                     <tr>                                                       
                                                         <td>{{$btstat->season }}</td>
                                                         <td>{{$btstat->matches }}</td>
@@ -426,127 +471,173 @@
                                     </div>
                                 </div>
                                 <div class="card">
-                                <div class="card-header" id="headingTwo">
-                                    <h2 class="mb-0">
-                                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    View  Pitch Stats
-                                    </button>
-                                    </h2>
-                                </div>
-                                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                                    <div class="card-body">
-                                        <div class="table-responsive">
-                                            <table class="table">
-                                                <thead>
-                                                    <tr>
-                                                        <th scope="col">Season</th>
-                                                        <th scope="col">Matches</th>
-                                                        <th scope="col">INN</th>
-                                                        <th scope="col">GS</th>
-                                                        <th scope="col">CG</th>
-                                                       
-                                                        <th scope="col">SHO</th>
-                                                        <th scope="col">H</th>
-                                                        <th scope="col">R</th>
-                                                        <th scope="col">ER</th>
-                                                        <th scope="col">HR</th>
-                                                        <th scope="col">BB</th>
-                                                        <th scope="col">K</th>
-                                                        <th>Action</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    @forelse($pitchstats as $ptchstat)
-                                                    <tr>
-                                                    <td>{{ $ptchstat->season }}</td>
-                                                    <td>{{ $ptchstat->matches }}</td>
-                                                    <td>{{ $ptchstat->innings }}</td>
-                                                    <td>{{ $ptchstat->game_start }}</td>
-                                                    <td>{{ $ptchstat->game_complete }}</td>
-                                                    <td>{{ $ptchstat->sho }}</td>
-                                                    <td>{{ $ptchstat->h }}</td>
-                                                    <td>{{ $ptchstat->r }}</td>
-                                                    <td>{{ $ptchstat->er }}</td>
-                                                    <td>{{ $ptchstat->hr}}</td>
-                                                    <td>{{ $ptchstat->bb }}</td>
-                                                    <td>{{ $ptchstat->k }}</td>  
-                                                    <td>
-                                                        <a href="{{ route('playerpitchstat.edit', $ptchstat->id) }}" class="blockeditLink"><i class="fas fa-pencil-alt"></i></a>
-                                                        <a href="javascript:void(0)" onclick="deleteRecord({{$ptchstat->id}}, '/admin/playerpitchstat/')" class="blockeditLink" style="margin-top:40px;"><i class="fas fa-trash-alt "></i></a>
-                                                        </td>                                                 
-                                                    </tr>
-                                                    @empty
-                                                    <tr>
-                                                        <td>No Record Found</td>
-                                                    </tr>
-                                                    @endforelse
-                                                   
-                                                </tbody>
-                                            </table>
+                                    <div class="card-header" id="headingTwo">
+                                        <h2 class="mb-0">
+                                        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        View  Pitch Stats
+                                        </button>
+                                        </h2>
+                                    </div>
+                                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                                        <div class="card-body">
+                                            <div class="table-responsive">
+                                                <table class="table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">Season</th>
+                                                            <th scope="col">Matches</th>
+                                                            <th scope="col">INN</th>
+                                                            <th scope="col">GS</th>
+                                                            <th scope="col">CG</th>
+                                                        
+                                                            <th scope="col">SHO</th>
+                                                            <th scope="col">H</th>
+                                                            <th scope="col">R</th>
+                                                            <th scope="col">ER</th>
+                                                            <th scope="col">HR</th>
+                                                            <th scope="col">BB</th>
+                                                            <th scope="col">K</th>
+                                                            <th>Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @forelse($playerusers->playerpitchstats as $ptchstat)
+                                                        <tr>
+                                                        <td>{{ $ptchstat->season }}</td>
+                                                        <td>{{ $ptchstat->matches }}</td>
+                                                        <td>{{ $ptchstat->innings }}</td>
+                                                        <td>{{ $ptchstat->game_start }}</td>
+                                                        <td>{{ $ptchstat->game_complete }}</td>
+                                                        <td>{{ $ptchstat->sho }}</td>
+                                                        <td>{{ $ptchstat->h }}</td>
+                                                        <td>{{ $ptchstat->r }}</td>
+                                                        <td>{{ $ptchstat->er }}</td>
+                                                        <td>{{ $ptchstat->hr}}</td>
+                                                        <td>{{ $ptchstat->bb }}</td>
+                                                        <td>{{ $ptchstat->k }}</td>  
+                                                        <td>
+                                                            <a href="{{ route('playerpitchstat.edit', $ptchstat->id) }}" class="blockeditLink"><i class="fas fa-pencil-alt"></i></a>
+                                                            <a href="javascript:void(0)" onclick="deleteRecord({{$ptchstat->id}}, '/admin/playerpitchstat/')" class="blockeditLink" style="margin-top:40px;"><i class="fas fa-trash-alt "></i></a>
+                                                            </td>                                                 
+                                                        </tr>
+                                                        @empty
+                                                        <tr>
+                                                            <td>No Record Found</td>
+                                                        </tr>
+                                                        @endforelse
+                                                    
+                                                    </tbody>
+                                                </table>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
                                 </div>
                                 <div class="card">
-                                <div class="card-header" id="headingThree">
-                                    <h2 class="mb-0">
-                                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    View Fielding Stats
-                                    </button>
-                                    </h2>
-                                </div>
-                                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-                                    <div class="card-body">
-                                        <div class="table-responsive">
-                                            <table class="table">
-                                                <thead>
-                                                    <tr>
-                                                        <th scope="col">Season</th>
-                                                        <th scope="col">Matches</th>
-                                                        <th scope="col">INN</th>
-                                                        <th scope="col">A</th>
-                                                        <th scope="col">CI</th>
-                                                        <th scope="col">DB</th>
-                                                        <th scope="col">FP</th>
-                                                        <th scope="col">PB</th>
-                                                        <th scope="col">PO</th>
-                                                        <th scope="col">E</th>
-                                                        <th scope="col">TC</th>                                                       
-                                                        <th scope="col">TP</th>
-                                                        <th>Action</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                @forelse($fieldstats as $fldstat)
-                                                    <tr>
-                                                        <td>{{ $fldstat->season }}</td>
-                                                        <td>{{ $fldstat->matches }}</td>
-                                                        <td>{{ $fldstat->innings }}</td>
-                                                        <td>{{ $fldstat->a }}</td>
-                                                        <td>{{ $fldstat->ci }}</td>
-                                                        <td>{{ $fldstat->db }}</td>
-                                                        <td>{{ $fldstat->fp }}</td>
-                                                        <td>{{ $fldstat->pb }}</td>
-                                                        <td>{{ $fldstat->po }}</td>
-                                                        <td>{{ $fldstat->e }}</td>
-                                                        <td>{{ $fldstat->tc }}</td>
-                                                        <td>{{ $fldstat->tp }}</td>
-                                                        <td>
-                                                        <a href="{{ route('playerfieldstat.edit', $fldstat->id) }}" class="blockeditLink"><i class="fas fa-pencil-alt"></i></a>
-                                                        <a href="javascript:void(0)" onclick="deleteRecord({{$fldstat->id}}, '/admin/playerfieldstat/')" class="blockeditLink" style="margin-top:40px;"><i class="fas fa-trash-alt "></i></a>
-                                                        </td>
-                                                    </tr>
-                                                    @empty 
-                                                    <tr>
-                                                        <td> No record Found</td>
-                                                    </tr>
-                                                    @endforelse
-                                                </tbody>
-                                            </table>
+                                    <div class="card-header" id="headingThree">
+                                        <h2 class="mb-0">
+                                        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                        View Fielding Stats
+                                        </button>
+                                        </h2>
+                                    </div>
+                                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                                        <div class="card-body">
+                                            <div class="table-responsive">
+                                                <table class="table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">Season</th>
+                                                            <th scope="col">Matches</th>
+                                                            <th scope="col">INN</th>
+                                                            <th scope="col">A</th>
+                                                            <th scope="col">CI</th>
+                                                            <th scope="col">DB</th>
+                                                            <th scope="col">FP</th>
+                                                            <th scope="col">PB</th>
+                                                            <th scope="col">PO</th>
+                                                            <th scope="col">E</th>
+                                                            <th scope="col">TC</th>                                                       
+                                                            <th scope="col">TP</th>
+                                                            <th>Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                       
+                                                    @forelse($playerusers->playerfieldstats as $fldstat)
+                                                        <tr>
+                                                            <td>{{ $fldstat->season }}</td>
+                                                            <td>{{ $fldstat->matches }}</td>
+                                                            <td>{{ $fldstat->innings }}</td>
+                                                            <td>{{ $fldstat->a }}</td>
+                                                            <td>{{ $fldstat->ci }}</td>
+                                                            <td>{{ $fldstat->db }}</td>
+                                                            <td>{{ $fldstat->fp }}</td>
+                                                            <td>{{ $fldstat->pb }}</td>
+                                                            <td>{{ $fldstat->po }}</td>
+                                                            <td>{{ $fldstat->e }}</td>
+                                                            <td>{{ $fldstat->tc }}</td>
+                                                            <td>{{ $fldstat->tp }}</td>
+                                                            <td>
+                                                            <a href="{{ route('playerfieldstat.edit', $fldstat->id) }}" class="blockeditLink"><i class="fas fa-pencil-alt"></i></a>
+                                                            <a href="javascript:void(0)" onclick="deleteRecord({{$fldstat->id}}, '/admin/playerfieldstat/')" class="blockeditLink" style="margin-top:40px;"><i class="fas fa-trash-alt "></i></a>
+                                                            </td>
+                                                        </tr>
+                                                        @empty 
+                                                        <tr>
+                                                            <td> No record Found</td>
+                                                        </tr>
+                                                        @endforelse
+                                                    </tbody>
+                                                </table>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
+                                <div class="card">
+                                    <div class="card-header" id="headingSeven">
+                                        <h2 class="mb-0">
+                                        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                                        View  Player Ranking
+                                        </button>
+                                        </h2>
+                                    </div>
+                                    <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordionExample">
+                                        <div class="card-body">
+                                        <div class="table-responsive">
+                                                <table class="table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">Current Event</th>
+                                                            <th scope="col">Score</th>
+                                                            <th scope="col">ShowCase Report</th>
+                                                            <th>Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @forelse($playerusers->playerrankstat as $plyrrank)
+                                                        <tr>
+                                                        <td>{{ $plyrrank->player_participate_in_event}}</td>
+                                                        <td>{{ $plyrrank->score}}</td>
+                                                        <td> {{ $plyrrank->showcase_report}}</td>
+                                                        <td>
+                                                            <a href="{{ route('editplayerrankstat', $plyrrank->id) }}" class="blockeditLink"><i class="fas fa-pencil-alt"></i></a>
+                                                            <a href="javascript:void(0)" onclick="deleteRecord({{$plyrrank->id}}, '/admin/delete-player-rank-record/')" class="blockeditLink" style="margin-top:40px;"><i class="fas fa-trash-alt "></i></a>
+                                                            </td>
+                                                        </tr>
+                                                        @empty
+                                                        <tr>
+                                                            <td>No Record Found</td>
+                                                        </tr>
+                                                        @endforelse
+                                                      
+                                                    
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
+                                
                             </div>
                         </div>
                     </div>
@@ -613,6 +704,7 @@
                           </div>
                       </section>
                     </div>
+                    
                 </div>
             </div>
         </section>

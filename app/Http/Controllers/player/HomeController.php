@@ -8,6 +8,7 @@ use App\Models\Team\Team;
 use App\Models\User;
 use App\Services\PlayerService;
 use App\Models\Player\PlayerData;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -18,7 +19,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('player.pages.profile');
+        $player = Auth::user();
+        return view('player.pages.profile',compact('player'));
     }
 
     /**
