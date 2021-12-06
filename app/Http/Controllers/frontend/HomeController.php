@@ -37,10 +37,9 @@ class HomeController extends Controller
         $this->subscriptionservice = $subscriptionservice;
     }
 
-    public function allEvents()
+    public function allshowcaseevents()
     {
-        $month = date('m');
-        $events = Event::whereRaw("month(created_at) >= {$month}")->where('approved', 1)->get();
+        $events = Event::where('approved', 1)->with('eventRegTeams')->get();
        
         return view('frontend.pages.event.index', compact('events'));
     }
