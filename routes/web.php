@@ -82,8 +82,7 @@ Route::group(['middleware'=>['generaluser']] ,function() {
    
     Route::get('liveevents', [FrontendEventController::class, 'liveEvents'])->name('liveevents');
     Route::get('/', [HomeController::class, 'index'])->name('welcome');
-    Route::get('/events', [HomeController::class, 'allEvents'])->name('events');
-    Route::get('view/events', [HomeController::class, 'allEvents'])->name('view.events');
+    Route::get('view/events', [HomeController::class, 'allshowcaseevents'])->name('view.events');
     Route::get('contact-us', [HomeController::class, 'contactUs'])->name('contactus');
     Route::get('rules-and-policy', [HomeController::class, 'rulesPolicy'])->name('rules');
     Route::get('about-us', [HomeController::class, 'aboutUs'])->name('aboutus');
@@ -96,7 +95,7 @@ Route::group(['middleware'=>['generaluser']] ,function() {
     Route::get('4baggerer-recent-content-detail/{id}', [HomeController::class, 'recentContentDetail'])->name('recentcontentdetail');
     Route::get('userpayforsubscription/{id}', [HomeController::class, 'subscriptionForm'])->name('userpayforsubscription');
     Route::post('subscribeplan', [HomeController::class, 'userPayForSubscribePlan'])->name('subscribeplan');
-
+    
 });
 
 
