@@ -119,7 +119,7 @@
                         </div>
                      
                         <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-                            <h2>Contact</h2>
+                            <h2>{{ $player->name }} Ranking</h2>
                             <div class="tab-pane fade " id="tab2">
                                  <div class="container">
                                       <div class="accordion" id="accordionExample">
