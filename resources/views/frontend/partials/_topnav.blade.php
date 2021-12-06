@@ -19,9 +19,9 @@
                           Events
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="{{ route('view.events') }}">Events / Tournament</a>
-                          <div class="dropdown-divider"></div>
-                          <a class="dropdown-item" href="#">Showcases</a>
+                         
+                          <a class="dropdown-item" href="{{ route('view.events') }}">Showcases</a>
+
                         </div>
                     </li>
 
