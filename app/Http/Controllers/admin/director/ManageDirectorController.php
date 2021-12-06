@@ -111,7 +111,6 @@ class ManageDirectorController extends Controller
      */
     public function destroy(DirectorService $director, $id)
     {
-
         $director->deleteDirector($id)
             ? parent::successMessage('Director Deleted Successfully')
             : parent::dangerMessage('Oops! We have encountered an error. Please try again later');
