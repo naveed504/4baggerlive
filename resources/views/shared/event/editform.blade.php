@@ -69,7 +69,7 @@
         </div>
     </div>
     <div class="row mb-2">
-        <div class="col-sm-6">
+        <div class="col-sm-4">
             <label class="label__wrapper required">Allowed Bat Types</label>
             <select multiple="multiple" class="label__wrapper required" id="myMulti" name="bat_type[]">
                 <option value="Wood">Wood</option>
@@ -84,7 +84,7 @@
                 </span>
             @endif
         </div>
-        <div class="col-sm-6">
+        <div class="col-sm-4">
             <label class="label__wrapper required">Event City</label>
             <input type="text" name="event_city" class="form-control input__box--wrapper" value="{{ $event->event_city }}">
             @if($errors->has('event_city'))
@@ -93,6 +93,18 @@
                 </span>
             @endif
         </div>
+                  <div class="col-sm-4">
+                          <label class="label__wrapper required">Event Category</label>
+                            <select  class="form-control  input__box--wrapper down-icons"  name="event_category" required >
+                                <option class="form-control" value="1" @if($event->event_category == 1) selected="selected"  @endif > Events Category</option>
+                                <option class="form-control" value="2"  @if($event->event_category == 2) selected="selected" @endif >Showcase Category</option>
+                            </select>
+                            @if($errors->has('event_category'))
+                                <span class="invalid-feedback">
+                                    <strong>{{ $errors->first('event_category') }}</strong>
+                                </span>
+                            @endif
+                    </div>
     </div>
     <div class="row mb-2">
 

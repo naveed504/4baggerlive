@@ -19,6 +19,7 @@ use App\Models\Payments\Payment;
 use App\Models\Director\DirectorData;
 use App\Models\Team\Team;
 
+
 class ManageDirectorController extends Controller
 {
 
@@ -115,6 +116,7 @@ class ManageDirectorController extends Controller
      */
     public function destroy(DirectorService $director, $id)
     {
+
         $director->deleteDirector($id)
             ? parent::successMessage('Director Deleted Successfully')
             : parent::dangerMessage('Oops! We have encountered an error. Please try again later');
@@ -235,27 +237,35 @@ class ManageDirectorController extends Controller
 
     public function deletedirectorHistory($id)
     {     
-        $allevents =Event::where('user_id',$id)->get();
-        foreach($allevents as $singleevent){
-            $teamcoaches = User::where('director_id', $id)->get();
-            CheckAgeGroupStatus::where('event_id' , $singleevent->id)->delete();         
-                $eventregteams = EventRegisterTeam::where('event_id', $singleevent->id)->get();
-                foreach($eventregteams as $regteam) {
-                    RefundPayment::where('event_register_team_id', $regteam->id)->delete();                
-                }
-                       Payment::where('event_id', $singleevent->id)->delete();
-                       EventRegisterTeam::where('event_id',$singleevent->id)->delete(); 
-           $result =Team::where('event_id', $singleevent->id)->count();
-           if($result > 0){
-            Team::where('event_id', $singleevent)->delete();
-                User::where('director_id', $id)->delete();   
-           }                  
-        }
-        Event::where('user_id',$id)->delete();
-        DirectorData::where('user_id', $id)->delete();
-        $result =User::find($id);
-        $result->delete();
-        parent::successMessage("Director History removed successfully");
-       return redirect()->back();
+            $allevents =Event::where('user_id',$id)->get();
+            foreach($allevents as $singleevent){
+                $teamcoaches = User::where('director_id', $id)->get();
+                CheckAgeGroupStatus::where('event_id' , $singleevent->id)->delete();         
+                    $eventregteams = EventRegisterTeam::where('event_id', $singleevent->id)->get();
+                    foreach($eventregteams as $regteam) {
+                        RefundPayment::where('event_register_team_id', $regteam->id)->delete();                
+                    }
+
+                            Payment::where('event_id', $singleevent->id)->delete();
+                           EventRegisterTeam::where('event_id',$singleevent->id)->delete(); 
+                           
+
+               $result =Team::where('event_id', $singleevent->id)->count();
+               if($result > 0){
+                Team::where('event_id', $singleevent)->delete();
+
+                    User::where('director_id', $id)->delete();   
+
+
+               }
+                      
+            }
+            Event::where('user_id',$id)->delete();
+            DirectorData::where('user_id', $id)->delete();
+            $result =User::find($id);
+            $result->delete();
+            parent::successMessage("Director History removed successfully");
+           return redirect()->back();
+
     }
 }
