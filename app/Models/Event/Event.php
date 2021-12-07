@@ -36,7 +36,8 @@ class Event extends Model
         'event_venue',
         'team_id',
         'age_group_id',
-        'event_time'
+        'event_time',
+        'event_category',
     ];
 
     public function team()

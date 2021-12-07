@@ -89,6 +89,7 @@ Route::group(['middleware'=>['generaluser']] ,function() {
     Route::any('blog/{blog}', [HomeController::class, 'showBlog'])->name('blog');
     Route::view('/profile', 'frontend.pages.player.profile');
     Route::get('view/event/{id}', [FrontendEventController::class, 'viewEvent'])->name('view.event');
+    Route::get('show-case-events', [FrontendEventController::class, 'viewShowcaseEvents'])->name('showcaseevents');
     Route::get('players-in-home', [HomeController::class, 'playersInHome'])->name('players_in_home');
     Route::post('search-player-in-home', [HomeController::class, 'playersearchinHome'])->name('search_player_in_home');
     Route::get('view-player-profile-in-home/{id}', [HomeController::class, 'playerProfileinHome'])->name('view_player_profile_in_home');
@@ -96,6 +97,7 @@ Route::group(['middleware'=>['generaluser']] ,function() {
     Route::get('userpayforsubscription/{id}', [HomeController::class, 'subscriptionForm'])->name('userpayforsubscription');
     Route::post('subscribeplan', [HomeController::class, 'userPayForSubscribePlan'])->name('subscribeplan');
     
+
 });
 
 
@@ -131,6 +133,7 @@ Route::group(['prefix' => 'admin',  'middleware' => ['auth', 'checkrole']], func
     Route::get('edit-player-ranks/{id}',[PlayerPitchController::class, 'editplayerrankstat'])->name('editplayerrankstat');
     Route::post('update-player-ranks/{id}',[PlayerPitchController::class, 'updateplayerranstat'])->name('updateplayerranstat');
     Route::delete('delete-player-rank-record/{id}',[PlayerPitchController::class, 'deleteplayerranksrecord']);
+
     Route::resource('events', ManageEventController::class);
     Route::resource('adminslider', HomeSliderController::class);
     Route::resource('newssection', HomeNewsSectionController::class);
@@ -139,6 +142,8 @@ Route::group(['prefix' => 'admin',  'middleware' => ['auth', 'checkrole']], func
     Route::resource('aboutus', AboutUsController::class);
     Route::resource('officialpartner', OfficialPartnerSectionController::class);
     Route::resource('manageblog', BlogController::class);
+    Route::delete('delete-director-histroy/{id}',[ManageDirectorController::class, 'deletedirectorHistory']);
+
 
     Route::resource('director', ManageDirectorController::class);
     Route::resource('adminteams', AdminTeamController::class);

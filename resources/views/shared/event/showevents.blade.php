@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-sm-12 my-5">
             <p class="text-light text-uppercase text-center p-0 bg-dark m-0 heading_para py-2">
-                <strong>Total Events</strong>
+                <strong>@if(Route::currentRouteName() == 'showcaseevents') Show Case Events @else  Total Events @endif</strong>
             </p>
         </div>
         @forelse ($events as $event)

@@ -29,8 +29,10 @@ class FrontendEventController extends Controller
         return view('frontend.pages.event.liveevents',compact('eventResults'));
     }
 
-    public function showcaseevents()
-    {
+    public function viewShowcaseEvents()
+    {          
+        $events = Event::where('event_category',2)->where('approved',1)->get();
+        return view('frontend.pages.event.index', compact('events'));
 
     }
 }
