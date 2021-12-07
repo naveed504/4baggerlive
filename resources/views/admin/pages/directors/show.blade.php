@@ -144,10 +144,10 @@
                         @for($i = 0; $i < count(json_decode($director->director->name_of_field)); $i++)
                             <tr>
                                 <td class="p-1 text-center">{{ $i+1 }}</td>
-                                <td class="p-1 text-center">{{ json_decode($director->director->name_of_field)[$i] }}</td>
-                                <td class="p-1 text-center">{{ json_decode($director->director->no_of_field)[$i] }}</td>
-                                <td class="p-1 text-center">{{ json_decode($director->director->field_city)[$i] }}</td>
-                                <td class="p-1 text-center">{{ json_decode($director->director->field_state)[$i] }}</td>
+                                <td class="p-1 text-center">{{ json_decode($director->director->name_of_field)[$i] ?? '' }}</td>
+                                <td class="p-1 text-center">{{ json_decode($director->director->no_of_field)[$i] ?? '' }}</td>
+                                <td class="p-1 text-center">{{ json_decode($director->director->field_city)[$i] ?? '' }}</td>
+                                <td class="p-1 text-center">{{ json_decode($director->director->field_state)[$i] ?? '' }}</td>
                             </tr>
                         @endfor
                     </tbody>

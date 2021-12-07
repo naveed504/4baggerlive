@@ -118,7 +118,7 @@
         href="{{ route('showteamsinevent', $event->id) }}"
     @elseif(Auth::user()->type == 1)
         href="{{ route('showAdminTeams', $event->id) }}"
-    @endif>Total Teams <span>10</span></a>
+    @endif>Total Teams <span>{{$allteams}}</span></a>
 
   
                     </div>

@@ -82,7 +82,7 @@
                                 @endif
                             </div>
                             <div class="col-sm-6">
-                            <label class="label__wrapper required">Team Logo </label>
+                            <label class="label__wrapper required">Team Logo </label><span class="imgsixeofspan">Size(1024*720px)</span>
                                 <div class="custom-file">
                                     <input type="file" name="team_profile" class="form-control input__box--wrapper custom-file-input" id="team_profile" accept="image/*">
                                     <span class="custom-file-label" for="validatedCustomFile">Choose team profile...</span>
