@@ -58,6 +58,7 @@ class EventService
                 'gate_fee'    => $request->gate_fee,
                 'eventclassification'=>$request->eventclassification,
                 'event_time'=> json_encode($request->event_time),
+                'event_category' => $request->event_category,
 
             ]);
             $lastInsertedId = $query->id;
@@ -121,6 +122,7 @@ class EventService
                 'eventclassification'=>$request->eventclassification,
                 'event_time'=> json_encode($request->event_time),
                 'approved' =>$request->status,
+                'event_category' => $request->event_category,
             ]);
 
             $ageGroups = CheckAgeGroupStatus::where('event_id', $id)->get();

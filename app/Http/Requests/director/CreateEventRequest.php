@@ -40,7 +40,8 @@ class CreateEventRequest extends FormRequest
             'bat_type'          => 'required',
             'event_time'      => 'required',
             'age_group'       => 'required', 
-            'grad_restriction'=> 'required', 
+            'grad_restriction'=> 'required',
+            'event_category'  =>  'required',
             
          ];
     }
@@ -75,7 +76,8 @@ class CreateEventRequest extends FormRequest
             'bat_type.required'         => 'Please select bat type',
             'event_time.required'     => 'Please select event schedule time',
             'age_group.required'      =>  'Please select age group',
-
+            'event_category.required'  => 'Please select event category'
+ 
         ];
     }
 }
