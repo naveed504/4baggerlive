@@ -74,7 +74,8 @@ class EventController extends Controller
        
         $event = Event::find($id);
         $active = 2;
-        return view('director.pages.event.view', compact('event', 'active'));
+        $allteams= EventRegisterTeam::where('event_id', $id)->count();
+        return view('director.pages.event.view', compact('event', 'active','allteams'));
     }
 
     /**
