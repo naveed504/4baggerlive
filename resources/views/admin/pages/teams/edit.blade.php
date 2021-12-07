@@ -68,17 +68,15 @@
                 <div class="row">
                      <div class="col-sm-6">
                         <label class="label__wrapper ">Team Logo </label> <span class="imgsixeofspan">Size(1024*720px)</span>
-
-                        <div class="custom-file">
-                                <input type="file" name="update_team_profile" class="form-control input__box--wrapper custom-file-input" id="team_profile" accept="image/*">
-                                <span class="custom-file-label" for="validatedCustomFile">Choose team profile...</span>
-                                @if($errors->has('update_team_profile'))
-                                <span class="invalid-feedback">
-                                    <strong>{{ $errors->first('update_team_profile') }}</strong>
-                                </span>
-                                @endif
-                            </div>
-                      
+                                   <div class="custom-file">
+                                        <input type="file" name="update_team_profile" class="form-control input__box--wrapper custom-file-input" id="team_profile" accept="image/*">
+                                        <span class="custom-file-label" for="validatedCustomFile">Choose team profile...</span>
+                                        @if($errors->has('team_profile'))
+                                        <span class="invalid-feedback">
+                                            <strong>{{ $errors->first('team_profile') }}</strong>
+                                        </span>
+                                        @endif
+                                    </div>
                     </div>
              
 

@@ -55,7 +55,9 @@ class ManageEventController extends Controller
 
         $event = Event::find($id);
         $active = 2;
-        return view('admin.pages.event.show', compact('event', 'active'));
+        $allteams =EventRegisterTeam::where('event_id', $id)->count();
+        dd($allteams);
+        return view('admin.pages.event.show', compact('event', 'active','allteams'));
     }
 
     /**
