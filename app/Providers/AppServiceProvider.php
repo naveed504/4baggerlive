@@ -38,7 +38,6 @@ class AppServiceProvider extends ServiceProvider
         Blade::directive('route', function ($expression) {
             return "<?php echo route($expression); ?>";
         });
-        SubscriptionPaymentPlan::where('expiry_date', '<' ,Carbon::now())->delete();
-        
+        SubscriptionPaymentPlan::where('expiry_date', '<' ,Carbon::now())->delete();        
     }
 }

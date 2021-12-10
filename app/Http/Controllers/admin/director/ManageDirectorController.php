@@ -239,19 +239,26 @@ class ManageDirectorController extends Controller
         foreach($allevents as $singleevent){
             $teamcoaches = User::where('director_id', $id)->get();
             CheckAgeGroupStatus::where('event_id' , $singleevent->id)->delete();         
-                $eventregteams = EventRegisterTeam::where('event_id', $singleevent->id)->get();
-                foreach($eventregteams as $regteam) {
-                    RefundPayment::where('event_register_team_id', $regteam->id)->delete();                
-                }
-                       Payment::where('event_id', $singleevent->id)->delete();
-                       EventRegisterTeam::where('event_id',$singleevent->id)->delete(); 
-           $result =Team::where('event_id', $singleevent->id)->count();
-           if($result > 0){
-            Team::where('event_id', $singleevent)->delete();
-                User::where('director_id', $id)->delete();   
-           }                  
+                $counteventregteams = EventRegisterTeam::where('event_id', $singleevent->id)->count();
+              
+                if($counteventregteams > 0) {
+                    $eventregteams = EventRegisterTeam::where('event_id', $singleevent->id)->get();
+                    foreach($eventregteams as $regteam) {
+                        RefundPayment::where('event_register_team_id', $regteam->id)->delete();  
+                        Payment::where('event_id', $singleevent->id)->delete();  
+                        EventRegisterTeam::where('event_id',$singleevent->id)->delete();   
+                        Team::where('event_id', $singleevent)->delete();
+                        User::where('director_id', $id)->delete(); 
+                        $firstevent =Event::where('user_id',$id)->first();     
+                        $firstevent->delete();             
+                     }  
+
+                } else {
+
+                    Team::where('event_id', $singleevent->id)->delete();
+                    User::where('director_id', $id)->delete();
+                }                                    
         }
-        Event::where('user_id',$id)->delete();
         DirectorData::where('user_id', $id)->delete();
         $result =User::find($id);
         $result->delete();

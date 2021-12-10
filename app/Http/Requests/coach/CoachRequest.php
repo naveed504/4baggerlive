@@ -47,7 +47,6 @@ class CoachRequest extends FormRequest
             'division.required' => "Division State is required",
             'team_profile.required' => "Please select team Profile "
 
-
         ];
     }
 }
