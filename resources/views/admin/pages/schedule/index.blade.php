@@ -41,8 +41,7 @@
                                 array_push($validateagegroup ,$resultagegroup);
                                 @endphp
                             
-                              {{ $resultagegroup }} <br>
-                           
+                              {{ $resultagegroup }} <br>                           
                                 @endforeach
                               
                                 </td>
@@ -55,12 +54,8 @@
                                 $resultagegroup= Helpers::countTeamsInAgeGroup($agegroup['id'], $event->id);
                                 array_push($validateagegroup ,$resultagegroup);
                                 @endphp
-                            
-                            
-                              
                                      <form action="{{ route('manageschedule.store') }}" method="post">
                                         @csrf
-                                       
                                         <input type="hidden" name="eventid" value="{{ $event->id }}">
                                         <input type="hidden" name="agegroupid" value="{{ $agegroup['id'] }}">
                                         @foreach($validateagegroup as $teamsinagegroup)
@@ -71,24 +66,7 @@
                            
                                 @endforeach
                                 </td>
-                                <!-- <td>
-                                    <form action="{{ route('manageschedule.store') }}" method="post">
-                                        @csrf
-                                       
-                                        <input type="hidden" name="eventid" value="{{ $event->id }}">
-                                        @foreach($validateagegroup as $teamsinagegroup)
-                                        <input type="hidden" name="teamsinagegroup[]" value="{{ $teamsinagegroup }}">
-                                        @endforeach
-
-                                        <input type="submit" class="btn btn-primary" value="Create Schedule">
-                                    </form>
-                            
-                                                                 
-                                  
-                                </td> -->
-                               
-                            
-
+                              
                             </tr>
                         @empty
                             <td colspan="11" class="text-center">No Event Found</td>

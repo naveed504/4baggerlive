@@ -7,6 +7,7 @@ use App\Models\Payments\Payment;
 use App\Models\Event\EventRegisterTeam;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
+use App\Models\Team\Team;
 
 class PaymentRepository
 {
@@ -48,6 +49,10 @@ class PaymentRepository
                         'payments_id'    => $paymentResult->id,
                     );
                     EventRegisterTeam::create($data);
+                    $updateteam = Team::find($input['teamId'][$key]);
+                    $updateteam->update([
+                        'event_id' => $input['event_id']
+                    ]);
             }
         } catch(Exception $e) {
             dd($e->getMessage());
@@ -75,6 +80,10 @@ class PaymentRepository
                     'payments_id'    => 0,
                 );
                 $checkTeamExist = EventRegisterTeam::where(['team_id' => $input['teamId'][$key]])->first();
+                $updateteam = Team::find($input['teamId'][$key]);
+                $updateteam->update([
+                    'event_id' => $input['event_id']
+                ]);
                     if($checkTeamExist === null) {
                         EventRegisterTeam::create($team);
                          $msg2 = 2;

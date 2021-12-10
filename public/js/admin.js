@@ -117,3 +117,18 @@ const addMoreVenue = () => {
     let divId = Math.floor(Math.random() * 11)
     document.getElementById('addMorevenue').insertAdjacentHTML('afterend', "<div id=" + divId + " class='enclosing'>" + "<div class='form-row flex__right'><button class='btn btn-xs btn-danger close_btn' type='button' onclick='removeAdded(" + divId + ")'>&times;</button></div>" + addMore.outerHTML + "</div>")
 }
+
+//validate the director's refund amount form
+function checkRefundAmount(refundAmount) {
+    let payamount = document.getElementById('payamount').value;
+    let totalAmount = refundAmount.getAttribute('data-totalRefundAmount');
+    if (parseInt(payamount) >= parseFloat(totalAmount)) {
+        let errormsg = `Please Pay Less Then Or Equal To ${totalAmount}`;
+        document.getElementById('msgerror').innerHTML = errormsg;
+        document.getElementById('payamount').value = '';
+    } else {
+        document.getElementById('msgerror').innerHTML = '';
+
+    }
+
+}
