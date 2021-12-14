@@ -15,6 +15,8 @@ const deleteRecord = (id, uri) => {
     $('#deleteModal').modal('show')
 }
 
+
+
 // add more parent information fields on player registration
 const addParentInfo = (id) => {
 
@@ -75,15 +77,17 @@ $("#sidebarToggle").on("click", function(e) {
 });
 
 //Add more fields on admin's subscription plan form
+
 const addmoreFields = () => {
-        let section2 = document.getElementById('package_description_row');
-        let divId = Math.floor(Math.random() * 11);
-        document.getElementById('package_description_row').insertAdjacentHTML('afterend', "<div id=" + divId + " class='enclosing'>" + "<div class='form-row flex__left'><button class='btn btn-xs btn-danger close_btn' type='button' onclick='removeAdded(" + divId + ")' style='margin-left:5px; margin-bottom:6px;'>&times;</button></div>" + section2.outerHTML + "</div>")
-    }
-    // remove added HTML fields on registration page
-const removeAdded = (id) => {
-    document.getElementById(id).remove();
+    let section2 = document.getElementById('package_description_row');
+    let divId = Math.floor(Math.random() * 11);
+    document.getElementById('package_description_row').insertAdjacentHTML('afterend', "<div id=" + divId + " class='enclosing'>" + "<div class='form-row flex__left'><button class='btn btn-xs btn-danger close_btn' type='button' onclick='removeAdded(" + divId + ")' style='margin-left:5px; margin-bottom:6px;'>&times;</button></div>" + section2.outerHTML + "</div>")
 }
+// remove added HTML fields on registration page
+const removeAdded = (id) => {
+document.getElementById(id).remove();
+}
+//end subscription plan
 
 
 //validate the admins's refund amount form

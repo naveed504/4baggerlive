@@ -56,9 +56,7 @@ class ScheduleController extends Controller
 
         $schedular = $rr->teamsPool()->numberOfDays('2021-08-12', '2021-08-19')->matchesByPoolList()->matchDays();
         // dd($schedular);
-        return view('admin.pages.schedule.showschedule',compact('schedular','eventresult' ));
-
-
+            return view('admin.pages.schedule.showschedule',compact('schedular','eventresult' ));
     }
 
     /**

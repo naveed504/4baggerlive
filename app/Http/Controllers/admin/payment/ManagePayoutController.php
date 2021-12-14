@@ -10,6 +10,7 @@ use App\Models\PaymentPayout;
 use App\Models\Team\Team;
 use App\Models\ServiceFee;
 use App\Models\Payments\Payment;
+use App\Models\Event\Event;
 use App\Models\Event\EventRegisterTeam;
 use App\AuthorizeNet\RefundPaymentGateway;
 use App\Services\RefundPaymentService;
@@ -30,6 +31,8 @@ class ManagePayoutController extends Controller
     public function index()
     {
        $payments= EventRegisterTeam::fetchRelations()->get();
+    //    dd($payments[0]->events->entry_fee);
+    // $eventFee= Event::all();
        $servicefee = ServiceFee::first();
        return view('admin.pages.payouts.show',compact('payments','servicefee'));
     }
@@ -102,7 +105,7 @@ class ManagePayoutController extends Controller
 
     public function showPaymentRefundForm($id)
     {
-        $team  = EventRegisterTeam::where('payments_id',$id)->fetchRelations()->first();
+        $team= EventRegisterTeam::where('team_id',$id)->fetchRelations()->first();
         $servicefee = ServiceFee::first();
         return view('admin.pages.payouts.paymentrefundform', compact('team','servicefee'));
     }

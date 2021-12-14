@@ -17,7 +17,9 @@
             @endif
                <div class="row">
                     <div class="col-sm-4">
-                        <img src="{{ asset('images/team/teamimages/' . $team->teams->team_profile) }}" alt="" width="200">
+                        <div class="img-cover">
+                        <img src="{{ asset('images/team/teamimages/' . $team->teams->team_profile) }}"  alt="" width="100%">
+</div>
                     </div>
                     <div class="col-sm-6">
                         <h6>{{ $team->teams->team_name }}, {{ $team->teams->division }}</h6>
@@ -36,10 +38,24 @@
                         <?php $refAmount += $refundtable->refund_amount ?>
                         @endforeach
 
+                        <?php $adminServiceFee=  $servicefee->servicefee / 100 * $team->events->entry_fee ?>
+                        <?php $totalAmount =  $team->events->entry_fee + $adminServiceFee ;
+                              $remainingAmount = $totalAmount - $refAmount  ?>
 
-            <p class="my-25 text-center"><strong>Total Amount: $<span id="amount"> @if(empty($refAmount))  {{  $team->payments->total_amount_paid }} @else {{ $team->payments->total_amount_paid - $refAmount }} @endif</span></strong></p>
+                                  <div class="row">
+                                      <div class="col-sm-4" >
+                                      <strong>Total Amount : 
+                                        <br>  $<span id="amount"> {{  $totalAmount    }} </span></strong> 
+                                      </div>
+                                      <div class="col-sm-4" >
+                                      <strong>Remaining Amount: $<span id="amount">  {{ $remainingAmount }} </span></strong>
+                                        </div>
+                                        <div class="col-sm-4" >
+                                        <strong>AdminFee Amount: $<span id="amount"> {{ $adminServiceFee }} </span></strong>
+                                        </div>
 
-
+                                  </div>
+                           
                 <input type="hidden" name="event_id" value="{{ $team->event_id}}" >
                 <input type="hidden" name="coach_id" value="{{ $team->user_id}}"/>
                 <input type="hidden" name="payment_payout_id" value="{{ $team->id }}"/>
@@ -74,7 +90,7 @@
                             <div class="input-group mb-3">
                                 <input type="number"
                                  name="refundAmount"
-                                 data-totalRefundAmount="@if(empty($refAmount))  {{$team->payments->total_amount_paid }} @else {{ $team->payments->total_amount_paid - $refAmount }} @endif"
+                                 data-totalRefundAmount="@if(empty($refAmount))  {{$totalAmount  }} @else {{ $remainingAmount  }} @endif"
                                  class="form-control input-content-wrapper"
                                  onkeyup="checkRefundAmount(this)"
                                  id="payamount"
@@ -113,7 +129,7 @@
 
 </div>
 <script>
-    const payamount = "{{ $team->payments->total_amount_paid }}";
+    const payamount = "{{ $totalAmount }}";
 </script>
 
 @endsection

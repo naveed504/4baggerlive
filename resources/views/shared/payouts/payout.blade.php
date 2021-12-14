@@ -17,19 +17,18 @@
                @endif
             </thead>
             <tbody>
-
+                    
                 @forelse($payments as $payment)
                     <tr>
-                       
+                      <!-- @dump($payment->events->entry_fee) -->
                         <?php $refAmount = 0 ?>
                         @foreach($payment->checkRefundpayments as $refundtable)
                         <?php $refAmount += $refundtable->refund_amount ?>
                         @endforeach
-
+              
                         <?php $adminServiceFee=  $servicefee->servicefee / 100 * $payment->events->entry_fee ?>
                         <?php $totalAmount =  $payment->events->entry_fee + $adminServiceFee ;
                               $remainingAmount = $totalAmount - $refAmount  ?>
-
                         <td> {{$loop->iteration}} </td>
                         <td> {{  $payment->events->event_name }} </td>
                         <td> {{ $payment->teams->team_name }} </td>
@@ -37,7 +36,7 @@
                         <td> {{ $payment->payments->transaction_no ?? "N/A" }} </td>
                         @if(Auth::user()->type == 1) <td> {{ round($adminServiceFee ,2) }} </td> @endif
                         <td>  @if(isset($payment->payments->director_amount)) {{ round($payment->payments->director_amount ,2) }} @else  {{ "N/A" }}  @endif</td>
-                        <td> {{ round( $payment->events->entry_fee + $adminServiceFee ,2)   }} </td>
+                        <td> {{ round( $payment->events->entry_fee + $adminServiceFee ,2)   }}</td>
                         <td> @if(empty($refAmount)) {{ "N/A" }} @else {{ round($refAmount ,2) }} @endif</td>
                         <td> {{ round($remainingAmount ,2) }}   </td>
                         <td>@if($payment->payment_status == 1) <span class="badge badge-pill badge-success">{{ "Paid" }}</span> @else <span class="badge badge-pill badge-warning">{{ "Pending" }}</span> @endif</td>
@@ -53,7 +52,7 @@
                                 @endif -->
                                 @if(Auth::user()->type == 1)
                                     <div class="btn-group">
-                                    <a href="{{ route('adminpaymentrefundform', $payment->payments_id) }}" >
+                                    <a href="{{ route('adminpaymentrefundform', $payment->team_id) }}" >
                                         <i class="fa fa-credit-card text-info font-large mr-1" aria-hidden="true"></i>
                                     </a>
                                     </div>
