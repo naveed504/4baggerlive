@@ -17,9 +17,9 @@
             @endif
                <div class="row">
                     <div class="col-sm-4">
-                        <div class="img-cover">
-                        <img src="{{ asset('images/team/teamimages/' . $team->teams->team_profile) }}"  alt="" width="100%">
-</div>
+                      <div class="img-cover">
+                         <img src="{{ asset('images/team/teamimages/' . $team->teams->team_profile) }}" alt="img">
+                        </div> 
                     </div>
                     <div class="col-sm-6">
                         <h6>{{ $team->teams->team_name }}, {{ $team->teams->division }}</h6>
@@ -37,22 +37,23 @@
                         @foreach($team->checkRefundpayments as $refundtable)
                         <?php $refAmount += $refundtable->refund_amount ?>
                         @endforeach
-
-                        <?php $adminServiceFee=  $servicefee->servicefee / 100 * $team->events->entry_fee ?>
+                        
+                        <?php $adminServiceFee=  $team->payments->admin_service_fee?>
                         <?php $totalAmount =  $team->events->entry_fee + $adminServiceFee ;
                               $remainingAmount = $totalAmount - $refAmount  ?>
 
                                   <div class="row">
                                       <div class="col-sm-4" >
-                                      <strong>Total Amount : 
-                                        <br>  $<span id="amount"> {{  $totalAmount    }} </span></strong> 
+                                      <strong>Total Amount : <br><span id="amount" style="color:#ce8452">${{  $totalAmount    }} </span></strong> 
                                       </div>
+                                      <div class="col-sm-4 " >
+                                        <strong>Refund Amount: 
+                                        <br><span id="amount" style="color:#ce8452" >${{ $refAmount }} </span></strong>
+                                        </div>
                                       <div class="col-sm-4" >
-                                      <strong>Remaining Amount: $<span id="amount">  {{ $remainingAmount }} </span></strong>
+                                      <strong>Remaining Amount: <br><span id="amount" style="color:#ce8452">${{ $remainingAmount }} </span></strong>
                                         </div>
-                                        <div class="col-sm-4" >
-                                        <strong>AdminFee Amount: $<span id="amount"> {{ $adminServiceFee }} </span></strong>
-                                        </div>
+                                       
 
                                   </div>
                            

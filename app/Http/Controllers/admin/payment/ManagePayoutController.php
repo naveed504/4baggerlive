@@ -31,10 +31,8 @@ class ManagePayoutController extends Controller
     public function index()
     {
        $payments= EventRegisterTeam::fetchRelations()->get();
-    //    dd($payments[0]->events->entry_fee);
-    // $eventFee= Event::all();
-       $servicefee = ServiceFee::first();
-       return view('admin.pages.payouts.show',compact('payments','servicefee'));
+     
+       return view('admin.pages.payouts.show',compact('payments'));
     }
 
     /**

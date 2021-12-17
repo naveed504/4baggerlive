@@ -118,9 +118,8 @@ class EventController extends Controller
      */
     public function payTeamForEvent(Request $request, PaymentGateway $payment)
     {
-
+        
         $input = $request->all();
-
         if (empty($request['checkbox'])) {
             $response = $payment->setPaymentData($request->all())
                 ->setRefId()
